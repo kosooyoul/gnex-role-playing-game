@@ -5,7 +5,7 @@
 //			2008/1/28:MAP LATER DESIGN & STATUS start
 //			2008/1/29:SCROLL MAP WHEN ACTOR MOVE, DESIGN ITEM & SKILL in MENU
 //			2008/1/30:장착아이템부분 디자인, 아이템/스킬/장비 아이콘 출력 테스트, 키 이벤트 코드/함수로 분리, NPC삽입 시도 및 NPC 랜덤이동루프 시도
-//			2008/1/31:
+//			2008/1/31:이벤트에 접근하여 버튼 누를경우 문장표시 시도(단문장 하나), 한글 작게 출력안되 안습.
 ///////////////////////////////////////////////////////////////////////////
 
 #ifdef _GVM
@@ -120,7 +120,10 @@ struct Event {
 	int direction;		//DIRECTION, 0:DOWN, 1:LEFT, 2:RIGHT, 3:UP
 	int motion;			//MOTION NUMBER
 	int graphic;		//Graphic Number for NPC & Actor
-	int route;			//
+	int route;			//0:No Move, 1:Random, 2:??
+
+	string speak;		//대화내용
+	string name;		//NPC 이름
 }
 
 struct Chara Actor;			//CREAT Actor
@@ -175,7 +178,7 @@ short int subfield[40][40] = {
 					 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 2, 1, 1, 2, 3, 3, 4, 3,30,10,10,10,31,10,10,10,10,10,10,10,10,10,10, 4, 3, 3, 3, 3,
 					 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 3, 2, 1, 2, 2, 3, 4, 4, 3,34,35,36,37,35,36,10,10,10,10,10,10,10,10,10, 3, 3, 3, 3,20,
 					 4, 4, 3, 4, 4, 3, 4, 3, 3, 3, 3, 3, 2, 1, 1, 2, 3, 3, 4, 4,38,39,40,41,39,40,10,10,10,10,10,10,10,10,10, 3, 3, 3,20,24,
-					 4, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 2, 1, 1, 2, 3, 3, 3, 4, 4, 4, 4, 4, 4, 7,30,10,10,10,10,10,10,10,33, 3, 3,20,24, 3,
+					 4, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 2, 1, 1, 2, 3, 3, 3, 4, 4, 4, 4, 4, 4, 7,30,10,10,10,10,10,10,10,33, 3, 3,20,24,12,
 					 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6, 6, 6, 6, 3, 3, 3, 3, 3, 3, 4, 4, 3, 4,34,35,37,35,36,37,35,36,37, 3, 3,16,12,12,
 					 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6, 6, 6, 6, 3, 3, 3, 3, 3, 3, 3, 4, 3, 4,38,39,41,39,40,41,39,40,41, 3, 3,16,12,12,
 					 3, 3, 3, 3, 3, 3, 3, 3,20,14,14,14, 6, 6, 6, 6,14,14,14,14,19, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 3, 3, 3,20,24,12,12,
@@ -672,23 +675,23 @@ void SetMap(int MapNumber){
 			MapSize_y = 40;
 			NPC[0].x = 26;
 			NPC[0].y = 17;
-			NPC[0].route = 0;
-			NPC[0].direction = 2;
+			NPC[0].route = 0;		NPC[0].name = "영이";
+			NPC[0].direction = 2;	NPC[0].speak = "안녕 난 0번이야";
 
 			NPC[1].x = 29;
 			NPC[1].y = 17;
-			NPC[1].route = 0;
-			NPC[1].direction = 1;
+			NPC[1].route = 0;		NPC[1].name = "하나";
+			NPC[1].direction = 1;	NPC[1].speak = "흠냥 난 1번";
 
 			NPC[2].x = 28;
 			NPC[2].y = 24;
-			NPC[2].route = 1;
-			NPC[2].direction = 3;
+			NPC[2].route = 1;		NPC[2].name = "두나";
+			NPC[2].direction = 3;	NPC[2].speak = "2번 이명박 아니다";
 
 			NPC[3].x = 26;
 			NPC[3].y = 23;
-			NPC[3].route = 1;
-			NPC[3].direction = 0;
+			NPC[3].route = 1;		NPC[3].name = "세나";
+			NPC[3].direction = 0;	NPC[3].speak = "세번이다";
 
 			for(i = 0; i < 4; i++){
 				overfield[NPC[i].y][NPC[i].x] = 100 + i;
@@ -707,7 +710,7 @@ void NPCMoveRoute(){
 	for(i=0;i<4;i++){	
 		if(NPC[i].route){
 			overfield[NPC[i].y][NPC[i].x] = 0;
-			temp = Rand(0,40);
+			temp = Rand(0,10);
 			switch(temp){
 			case 0:
 				if(overfield[NPC[i].y + 1][NPC[i].x] == 0 && midfield[NPC[i].y + 1][NPC[i].x] < 12 && subfield[NPC[i].y + 1][NPC[i].x] < 12 && !(Actor.x == NPC[i].x && Actor.y == NPC[i].y + 1))
@@ -794,6 +797,7 @@ void ActorTitleMode(int Key){
 
 void ActorMoveMode(int Key){
 	int Temp;
+	int Temp_x = 0, Temp_y = 0;
 	switch (Key){
 		case SWAP_KEY_DOWN:			//Move Down
 			if(moving_frame_y)break;
@@ -836,9 +840,26 @@ void ActorMoveMode(int Key){
 			GameMode = 2;
 			break;
 		case SWAP_KEY_OK:			//Action!!
-			Actor.Exp++;
-			Actor.CurHp = 1;
-			Actor.CurMp = 1;
+			//DIRECTION, 0:DOWN, 1:LEFT, 2:RIGHT, 3:UP
+			switch (Actor.direction){			//향한 방향에 이벤트가 있는지
+				case 0:
+					Temp_y = 1;
+					break;
+				case 1:
+					Temp_x = -1;
+					break;
+				case 2:
+					Temp_x = 1;
+					break;
+				case 3:
+					Temp_y = -1;
+			}
+			Temp = overfield[Actor.y + Temp_y][Actor.x + Temp_x];
+			if(Temp >= 100 && Temp < 150){		//NPC로 간주
+				EventSpeak(Temp - 100);
+			}else if(Temp < 200){				//MONTER로 간주
+				//Attack(Temp - 150);
+			}
 	}
 }
 
@@ -894,47 +915,80 @@ void ActorMenuMode(int Key){
 	}
 }
 
+void EventSpeak(int Number){
+	//SPEAK BACK GROUND
+	SetColorRGB(0, 30, 100);
+	FillRectEx(5, 5, 121, 37, 2);
+	//SPEAK BORDER
+	SetImageAlpha(0);
+	CopyImage(4, 4, winup);
+	CopyImage(4, 8, winlefts);
+	CopyImage(118, 8, winrights);
+	CopyImage(4, 37, windown);
+	//SPEAK
+	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
+	DrawStr(11, 11, NPC[Number].name);
+	DrawStr(11, 24, NPC[Number].speak);
+	SaveLCD();
+	GameMode = 3;
+}
+
 void main(){
 	SetActor();						//SETING Actor
 	SetSystem();					//SETING Actor
 	DrawTitle();					//Print Title
 	SetTimer(100, 1);				//SETING TIMER(TIME:100)
+	SetTimer1(500, 1);
 	GameMode = 0;					//Goto Title GameMode:0
 }
 
 void EVENT_TIMEOUT(){
-	if(swData == SWAP_KEY_RELEASE)return;
-	switch (GameMode){
-		case 0:					//TITLE GameMode
-			DrawTitle();		//DO NOT MADE TITLE YET
-			break;
-		case 1:					//ROLLPLAYING GameMode
-		 	DrawMap();
-			NPCMoveRoute();
-			AutoRecovery();		//Auto HP & MP Recovery
-			break;
-		case 2:					//STATUS GameMode
-			RestoreLCD();
-			DrawMenu(4, 22);
-			switch (selected_menu){
-				case 0:
-					DrawState(4, 22);
+string TempString;
+	//if(swData == SWAP_KEY_RELEASE)return;
+	switch(swData){
+	//// Timer 1 ////
+		case 0:
+			switch (GameMode){
+				case 0:					//TITLE GameMode
+					DrawTitle();		//DO NOT MADE TITLE YET
 					break;
-				case 1:
-					DrawItem(4, 22);
+				case 1:					//ROLLPLAYING GameMode
+				 	DrawMap();
+					AutoRecovery();		//Auto HP & MP Recovery
 					break;
-				case 2:
-					DrawSkill(4, 22);
+				case 2:					//STATUS GameMode
+					RestoreLCD();
+					DrawMenu(4, 22);
+					switch (selected_menu){
+						case 0:
+							DrawState(4, 22);
+							break;
+						case 1:
+							DrawItem(4, 22);
+							break;
+						case 2:
+							DrawSkill(4, 22);
+							break;
+						case 3:
+							DrawEquip(4, 22);
+							break;
+						case 4:
+							DrawQuest(4, 22);
+							break;
+					}
 					break;
-				case 3:
-					DrawEquip(4, 22);
-					break;
-				case 4:
-					DrawQuest(4, 22);
-					break;
+				case 3:					//SPEAK GameMode
+					ClearBlack();
+					RestoreLCD();
+					SetFontType(S_FONT_SMALL, S_WHITE, S_BLACK, S_ALIGN_RIGHT);
+					DrawStr(117, 11, "ANY KEY");
 			}
+			Flush();
+			break;
+		//// Timer 2 ////
+		case 1:
+			if(GameMode == 1)NPCMoveRoute();
 	}
-	Flush();
 }
 
 void EVENT_KEYPRESS(){
@@ -951,5 +1005,9 @@ void EVENT_KEYPRESS(){
 	//// STATUS GameMode ////
 		case 2:
 			ActorMenuMode(swData);			//View Menu
+			break;
+	//// Speak GameMode ////
+		case 3:
+			GameMode = 1;
 	}
 }
