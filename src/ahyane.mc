@@ -1,11 +1,16 @@
 ///////////////////////////////////////////////////////////////////////////
 // ahyane.mc - Auto Created by GNEX IDE
-// START:	2008/1/26:SEARCH GNEX ON INTERNET & IDE DOWNLOAD AND INSTALL
-//			2008/1/27:BEGIN DESIGN(ROLLPLAY Mode, BASE SYSTEM)
-//			2008/1/28:MAP LATER DESIGN & STATUS start
-//			2008/1/29:SCROLL MAP WHEN ACTOR MOVE, DESIGN ITEM & SKILL in MENU
-//			2008/1/30:장착아이템부분 디자인, 아이템/스킬/장비 아이콘 출력 테스트, 키 이벤트 코드/함수로 분리, NPC삽입 시도 및 NPC 랜덤이동루프 시도
-//			2008/1/31:이벤트에 접근하여 버튼 누를경우 문장표시 시도(단문장 하나), 한글 작게 출력안되 안습.
+// START:	2008/01/26:SEARCH GNEX ON INTERNET & IDE DOWNLOAD AND INSTALL
+//			2008/01/27:BEGIN DESIGN(ROLLPLAY Mode, BASE SYSTEM)
+//			2008/01/28:MAP LATER DESIGN & STATUS start
+//			2008/01/29:SCROLL MAP WHEN ACTOR MOVE, DESIGN ITEM & SKILL in MENU
+//			2008/01/30:장착아이템부분 디자인, 아이템/스킬/장비 아이콘 출력 테스트, 키 이벤트 코드/함수로 분리, NPC삽입 시도 및 NPC 랜덤이동루프 시도
+//			2008/01/31:이벤트에 접근하여 버튼 누를경우 문장표시 시도(단문장 하나), 한글 작게 출력안되 안습.
+//			2008/02/01:문장 반각문자 108자/전각문자 54자출력이내 출력, 헤더파일로 분리
+
+
+
+//구현계획 -> 상점모드(아이템/무기/스킬) / 맵저장방식 / 다른맵으로이동 / 몬스터표시 등..
 ///////////////////////////////////////////////////////////////////////////
 
 #ifdef _GVM
@@ -40,91 +45,17 @@
 %}
 #endif
 
-#include <SScript.h>
-#include "mapchip.sbm"	//MAPCHIP & CHARA SET & SYSTEM IMAGES
-
 #define map_start_x	1		//PRINT MAP POSITION
 #define map_start_y	1
 #define map_position_x -4	//SETING PRINT POSITION
 #define map_position_y -4
 
-struct Equip {
-	string Name;		//Equip Name
-	int Icon;
-	long int Cost;		//COST OF EQUIPMENT
-	int Categori;		//Categori Of Equipment, 0:Head, 1:Weapon, 2:Armor, 3:Shield, 4:Shoes, 5:Accessary
-
-	int Level;			//Demend Level
-	int Str;			//Plus Str
-	int Def;			//Plus Def
-	int Int;			//Plus Int
-	int Dex;			//Plus Dex
-
-	int Hp;				//Plus Max HP
-	int Mp;				//Plus Max MP
-
-	int Speed;			//Plus Speed
-	int Critical;		//Critical Percentage
-
-	int Effect;			//Effect Graphic, 0:None
-	int CommonEvent;	//Common Event Number, 0:None
-};
-
-struct Item {
-	string Name;		//Item Info
-	long int Cost;		//Cost of Item
-	int Icon;			//ITEM ICON Number
-};
-
-struct Skill {
-	string Name;		//Item Info
-	int Category;		//Skill Category
-	int Icon;			//ITEM ICON Number
-};
-
-struct Slot {
-	int ListNumber;		//Number in Item Struct
-	int Quantity;		//Quantity of Item, Level of Skill, Inchanted of Equip
-};
-
-struct Chara {
-	//SYSTEM VARIABLE
-	int map;			//MAP NUMBER
-	int	x, y;			//POSITION ON MAP
-	int direction;		//DIRECTION, 0:DOWN, 1:LEFT, 2:RIGHT, 3:UP
-	int speed;			//SPEED
-	int motion;			//MOTION NUMBER
-	//int graphic;		//Graphic Number for NPC & Actor
-	//int route;
-	//CHARA VARIABLE
-	string Name;		//Actor NAME
-	int Job;			//Actor JOB NUMBER
-	int Level;
-	int Exp;
-	int MaxHp, MaxMp;	//MAXIMUM POINT
-	int CurHp, CurMp;	//CURRENT POINT
-	int Str;
-	int Def;
-	int Int;
-	int Dex;
-	//SETING EQUIP ITEM, 0:NONE
-	int equip[6];
-	int upgrade[6];
-	//MONEY
-	long int gold;
-};
-
-struct Event {
-	//SYSTEM VARIABLE
-	int	x, y;			//POSITION ON MAP
-	int direction;		//DIRECTION, 0:DOWN, 1:LEFT, 2:RIGHT, 3:UP
-	int motion;			//MOTION NUMBER
-	int graphic;		//Graphic Number for NPC & Actor
-	int route;			//0:No Move, 1:Random, 2:??
-
-	string speak;		//대화내용
-	string name;		//NPC 이름
-}
+#include <SScript.h>
+#include "mapchip.sbm"		//MAPCHIP & CHARA SET & SYSTEM IMAGES
+#include "system.h"
+#include "field.h"
+#include "drawstatus.h"
+#include "drawmap.h"
 
 struct Chara Actor;			//CREAT Actor
 struct Event NPC[10];		//CREAT NPC
@@ -135,7 +66,7 @@ struct Slot SkillSlot[16];	//Actor's Skill Slot x 16
 struct Equip EquipList[16];	//Equip in System
 struct Slot EquipSlot[16];	//Actor's Equip Slot x 16
 
-int GameMode = 0;			//0:TITLE, 1:ROLLPLAY, 2:STATUS, 3:?
+int GameMode = 0;			//0:TITLE, 1:ROLLPLAY, 2:STATUS, 3:Speak
 int counter = 0;
 //int motion_speed = 1;		//1:Normal, 2<:SLOW
 int moving_frame_x = 0;		//SCROLL MAP
@@ -145,421 +76,7 @@ int selected_submenu = 0 ;	//Selected Item, Skill, Equiped
 int selected_menuinsub = -1;//Selected SelectEquip,
 int MapSize_x = 0;
 int MapSize_y = 0;
-
-//MAP LAYER:1
-short int subfield[40][40] = {
-					 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3,
-					 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 3, 3,
-					 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 4,35,37,35,36,37,35,37,35,36,37,35,36,37,35,36, 4, 3, 4, 3,
-					 3, 3,35,37,35,36,37,35,37,35,36,37,35,36, 3, 3, 3, 3, 4, 3, 4,39,41,39,40,41,39,41,39,40,41,39,40,41,39,40, 3, 3, 4, 3,
-					 3, 3,39,41,39,40,41,39,41,39,40,41,39,40, 3, 3, 3, 3, 3, 3, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 3, 3, 3,
-					 3, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 3, 3, 3, 3, 3, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 3, 3, 4,
-					 3, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 3, 3, 3, 3, 3, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 3, 4, 3,
-					 3, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 3, 3, 4, 3, 3, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 3, 3, 3,
-					 3, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 3, 4, 4, 3, 3, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 3, 3, 3,
-					 3, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 4, 4, 3, 3, 3,30, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,33, 3, 3, 3,
-					 3, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 4, 3, 3, 3, 3,34,35,36,37,35,36,37, 9, 9, 9,34,35,36,37,35,36,37, 3, 3, 3,
-					 3, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,33, 4, 3, 3, 3, 3,38,39,40,41,39,40,41, 9, 9, 9,38,39,40,41,39,40,41, 3, 3, 3,
-					 3, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,36,37,36,37, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-					 3, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,40,41,40,41, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-					 3,30, 8, 8, 8, 8, 8, 8, 8, 8,33, 7, 4, 3, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-					 3,34,35,36,37, 8, 8,34,35,36,37, 4, 3, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3,
-					 3,38,39,40,41, 8, 8,38,39,40,41, 3, 2, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 2, 3,
-					 3, 3, 3, 3, 3, 2, 2, 3, 3, 3, 3, 3, 2, 1, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-					 3, 3, 3, 3, 3, 2, 1, 3, 3, 3, 3, 3, 2, 2, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-					 3, 3, 3, 3, 3, 2, 2, 3, 3, 3, 3, 3, 2, 1, 1, 2, 3, 3, 3, 3, 4,35,36,37,35,36,37, 3, 2,34,35,36,37,35, 3, 3, 3, 3, 3, 3,
-					 3, 3, 3, 3, 3, 2, 1, 2, 1, 2, 2, 1, 2, 1, 2, 2, 3, 3, 3, 3, 4,39,40,41,39,40,41,10,10,38,39,40,41,39, 4, 3, 3, 3, 3, 3,
-					 3, 3, 3, 3, 3, 3, 2, 1, 2, 1, 1, 2, 1, 1, 1, 2, 3, 3, 3, 3,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10, 3, 3, 3, 3, 3,
-					 3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 2, 1, 1, 2, 3, 3, 3, 3,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10, 4, 3, 4, 4, 3,
-					 3, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 2, 1, 1, 2, 3, 3, 3, 3,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10, 4, 4, 4, 3, 3,
-					 3, 3, 3, 4, 4, 3, 3, 3, 3, 3, 3, 3, 2, 2, 1, 2, 3, 3, 3, 3,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10, 4, 3, 3, 3, 3,
-					 3, 3, 4, 4, 4, 4, 3, 3, 7, 3, 3, 3, 2, 1, 1, 2, 3, 3, 3, 3,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10, 4, 3, 3, 3, 3,
-					 3, 3, 3, 3, 4, 3, 4, 3, 3, 3, 3, 3, 2, 1, 1, 2, 3, 3, 4, 3,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10, 4, 3, 3, 3, 3,
-					 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 2, 1, 1, 2, 3, 3, 4, 3,30,10,10,10,31,10,10,10,10,10,10,10,10,10,10, 4, 3, 3, 3, 3,
-					 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 3, 2, 1, 2, 2, 3, 4, 4, 3,34,35,36,37,35,36,10,10,10,10,10,10,10,10,10, 3, 3, 3, 3,20,
-					 4, 4, 3, 4, 4, 3, 4, 3, 3, 3, 3, 3, 2, 1, 1, 2, 3, 3, 4, 4,38,39,40,41,39,40,10,10,10,10,10,10,10,10,10, 3, 3, 3,20,24,
-					 4, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 2, 1, 1, 2, 3, 3, 3, 4, 4, 4, 4, 4, 4, 7,30,10,10,10,10,10,10,10,33, 3, 3,20,24,12,
-					 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6, 6, 6, 6, 3, 3, 3, 3, 3, 3, 4, 4, 3, 4,34,35,37,35,36,37,35,36,37, 3, 3,16,12,12,
-					 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6, 6, 6, 6, 3, 3, 3, 3, 3, 3, 3, 4, 3, 4,38,39,41,39,40,41,39,40,41, 3, 3,16,12,12,
-					 3, 3, 3, 3, 3, 3, 3, 3,20,14,14,14, 6, 6, 6, 6,14,14,14,14,19, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 3, 3, 3,20,24,12,12,
-					 3, 3, 3,20,14,14,14,14,24,12,12,12, 6, 6, 6, 6,12,12,12,12,23,14,14,14,14,14,14,14,19, 3, 3, 3, 3, 3, 3,20,24,12,12,12,
-					 3,14,14,24,12,12,12,12,12,12,12,12, 6, 6, 6, 6,12,12,12,12,12,12,12,12,12,12,12,12,23,14,14,14,19, 3, 3,16,12,12,12,12,
-					 3,12,12,12,12,12,12,12,12,12,12,12, 6, 6, 6, 6,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,23,14,14,24,12,12,12,12,
-					 3,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,
-					 3,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,
-					 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3
-					 };
-//MAP LAYER:2
-short int midfield[40][40] = {
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,44, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0,
-					0,44, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0,46, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,47, 0, 0, 0,
-					0,46, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,47, 0, 0, 0, 0, 0,49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,52, 0, 0, 0,
-					0,49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,52, 0, 0, 0, 0, 0,50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,53, 0, 0, 0,
-					0,50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,53, 0, 0, 0, 0, 0,49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,52, 0, 0, 0,
-					0,49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,52, 0, 0, 0, 0, 0,49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,52, 0, 0, 0,
-					0,49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,52, 0, 0, 0, 0, 0,50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,53, 0, 0, 0,
-					0,49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0,50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,53, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0,49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0,49, 0, 0, 0, 0, 0, 0, 0, 0,52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0,50, 0, 0, 0, 0, 0, 0, 0, 0,53, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,44, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,45, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,46, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,47, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,52, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,52, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,53, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,52, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,52, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,53, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,52, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,49, 0, 0, 0, 0, 0, 0, 0,52, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,50, 0, 0, 0, 0, 0, 0, 0,53, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-					};				
-//MAP LAYER:3+ & OVER CHARA
-short int overfield[40][40] = {
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,42,31,33,31,32,33,31,33,31,32,33,31,32,33,31,32,43, 0, 0, 0,
-					 0,42,31,33,31,32,33,31,33,31,32,33,31,32,43, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,31,32,33,31,32,33, 0, 0, 0,30,31,32,33,31,32, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,51,31,33,32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0,31,32,33, 0, 0,30,31,32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,42,31,32,33,31,32,33, 0, 0,30,31,32,33,31,43, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,31,32,33,31,32,48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,31,33,31,32,33,31,32, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-					};
-//EVENT NUMBER MAP LAYER:3 & EQUAL LAYER CHARA
-//short int overfield[40][40] = {};
-void DrawMap(){
-	string TempString = "";				//TempString
-	int length;							//GageBar for HP, MP, EXP
-	int i, h;							//loopcount
-	int px,py;							//TempShell Position
-
-	//CLS
-	ClearBlack();
-
-	//SCROLL MAP
-	if(moving_frame_x){
-		if(moving_frame_x>0)moving_frame_x-=6;
-		else moving_frame_x+=6;
-	}else if(moving_frame_y){
-		if(moving_frame_y>0)moving_frame_y-=6;
-		else moving_frame_y+=6;
-	}
-	
-	//Shell Display Position
-	px = Actor.x + map_position_x;		
-	py = Actor.y + map_position_y;
-
-	//PRINT MAP
-	for(i = -1; i<=9; i++){
-		for(h = -1; h<=9; h++){
-			if(i + py < MapSize_y && h + px < MapSize_x && i + py >= 0 && h + px >= 0){
-				//PRINT MAP LAYER 1
-				CopyImage(h*14+map_start_x + moving_frame_x, i*14+map_start_y + moving_frame_y, subchip[subfield[i + py][h + px]]);
-				//PRINT MAP LAYER 2
-				CopyImage(h*14+map_start_x + moving_frame_x, i*14+map_start_y + moving_frame_y, subchip[midfield[i + py][h + px]]);
-			}
-		}
-	}
-
-	//PRINT MAP LAYER 3+ OVER CHARA -
-	for(i = -1; i<=3; i++){
-		for(h = -1; h<=9; h++){
-			if(i + py < MapSize_y && h + px < MapSize_x && i + py >= 0 && h + px >= 0){
-				//PRINT MAP LAYER 3+ OVER CHARA
-				if(overfield[i+py][h+px] < 100){
-					CopyImage(h*14+map_start_x + moving_frame_x, i*14+map_start_y + moving_frame_y, subchip[overfield[i + py][h + px]]);
-				}else{
-					CopyImage(h*14+map_start_x + moving_frame_x -4, i*14+map_start_y + moving_frame_y-27, chara2[NPC[overfield[i + py][h + px]-100].direction * 4]);
-				}
-			}
-		}
-	}
-	//PRINT Actor
-	if(moving_frame_x || moving_frame_y){
-		//MOVE
-		Actor.motion = (Actor.motion+1) % 4;
-	}else{
-		//NOT MOVE
-		Actor.motion = (Actor.motion) % 4;
-	}
-	SetImageAlpha(0);
-	CopyImage(3*18+map_start_x -2, 3*18+map_start_y-25, chara2[Actor.direction*4 + Actor.motion]);
-
-	//PRINT MAP LAYER 3+ OVER CHARA +
-	for(i = 4; i<=9; i++){
-		for(h = -1; h<=9; h++){
-			if(i + py < MapSize_y && h + px < MapSize_x && i + py >= 0 && h + px >= 0){
-				if(i==4 && h==4)SetImageAlpha(1);
-				if(overfield[i+py][h+px] < 100){
-					CopyImage(h*14+map_start_x + moving_frame_x, i*14+map_start_y + moving_frame_y, subchip[overfield[i + py][h + px]]);
-				}else{
-					CopyImage(h*14+map_start_x + moving_frame_x -4, i*14+map_start_y + moving_frame_y-27, chara2[NPC[overfield[i + py][h + px]-100].direction * 4]);
-				}
-				SetImageAlpha(0);
-			}
-		}
-	}
-	//Map Border
-	SetColorRGB(0, 0, 0);
-	DrawRect(0, 0, 127, 127);
-	//PRINT INTERFACE
-	CopyImage(0,121, sysmain);				//INTERFACE BASE
-	if(Actor.CurHp > 0){					//PRINT HEALTH GAGE, Max Length:36, Max Y:69
-		length = Actor.CurHp * 36 / Actor.MaxHp + 33;
-		SetColorRGB(255, 126, 0);
-		DrawHLine(33, length, 125); 
-		SetColorRGB(255, 242, 0);
-		DrawHLine(33, length, 126);
-	}
-	if(Actor.CurMp > 0){					//PRINT MANA GAGE
-		length = Actor.CurMp * 36 / Actor.MaxMp + 33;
-		SetColorRGB(0, 179, 217);
-		DrawHLine(33, length, 128);
-		SetColorRGB(140, 218, 255);
-		DrawHLine(33, length, 129);
-	}
-
-	if(Actor.Exp > 0){						//PRINT EXP GAGE
-		length = Actor.Exp * 16 / 100 + 104;
-		SetColorRGB(241, 75, 228);
-		DrawHLine(104, length, 127);
-		SetColorRGB(253, 153, 245);
-		DrawHLine(104, length, 128);
-	}
-
-	CopyImage(17,124, sysjob[Actor.Job]);	//PRINT JOB ICON
-	
-											//PRINT LEVEL
-	SetFontType(S_FONT_SMALL, S_WHITE, S_BLACK, S_ALIGN_CENTER);
-	MakeStr1(TempString, "%d", Actor.Level);
-	DrawStr(9, 125, TempString);
-	
-	//FREE, CAN DELETE, PRINT TIME & CURRENT POSITION
-	SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_CENTER);
-	MakeStr3(TempString, "TIME : %4d, POSITION : %d x %d", counter++, Actor.x, Actor.y);
-	DrawStr(64, 135, TempString);
-}
-
-void DrawMenu(int win_x, int win_y){
-	//STATUS BACK GROUND
-	SetColorRGB(0, 30, 100);
-	FillRectEx(2 + win_x, win_y, 116 + win_x, 78 + win_y, 2);
-	//STATUS BORDER
-	SetImageAlpha(0);
-	CopyImage(win_x, win_y, wintop);
-	CopyImage(win_x, 9 + win_y, winleft);
-	CopyImage(114 + win_x, 9 + win_y, winright);
-	CopyImage(win_x, 75 + win_y, windown);
-	CopyImage(5 + win_x, 58 + win_y, winmenu);
-	//Selected Menu Position
-	CopyImage(4 + win_x + selected_menu * 22, 62 + win_y, winselect);
-}
-
-void DrawState(int win_x, int win_y){
-	string TempString = "";
-	//STATUS TITLE
-	SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_LEFT);
-	DrawStr(6 + win_x, 2 + win_y, "STATUS");
-	//PRINT STATUS VARIABLE
-	SetFontType(S_FONT_SMALL, S_WHITE, S_BLACK, S_ALIGN_LEFT);
-	DrawStr(11 + win_x, 12 + win_y, Actor.Name);
-	//PRINT Job
-	switch (Actor.Job){
-		case 0:
-			DrawStr(11 + win_x, 18 + win_y, " -NOVICE");
-			break;
-		case 1:
-			DrawStr(11 + win_x, 18 + win_y, " -KNIGHT");
-			break;
-		case 2:
-			DrawStr(11 + win_x, 18 + win_y, " -WIZARD");
-			break;
-	}
-	//PRINT Level
-	MakeStr1(TempString, "LV %d", Actor.Level + 1000);
-	DrawStr(11 + win_x, 28 + win_y, TempString);
-	//PRINT STAT
-	MakeStr1(TempString, "STR %2d", Actor.Str + 100);
-	DrawStr(66 + win_x, 22 + win_y, TempString);
-	MakeStr1(TempString, "DEF %2d", Actor.Def + 100);
-	DrawStr(66 + win_x, 28 + win_y, TempString);
-	MakeStr1(TempString, "INT %2d", Actor.Int + 100);
-	DrawStr(66 + win_x, 34 + win_y, TempString);
-	MakeStr1(TempString, "DEX %2d", Actor.Dex + 100);
-	DrawStr(66 + win_x, 40 + win_y, TempString);
-	//PRINT Exp
-	MakeStr1(TempString, "EXP %d", Actor.Exp);
-	DrawStr(66 + win_x, 46 + win_y, TempString);
-	//PRINT Hp
-	MakeStr2(TempString, "HP %d/%d", Actor.CurHp, Actor.MaxHp);
-	DrawStr(11 + win_x, 40 + win_y, TempString);
-	//PRINT Mp
-	MakeStr2(TempString, "MP %d/%d", Actor.CurMp, Actor.MaxMp);
-	DrawStr(11 + win_x, 46 + win_y, TempString);
-}
-
-void DrawItem(int win_x, int win_y){
-	string TempString = "";
-	int i;
-	//ITEM TITLE
-	SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_LEFT);
-	DrawStr(6 + win_x, 2 + win_y, "ITEM");
-	//PRINT SELECTED ITEM
-	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
-	DrawStr(9 + win_x, 12 + win_y, ItemList[ItemSlot[selected_submenu].ListNumber].Name);
-	SetFontType(S_FONT_MEDIUM, S_WHITE, S_BLACK, S_ALIGN_LEFT);
-	MakeStr1(TempString, "x%2d", ItemSlot[selected_submenu].Quantity);
-	DrawStr(94 + win_x, 16 + win_y, TempString);
-	//ITEM ICON LIST
-	SetColorRGB(0, 30, 100);
-	for(i = 0; i < 16; i++){
-		FillRectEx(9 + (i%8)*13 + win_x, 30 + i/8*13 + win_y, 19 + (i%8)*13 + win_x, 40 + i/8*13 + win_y, 1);
-		CopyImage(9 + (i%8)*13 + win_x, 30 + i/8*13 + win_y, icon[ItemList[ItemSlot[i]].Icon]);
-		if(i == selected_submenu){
-			SetColorRGB(255, 255, 0);
-			DrawRect(8 + (i%8)*13 + win_x, 29 + i/8*13 + win_y, 20 + (i%8)*13 + win_x, 41 + i/8*13 + win_y);
-			SetColorRGB(0, 30, 100);
-		}
-	}
-}
-
-void DrawSkill(int win_x, int win_y){
-	string TempString = "";
-	int i;
-	//SKILL TITLE
-	SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_LEFT);
-	DrawStr(6 + win_x, 2 + win_y, "SKILL");
-	//PRINT SELECTED SKILL
-	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
-	DrawStr(9 + win_x, 12 + win_y, SkillList[SkillSlot[selected_submenu].ListNumber].Name);
-	SetFontType(S_FONT_MEDIUM, S_WHITE, S_BLACK, S_ALIGN_LEFT);
-	MakeStr1(TempString, "Lv%d", SkillSlot[selected_submenu].Quantity);
-	DrawStr(94 + win_x, 16 + win_y, TempString);
-	//SKILL ICON LIST
-	SetColorRGB(0, 30, 100);
-	for(i = 0; i < 16; i++){
-		FillRectEx(9 + (i%8)*13 + win_x, 30 + i/8*13 + win_y, 19 + (i%8)*13 + win_x, 40 + i/8*13 + win_y, 1);
-		CopyImage(9 + (i%8)*13 + win_x, 30 + i/8*13 + win_y, icon[SkillList[SkillSlot[i]].Icon]);
-		if(i == selected_submenu){
-			SetColorRGB(255, 255, 0);
-			DrawRect(8 + (i%8)*13 + win_x, 29 + i/8*13 + win_y, 20 + (i%8)*13 + win_x, 41 + i/8*13 + win_y);
-			SetColorRGB(0, 30, 100);
-		}
-	}
-}
-
-void DrawEquip(int win_x, int win_y){
-	string TempString = "";
-	int i;
-	//EQUIP TITLE
-	SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_LEFT);
-	DrawStr(6 + win_x, 2 + win_y, "EQUIP");
-	//PRINT SELECTED EQUIPED ITEM
-	if(selected_menuinsub == -1){
-		SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
-		DrawStr(9 + win_x, 12 + win_y, EquipList[Actor.equip[selected_submenu]].Name);
-		SetFontType(S_FONT_MEDIUM, S_WHITE, S_BLACK, S_ALIGN_LEFT);
-		MakeStr1(TempString, "+%2d", Actor.upgrade[selected_submenu]);
-		DrawStr(94 + win_x, 16 + win_y, TempString);
-	}else{
-		SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
-		DrawStr(9 + win_x, 12 + win_y, EquipList[EquipSlot[selected_menuinsub].ListNumber].Name);
-		SetFontType(S_FONT_MEDIUM, S_WHITE, S_BLACK, S_ALIGN_LEFT);
-		MakeStr1(TempString, "+%2d", EquipSlot[selected_menuinsub].Quantity);
-		DrawStr(94 + win_x, 16 + win_y, TempString);
-	}
-	//EQUIPED
-	SetFontType(S_FONT_SMALL, S_WHITE, S_BLACK, S_ALIGN_LEFT);
-	DrawStr(9 + win_x, 30 + win_y, "EQUIP>");
-	switch (selected_submenu){
-		case 0:DrawStr(10 + win_x, 36 + win_y, "HEAD");		break;
-		case 1:DrawStr(10 + win_x, 36 + win_y, "WEAPON");	break;
-		case 2:DrawStr(10 + win_x, 36 + win_y, "ARMOR");	break;
-		case 3:DrawStr(10 + win_x, 36 + win_y, "SHEILD");	break;
-		case 4:DrawStr(10 + win_x, 36 + win_y, "SHOES");	break;
-		case 5:DrawStr(10 + win_x, 36 + win_y, "ETC");
-	}
-	for(i = 0; i < 6; i++){
-		FillRectEx(35 + (i%6)*13 + win_x, 30 + win_y, 45 + (i%6)*13 + win_x, 40 + win_y, 1);
-		CopyImage(35 + (i%6)*13 + win_x, 30 + win_y, icon[EquipList[Actor.equip[i]].Icon]);
-		if(i == selected_submenu){
-			if(selected_menuinsub == -1)SetColorRGB(255, 255, 0);
-			else SetColorRGB(255, 0, 0);
-			DrawRect(34 + (i%6)*13 + win_x, 29 + win_y, 46 + (i%6)*13 + win_x, 41 + win_y);
-			SetColorRGB(0, 30, 100);
-		}
-	}
-	//EQUIP ICON LIST
-	if(selected_menuinsub > -1){
-		SetColorRGB(0, 30, 100);
-		for(i = 0; i < 8; i++){
-			FillRectEx(9 + (i%8)*13 + win_x, 43 + win_y, 19 + (i%8)*13 + win_x, 53 + win_y, 1);
-			CopyImage(9 + (i%8)*13 + win_x, 43 + win_y, icon[EquipList[EquipSlot[i].ListNumber].Icon]);
-			if(i == selected_menuinsub){
-				SetColorRGB(255, 255, 0);
-				DrawRect(8 + (i%8)*13 + win_x, 42 + win_y, 20 + (i%8)*13 + win_x, 54 + win_y);
-				SetColorRGB(0, 30, 100);
-			}
-		}
-	}
-}
-
-void DrawQuest(int win_x, int win_y){
-	string TempString = "";
-	//QUEST TITLE
-	SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_LEFT);
-	DrawStr(6 + win_x, 2 + win_y, "QUEST");
-}
+int Selected_Event = 0;
 
 void SetActor(){
 	int i;							//loop counter
@@ -614,12 +131,10 @@ void SetActor(){
 	}
 	ItemSlot[0].ListNumber = 1;	//Basic Default Attack Passive Skill
 	ItemSlot[0].Quantity = 3;
-	//Actor.item = {0,0,0,0,0,0,0,0,0,0};
 	Actor.gold = 200;				//DEFAULT GOLD
 }
 
 void SetSystem(){
-	//int i;						//loop counter
 	//SET SKILL LIST
 	SkillList[0].Name = "스킬 없음";	SkillList[0].Icon = 0;
 	SkillList[1].Name = "P기본공격";	SkillList[1].Icon = 5;
@@ -681,8 +196,8 @@ void SetMap(int MapNumber){
 			NPC[1].x = 29;
 			NPC[1].y = 17;
 			NPC[1].route = 0;		NPC[1].name = "하나";
-			NPC[1].direction = 1;	NPC[1].speak = "흠냥 난 1번";
-
+			NPC[1].direction = 1;	NPC[1].speak = "흠냥 난 1번인데 뭐할말 있나? 없으면 저리 멀리 가줄래? 어서!";
+												//	000000000111111111222222222333333333444444444555555555666666666777777777888888888999999999000000000111111111222222222
 			NPC[2].x = 28;
 			NPC[2].y = 24;
 			NPC[2].route = 1;		NPC[2].name = "두나";
@@ -691,8 +206,8 @@ void SetMap(int MapNumber){
 			NPC[3].x = 26;
 			NPC[3].y = 23;
 			NPC[3].route = 1;		NPC[3].name = "세나";
-			NPC[3].direction = 0;	NPC[3].speak = "세번이다";
-
+			NPC[3].direction = 0;	NPC[3].speak = "바바바 바보~ ㅋㅋ 문장 잘 나오는군, 그나저나 요즘 마을밖에 동굴앞에서 무슨일이 일어 나는듯하더라 좀 가봐라";
+												//	000000000111111111222222222333333333444444444555555555666666666777777777888888888999999999000000000111111111222222222
 			for(i = 0; i < 4; i++){
 				overfield[NPC[i].y][NPC[i].x] = 100 + i;
 			}
@@ -854,9 +369,11 @@ void ActorMoveMode(int Key){
 				case 3:
 					Temp_y = -1;
 			}
-			Temp = overfield[Actor.y + Temp_y][Actor.x + Temp_x];
-			if(Temp >= 100 && Temp < 150){		//NPC로 간주
-				EventSpeak(Temp - 100);
+			//선택한 이벤트 번호
+			Selected_Event = overfield[Actor.y + Temp_y][Actor.x + Temp_x] - 100;
+			if(Selected_Event >= 0 && Selected_Event < 50){		//NPC로 간주
+				SaveLCD();
+				GameMode = 3;
 			}else if(Temp < 200){				//MONTER로 간주
 				//Attack(Temp - 150);
 			}
@@ -866,17 +383,17 @@ void ActorMoveMode(int Key){
 void ActorMenuMode(int Key){
 	int Temp;						//Swap Data
 	switch (Key){
-		case SWAP_KEY_LEFT:			//<-Menu-
+		case SWAP_KEY_UP:			//<-Menu-
 			selected_menu = (5 + selected_menu - 1) % 5;
 			selected_submenu = 0;
 			selected_menuinsub = -1;
 			break;
-		case SWAP_KEY_RIGHT:		//-Menu->
+		case SWAP_KEY_DOWN:		//-Menu->
 			selected_menu = (5 + selected_menu + 1) % 5;
 			selected_submenu = 0;
 			selected_menuinsub = -1;
 			break;
-		case SWAP_KEY_UP:			//<-SUB Menu-
+		case SWAP_KEY_LEFT:			//<-SUB Menu-
 			if(selected_menu == 1){selected_submenu = (16 + selected_submenu - 1) % 16;}
 			else if(selected_menu == 2){selected_submenu = (16 + selected_submenu - 1) % 16;}
 			else if(selected_menu == 3){
@@ -884,7 +401,7 @@ void ActorMenuMode(int Key){
 				else selected_menuinsub = (8 + selected_menuinsub - 1) % 8;
 			}
 			break;
-		case SWAP_KEY_DOWN:			//-SUB Menu->
+		case SWAP_KEY_RIGHT:			//-SUB Menu->
 			if(selected_menu == 1){selected_submenu = (16 + selected_submenu + 1) % 16;}
 			else if(selected_menu == 2){selected_submenu = (16 + selected_submenu + 1) % 16;}
 			else if(selected_menu == 3){
@@ -903,6 +420,7 @@ void ActorMenuMode(int Key){
 				if(selected_menuinsub == -1)selected_menuinsub = 0;
 				else if(selected_menuinsub == 0)selected_menuinsub = -1;
 				else{
+					//무기 교체
 					Temp = Actor.equip[selected_submenu];
 					Actor.equip[selected_submenu] = EquipSlot[selected_menuinsub].ListNumber;
 					EquipSlot[selected_menuinsub].ListNumber = Temp;
@@ -915,22 +433,26 @@ void ActorMenuMode(int Key){
 	}
 }
 
-void EventSpeak(int Number){
+void EventSpeak(){
+	string TempString;
+	int Temp;
+	int i;
+	//반각문자는 18자 전각문자는 9자가 한 줄(반각문자 108자 전각문자 54자까지만 권장, 즉 6줄)
+	Temp = StrLen(NPC[Selected_Event].speak) / 18;
 	//SPEAK BACK GROUND
 	SetColorRGB(0, 30, 100);
-	FillRectEx(5, 5, 121, 37, 2);
+	FillRectEx(4, 4, 123, 39 + Temp * 15, 2);
 	//SPEAK BORDER
-	SetImageAlpha(0);
-	CopyImage(4, 4, winup);
-	CopyImage(4, 8, winlefts);
-	CopyImage(118, 8, winrights);
-	CopyImage(4, 37, windown);
-	//SPEAK
+	SetColorRGB(0, 20, 70);
+	DrawRect(3, 3, 124, 40 + Temp * 15);
+	//화자의 이름
 	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
-	DrawStr(11, 11, NPC[Number].name);
-	DrawStr(11, 24, NPC[Number].speak);
-	SaveLCD();
-	GameMode = 3;
+	MakeStrStr(TempString, "[%s]", NPC[Selected_Event].name);
+	DrawStr(9, 9, TempString);
+	for(i = 0; i < Temp + 1; i++){
+		StrSub(TempString, NPC[Selected_Event].speak, i * 18, 18);
+		DrawStr(9, 24 + i * 15, TempString);
+	}
 }
 
 void main(){
@@ -980,8 +502,7 @@ string TempString;
 				case 3:					//SPEAK GameMode
 					ClearBlack();
 					RestoreLCD();
-					SetFontType(S_FONT_SMALL, S_WHITE, S_BLACK, S_ALIGN_RIGHT);
-					DrawStr(117, 11, "ANY KEY");
+					EventSpeak();
 			}
 			Flush();
 			break;
