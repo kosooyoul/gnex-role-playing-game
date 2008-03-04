@@ -2,10 +2,12 @@ int Switch[10];
 int Variable[10];
 
 struct EventObject{
+	//기본 정보
 	int	x, y;
 	int direction;
 	int frame;
 	int graphic;
+	int map;
 	//발생조건
 	int Switch;			//비교할 스위치 번호(Switch[Switch]의 값이 On(=1)인 경우에 실행)
 	int Variable;		//비교할 변수 번호
@@ -21,438 +23,87 @@ struct EventObject{
 }EventObject[3];
 
 string Message[5]={"DOCTOR : 알롱지~","메시지2","메시지3","메시지4","메시지5"};
-int EventLine[2][20] = { 3, 0, 0,10, 0, 2, 0, 3, 0, 4,13, 0, 0, 0, 0, 0,-1,-1,-1,-1,
-						 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,-1,-1};
+int EventLine[2][20] = { 1, 1, 2, 0, 0,		 0, 0,	 0, 0,	 0, 0,	 0, 0,	 0, 0,	 0, 0,	 0, 0,	 -1,
+						 0, 0,	 0, 0,	 0, 0,	 0, 0,	 0, 0,	 0, 0,	 0, 0,	 0, 0,	 0, 0,	-1,-1};
 
-void RunEventLine(int EventNumber)
-{
-	/*
-	if(EventObject[EventNumber].Switch > 0)	//0보다 크면 비교할 의사가 있는 것임_스위치 On 여부
-		if(Switch[EventObject[EventNumber].Switch - 1] == 0)return;
+//초기 이벤트 설정
+void SetEvent(){
+	EventObject[0].map = 0;		//테스트 코드
+	EventObject[0].x = 10;		//테스트 코드
+	EventObject[0].y = 10;		//테스트 코드
+	EventObject[0].direction = 1;		//테스트 코드
+	EventObject[0].frame = 0;		//테스트 코드
+	EventObject[0].EventLoop = 1;		//테스트 코드
+	EventObject[0].EventPage = 0;		//테스트 코드
+	EventObject[0].LineCount = 0;		//테스트 코드
+	EventObject[0].ScrollMapX = 0;
+	EventObject[0].ScrollMapY = 0;
 
-	if(EventObject[EventNumber].Variable > 0)	//0보다 크면 비교할 의사가 있는 것임_변수 비교
-		if(CheckVariable(Variable[EventObject[EventNumber].Variable - 1], EventObject[EventNumber].Operation, EventObject[EventNumber].VariableValue) == 0)return;
-	*/
-	if (EventObject[EventNumber].EventLoop <= 0) return;
-
-	switch(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++])
-	{
-		case 0:		//문장 출력						 :: 매개변수 1개
-			PrintMessage(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
-			break;
-		case 1:		//문장 조합_변수 및 개체 이름	 :: 매개변수 4개
-			MakeMessage(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
-			break;
-		case 2:		//스위치 조작					 :: 매개변수 2개
-			SwitchOnOff(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
-			break;
-		case 3:		//변수 조작						 :: 매개변수 3개
-			SetVariable(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
-			break;
-		case 4:		//변수 대입_주인공 스테이터스	 :: 매개변수 2개
-			StatusToVariable(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
-			break;
-		case 5:		//주인공 스테이터스 조작		 :: 매개변수 3개
-			SetPlayerStatus(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
-			break;
-		case 6:		//주인공 아이템 및 스킬 등 습득	 :: 매개변수 3개
-			GetItem(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
-			break;
-		case 7:		//주인공 맵 이동_지역 워프		 :: 매개변수 3개
-			MoveMap(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
-			break;
-		case 8:		//개체 위치 이동_좌표만			 :: 매개변수 2개
-			MovePosition(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
-			break;
-		case 9:		//개체 방향 전환				 :: 매개변수 2개
-			SetDirection(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
-			break;
-		case 10:	//선택지						 :: 매개변수 4개
-			PrintQuestion(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
-			break;
-		case 11:	//조건분기_변수					 :: 매개변수 4개
-			EventObject[EventNumber].LineCount += ConditionVariable(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
-			break;
-		case 12:	//조건분기_스위치				 :: 매개변수 2개
-			EventObject[EventNumber].LineCount += ConditionSwitch(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
-			break;
-		case 13:	//딜레이						 :: 매개변수 1개
-			if(Delay(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount]) == 0)EventObject[EventNumber].LineCount--;
-			else EventObject[EventNumber].LineCount++;
-			break;
-		default:
-			EventObject[EventNumber].LineCount = 0;
-			EventObject[EventNumber].EventLoop--;
-	}
+	EventObject[1].map = 0;		//테스트 코드
+	EventObject[1].x = 1;		//테스트 코드
+	EventObject[1].y = 1;		//테스트 코드
+	EventObject[1].direction = 1;		//테스트 코드
+	EventObject[1].frame = 0;		//테스트 코드
+	EventObject[1].EventLoop = 0;		//테스트 코드
+	EventObject[1].EventPage = 0;		//테스트 코드
+	EventObject[1].LineCount = 0;		//테스트 코드
+	EventObject[1].ScrollMapX = 0;
+	EventObject[1].ScrollMapY = 0;
 }
 
-//변수 비교
-int CheckVariable(int Value1, int Operation, int Value2)
+void MoveEventRandom(int EventNumber)
 {
-	switch(Operation)
-	{
-		case 0:	// Data == Value
-			if(Variable[Value1] < Variable[Value2])return 1;
-		case 1:	// Data > Value
-			if(Variable[Value1] <= Variable[Value2])return 1;
-		case 2:	// Data >= Value
-			if(Variable[Value1] == Variable[Value2])return 1;
-		case 3:	// Data < Value
-			if(Variable[Value1] >= Variable[Value2])return 1;
-		case 4:	// Data <= Value
-			if(Variable[Value1] > Variable[Value2])return 1;
-	}
-	return 0;
-}
-
-
-
-//0번 이벤트 라인{0,*} - 문장출력
-void PrintMessage(int MessageNumber)
-{
-	string TempString;
-	int Length;
-	int i;
-	//반각문자는 18자 전각문자는 9자가 한 줄(반각문자 108자 전각문자 54자까지만 권장, 즉 6줄)
-	Length = StrLen(Message[MessageNumber]) / 18;
-	//대화창 배경
-	SetColorRGB(0, 30, 100);
-	FillRectEx(4, 4, 123, 24 + Length * 15, 2);
-	SetColorRGB(0, 20, 70);
-	DrawRect(3, 3, 124, 25 + Length * 15);
-	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
-	for(i = 0; i < Length + 1; i++){
-		StrSub(TempString, Message[MessageNumber], i * 18, 18);
-		DrawStr(9, 9 + i * 15, TempString);
-	}
-}
-
-//1번 이벤트 라인{1,*,*,*,*} - 변수 및 단어로 문장 조합
-void MakeMessage(int FrontMessage, int NextMessage, int ValueType, int Value)
-{
-	string TempString;
-	switch(ValueType)
+	switch(Rand(0, 5))
 	{
 		case 0:
-			MakeStr1(TempString, "%d개", Variable[Value]);
-			Message[0] = TempString;
+			MovePosition(EventNumber + 1, SWAP_KEY_RIGHT);break;
+		case 1:
+			MovePosition(EventNumber + 1, SWAP_KEY_LEFT);break;
+		case 2:
+			MovePosition(EventNumber + 1, SWAP_KEY_UP);break;
+		case 3:
+			MovePosition(EventNumber + 1, SWAP_KEY_DOWN);
 	}
-//////////////////////////////////////////////////////////////////////////////////// 보완
 }
 
-//2번 이벤트 라인{2,*,*} - 스위치조작
-void SwitchOnOff(int SwitchNumber, int OnOffSet)
-{
-	Switch[SwitchNumber] = OnOffSet;
-}
-
-//3번 이벤트 라인{3,*,*,*} - 변수조작
-void SetVariable(int VariableNumber, int Operation, int Value)
-{
-	int Temp;
-	switch(Operation)
+//맵 스크롤
+void EventScroll(int EventNumber){
+	if(EventObject[EventNumber].ScrollMapX)
 	{
-		case 0:		// = Value
-			Variable[VariableNumber] = Value;break;
-		case 1:		// VariableNumber + Value
-			Variable[VariableNumber] += Value;break;
-		case 2:		// VariableNumber - Value
-			Variable[VariableNumber] -= Value;break;
-		case 3:		// VariableNumber * Value
-			Variable[VariableNumber] *= Value;break;
-		case 4:		// VariableNumber / Value
-			Variable[VariableNumber] /= Value;break;
-		case 5:		// VariableNumber % Value
-			Variable[VariableNumber] %= Value;break;
-		case 6:		// = VariableNumber
-			Variable[VariableNumber] = Variable[Value];break;
-		case 7:		// VariableNumber + VariableNumber
-			Variable[VariableNumber] += Variable[Value];break;
-		case 8:		// VariableNumber - VariableNumber
-			Variable[VariableNumber] -= Variable[Value];break;
-		case 9:		// VariableNumber * VariableNumber
-			Variable[VariableNumber] *= Variable[Value];break;
-		case 10:	// VariableNumber / VariableNumber
-			Variable[VariableNumber] /= Variable[Value];break;
-		case 11:	// VariableNumber % VariableNumber
-			Variable[VariableNumber] %= Variable[Value];break;
-		case 12:	// Swap(VariableNumber)
-			Temp = Variable[VariableNumber];
-			Variable[VariableNumber] = Variable[Value];
-			Variable[Value] = Temp;
+		if(EventObject[EventNumber].ScrollMapX>0)EventObject[EventNumber].ScrollMapX-=3;
+		else EventObject[EventNumber].ScrollMapX+=3;
 	}
-}
-
-//4번 이벤트 라인{4,*,*} - 변수 설정:주인공 스테이터스
-void StatusToVariable(int Status, int Value)
-{
-	switch(Status)
+	else if(EventObject[EventNumber].ScrollMapY)
 	{
-		case 0://Variable[Value] = LV
-			Variable[Value] = Player.LV;break;
-		case 1://Variable[Value] = EXP
-			Variable[Value] = Player.EXP;break;
-		case 2://Variable[Value] = MAX HP
-			Variable[Value] = Player.MAXHP;break;
-		case 3://Variable[Value] = HP
-			Variable[Value] = Player.HP;break;
-		case 4://Variable[Value] = MAX MP
-			Variable[Value] = Player.MAXMP;break;
-		case 5://Variable[Value] = MP
-			Variable[Value] = Player.MP;break;
-		case 6://Variable[Value] = STR
-			Variable[Value] = Player.STR;break;
-		case 7://Variable[Value] = DEF
-			Variable[Value] = Player.DEF;break;
-		case 8://Variable[Value] = WIS
-			Variable[Value] = Player.WIS;break;
-		case 9://Variable[Value] = DEX
-			Variable[Value] = Player.DEX;break;
-		case 10://Variable[Value] = GOLD
-			Variable[Value] = Player.GOLD;
+		if(EventObject[EventNumber].ScrollMapY>0)EventObject[EventNumber].ScrollMapY-=3;
+		else EventObject[EventNumber].ScrollMapY+=3;
 	}
 }
 
 
-
-//5번 이벤트 라인{5,*,*,*} - 주인공 스테이터스 조작
-void SetPlayerStatus(int Status, int Operation, int Value)
-{
-	switch(Operation)
-	{
-		case 0:	// += Variable[Value]
-			switch(Status){
-				case 0://LV
-					Player.LV += Variable[Value];break;
-				case 1://EXP
-					Player.EXP += Variable[Value];break;
-				case 2://MAX HP
-					Player.MAXHP += Variable[Value];break;
-				case 3://HP
-					Player.HP += Variable[Value];break;
-				case 4://MAX MP
-					Player.MAXMP += Variable[Value];break;
-				case 5://MP
-					Player.MP += Variable[Value];break;
-				case 6://STR
-					Player.STR += Variable[Value];break;
-				case 7://DEF
-					Player.DEF += Variable[Value];break;
-				case 8://WIS
-					Player.WIS += Variable[Value];break;
-				case 9://DEX
-					Player.DEX += Variable[Value];break;
-				case 10://GOLD
-					Player.GOLD -= Variable[Value];
-			}
-			break;
-		case 1:	// -= Variable[Value]
-			switch(Status){
-				case 0://LV
-					Player.LV -= Variable[Value];break;
-				case 1://EXP
-					Player.EXP -= Variable[Value];break;
-				case 2://MAX HP
-					Player.MAXHP -= Variable[Value];break;
-				case 3://HP
-					Player.HP -= Variable[Value];break;
-				case 4://MAX MP
-					Player.MAXMP -= Variable[Value];break;
-				case 5://MP
-					Player.MP -= Variable[Value];break;
-				case 6://STR
-					Player.STR -= Variable[Value];break;
-				case 7://DEF
-					Player.DEF -= Variable[Value];break;
-				case 8://WIS
-					Player.WIS -= Variable[Value];break;
-				case 9://DEX
-					Player.DEX -= Variable[Value];break;
-				case 10://GOLD
-					Player.GOLD -= Variable[Value];
-			}
-			break;
-		case 2: // = Variable[Value]
-			switch(Status){
-				case 0://LV
-					Player.LV = Variable[Value];break;
-				case 1://EXP
-					Player.EXP = Variable[Value];break;
-				case 2://MAX HP
-					Player.MAXHP = Variable[Value];break;
-				case 3://HP
-					Player.HP = Variable[Value];break;
-				case 4://MAX MP
-					Player.MAXMP = Variable[Value];break;
-				case 5://MP
-					Player.MP = Variable[Value];break;
-				case 6://STR
-					Player.STR = Variable[Value];break;
-				case 7://DEF
-					Player.DEF = Variable[Value];break;
-				case 8://WIS
-					Player.WIS = Variable[Value];break;
-				case 9://DEX
-					Player.DEX = Variable[Value];break;
-				case 10://GOLD
-					Player.GOLD = Variable[Value];
-			}
-	}
-}
-
-//6번 이벤트 라인{6,*} - 주인공 아이템 및 스킬 습득
-void GetItem(int Category, int ItemNumber, int Quantity)
-{
-Player.GOLD++;
-//////////////////////////////////////////////////////////////////////////////////// 보완
-}
-
-//7번 이벤트 라인{7,*,*,*} - 주인공 맵 이동
-void MoveMap(int MapNumber, int PositionX, int PositionY)
-{
-	Player.map = MapNumber;
-	Player.x = PositionX;
-	Player.y = PositionY;
-}
-
-//8번 이벤트 라인{8,*,*} - 케릭터 한칸 이동
-void MovePosition(int Actor, int Direction)
-{
-	if(!ScrollMapX && !ScrollMapY && Actor == 0)	//Actor는 이동 주체, 0은 주인공, 1번부터 이벤트
-	{
-		switch (Direction){
-			case SWAP_KEY_UP:
-				if(Player.y > 0)
-					if(SupLayer[Player.y + Area[Player.map].y_start - 1][Player.x + Area[Player.map].x_start] <= _SupChipMoveable || SupLayer[Player.y + Area[Player.map].y_start - 1][Player.x + Area[Player.map].x_start] > _SupChipWall)
-						{Player.y--;ScrollMapY=-15;}
-				Player.direction = 3;
-				break;
-			case SWAP_KEY_DOWN:
-				if(Player.y < Area[Player.map].y_size - 1)
-					if(SupLayer[Player.y + Area[Player.map].y_start + 1][Player.x + Area[Player.map].x_start] <= _SupChipMoveable || SupLayer[Player.y + Area[Player.map].y_start + 1][Player.x + Area[Player.map].x_start] > _SupChipWall)
-						{Player.y++;ScrollMapY=15;}
-				Player.direction = 0;
-				break;
-			case SWAP_KEY_LEFT:
-				if(Player.x > 0)
-					if(SupLayer[Player.y + Area[Player.map].y_start][Player.x + Area[Player.map].x_start - 1] <= _SupChipMoveable || SupLayer[Player.y + Area[Player.map].y_start][Player.x + Area[Player.map].x_start - 1] > _SupChipWall)
-						{Player.x--;ScrollMapX=-15;}
-				Player.direction = 1;
-				break;
-			case SWAP_KEY_RIGHT:
-				if(Player.x < Area[Player.map].x_size - 1)
-					if(SupLayer[Player.y + Area[Player.map].y_start][Player.x + Area[Player.map].x_start + 1] <= _SupChipMoveable || SupLayer[Player.y + Area[Player.map].y_start][Player.x + Area[Player.map].x_start + 1] > _SupChipWall)
-						{Player.x++;ScrollMapX=15;}
-				Player.direction = 2;
-		}
-	}
-	else{
-		switch (Direction){
-			case SWAP_KEY_UP:
-				if(EventObject[Actor - 1].y > 0)
-					if(SupLayer[EventObject[Actor - 1].y + Area[Player.map].y_start - 1][EventObject[Actor - 1].x + Area[Player.map].x_start] <= _SupChipMoveable || SupLayer[EventObject[Actor - 1].y + Area[Player.map].y_start - 1][EventObject[Actor - 1].x + Area[Player.map].x_start] > _SupChipWall)
-						{EventObject[Actor - 1].y--;EventObject[Actor - 1].ScrollMapY=-15;}
-				EventObject[Actor - 1].direction = 3;
-				break;
-			case SWAP_KEY_DOWN:
-				if(EventObject[Actor - 1].y < Area[Player.map].y_size - 1)
-					if(SupLayer[EventObject[Actor - 1].y + Area[Player.map].y_start + 1][EventObject[Actor - 1].x + Area[Player.map].x_start] <= _SupChipMoveable || SupLayer[EventObject[Actor - 1].y + Area[Player.map].y_start + 1][EventObject[Actor - 1].x + Area[Player.map].x_start] > _SupChipWall)
-						{EventObject[Actor - 1].y++;EventObject[Actor - 1].ScrollMapY=15;}
-				EventObject[Actor - 1].direction = 0;
-				break;
-			case SWAP_KEY_LEFT:
-				if(EventObject[Actor - 1].x > 0)
-					if(SupLayer[EventObject[Actor - 1].y + Area[Player.map].y_start][EventObject[Actor - 1].x + Area[Player.map].x_start - 1] <= _SupChipMoveable || SupLayer[EventObject[Actor - 1].y + Area[Player.map].y_start][EventObject[Actor - 1].x + Area[Player.map].x_start - 1] > _SupChipWall)
-						{EventObject[Actor - 1].x--;EventObject[Actor - 1].ScrollMapX=-15;}
-				EventObject[Actor - 1].direction = 1;
-				break;
-			case SWAP_KEY_RIGHT:
-				if(EventObject[Actor - 1].x < Area[Player.map].x_size - 1)
-					if(SupLayer[EventObject[Actor - 1].y + Area[Player.map].y_start][EventObject[Actor - 1].x + Area[Player.map].x_start + 1] <= _SupChipMoveable || SupLayer[EventObject[Actor - 1].y + Area[Player.map].y_start][EventObject[Actor - 1].x + Area[Player.map].x_start + 1] > _SupChipWall)
-						{EventObject[Actor - 1].x++;EventObject[Actor - 1].ScrollMapX=15;}
-				EventObject[Actor - 1].direction = 2;
-		}
-	}
-}
-
-//9번 이벤트 라인{9,*,*} - 주인공 방향 전환
-void SetDirection(int Actor, int Direction)
-{
-	if(Actor == 0)
-	{
-		switch (Direction){
-			case SWAP_KEY_UP:
-				Player.direction = 3;
-				break;
-			case SWAP_KEY_DOWN:
-				Player.direction = 0;
-				break;
-			case SWAP_KEY_LEFT:
-				Player.direction = 1;
-				break;
-			case SWAP_KEY_RIGHT:
-				Player.direction = 2;
-		}
-	}
+void DrawEvent(int EventNumber){
+	if(EventObject[EventNumber].ScrollMapX || EventObject[EventNumber].ScrollMapY)
+		EventObject[EventNumber].frame = (EventObject[EventNumber].frame+1) % 16;	//MOVE
 	else
+		EventObject[EventNumber].frame = (EventObject[EventNumber].frame) % 16;		//NOT MOVE
+			CopyImage((EventObject[EventNumber].x - Player.x) * 16 + _CenterPositionX + ScrollMapX - EventObject[EventNumber].ScrollMapX, (EventObject[EventNumber].y - Player.y) * 16 + _CenterPositionY + ScrollMapY - EventObject[EventNumber].ScrollMapY, chara12[EventObject[EventNumber].direction*4 + EventObject[EventNumber].frame/4]); //4패턴
+}
+
+//이벤트 맵 그리기 - 주인공과 같은 레이어 출력
+void DrawEventLayer(){
+	int x, y;
+
+	for(y = -4; y < 6;y++)
 	{
-		switch (Direction){
-			case SWAP_KEY_UP:
-				EventObject[Actor - 1].direction = 3;
-				break;
-			case SWAP_KEY_DOWN:
-				EventObject[Actor - 1].direction = 0;
-				break;
-			case SWAP_KEY_LEFT:
-				EventObject[Actor - 1].direction = 1;
-				break;
-			case SWAP_KEY_RIGHT:
-				EventObject[Actor - 1].direction = 2;
-				break;
+		for(x = -4; x < 5;x++)
+		{
+			if(Area[Player.map].x_start + Player.x + x < 30 && Area[Player.map].y_start + Player.y + y < 30 && Area[Player.map].x_start + Player.x + x >= 0 && Area[Player.map].y_start + Player.y + y >= 0)
+				if(EventLayer[Area[Player.map].y_start + Player.y + y][Area[Player.map].x_start + Player.x + x] > 0)
+				{
+					EventScroll(EventLayer[Area[Player.map].y_start + Player.y + y][Area[Player.map].x_start + Player.x + x]-1);
+					DrawEvent(EventLayer[Area[Player.map].y_start + Player.y + y][Area[Player.map].x_start + Player.x + x]-1);
+				}
 		}
+		if(y == 0)DrawPlayer();	//주인공 출력
 	}
-}
-
-//10번 이벤트 라인{10,*,*,*,*} - 선택지
-void PrintQuestion(int x, int y, int AnswerType, int Value)
-{
-	switch(AnswerType)
-	{
-		case 0:	//Yes, No
-			break;
-		case 1:	//Yes, No, Cancel
-			break;
-		case 2:	//Yes, No, Cancel, About
-			break;
-		case 3:	//SelectNumber
-			break;
-		}
-		//Variable[Value] = ?;
-//////////////////////////////////////////////////////////////////////////////////// 보완 요망
-}
-
-//11번 이벤트 라인{11,*,*,*,*} - 변수에 대한 조건분기
-int ConditionVariable(int Value1, int Operation, int Value2, int ElseCount)
-{
-	if(CheckVariable(Value1, Operation, Value2) == 0)return ElseCount;
-	else return 0;
-}
-
-//12번 이벤트 라인{12,*} - 스위치에 대한 조건분기
-int ConditionSwitch(int Value, int ElseCount)
-{
-	if(Switch[Value] == 0)return ElseCount;
-	else return 0;
-}
-
-//13번 이벤트 라인{13,*} - 딜레이
-int Delay(int Value)
-{
-	if(Variable[Value] == 0)return 1;
-	else
-	{
-		Variable[Value]--;
-		return 0;
-	}
-//////////////////////////////////////////////////////////////////////////////////// 보완 요망	
 }

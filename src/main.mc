@@ -6,9 +6,9 @@ main.mc - Auto Created by GNEX IDE
 2일차: 3월 1일 : 조건분기 구현, 선택지 구현 중, 이벤트 목록 수행 구현, 딜레이 구현, 맵 에디터 프로그램 제작VB(2개 레이어 맵)
 3일차: 3월 2일 : 맵 에디터 프로그램 제작VB, 맵 출력 레이어 2개로 출력, 맵 칩 수집
 4일차: 3월 3일 : 맵 칩 수집, 맵 에디터 부분 제작 완료(저장/로드 가능), 이동금지 칩 범위 및 조건줄 수정, 프로그램에서 작성한 맵 게임에서 테스트(케릭터 사이즈 최대 수직 2개 셀로 설정 요망)
+5일차: 3월 4일 : 케릭터 이동 부분 개선, 이벤트 함수 보완(문장 조합), 이벤트 화면출력 및 이동 테스트(문제점:다른 이벤트와도 주인공과도 겹침/->해결), 맵 데이터에 이벤트 레이어 추가
 
-5일차: 3월 4일 : 예정 >> 이벤트 스크립트 함수 보완 요망
-
+6일차: 3월 5일 : **이벤트 함수 보완 요망
 
 /////////////////////////////////////////////////////////////////////////*/
 
@@ -50,33 +50,45 @@ main.mc - Auto Created by GNEX IDE
 #include "mapdata.h"
 #include "map.h"
 #include "event.h"
+#include "eventscript.h"
 #include "item.h"
 #include "monster.h"
 #include "skill.h"
+
+int MovingDirection = 0;
 
 void main()
 {
 	//mode: title, play(move), battle, event, menu(item,skill,status,.....)
 	SetArea();
-	SetTimer(18, 1);
-	Variable[0] = 142;					//테스트 코드
-	EventObject[0].EventLoop = 2;		//테스트 코드
-	EventObject[0].EventPage = 0;		//테스트 코드
-	EventObject[0].LineCount = 0;		//테스트 코드
+	SetEvent();
+	SetTimer(30, 1);
+	SetTimer1(1000, 1);
+	Variable[0] = 2;					//테스트 코드
 }
 
 void EVENT_TIMEOUT(){
-	//ClearBlack();
-	MapScroll();				//맵 스크롤
-	DrawSubLayer();				//하위맵 출력
-	DrawSupLayer(0);			//상위맵 0단계 출력
-	DrawPlayer();				//주인공 출력
-	DrawSupLayer(1);			//상위맵 1단계 출력
-	RunEventLine(0);					//테스트 코드
+	switch(swData){
+	case 0:	
+		//ClearBlack();
+		MovePosition(0, MovingDirection);	//자연스러운 이동 #1
+		MapScroll();				//맵 스크롤
+		DrawSubLayer();				//하위맵 출력
+		DrawSupLayer(0);			//상위맵 0단계 출력
+		DrawEventLayer();			//주인공 및 이벤트 출력
+		DrawSupLayer(1);			//상위맵 1단계 출력
+		RunEventLine(0);					//테스트 코드
+		CopyImage(0,121, systembase);		//테스트 코드
+		break;
+	case 1:									//테스트 코드
+		MoveEventRandom(0);
+		MoveEventRandom(1);
+	}
+
 	Flush();
 }
 
 void EVENT_KEYPRESS(){
-	if(swData == SWAP_KEY_RELEASE) return;
-	MovePosition(0, swData);
+	//if(swData == SWAP_KEY_RELEASE) return;
+	MovingDirection = swData;			//자연스러운 이동 #1
 }
