@@ -22,30 +22,32 @@ struct EventObject{
 	int ScrollMapY;
 }EventObject[3];
 
-string Message[5]={"DOCTOR : 알롱지~","메시지2","메시지3","메시지4","메시지5"};
-int EventLine[2][20] = { 1, 1, 2, 0, 0,		 0, 0,	 0, 0,	 0, 0,	 0, 0,	 0, 0,	 0, 0,	 0, 0,	 -1,
-						 0, 0,	 0, 0,	 0, 0,	 0, 0,	 0, 0,	 0, 0,	 0, 0,	 0, 0,	 0, 0,	-1,-1};
+string Message[5]={"당신 누구쇼? 바바지?","흥! 바바 코나오겠네","바바 메롱 'ㅁ'","뭐야? 바바냐?","가나다라마바사아자차카타파하1234567890"};
+int EventLine[40] = { 1, 1, 2, 0, 0,	 0, 4,	 0, 3,	 0, 2,	 0, 1,	 0, 2,	 0, 1,	 0, 3,	 -1,
+						 7, 0, 2, 2, 0, 2, 0, 3, 0, 4, 0, 3, 0, 2, 0, 1, 0, 0,	-1,-1};
 
 //초기 이벤트 설정
 void SetEvent(){
+	EventObject[0].graphic = 1;		//테스트 코드
 	EventObject[0].map = 0;		//테스트 코드
 	EventObject[0].x = 10;		//테스트 코드
 	EventObject[0].y = 10;		//테스트 코드
 	EventObject[0].direction = 1;		//테스트 코드
 	EventObject[0].frame = 0;		//테스트 코드
-	EventObject[0].EventLoop = 1;		//테스트 코드
+	EventObject[0].EventLoop = 0;		//테스트 코드
 	EventObject[0].EventPage = 0;		//테스트 코드
 	EventObject[0].LineCount = 0;		//테스트 코드
 	EventObject[0].ScrollMapX = 0;
 	EventObject[0].ScrollMapY = 0;
 
+	EventObject[1].graphic = 2;		//테스트 코드
 	EventObject[1].map = 0;		//테스트 코드
 	EventObject[1].x = 1;		//테스트 코드
 	EventObject[1].y = 1;		//테스트 코드
 	EventObject[1].direction = 1;		//테스트 코드
 	EventObject[1].frame = 0;		//테스트 코드
 	EventObject[1].EventLoop = 0;		//테스트 코드
-	EventObject[1].EventPage = 0;		//테스트 코드
+	EventObject[1].EventPage = 20;		//테스트 코드
 	EventObject[1].LineCount = 0;		//테스트 코드
 	EventObject[1].ScrollMapX = 0;
 	EventObject[1].ScrollMapY = 0;
@@ -86,7 +88,8 @@ void DrawEvent(int EventNumber){
 		EventObject[EventNumber].frame = (EventObject[EventNumber].frame+1) % 16;	//MOVE
 	else
 		EventObject[EventNumber].frame = (EventObject[EventNumber].frame) % 16;		//NOT MOVE
-			CopyImage((EventObject[EventNumber].x - Player.x) * 16 + _CenterPositionX + ScrollMapX - EventObject[EventNumber].ScrollMapX, (EventObject[EventNumber].y - Player.y) * 16 + _CenterPositionY + ScrollMapY - EventObject[EventNumber].ScrollMapY, chara12[EventObject[EventNumber].direction*4 + EventObject[EventNumber].frame/4]); //4패턴
+	if(EventObject[EventNumber].x >= Area[Player.map].x_start && EventObject[EventNumber].y >= Area[Player.map].y_start && EventObject[EventNumber].x < Area[Player.map].x_start + Area[Player.map].x_size && EventObject[EventNumber].y < Area[Player.map].y_start + Area[Player.map].y_size)
+		CopyImage((EventObject[EventNumber].x - Player.x - Area[Player.map].x_start) * 16 + _CenterPositionX + ScrollMapX - EventObject[EventNumber].ScrollMapX, (EventObject[EventNumber].y - Player.y - Area[Player.map].y_start) * 16 + _CenterPositionY + ScrollMapY - EventObject[EventNumber].ScrollMapY, chara[EventObject[EventNumber].graphic * 16 + EventObject[EventNumber].direction*4 + EventObject[EventNumber].frame/4]); //4패턴
 }
 
 //이벤트 맵 그리기 - 주인공과 같은 레이어 출력
@@ -105,5 +108,20 @@ void DrawEventLayer(){
 				}
 		}
 		if(y == 0)DrawPlayer();	//주인공 출력
+	}
+}
+
+int SerchEvent()
+{
+	switch(Player.direction)
+	{
+		case 0:	//상
+			return EventLayer[Area[Player.map].y_start + Player.y - 1][Area[Player.map].x_start + Player.x];
+		case 2:	//하
+			return EventLayer[Area[Player.map].y_start + Player.y + 1][Area[Player.map].x_start + Player.x];
+		case 3:	//좌
+			return EventLayer[Area[Player.map].y_start + Player.y][Area[Player.map].x_start + Player.x - 1];
+		case 1:	//우
+			return EventLayer[Area[Player.map].y_start + Player.y][Area[Player.map].x_start + Player.x + 1];
 	}
 }

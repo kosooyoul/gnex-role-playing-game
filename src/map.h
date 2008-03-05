@@ -12,7 +12,7 @@ struct Map{
 	int x_start, y_start;
 	int x_size, y_size;
 	int backchip;			//배경 맵칩
-}Area[1];
+}Area[2];
 
 //맵 영역 설정
 void SetArea(){
@@ -21,6 +21,12 @@ void SetArea(){
 	Area[0].x_size = 30;
 	Area[0].y_size = 30;
 	Area[0].backchip = 85;		//풀밭142 검정85 자갈바닥58
+
+	Area[1].x_start = 1;
+	Area[1].y_start = 4;
+	Area[1].x_size = 20;
+	Area[1].y_size = 20;
+	Area[1].backchip = 142;		//풀밭142 검정85 자갈바닥58
 }
 
 //맵 스크롤

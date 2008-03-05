@@ -7,56 +7,73 @@ void RunEventLine(int EventNumber)
 	if(EventObject[EventNumber].Variable > 0)	//0보다 크면 비교할 의사가 있는 것임_변수 비교
 		if(CheckVariable(Variable[EventObject[EventNumber].Variable - 1], EventObject[EventNumber].Operation, EventObject[EventNumber].VariableValue) == 0)return;
 	*/
-	if (EventObject[EventNumber].EventLoop == 0) return;
+	if(EventNumber < 0) return;
+	if(EventObject[EventNumber].EventLoop == 0) return;
 
-	switch(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++])
+	switch(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++])
 	{
 		case 0:		//문장 출력						 :: 매개변수 1개
-			PrintMessage(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
+			if(NextKey == 1)
+			{
+				PrintMessage(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
+				NextKey = 0;
+			}
+			else
+			{
+				PrintMessage(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount--]);
+				NextKey = 0;
+			}
+
 			break;
 		case 1:		//문장 조합_변수 및 개체 이름	 :: 매개변수 4개
-			MakeMessage(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
+			MakeMessage(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 			break;
 		case 2:		//스위치 조작					 :: 매개변수 2개
-			SwitchOnOff(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
+			SwitchOnOff(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 			break;
 		case 3:		//변수 조작						 :: 매개변수 3개
-			SetVariable(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
+			SetVariable(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 			break;
 		case 4:		//변수 대입_주인공 스테이터스	 :: 매개변수 2개
-			StatusToVariable(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
+			StatusToVariable(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 			break;
 		case 5:		//주인공 스테이터스 조작		 :: 매개변수 3개
-			SetPlayerStatus(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
+			SetPlayerStatus(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 			break;
 		case 6:		//주인공 아이템 및 스킬 등 습득	 :: 매개변수 3개
-			GetItem(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
+			GetItem(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 			break;
 		case 7:		//주인공 맵 이동_지역 워프		 :: 매개변수 3개
-			MoveMap(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
+			MoveMap(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 			break;
 		case 8:		//개체 위치 이동_좌표만			 :: 매개변수 2개
-			MovePosition(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
+			MovePosition(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 			break;
 		case 9:		//개체 방향 전환				 :: 매개변수 2개
-			SetDirection(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
+			SetDirection(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 			break;
 		case 10:	//선택지						 :: 매개변수 4개
-			PrintQuestion(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
+			PrintQuestion(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 			break;
 		case 11:	//조건분기_변수					 :: 매개변수 4개
-			EventObject[EventNumber].LineCount += ConditionVariable(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
+			EventObject[EventNumber].LineCount += ConditionVariable(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 			break;
 		case 12:	//조건분기_스위치				 :: 매개변수 2개
-			EventObject[EventNumber].LineCount += ConditionSwitch(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
+			EventObject[EventNumber].LineCount += ConditionSwitch(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 			break;
 		case 13:	//딜레이						 :: 매개변수 1개
-			if(Delay(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount]) == 0)EventObject[EventNumber].LineCount--;
+			if(Delay(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount]) == 0)EventObject[EventNumber].LineCount--;
 			else EventObject[EventNumber].LineCount++;
 			break;
+
+		/*case 14:
+		KeyState(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
+		break;//*/
+
 		default:
 			EventObject[EventNumber].LineCount = 0;
 			EventObject[EventNumber].EventLoop = 0;
+			RunningEventNumber = -1;
 	}
 }
 
@@ -290,9 +307,11 @@ Player.GOLD++;
 //7번 이벤트 라인{7,*,*,*} - 주인공 맵 이동
 void MoveMap(int MapNumber, int PositionX, int PositionY)
 {
+	EventLayer[Area[Player.map].y_start + Player.y][Area[Player.map].x_start + Player.x] = 0;
 	Player.map = MapNumber;
 	Player.x = PositionX;
 	Player.y = PositionY;
+	EventLayer[Area[Player.map].y_start + Player.y][Area[Player.map].x_start + Player.x] = -1;
 }
 
 //8번 이벤트 라인{8,*,*} - 케릭터 한칸 이동
@@ -307,28 +326,28 @@ void MovePosition(int Actor, int Direction)
 					if(SupLayer[Player.y + Area[Player.map].y_start - 1][Player.x + Area[Player.map].x_start] <= _SupChipMoveable || SupLayer[Player.y + Area[Player.map].y_start - 1][Player.x + Area[Player.map].x_start] > _SupChipWall)
 						if(EventLayer[Player.y + Area[Player.map].y_start - 1][Player.x + Area[Player.map].x_start] == 0)
 						{Player.y--;ScrollMapY=-15;}
-				Player.direction = 3;
+				Player.direction = 0;
 				break;
 			case SWAP_KEY_DOWN:
 				if(Player.y < Area[Player.map].y_size - 1)
 					if(SupLayer[Player.y + Area[Player.map].y_start + 1][Player.x + Area[Player.map].x_start] <= _SupChipMoveable || SupLayer[Player.y + Area[Player.map].y_start + 1][Player.x + Area[Player.map].x_start] > _SupChipWall)
 						if(EventLayer[Player.y + Area[Player.map].y_start + 1][Player.x + Area[Player.map].x_start] == 0)
 							{Player.y++;ScrollMapY=15;}
-				Player.direction = 0;
+				Player.direction = 2;
 				break;
 			case SWAP_KEY_LEFT:
 				if(Player.x > 0)
 					if(SupLayer[Player.y + Area[Player.map].y_start][Player.x + Area[Player.map].x_start - 1] <= _SupChipMoveable || SupLayer[Player.y + Area[Player.map].y_start][Player.x + Area[Player.map].x_start - 1] > _SupChipWall)
 						if(EventLayer[Player.y + Area[Player.map].y_start][Player.x + Area[Player.map].x_start - 1] == 0)
 							{Player.x--;ScrollMapX=-15;}
-				Player.direction = 1;
+				Player.direction = 3;
 				break;
 			case SWAP_KEY_RIGHT:
 				if(Player.x < Area[Player.map].x_size - 1)
 					if(SupLayer[Player.y + Area[Player.map].y_start][Player.x + Area[Player.map].x_start + 1] <= _SupChipMoveable || SupLayer[Player.y + Area[Player.map].y_start][Player.x + Area[Player.map].x_start + 1] > _SupChipWall)
 						if(EventLayer[Player.y + Area[Player.map].y_start][Player.x + Area[Player.map].x_start + 1] == 0)
 							{Player.x++;ScrollMapX=15;}
-				Player.direction = 2;
+				Player.direction = 1;
 		}
 		EventLayer[Player.y + Area[Player.map].y_start][Player.x + Area[Player.map].x_start] = -1;
 	}
@@ -340,29 +359,29 @@ void MovePosition(int Actor, int Direction)
 				if(EventObject[Actor - 1].y > 0)
 					if(SupLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start - 1][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start] <= _SupChipMoveable || SupLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start - 1][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start] > _SupChipWall)
 						if(EventLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start - 1][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start] == 0)
-							{EventObject[Actor - 1].y--;EventObject[Actor - 1].ScrollMapY=-15;}
-				EventObject[Actor - 1].direction = 3;
+							{EventObject[Actor - 1].y--;EventObject[Actor - 1].ScrollMapX=0;EventObject[Actor - 1].ScrollMapY=-15;}
+				EventObject[Actor - 1].direction = 0;
 				break;
 			case SWAP_KEY_DOWN:
 				if(EventObject[Actor - 1].y < Area[EventObject[Actor - 1].map].y_size - 1)
 					if(SupLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start + 1][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start] <= _SupChipMoveable || SupLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start + 1][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start] > _SupChipWall)
 						if(EventLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start + 1][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start] == 0)
-							{EventObject[Actor - 1].y++;EventObject[Actor - 1].ScrollMapY=15;}
-				EventObject[Actor - 1].direction = 0;
+							{EventObject[Actor - 1].y++;EventObject[Actor - 1].ScrollMapX=0;EventObject[Actor - 1].ScrollMapY=15;}
+				EventObject[Actor - 1].direction = 2;
 				break;
 			case SWAP_KEY_LEFT:
 				if(EventObject[Actor - 1].x > 0)
 					if(SupLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start - 1] <= _SupChipMoveable || SupLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start - 1] > _SupChipWall)
 						if(EventLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start - 1] == 0)						
-							{EventObject[Actor - 1].x--;EventObject[Actor - 1].ScrollMapX=-15;}
-				EventObject[Actor - 1].direction = 1;
+							{EventObject[Actor - 1].x--;EventObject[Actor - 1].ScrollMapX=-15;EventObject[Actor - 1].ScrollMapY=0;}
+				EventObject[Actor - 1].direction = 3;
 				break;
 			case SWAP_KEY_RIGHT:
 				if(EventObject[Actor - 1].x < Area[EventObject[Actor - 1].map].x_size - 1)
 					if(SupLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start + 1] <= _SupChipMoveable || SupLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start + 1] > _SupChipWall)
 						if(EventLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start + 1] == 0)
-							{EventObject[Actor - 1].x++;EventObject[Actor - 1].ScrollMapX=15;}
-				EventObject[Actor - 1].direction = 2;
+							{EventObject[Actor - 1].x++;EventObject[Actor - 1].ScrollMapX=15;EventObject[Actor - 1].ScrollMapY=0;}
+				EventObject[Actor - 1].direction = 1;
 		}
 		EventLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start] = Actor;
 	}
@@ -449,3 +468,10 @@ int Delay(int Value)
 	}
 //////////////////////////////////////////////////////////////////////////////////// 보완 요망	
 }
+
+/*/14번 이벤트 라인{14,*,*} - 키입력 변수
+void KeyState(int KeyValue, int Value)
+{
+	if(MovingDirection == SWAP_KEY_LEFT) Switch[Value] = 1;
+	else Switch[Value] = 0;
+}//*/

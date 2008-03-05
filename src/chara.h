@@ -1,5 +1,5 @@
-#define _CenterPositionX 56//4*16-(8)-? +3: 3
-#define _CenterPositionY 45//4*16-(8)-? +9: 20
+#define _CenterPositionX 52//4*16-(8)-? -12 : 3
+#define _CenterPositionY 40//4*16-(8)-? -16 : 20
 
 struct Chara{
 	int map;
@@ -22,6 +22,5 @@ void DrawPlayer(){
 		Player.frame = (Player.frame+1) % 16;	//MOVE
 	else
 		Player.frame = (Player.frame) % 16;		//NOT MOVE
-
-	CopyImage(_CenterPositionX, _CenterPositionY, chara12[Player.direction*4 + Player.frame/4]); //4패턴
+	CopyImage(_CenterPositionX, _CenterPositionY, chara[16 * 3 + Player.direction*4 + Player.frame/4]); //4패턴(*) 4배 감속(/)
 }
