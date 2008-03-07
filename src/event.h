@@ -58,13 +58,17 @@ void MoveEventRandom(int EventNumber)
 	switch(Rand(0, 5))
 	{
 		case 0:
+			SetDirection(EventNumber + 1, SWAP_KEY_RIGHT);
 			MovePosition(EventNumber + 1, SWAP_KEY_RIGHT);break;
 		case 1:
+			SetDirection(EventNumber + 1, SWAP_KEY_LEFT);
 			MovePosition(EventNumber + 1, SWAP_KEY_LEFT);break;
 		case 2:
+			SetDirection(EventNumber + 1, SWAP_KEY_UP);
 			MovePosition(EventNumber + 1, SWAP_KEY_UP);break;
 		case 3:
-			MovePosition(EventNumber + 1, SWAP_KEY_DOWN);
+			SetDirection(EventNumber + 1, SWAP_KEY_DOWN);
+			MovePosition(EventNumber + 1, SWAP_KEY_DOWN);			
 	}
 }
 
@@ -95,16 +99,20 @@ void DrawEvent(int EventNumber){
 //이벤트 맵 그리기 - 주인공과 같은 레이어 출력
 void DrawEventLayer(){
 	int x, y;
+	int TempX, TempY;
 
-	for(y = -4; y < 6;y++)
+	TempX = Area[Player.map].x_start + Player.x;
+	TempY = Area[Player.map].y_start + Player.y;
+
+	for(y = -5; y < 7;y++)
 	{
-		for(x = -4; x < 5;x++)
+		for(x = -6; x < 7;x++)
 		{
-			if(Area[Player.map].x_start + Player.x + x < 30 && Area[Player.map].y_start + Player.y + y < 30 && Area[Player.map].x_start + Player.x + x >= 0 && Area[Player.map].y_start + Player.y + y >= 0)
-				if(EventLayer[Area[Player.map].y_start + Player.y + y][Area[Player.map].x_start + Player.x + x] > 0)
+			if(TempX + x < 30 && TempY + y < 30 && TempX + x >= 0 && TempY + y >= 0)
+				if(EventLayer[TempY + y][TempX + x] > 0)
 				{
-					EventScroll(EventLayer[Area[Player.map].y_start + Player.y + y][Area[Player.map].x_start + Player.x + x]-1);
-					DrawEvent(EventLayer[Area[Player.map].y_start + Player.y + y][Area[Player.map].x_start + Player.x + x]-1);
+					EventScroll(EventLayer[TempY + y][TempX + x]-1);
+					DrawEvent(EventLayer[TempY + y][TempX + x]-1);
 				}
 		}
 		if(y == 0)DrawPlayer();	//주인공 출력

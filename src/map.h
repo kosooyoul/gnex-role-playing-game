@@ -1,4 +1,4 @@
-#define _PlayerPosition 4
+#define _PlayerPosition 5
 #define _SubChipMoveable 99		//이동 가능한 하위칩 마지막 번호
 #define _SupChipMoveable 39		//이동 가능한 상위칩 마지막 번호
 #define _SupChipWall 139		//장애물에 대한 상위칩 마지막 번호
@@ -46,13 +46,18 @@ void MapScroll(){
 //하위 맵 그리기 - 주인공보다 하위 맵
 void DrawSubLayer(){
 	int x, y;
+	int TempPX;
+	int TempPY;
 
-	for(x=-1;x<10;x++)
+	TempPX = Player.x - _PlayerPosition;
+	TempPY = Player.y - _PlayerPosition;
+
+	for(x=-1;x<12;x++)
 	{
-		for(y=-1;y<10;y++)
+		for(y=0;y<11;y++)
 		{
-			if(x + Player.x - _PlayerPosition >= 0 && y + Player.y - _PlayerPosition >= 0 && x + Player.x - _PlayerPosition < Area[Player.map].x_size && y + Player.y - _PlayerPosition  < Area[Player.map].y_size)
-				CopyImage(x * 16 + ScrollMapX, y * 16 + ScrollMapY, subchip[SubLayer[y + Area[Player.map].y_start + Player.y - _PlayerPosition][x + Area[Player.map].x_start + Player.x - _PlayerPosition]]);
+			if(x + TempPX >= 0 && y + TempPY >= 0 && x + TempPX < Area[Player.map].x_size && y + TempPY  < Area[Player.map].y_size)
+				CopyImage(x * 16 + ScrollMapX, y * 16 + ScrollMapY, subchip[SubLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX]]);
 			else
 				CopyImage(x * 16 + ScrollMapX, y * 16 + ScrollMapY, subchip[Area[Player.map].backchip]);
 		}
@@ -62,30 +67,36 @@ void DrawSubLayer(){
 //상위 맵 그리기 - 맵 번호에 따라 바닥 / 장애물 / 천장이나 하늘로 출력
 void DrawSupLayer(int Level){
 	int x, y;
+	int TempPX;
+	int TempPY;
+	int TempChipNum;
 
+	TempPX = Player.x - _PlayerPosition;
+	TempPY = Player.y - _PlayerPosition;
+	
 	switch(Level)
 	{
 		case 0:	//바닥, 벽
-			for(x=-1;x<10;x++)
+			for(x=-1;x<12;x++)
 			{
-				for(y=-1;y<10;y++)
+				for(y=0;y<11;y++)
 				{
-					if(x + Player.x - _PlayerPosition >= 0 && y + Player.y - _PlayerPosition >= 0 && x + Player.x - _PlayerPosition < Area[Player.map].x_size && y + Player.y - _PlayerPosition  < Area[Player.map].y_size)
-						if(SupLayer[y + Area[Player.map].y_start + Player.y - _PlayerPosition][x + Area[Player.map].x_start + Player.x - _PlayerPosition] <= _SupChipWall)
-							CopyImage(x * 16 + ScrollMapX, y * 16 + ScrollMapY, supchip[SupLayer[y + Area[Player.map].y_start + Player.y - _PlayerPosition][x + Area[Player.map].x_start + Player.x - _PlayerPosition]]);
+					if(x + TempPX >= 0 && y + TempPY >= 0 && x + TempPX < Area[Player.map].x_size && y + TempPY  < Area[Player.map].y_size)
+						if(SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX] <= _SupChipWall)
+							CopyImage(x * 16 + ScrollMapX, y * 16 + ScrollMapY, supchip[SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX]]);
 				}
 			}
 			break;
 		case 1:	//천장이나 하늘
-			for(x=-1;x<10;x++)
+			for(x=-1;x<12;x++)
 			{
-				for(y=-1;y<10;y++)
+				for(y=0;y<11;y++)
 				{
-					if(x + Player.x - _PlayerPosition >= 0 && y + Player.y - _PlayerPosition >= 0 && x + Player.x - _PlayerPosition < Area[Player.map].x_size && y + Player.y - _PlayerPosition  < Area[Player.map].y_size)
-						if(SupLayer[y + Area[Player.map].y_start + Player.y - _PlayerPosition][x + Area[Player.map].x_start + Player.x - _PlayerPosition] > _SupChipWall)
+					if(x + TempPX >= 0 && y + TempPY >= 0 && x + TempPX < Area[Player.map].x_size && y + TempPY  < Area[Player.map].y_size)
+						if(SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX] > _SupChipWall)
 						{
-							if(x >= 3 && y >= 3 && x <= 5 && y <= 5)CopyImageEx(x * 16 + ScrollMapX, y * 16 + ScrollMapY, supchip[SupLayer[y + Area[Player.map].y_start + Player.y - _PlayerPosition][x + Area[Player.map].x_start + Player.x - _PlayerPosition]],1,0,0,0);
-							else CopyImageEx(x * 16 + ScrollMapX, y * 16 + ScrollMapY, supchip[SupLayer[y + Area[Player.map].y_start + Player.y - _PlayerPosition][x + Area[Player.map].x_start + Player.x - _PlayerPosition]],0,0,0,0);
+							if(x >= 4 && y >= 4 && x <= 6 && y <= 6)CopyImageEx(x * 16 + ScrollMapX, y * 16 + ScrollMapY, supchip[SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX]],1,0,0,0);
+							else CopyImageEx(x * 16 + ScrollMapX, y * 16 + ScrollMapY, supchip[SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX]],0,0,0,0);
 						}
 				}
 			}

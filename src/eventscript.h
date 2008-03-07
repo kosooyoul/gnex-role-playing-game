@@ -105,15 +105,15 @@ void PrintMessage(int MessageNumber)
 	int Length;
 	int i;
 	//반각문자는 18자 전각문자는 9자가 한 줄(반각문자 108자 전각문자 54자까지만 권장, 즉 6줄)
-	Length = StrLen(Message[MessageNumber]) / 18;
+	Length = StrLen(Message[MessageNumber]) / 26;
 	//대화창 배경
 	SetColorRGB(0, 30, 100);
-	FillRectEx(4, 4, 123, 24 + Length * 15, 2);
+	FillRectEx(4, 4, 171, 25 + Length * 15, 2);
 	SetColorRGB(0, 20, 70);
-	DrawRect(3, 3, 124, 25 + Length * 15);
+	DrawRect(3, 3, 172, 25 + Length * 15);
 	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
 	for(i = 0; i < Length + 1; i++){
-		StrSub(TempString, Message[MessageNumber], i * 18, 18);
+		StrSub(TempString, Message[MessageNumber], i * 26, 26);
 		DrawStr(9, 9 + i * 15, TempString);
 	}
 }
@@ -317,39 +317,44 @@ void MoveMap(int MapNumber, int PositionX, int PositionY)
 //8번 이벤트 라인{8,*,*} - 케릭터 한칸 이동
 void MovePosition(int Actor, int Direction)
 {
+	int TempX;
+	int TempY;
+
+	TempX = Area[Player.map].x_start + Player.x;
+	TempY = Area[Player.map].y_start + Player.y;
+
 	if(!ScrollMapX && !ScrollMapY && Actor == 0)	//Actor는 이동 주체, 0은 주인공, 1번부터 이벤트
 	{
-		EventLayer[Player.y + Area[Player.map].y_start][Player.x + Area[Player.map].x_start] = 0;
 		switch (Direction){
 			case SWAP_KEY_UP:
 				if(Player.y > 0)
-					if(SupLayer[Player.y + Area[Player.map].y_start - 1][Player.x + Area[Player.map].x_start] <= _SupChipMoveable || SupLayer[Player.y + Area[Player.map].y_start - 1][Player.x + Area[Player.map].x_start] > _SupChipWall)
-						if(EventLayer[Player.y + Area[Player.map].y_start - 1][Player.x + Area[Player.map].x_start] == 0)
-						{Player.y--;ScrollMapY=-15;}
-				Player.direction = 0;
+					if(SupLayer[TempY - 1][TempX] <= _SupChipMoveable || SupLayer[TempY - 1][TempX] > _SupChipWall)
+						if(EventLayer[TempY - 1][TempX] == 0)
+						{EventLayer[TempY][TempX] = 0;ScrollMapY=-15;EventLayer[TempY-1][TempX] = -1;Player.y--;}
+				//Player.direction = 0;
 				break;
 			case SWAP_KEY_DOWN:
 				if(Player.y < Area[Player.map].y_size - 1)
-					if(SupLayer[Player.y + Area[Player.map].y_start + 1][Player.x + Area[Player.map].x_start] <= _SupChipMoveable || SupLayer[Player.y + Area[Player.map].y_start + 1][Player.x + Area[Player.map].x_start] > _SupChipWall)
-						if(EventLayer[Player.y + Area[Player.map].y_start + 1][Player.x + Area[Player.map].x_start] == 0)
-							{Player.y++;ScrollMapY=15;}
-				Player.direction = 2;
+					if(SupLayer[TempY + 1][TempX] <= _SupChipMoveable || SupLayer[TempY + 1][TempX] > _SupChipWall)
+						if(EventLayer[TempY + 1][TempX] == 0)
+							{EventLayer[TempY][TempX] = 0;ScrollMapY=15;EventLayer[TempY+1][TempX] = -1;Player.y++;}
+				//Player.direction = 2;
 				break;
 			case SWAP_KEY_LEFT:
 				if(Player.x > 0)
-					if(SupLayer[Player.y + Area[Player.map].y_start][Player.x + Area[Player.map].x_start - 1] <= _SupChipMoveable || SupLayer[Player.y + Area[Player.map].y_start][Player.x + Area[Player.map].x_start - 1] > _SupChipWall)
-						if(EventLayer[Player.y + Area[Player.map].y_start][Player.x + Area[Player.map].x_start - 1] == 0)
-							{Player.x--;ScrollMapX=-15;}
-				Player.direction = 3;
+					if(SupLayer[TempY][TempX - 1] <= _SupChipMoveable || SupLayer[TempY][TempX - 1] > _SupChipWall)
+						if(EventLayer[TempY][TempX - 1] == 0)
+							{EventLayer[TempY][TempX] = 0;ScrollMapX=-15;EventLayer[TempY][TempX-1] = -1;Player.x--;}
+				//Player.direction = 3;
 				break;
 			case SWAP_KEY_RIGHT:
 				if(Player.x < Area[Player.map].x_size - 1)
-					if(SupLayer[Player.y + Area[Player.map].y_start][Player.x + Area[Player.map].x_start + 1] <= _SupChipMoveable || SupLayer[Player.y + Area[Player.map].y_start][Player.x + Area[Player.map].x_start + 1] > _SupChipWall)
-						if(EventLayer[Player.y + Area[Player.map].y_start][Player.x + Area[Player.map].x_start + 1] == 0)
-							{Player.x++;ScrollMapX=15;}
-				Player.direction = 1;
+					if(SupLayer[TempY][TempX + 1] <= _SupChipMoveable || SupLayer[TempY][TempX + 1] > _SupChipWall)
+						if(EventLayer[TempY][TempX + 1] == 0)
+							{EventLayer[TempY][TempX] = 0;ScrollMapX=15;EventLayer[TempY][TempX+1] = -1;Player.x++;}
+				//Player.direction = 1;
 		}
-		EventLayer[Player.y + Area[Player.map].y_start][Player.x + Area[Player.map].x_start] = -1;
+		//EventLayer[TempY][TempX] = -1;
 	}
 	else if(Actor > 0)
 	{
@@ -360,28 +365,28 @@ void MovePosition(int Actor, int Direction)
 					if(SupLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start - 1][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start] <= _SupChipMoveable || SupLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start - 1][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start] > _SupChipWall)
 						if(EventLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start - 1][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start] == 0)
 							{EventObject[Actor - 1].y--;EventObject[Actor - 1].ScrollMapX=0;EventObject[Actor - 1].ScrollMapY=-15;}
-				EventObject[Actor - 1].direction = 0;
+				//EventObject[Actor - 1].direction = 0;
 				break;
 			case SWAP_KEY_DOWN:
 				if(EventObject[Actor - 1].y < Area[EventObject[Actor - 1].map].y_size - 1)
 					if(SupLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start + 1][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start] <= _SupChipMoveable || SupLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start + 1][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start] > _SupChipWall)
 						if(EventLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start + 1][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start] == 0)
 							{EventObject[Actor - 1].y++;EventObject[Actor - 1].ScrollMapX=0;EventObject[Actor - 1].ScrollMapY=15;}
-				EventObject[Actor - 1].direction = 2;
+				//EventObject[Actor - 1].direction = 2;
 				break;
 			case SWAP_KEY_LEFT:
 				if(EventObject[Actor - 1].x > 0)
 					if(SupLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start - 1] <= _SupChipMoveable || SupLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start - 1] > _SupChipWall)
 						if(EventLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start - 1] == 0)						
 							{EventObject[Actor - 1].x--;EventObject[Actor - 1].ScrollMapX=-15;EventObject[Actor - 1].ScrollMapY=0;}
-				EventObject[Actor - 1].direction = 3;
+				//EventObject[Actor - 1].direction = 3;
 				break;
 			case SWAP_KEY_RIGHT:
 				if(EventObject[Actor - 1].x < Area[EventObject[Actor - 1].map].x_size - 1)
 					if(SupLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start + 1] <= _SupChipMoveable || SupLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start + 1] > _SupChipWall)
 						if(EventLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start + 1] == 0)
 							{EventObject[Actor - 1].x++;EventObject[Actor - 1].ScrollMapX=15;EventObject[Actor - 1].ScrollMapY=0;}
-				EventObject[Actor - 1].direction = 1;
+				//EventObject[Actor - 1].direction = 1;
 		}
 		EventLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start] = Actor;
 	}
@@ -390,36 +395,36 @@ void MovePosition(int Actor, int Direction)
 //9번 이벤트 라인{9,*,*} - 주인공 방향 전환
 void SetDirection(int Actor, int Direction)
 {
-	if(Actor == 0)
+	if(!ScrollMapX && !ScrollMapY && Actor == 0)
 	{
 		switch (Direction){
 			case SWAP_KEY_UP:
-				Player.direction = 3;
-				break;
-			case SWAP_KEY_DOWN:
 				Player.direction = 0;
 				break;
+			case SWAP_KEY_DOWN:
+				Player.direction = 2;
+				break;
 			case SWAP_KEY_LEFT:
-				Player.direction = 1;
+				Player.direction = 3;
 				break;
 			case SWAP_KEY_RIGHT:
-				Player.direction = 2;
+				Player.direction = 1;
 		}
 	}
 	else
 	{
 		switch (Direction){
 			case SWAP_KEY_UP:
-				EventObject[Actor - 1].direction = 3;
-				break;
-			case SWAP_KEY_DOWN:
 				EventObject[Actor - 1].direction = 0;
 				break;
+			case SWAP_KEY_DOWN:
+				EventObject[Actor - 1].direction = 2;
+				break;
 			case SWAP_KEY_LEFT:
-				EventObject[Actor - 1].direction = 1;
+				EventObject[Actor - 1].direction = 3;
 				break;
 			case SWAP_KEY_RIGHT:
-				EventObject[Actor - 1].direction = 2;
+				EventObject[Actor - 1].direction = 1;
 				break;
 		}
 	}
