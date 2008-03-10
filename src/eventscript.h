@@ -1,3 +1,5 @@
+int SelectedAnswer = 0;
+
 void RunEventLine(int EventNumber)
 {
 	/*
@@ -13,15 +15,15 @@ void RunEventLine(int EventNumber)
 	switch(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++])
 	{
 		case 0:		//문장 출력						 :: 매개변수 1개
-			if(NextKey == 1)
+			if(NextKey == SWAP_KEY_OK)
 			{
 				PrintMessage(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
-				NextKey = 0;
+				NextKey = -1;
 			}
 			else
 			{
 				PrintMessage(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount--]);
-				NextKey = 0;
+				NextKey = -1;
 			}
 
 			break;
@@ -52,8 +54,18 @@ void RunEventLine(int EventNumber)
 		case 9:		//개체 방향 전환				 :: 매개변수 2개
 			SetDirection(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 			break;
-		case 10:	//선택지						 :: 매개변수 4개
-			PrintQuestion(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
+		case 10:	//선택지						 :: 매개변수 1개
+			if(NextKey == SWAP_KEY_OK)
+			{
+				PrintQuestion(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
+				NextKey = -1;
+			}
+			else
+			{
+				PrintQuestion(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount--]);
+				NextKey = -1;
+			}
+			
 			break;
 		case 11:	//조건분기_변수					 :: 매개변수 4개
 			EventObject[EventNumber].LineCount += ConditionVariable(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
@@ -426,25 +438,35 @@ void SetDirection(int Actor, int Direction)
 			case SWAP_KEY_RIGHT:
 				EventObject[Actor - 1].direction = 1;
 				break;
-		}
 	}
 }
+}
 
-//10번 이벤트 라인{10,*,*,*,*} - 선택지
-void PrintQuestion(int x, int y, int AnswerType, int Value)
+//10번 이벤트 라인{10,*} - 선택지
+void PrintQuestion(int Value)
 {
-	switch(AnswerType)
+	SetColorRGB(0, 30, 100);
+	FillRectEx(4, 4, 171, 25 + 1 * 15, 2);
+	SetColorRGB(0, 20, 70);
+	DrawRect(3, 3, 172, 25 + 1 * 15);
+	
+	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
+	DrawStr(88, 9 + 0 * 15, "예");
+	DrawStr(88, 9 + 1 * 15, "아니오");
+
+	if(NextKey == SWAP_KEY_UP || NextKey == SWAP_KEY_DOWN)
 	{
-		case 0:	//Yes, No
-			break;
-		case 1:	//Yes, No, Cancel
-			break;
-		case 2:	//Yes, No, Cancel, About
-			break;
-		case 3:	//SelectNumber
-			break;
-		}
-		//Variable[Value] = ?;
+		SelectedAnswer = (SelectedAnswer + 1) % 2;
+	}
+	else if(NextKey == SWAP_KEY_OK)
+	{
+		Variable[Value] = SelectedAnswer;
+		SelectedAnswer = 0;
+		return;
+	}
+	SetColorRGB(255, 255, 255);
+	DrawRect(5, 7 + SelectedAnswer * 15, 170, 21 + SelectedAnswer * 15);
+	
 //////////////////////////////////////////////////////////////////////////////////// 보완 요망
 }
 
