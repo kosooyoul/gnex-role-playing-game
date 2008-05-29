@@ -1,10 +1,3 @@
-#define _PlayerPosition 5
-#define _SubChipMoveable 99		//이동 가능한 하위칩 마지막 번호
-#define _SupChipMoveable 39		//이동 가능한 상위칩 마지막 번호
-#define _SupChipWall 139		//장애물에 대한 상위칩 마지막 번호
-
-
-
 int ScrollMapX = 0;
 int ScrollMapY = 0;
 

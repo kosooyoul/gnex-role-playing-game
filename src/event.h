@@ -22,9 +22,25 @@ struct EventObject{
 	int ScrollMapY;
 }EventObject[3];
 
-string Message[5]={"당신 누구쇼? 바바지?","흥! 바바 코나오겠네","바바 메롱 'ㅁ'","뭐야? 바바냐?","가나다라마바사아자차카타파하1234567890"};
-int EventLine[40] = { 1, 1, 2, 0, 0,	 0, 0,	 0, 3,	 0, 2,	 0, 1,	 0, 2,	 0, 1,	 0, 3,	 -1,
-						 10, 0, 2, 2, 0, 2, 0, 3, 0, 4, 0, 3, 0, 2, 0, 1, 0, 0,	-1,-1};
+string Message[9]={
+"당신 누구쇼? 바바지?",
+"안녕하세요?",
+"문장 출력 잘되나?",
+"이벤트 스크립트 테스트",
+"게임 알고리즘 매니아 아야넷",
+"알피지 게임 만들기",
+"우훗",
+"예~ +ㅁ+",
+"아니요 ㅜㅜ"
+};
+
+int EventLine[40] = { 
+ 0, 1, 0, 2,10, 1, 7, 8, 3, 2,
+ 0, 0,11, 1, 2, 2, 3, 0, 7,-1,
+ 0, 8,-1, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0,-1, 0, 1, 0, 0,-1
+};
+
 
 //초기 이벤트 설정
 void SetEvent(){
@@ -47,7 +63,7 @@ void SetEvent(){
 	EventObject[1].direction = 1;		//테스트 코드
 	EventObject[1].frame = 0;		//테스트 코드
 	EventObject[1].EventLoop = 0;		//테스트 코드
-	EventObject[1].EventPage = 20;		//테스트 코드
+	EventObject[1].EventPage = 35;		//테스트 코드
 	EventObject[1].LineCount = 0;		//테스트 코드
 	EventObject[1].ScrollMapX = 0;
 	EventObject[1].ScrollMapY = 0;

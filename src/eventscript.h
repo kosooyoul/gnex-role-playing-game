@@ -54,24 +54,25 @@ void RunEventLine(int EventNumber)
 		case 9:		//개체 방향 전환				 :: 매개변수 2개
 			SetDirection(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 			break;
-		case 10:	//선택지						 :: 매개변수 1개
+		case 10:	//선택지						 :: 매개변수 3개
 			if(NextKey == SWAP_KEY_OK)
 			{
-				PrintQuestion(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
+				PrintQuestion(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 				NextKey = -1;
 			}
 			else
 			{
-				PrintQuestion(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount--]);
+				PrintQuestion(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount+1], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount+2]);
+				EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount --;
 				NextKey = -1;
 			}
 			
 			break;
 		case 11:	//조건분기_변수					 :: 매개변수 4개
-			EventObject[EventNumber].LineCount += ConditionVariable(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
+			EventObject[EventNumber].LineCount += 4 + ConditionVariable(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount+1], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount+2], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount+3]);
 			break;
 		case 12:	//조건분기_스위치				 :: 매개변수 2개
-			EventObject[EventNumber].LineCount += ConditionSwitch(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
+			EventObject[EventNumber].LineCount += 2 + ConditionSwitch(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount+1]);
 			break;
 		case 13:	//딜레이						 :: 매개변수 1개
 			if(Delay(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount]) == 0)EventObject[EventNumber].LineCount--;
@@ -96,14 +97,19 @@ int CheckVariable(int Value1, int Operation, int Value2)
 	{
 		case 0:	// Data == Value
 			if(Variable[Value1] < Variable[Value2])return 1;
+			break;
 		case 1:	// Data > Value
 			if(Variable[Value1] <= Variable[Value2])return 1;
+			break;
 		case 2:	// Data >= Value
 			if(Variable[Value1] == Variable[Value2])return 1;
+			break;
 		case 3:	// Data < Value
 			if(Variable[Value1] >= Variable[Value2])return 1;
+			break;
 		case 4:	// Data <= Value
 			if(Variable[Value1] > Variable[Value2])return 1;
+			break;
 	}
 	return 0;
 }
@@ -252,7 +258,7 @@ void SetPlayerStatus(int Status, int Operation, int Value)
 				case 9://DEX
 					Player.DEX += Variable[Value];break;
 				case 10://GOLD
-					Player.GOLD -= Variable[Value];
+					Player.GOLD += Variable[Value];
 			}
 			break;
 		case 1:	// -= Variable[Value]
@@ -442,8 +448,8 @@ void SetDirection(int Actor, int Direction)
 }
 }
 
-//10번 이벤트 라인{10,*} - 선택지
-void PrintQuestion(int Value)
+//10번 이벤트 라인{10,*,*,*} - 선택지
+void PrintQuestion(int Value, int String1, int String2)
 {
 	SetColorRGB(0, 30, 100);
 	FillRectEx(4, 4, 171, 25 + 1 * 15, 2);
@@ -451,8 +457,8 @@ void PrintQuestion(int Value)
 	DrawRect(3, 3, 172, 25 + 1 * 15);
 	
 	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
-	DrawStr(88, 9 + 0 * 15, "예");
-	DrawStr(88, 9 + 1 * 15, "아니오");
+	DrawStr(88, 9 + 0 * 15, String1);
+	DrawStr(88, 9 + 1 * 15, String2);
 
 	if(NextKey == SWAP_KEY_UP || NextKey == SWAP_KEY_DOWN)
 	{
@@ -474,27 +480,25 @@ void PrintQuestion(int Value)
 int ConditionVariable(int Value1, int Operation, int Value2, int ElseCount)
 {
 	if(CheckVariable(Value1, Operation, Value2) == 0)return ElseCount;
-	else return 0;
+	else if(CheckVariable(Value1, Operation, Value2) == 1) return 0;
 }
 
 //12번 이벤트 라인{12,*} - 스위치에 대한 조건분기
 int ConditionSwitch(int Value, int ElseCount)
 {
 	if(Switch[Value] == 0)return ElseCount;
-	else return 0;
+	else if(Switch[Value] == 1) return 0;
 }
 
 //13번 이벤트 라인{13,*} - 딜레이
 int Delay(int Value)
 {
 	if(Variable[Value] == 0)return 1;
-	else
-	{
-		Variable[Value]--;
-		return 0;
-	}
-//////////////////////////////////////////////////////////////////////////////////// 보완 요망	
+	Variable[Value]--;
+	return 0;
 }
+
+
 
 /*/14번 이벤트 라인{14,*,*} - 키입력 변수
 void KeyState(int KeyValue, int Value)

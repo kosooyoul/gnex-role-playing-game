@@ -1,6 +1,3 @@
-#define _CenterPositionX 52 + 24//4*16-(8)-? -12 : 3
-#define _CenterPositionY 40 + 16//4*16-(8)-? -16 : 20
-
 struct Chara{
 	int map;
 	int	x, y;
