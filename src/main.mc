@@ -17,8 +17,8 @@
  3일차: 1월28일 : 맵 디자인 및 상태 출력 시도
  4일차: 1월29일 : 맵 스크롤 및 액터 움직임 구현, 아이템 및 스킬 목록 출력 시도
  5일차: 1월30일 : 장착아이템부분 디자인, 아이템/스킬/장비 아이콘 출력 테스트, 키 이벤트 코드/함수로 분리, NPC삽입 시도 및 NPC 랜덤이동루프 시도
- 6일차: 2월 1일 : 이벤트발생 테스트:접근해서 버튼 누를때,대화창 표시 테스트.. 한줄 짤막.
- 7일차: 2월 2일 : 구현한 소스 정리 및 테스트
+ 6일차: 1월31일 : 이벤트에 접근하여 버튼 누를경우 문장표시 시도(단문장 하나), 한글 작게 출력안되 안습
+ 7일차: 2월 1일 : 문장 반각문자 108자/전각문자 54자출력이내 출력, 소스 정리 및 헤더파일로 분리
 --[ 제작 중지 ]-------------------------------------------------------------------------------------------------------
  7.5차:         : 일본어 공부, 게임 구상은 머릿속으로만 함
 --[ 다시 시작 ]-------------------------------------------------------------------------------------------------------
@@ -41,6 +41,15 @@
 22.5차:         : 졸업 작품하면서 VB로 소켓프로그래밍 연습 및 소켓 서버 구현, GNEX 소켓 클라이언트 작성 연습
 --[ 다시 시작 ]-------------------------------------------------------------------------------------------------------
 23일차: 5월29일 : 소켓통신 구현(졸작서버 프로그램과 통신 테스트) 헤더파일로 추가, 모드 구분(0:타이틀,1:롤플레잉모드)
+24일차: 5월30일 : 아이템 구조체 작성 및 상점처리 구현 시도
+
+
+
+
+
+
+
+
 
 
 
@@ -87,7 +96,6 @@
 #include <SScript.h>
 #include "mapchip.sbm"		//* s구성화면 칩 로드
 #include "define.h"			//*! 정의목록
-#include "chara.h"			//   주인공
 #include "mapdata.h"		//*  맵데이터
 #include "map.h"			//   맵표시
 #include "event.h"			//   이벤트
@@ -95,6 +103,7 @@
 #include "item.h"			//*  아이템
 #include "monster.h"		//*  몬스터
 #include "skill.h"			//*  스킬
+#include "chara.h"			//   주인공
 #include "interface.h"		//   인터페이스
 #include "socket.h"			// ! 소켓
 
@@ -106,6 +115,7 @@ int GameMode = 0;				//게임 모드/ 0:타이틀, 1:롤플레이
 void main()
 {
 	//mode: title, play(move), battle, event, menu(item,skill,status,.....)
+	SetItem();
 	SetArea();
 	SetEvent();
 	SetTimer(30, 1);					//이동 및 맵 출력 시간 간격, 이벤트 수행 속도
@@ -114,9 +124,10 @@ void main()
 	Variable[0] = 200;					//테스트 코드
 }
 
-void EVENT_TIMEOUT(){
-
-	switch(GameMode){
+void EVENT_TIMEOUT()
+{
+	switch(GameMode)
+	{
 		case 0:	//타이틀
 			CopyImage(0, 0, title);
 			break;
@@ -147,23 +158,36 @@ void EVENT_TIMEOUT(){
 					}
 			}
 			break;
+		
+		case 2:	//상점모드?
+
+
+
+
+			break;
+
+
 	}
 	Flush();
 }
 
-void EVENT_KEYPRESS(){
-
-	switch(GameMode){
+void EVENT_KEYPRESS()
+{
+	switch(GameMode)
+	{
 		case 0:
-			switch(swData){
-				case SWAP_KEY_OK:
-					GameMode = 1;
+			switch(swData)
+			{
+				case SWAP_KEY_OK:	//메뉴선택
+					ChangeMode(1);
 					break;
-				case SWAP_KEY_UP:
+				case SWAP_KEY_UP:	//메뉴변경
 					break;
-				case SWAP_KEY_DOWN:
+				case SWAP_KEY_DOWN:	//메뉴변경
 					break;
 			}
+			break;
+
 		case 1:
 			//if(swData == SWAP_KEY_RELEASE) return;
 			if(RunningEventNumber < 0)MovingDirection = swData;			//자연스러운 이동 #1
@@ -174,9 +198,36 @@ void EVENT_KEYPRESS(){
 				}
 				else NextKey = SWAP_KEY_OK;
 			}else NextKey = swData;
+			break;
+
+		case 2:	//상점모드?
+
+
+
+			break;
+
 	}
 }
 
-void EVENT_NETWORK(){
+void EVENT_NETWORK()
+{
 	RcvSocket();	//소켓 바로 수신
+}
+
+void ChangeMode(int Mode)
+{
+	switch(Mode)
+	{
+		case 0:
+			GameMode = 0;
+			break;
+		case 1:
+			GameMode = 1;
+			break;
+		case 2:
+			GameMode = 2;
+			break;
+		default:
+			break;
+	}
 }

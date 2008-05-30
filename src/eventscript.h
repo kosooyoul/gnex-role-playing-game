@@ -63,7 +63,7 @@ void RunEventLine(int EventNumber)
 			else
 			{
 				PrintQuestion(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount+1], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount+2]);
-				EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount --;
+				EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount--;
 				NextKey = -1;
 			}
 			
@@ -78,7 +78,19 @@ void RunEventLine(int EventNumber)
 			if(Delay(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount]) == 0)EventObject[EventNumber].LineCount--;
 			else EventObject[EventNumber].LineCount++;
 			break;
-
+		case 14:	//상점처리
+			if(NextKey == SWAP_KEY_CLR)
+			{
+				Shopping(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
+				NextKey = -1;
+			}
+			else
+			{
+				Shopping(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount+1], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount+2]);
+				EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount--;
+				NextKey = -1;
+			}
+			break;
 		/*case 14:
 		KeyState(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
 		break;//*/
@@ -472,8 +484,6 @@ void PrintQuestion(int Value, int String1, int String2)
 	}
 	SetColorRGB(255, 255, 255);
 	DrawRect(5, 7 + SelectedAnswer * 15, 170, 21 + SelectedAnswer * 15);
-	
-//////////////////////////////////////////////////////////////////////////////////// 보완 요망
 }
 
 //11번 이벤트 라인{11,*,*,*,*} - 변수에 대한 조건분기
@@ -498,7 +508,37 @@ int Delay(int Value)
 	return 0;
 }
 
-
+//14번 이벤트 라인{14,*,*,*} - 상점처리
+void Shopping(int ShopMode, int SellListFront, int SellListRear)
+{
+	int i;
+	SetColorRGB(0, 30, 100);
+	FillRectEx(4, 4, 171, 25 + (SellListRear - SellListFront) * 15, 2);
+	SetColorRGB(0, 20, 70);
+	DrawRect(3, 3, 172, 25 + (SellListRear - SellListFront) * 15);
+	
+	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
+	for(i = 0; i <= SellListRear - SellListFront; i++)
+	{
+		DrawStr(88, 9 + i * 15, ItemList[SellItemList[SellListFront + i]].Name);
+	}
+	if(NextKey == SWAP_KEY_UP)
+	{
+		SelectedAnswer = (SelectedAnswer + (SellListRear - SellListFront)) % (SellListRear - SellListFront + 1);
+	}
+	else if(NextKey == SWAP_KEY_DOWN)
+	{
+		SelectedAnswer = (SelectedAnswer + 1) % (SellListRear - SellListFront + 1);
+	}
+	else if(NextKey == SWAP_KEY_OK)
+	{
+		//Variable[ShopMode] = SelectedAnswer;
+		//SelectedAnswer = 0;
+		return;
+	}
+	SetColorRGB(255, 255, 255);
+	DrawRect(5, 7 + SelectedAnswer * 15, 170, 21 + SelectedAnswer * 15);
+}
 
 /*/14번 이벤트 라인{14,*,*} - 키입력 변수
 void KeyState(int KeyValue, int Value)

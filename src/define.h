@@ -12,3 +12,6 @@
 #define	SVR_IP	"127.0.0.1"		//"121.188.152.217" //서버 IP
 #define	SVR_PORT	20001		//서버포트
 #define SVR_BufferSize	10		//서버로부터 받은 데이터 목록의 크기
+
+//item.h
+#define InventorySize	16		//인벤토리 슬롯의 갯수

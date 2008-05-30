@@ -14,7 +14,7 @@ string Sock_RcvString = "";
 //수신 데이터 버퍼 관련
 int Sock_BufferFront = 0;
 int Sock_BufferRear = 0;
-string Sock_Buffer[SVR_BufferSize]={"","","","","","","","","",""};
+string Sock_Buffer[SVR_BufferSize] = {"", "", "", "", "", "", "", "", "", ""};
 
 /*
 void main(){
@@ -60,19 +60,23 @@ void EVENT_KEYPRESS(){
 }
 */
 
-void ConnectSocket(){	//소켓 연결
+void ConnectSocket()	//소켓 연결
+{
 	Sock_Result = SockSendMedia(Sock_Index, Sock_SendString, 0, Sock_LenSendString);
-	if(Sock_Result < 0) {
+	if(Sock_Result < 0)
+	{
 		Sock_Index = SockOpen(S_NET_SOCK_TCP); //성공 : 0~2, 실패 : -1
 		Sock_Result = SockConnect(Sock_Index, SVR_IP, SVR_PORT);
 	}
 }
 
-void CloseSocket(){	//소켓 닫음
+void CloseSocket()	//소켓 닫음
+{
 	Sock_Result = SockClose(Sock_Index);
 }
 
-void SendSocket(){
+void SendSocket()
+{
 	StrInit(Sock_SendString, 32);
 	StrCpy(Sock_SendString, DataMsg);	//MakeStr1(Sock_SendString,"V[%d]",2);
 	Sock_LenSendString = StrLen(Sock_SendString);
@@ -84,14 +88,17 @@ void RcvSocket(){	//소켓 데이터 수신
 	Sock_LenRcvString = SetMediaSize(Sock_RcvString, 20);
 	PutChar(Sock_RcvString, 20, '\0');
 	Sock_Result = SockRecvMedia(Sock_Index, Sock_RcvString, 0, 20);
-	if(StrLen(Sock_RcvString) != 0 && Sock_BufferFront != Sock_BufferRear + 1){		//버퍼에 저장
+	if(StrLen(Sock_RcvString) != 0 && Sock_BufferFront != Sock_BufferRear + 1)		//버퍼에 저장
+	{
 		StrCpy(Sock_Buffer[Sock_BufferRear],Sock_RcvString);
 		Sock_BufferRear = (Sock_BufferRear + 1) % SVR_BufferSize;
 	}
 }
 
-void GetSockBuffer(){	//버퍼 꺼내기
-	if(StrLen(Sock_Buffer[Sock_BufferFront]) != 0){
+void GetSockBuffer()	//버퍼 꺼내기
+{
+	if(StrLen(Sock_Buffer[Sock_BufferFront]) != 0)
+	{
 		DrawStr(30,150,Sock_Buffer[Sock_BufferFront]);    //수신명령문 실행
 		StrCpy(Sock_Buffer[Sock_BufferFront], "");
 		Sock_BufferFront = (Sock_BufferFront + 1) % SVR_BufferSize;
