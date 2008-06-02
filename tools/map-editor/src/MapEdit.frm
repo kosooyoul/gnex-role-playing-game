@@ -15,13 +15,1213 @@ Begin VB.Form Form1
    Begin VB.PictureBox Picture1 
       BackColor       =   &H00808080&
       Height          =   7515
-      Left            =   20
+      Left            =   0
       ScaleHeight     =   497
       ScaleMode       =   3  '픽셀
       ScaleWidth      =   497
       TabIndex        =   0
-      Top             =   40
+      Top             =   0
       Width           =   7515
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   49
+         Left            =   5280
+         TabIndex        =   50
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   48
+         Left            =   5280
+         TabIndex        =   49
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   47
+         Left            =   5280
+         TabIndex        =   48
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   46
+         Left            =   5280
+         TabIndex        =   47
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   45
+         Left            =   5280
+         TabIndex        =   46
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   44
+         Left            =   5280
+         TabIndex        =   45
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   43
+         Left            =   5280
+         TabIndex        =   44
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   42
+         Left            =   5280
+         TabIndex        =   43
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   41
+         Left            =   5280
+         TabIndex        =   42
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   40
+         Left            =   5280
+         TabIndex        =   41
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   39
+         Left            =   5280
+         TabIndex        =   40
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   38
+         Left            =   5280
+         TabIndex        =   39
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   37
+         Left            =   5280
+         TabIndex        =   38
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   36
+         Left            =   5280
+         TabIndex        =   37
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   35
+         Left            =   5280
+         TabIndex        =   36
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   34
+         Left            =   5280
+         TabIndex        =   35
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   33
+         Left            =   5280
+         TabIndex        =   34
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   32
+         Left            =   5280
+         TabIndex        =   33
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   31
+         Left            =   5280
+         TabIndex        =   32
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   30
+         Left            =   5280
+         TabIndex        =   31
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   29
+         Left            =   5280
+         TabIndex        =   30
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   28
+         Left            =   5280
+         TabIndex        =   29
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   27
+         Left            =   5280
+         TabIndex        =   28
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   26
+         Left            =   5280
+         TabIndex        =   27
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   25
+         Left            =   5280
+         TabIndex        =   26
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   24
+         Left            =   5280
+         TabIndex        =   25
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   23
+         Left            =   5280
+         TabIndex        =   24
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   22
+         Left            =   5280
+         TabIndex        =   23
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   21
+         Left            =   5280
+         TabIndex        =   22
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   20
+         Left            =   5280
+         TabIndex        =   21
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   19
+         Left            =   5280
+         TabIndex        =   20
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   18
+         Left            =   5280
+         TabIndex        =   19
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   17
+         Left            =   5280
+         TabIndex        =   18
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   16
+         Left            =   5280
+         TabIndex        =   17
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   15
+         Left            =   5280
+         TabIndex        =   16
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   14
+         Left            =   5280
+         TabIndex        =   15
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   13
+         Left            =   5280
+         TabIndex        =   14
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   12
+         Left            =   5280
+         TabIndex        =   13
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   11
+         Left            =   5280
+         TabIndex        =   12
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   10
+         Left            =   5280
+         TabIndex        =   11
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   9
+         Left            =   5280
+         TabIndex        =   10
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   8
+         Left            =   5280
+         TabIndex        =   9
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   7
+         Left            =   5280
+         TabIndex        =   8
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   6
+         Left            =   5280
+         TabIndex        =   7
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   5
+         Left            =   5280
+         TabIndex        =   6
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   4
+         Left            =   5280
+         TabIndex        =   5
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   3
+         Left            =   5280
+         TabIndex        =   4
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   2
+         Left            =   5280
+         TabIndex        =   3
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   1
+         Left            =   5280
+         TabIndex        =   2
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
+      Begin VB.Label mapevent 
+         Alignment       =   2  '가운데 맞춤
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFF80&
+         BorderStyle     =   1  '단일 고정
+         Caption         =   "E"
+         BeginProperty Font 
+            Name            =   "Small Fonts"
+            Size            =   5.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   150
+         Index           =   0
+         Left            =   5280
+         TabIndex        =   1
+         Top             =   6720
+         Visible         =   0   'False
+         Width           =   150
+      End
       Begin VB.Shape Shape3 
          DrawMode        =   7  '역상
          FillColor       =   &H00FFFFFF&
@@ -49,8 +1249,8 @@ Begin VB.Form Form1
          FillColor       =   &H00FFFFFF&
          FillStyle       =   0  '단색
          Height          =   600
-         Left            =   135
-         Top             =   135
+         Left            =   120
+         Top             =   120
          Visible         =   0   'False
          Width           =   480
       End
@@ -16382,10 +17582,10 @@ Begin VB.Form Form1
       End
       Begin VB.Line Line2 
          Index           =   14
-         X1              =   144
-         X2              =   144
-         Y1              =   0
-         Y2              =   432
+         X1              =   152
+         X2              =   152
+         Y1              =   8
+         Y2              =   440
       End
       Begin VB.Line Line2 
          Index           =   13
@@ -16678,6 +17878,12 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Dim AutoOn As Boolean
 
+Private Sub overchip_DblClick(Index As Integer)
+    mapevent(0).Top = overchip(Index).Top
+    mapevent(0).Left = overchip(Index).Left
+    mapevent(0).Visible = True
+End Sub
+
 Private Sub overchip_MouseDown(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
     If Button = 1 Then
         If MDIForm1.Toolbar2.Buttons(11).Value Then
@@ -16767,3 +17973,4 @@ Private Sub Form_Load()
     Form2.Show
     Form3.Show
 End Sub
+

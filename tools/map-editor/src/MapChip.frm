@@ -20,6 +20,20 @@ Begin VB.Form Form3
       TabIndex        =   0
       Top             =   40
       Width           =   5340
+      Begin VB.Shape Shape1 
+         BorderColor     =   &H0000FFFF&
+         Height          =   240
+         Left            =   120
+         Top             =   360
+         Width           =   240
+      End
+      Begin VB.Shape Shape2 
+         BorderColor     =   &H00FFFF00&
+         Height          =   240
+         Left            =   2760
+         Top             =   360
+         Width           =   240
+      End
       Begin VB.Image mapoverchip 
          Height          =   240
          Index           =   239
@@ -338,13 +352,6 @@ Begin VB.Form Form3
          Left            =   2760
          Picture         =   "MapChip.frx":8CDB
          Top             =   5400
-         Width           =   240
-      End
-      Begin VB.Shape Shape1 
-         BorderColor     =   &H0000FFFF&
-         Height          =   240
-         Left            =   120
-         Top             =   360
          Width           =   240
       End
       Begin VB.Image mapchip 
@@ -801,13 +808,6 @@ Begin VB.Form Form3
          X2              =   2640
          Y1              =   120
          Y2              =   6360
-      End
-      Begin VB.Shape Shape2 
-         BorderColor     =   &H00FFFF00&
-         Height          =   240
-         Left            =   2760
-         Top             =   360
-         Width           =   240
       End
       Begin VB.Image mapoverchip 
          Height          =   240

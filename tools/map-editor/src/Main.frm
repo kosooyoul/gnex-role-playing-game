@@ -10,9 +10,25 @@ Begin VB.MDIForm MDIForm1
    Icon            =   "Main.frx":0000
    LinkTopic       =   "MDIForm1"
    StartUpPosition =   3  'Windows 기본값
+   Begin MSComctlLib.StatusBar StatusBar1 
+      Align           =   2  '아래 맞춤
+      Height          =   255
+      Left            =   0
+      TabIndex        =   3
+      Top             =   6645
+      Width           =   10125
+      _ExtentX        =   17859
+      _ExtentY        =   450
+      _Version        =   393216
+      BeginProperty Panels {8E3867A5-8586-11D1-B16A-00C0F0283628} 
+         NumPanels       =   1
+         BeginProperty Panel1 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+         EndProperty
+      EndProperty
+   End
    Begin MSComctlLib.ImageList ImageList1 
-      Left            =   4080
-      Top             =   2160
+      Left            =   3000
+      Top             =   1800
       _ExtentX        =   1005
       _ExtentY        =   1005
       BackColor       =   -2147483643
@@ -112,6 +128,278 @@ Begin VB.MDIForm MDIForm1
          Width           =   855
       End
    End
+   Begin MSComctlLib.Toolbar Toolbar1 
+      Align           =   1  '위 맞춤
+      Height          =   360
+      Left            =   0
+      TabIndex        =   2
+      Top             =   360
+      Width           =   10125
+      _ExtentX        =   17859
+      _ExtentY        =   635
+      ButtonWidth     =   609
+      Appearance      =   1
+      Style           =   1
+      ImageList       =   "ImageList2"
+      _Version        =   393216
+      BeginProperty Buttons {66833FE8-8583-11D1-B16A-00C0F0283628} 
+         NumButtons      =   25
+         BeginProperty Button1 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Object.Visible         =   0   'False
+            Style           =   3
+         EndProperty
+         BeginProperty Button2 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "f1"
+            Object.ToolTipText     =   "문장 출력"
+            ImageIndex      =   1
+         EndProperty
+         BeginProperty Button3 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "f2"
+            Object.ToolTipText     =   "문장 조합"
+            ImageIndex      =   2
+         EndProperty
+         BeginProperty Button4 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Style           =   3
+         EndProperty
+         BeginProperty Button5 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "f3"
+            Object.ToolTipText     =   "스위치 조작"
+            ImageIndex      =   3
+         EndProperty
+         BeginProperty Button6 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "f4"
+            Object.ToolTipText     =   "변수 조작"
+            ImageIndex      =   4
+         EndProperty
+         BeginProperty Button7 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "f5"
+            Object.ToolTipText     =   "주인공 스테이터스를 변수로"
+            ImageIndex      =   5
+         EndProperty
+         BeginProperty Button8 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Style           =   3
+         EndProperty
+         BeginProperty Button9 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "f6"
+            Object.ToolTipText     =   "주인공 스테이터스 조작"
+            ImageIndex      =   6
+         EndProperty
+         BeginProperty Button10 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Style           =   3
+         EndProperty
+         BeginProperty Button11 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "f7"
+            Object.ToolTipText     =   "아이템 및 스킬 증감"
+            ImageIndex      =   7
+         EndProperty
+         BeginProperty Button12 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Style           =   3
+         EndProperty
+         BeginProperty Button13 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "f8"
+            Object.ToolTipText     =   "텔레포트 혹은 맵이동"
+            ImageIndex      =   8
+         EndProperty
+         BeginProperty Button14 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "f9"
+            Object.ToolTipText     =   "한칸 이동"
+            ImageIndex      =   9
+         EndProperty
+         BeginProperty Button15 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "f10"
+            Object.ToolTipText     =   "방향 전환"
+            ImageIndex      =   10
+         EndProperty
+         BeginProperty Button16 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Style           =   3
+         EndProperty
+         BeginProperty Button17 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "f11"
+            Object.ToolTipText     =   "선택지"
+            ImageIndex      =   11
+         EndProperty
+         BeginProperty Button18 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Style           =   3
+         EndProperty
+         BeginProperty Button19 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "f12"
+            Object.ToolTipText     =   "변수에 따른 조건분기"
+            ImageIndex      =   12
+         EndProperty
+         BeginProperty Button20 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "f13"
+            Object.ToolTipText     =   "스위치에 따른 조건분기"
+            ImageIndex      =   13
+         EndProperty
+         BeginProperty Button21 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Style           =   3
+         EndProperty
+         BeginProperty Button22 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "f14"
+            Object.ToolTipText     =   "딜레이"
+            ImageIndex      =   14
+         EndProperty
+         BeginProperty Button23 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Style           =   3
+         EndProperty
+         BeginProperty Button24 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Key             =   "f15"
+            Object.ToolTipText     =   "이벤트 라인 종료"
+            ImageIndex      =   15
+         EndProperty
+         BeginProperty Button25 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+            Style           =   3
+         EndProperty
+      EndProperty
+   End
+   Begin MSComctlLib.ImageList ImageList2 
+      Left            =   0
+      Top             =   0
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      BackColor       =   -2147483643
+      ImageWidth      =   16
+      ImageHeight     =   16
+      MaskColor       =   12632256
+      _Version        =   393216
+      BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+         NumListImages   =   15
+         BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":0E64
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":11B6
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":1508
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":185A
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":1BAC
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":1EFE
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":2250
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":25A2
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":28F4
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":2C46
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage11 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":2F98
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage12 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":32EA
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage13 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":363C
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage14 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":398E
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage15 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":3CE0
+            Key             =   ""
+         EndProperty
+      EndProperty
+   End
+   Begin MSComctlLib.ImageList ImageList3 
+      Left            =   3600
+      Top             =   1800
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      BackColor       =   -2147483643
+      ImageWidth      =   16
+      ImageHeight     =   16
+      MaskColor       =   12632256
+      _Version        =   393216
+      BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+         NumListImages   =   15
+         BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":4032
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":4384
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":46D6
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":4A28
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":4D7A
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":50CC
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":541E
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":5770
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":5AC2
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":5E14
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage11 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":6166
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage12 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":64B8
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage13 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":680A
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage14 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":6B5C
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage15 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Main.frx":6EAE
+            Key             =   ""
+         EndProperty
+      EndProperty
+   End
    Begin VB.Menu MFile 
       Caption         =   "파일(&F)"
       Begin VB.Menu MCodeSave 
@@ -128,6 +416,13 @@ Begin VB.MDIForm MDIForm1
       Begin VB.Menu MMapEdit 
          Caption         =   "맵 편집(&M)"
          Shortcut        =   ^M
+      End
+      Begin VB.Menu MEventEdit 
+         Caption         =   "이벤트 편집(&E)"
+         Shortcut        =   ^E
+      End
+      Begin VB.Menu MString 
+         Caption         =   "문자열 관리"
       End
    End
 End
@@ -204,6 +499,14 @@ Private Sub MCodeSave_Click()
     Form4.Show vbModal
 End Sub
 
+Private Sub MDIForm_Unload(Cancel As Integer)
+End
+End Sub
+
+Private Sub MEventEdit_Click()
+    Form5.Show
+End Sub
+
 Private Sub MExit_Click()
     End
 End Sub
@@ -211,6 +514,46 @@ End Sub
 Private Sub MMapEdit_Click()
     Form1.Show
 End Sub
+
+Private Sub MString_Click()
+Strings.Show
+End Sub
+
+Private Sub Toolbar1_ButtonClick(ByVal Button As MSComctlLib.Button)
+Select Case Button.Key
+    Case "f1"
+        Form7.Show
+    Case "f2"
+        Form8.Show
+    Case "f3"
+        Form9.Show
+    Case "f4"
+        Form10.Show
+    Case "f5"
+        Form11.Show
+    Case "f6"
+        Form12.Show
+    Case "f7"
+        Form13.Show
+    Case "f8"
+        Form14.Show
+    Case "f9"
+        Form15.Show
+    Case "f10"
+        Form16.Show
+    Case "f11"
+        Form17.Show
+    Case "f12"
+        Form18.Show
+    Case "f13"
+        Form19.Show
+    Case "f14"
+        Form20.Show
+    Case "f15"
+        AddEvent ("END()")
+End Select
+End Sub
+
 
 Private Sub Toolbar2_ButtonClick(ByVal Button As MSComctlLib.Button)
     Dim Count As Integer
