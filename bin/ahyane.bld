@@ -10,14 +10,14 @@ HEADER_COMPTYPE is 0
 
 Script profile : 
 
-	Script size       : 190550 Byte(s)
-	Code size         : 16726 Byte(s)
-	Symbol count      : 118
-	Total media count : 636
-	Total media size  : 149182 Byte(s)
-		String count  : 8
-		String size   : 118 Byte(s)
-		Image count   : 628
-		Image size    : 149064 Byte(s)
+	Script size       : 238594 Byte(s)
+	Code size         : 25822 Byte(s)
+	Symbol count      : 146
+	Total media count : 697
+	Total media size  : 186322 Byte(s)
+		String count  : 68
+		String size   : 438 Byte(s)
+		Image count   : 629
+		Image size    : 185884 Byte(s)
 
-ahyane.sgs - 0 error(s), 0 warning(s)
+ahyane.dgs - 0 error(s), 0 warning(s)

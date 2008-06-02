@@ -9,7 +9,7 @@ struct Chara{
 	int MAXMP, MP;
 
 	int STR, DEF, WIS, DEX;
-	int GOLD;
+	int Gold;
 }Player;
 
 struct Slot Inventory[InventorySize];	//인벤토리, 가능한 8의 배수로:8열씩 출력예정, 40개정도

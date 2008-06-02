@@ -1,0 +1,1086 @@
+A,	&SubLayer,2,30,30
+A,	&SupLayer,2,30,30
+A,	&EventLayer,2,30,30
+S,	&Area,	Map
+M,	Map, x_start, 0, 1, 0
+M,	Map, y_start, 0, 1, 1
+M,	Map, x_size, 0, 1, 2
+M,	Map, y_size, 0, 1, 3
+M,	Map, backchip, 0, 1, 4
+S,	&EventObject,	EventObject
+M,	EventObject, x, 0, 1, 0
+M,	EventObject, y, 0, 1, 1
+M,	EventObject, direction, 0, 1, 2
+M,	EventObject, frame, 0, 1, 3
+M,	EventObject, graphic, 0, 1, 4
+M,	EventObject, map, 0, 1, 5
+M,	EventObject, Switch, 0, 1, 6
+M,	EventObject, Variable, 0, 1, 7
+M,	EventObject, Operation, 0, 1, 8
+M,	EventObject, VariableValue, 0, 1, 9
+M,	EventObject, EventLoop, 0, 1, 10
+M,	EventObject, EventPage, 0, 1, 11
+M,	EventObject, LineCount, 0, 1, 12
+M,	EventObject, ScrollMapX, 0, 1, 13
+M,	EventObject, ScrollMapY, 0, 1, 14
+S,	&ItemList,	Item
+M,	Item, Name, 1, 1, 0
+M,	Item, Cost, 0, 1, 1
+M,	Item, Icon, 0, 1, 2
+S,	&Player,	Chara
+M,	Chara, map, 0, 1, 0
+M,	Chara, x, 0, 1, 1
+M,	Chara, y, 0, 1, 2
+M,	Chara, direction, 0, 1, 3
+M,	Chara, frame, 0, 1, 4
+M,	Chara, LV, 0, 1, 5
+M,	Chara, EXP, 0, 1, 6
+M,	Chara, MAXHP, 0, 1, 7
+M,	Chara, HP, 0, 1, 8
+M,	Chara, MAXMP, 0, 1, 9
+M,	Chara, MP, 0, 1, 10
+M,	Chara, STR, 0, 1, 11
+M,	Chara, DEF, 0, 1, 12
+M,	Chara, WIS, 0, 1, 13
+M,	Chara, DEX, 0, 1, 14
+M,	Chara, Gold, 0, 1, 15
+S,	&Inventory,	Slot
+M,	Slot, ListNumber, 0, 1, 0
+M,	Slot, Quantity, 0, 1, 1
+L,	.\main.mc, 77,	16
+L,	.\main.mc, 78,	17
+L,	.\main.mc, 79,	18
+L,	.\main.mc, 80,	19
+L,	.\main.mc, 81,	20
+L,	.\main.mc, 82,	21
+L,	.\main.mc, 83,	22
+L,	.\main.mc, 84,	23
+L,	.\main.mc, 85,	24
+L,	.\main.mc, 86,	25
+L,	.\main.mc, 87,	26
+L,	.\main.mc, 88,	27
+L,	.\main.mc, 89,	28
+L,	.\main.mc, 90,	29
+L,	.\main.mc, 91,	30
+L,	.\main.mc, 92,	31
+L,	.\main.mc,110,	32
+L,	.\main.mc,111,	33
+F,	SetArea,	.\map.h, 11,	1921
+L,	.\map.h, 11,	1922
+L,	.\map.h, 12,	1923
+L,	.\map.h, 13,	1933
+L,	.\map.h, 14,	1943
+L,	.\map.h, 15,	1953
+L,	.\map.h, 16,	1963
+L,	.\map.h, 18,	1973
+L,	.\map.h, 19,	1983
+L,	.\map.h, 20,	1993
+L,	.\map.h, 21,	2003
+L,	.\map.h, 22,	2013
+L,	.\map.h, 23,	2023
+L,	.\map.h, 26,	2025
+F,	MapScroll,	.\map.h, 26,	2026
+L,	.\map.h, 27,	2027
+L,	.\map.h, 28,	2030
+L,	.\map.h, 29,	2031
+L,	.\map.h, 30,	2042
+L,	.\map.h, 31,	2050
+L,	.\map.h, 32,	2051
+L,	.\map.h, 33,	2054
+L,	.\map.h, 34,	2055
+L,	.\map.h, 35,	2066
+L,	.\map.h, 36,	2072
+L,	.\map.h, 37,	2075
+L,	.\map.h, 40,	2077
+F,	DrawSubLayer,	.\map.h, 40,	2078
+L,	.\map.h, 41,	2079
+L,	.\map.h, 42,	2080
+L,	.\map.h, 43,	2081
+L,	.\map.h, 45,	2082
+L,	.\map.h, 46,	2090
+L,	.\map.h, 48,	2098
+L,	.\map.h, 49,	2107
+L,	.\map.h, 50,	2108
+L,	.\map.h, 51,	2116
+L,	.\map.h, 52,	2117
+L,	.\map.h, 53,	2171
+L,	.\map.h, 54,	2224
+L,	.\map.h, 55,	2225
+L,	.\map.h, 56,	2257
+L,	.\map.h, 57,	2264
+L,	.\map.h, 58,	2266
+L,	.\map.h, 61,	2268
+F,	DrawSupLayer,	.\map.h, 61,	2269
+L,	.\map.h, 62,	2271
+L,	.\map.h, 63,	2272
+L,	.\map.h, 64,	2273
+L,	.\map.h, 65,	2274
+L,	.\map.h, 67,	2275
+L,	.\map.h, 68,	2283
+L,	.\map.h, 70,	2291
+L,	.\map.h, 71,	2306
+L,	.\map.h, 72,	2307
+L,	.\map.h, 73,	2308
+L,	.\map.h, 74,	2317
+L,	.\map.h, 75,	2318
+L,	.\map.h, 76,	2326
+L,	.\map.h, 77,	2327
+L,	.\map.h, 78,	2381
+L,	.\map.h, 79,	2421
+L,	.\map.h, 80,	2479
+L,	.\map.h, 81,	2486
+L,	.\map.h, 82,	2491
+L,	.\map.h, 83,	2492
+L,	.\map.h, 84,	2493
+L,	.\map.h, 85,	2502
+L,	.\map.h, 86,	2503
+L,	.\map.h, 87,	2511
+L,	.\map.h, 88,	2512
+L,	.\map.h, 89,	2566
+L,	.\map.h, 90,	2606
+L,	.\map.h, 91,	2607
+L,	.\map.h, 92,	2689
+L,	.\map.h, 93,	2745
+L,	.\map.h, 94,	2753
+L,	.\map.h, 95,	2760
+L,	.\map.h, 96,	2763
+L,	.\map.h, 97,	2764
+F,	SetEvent,	.\event.h, 46,	2766
+L,	.\event.h, 46,	2767
+L,	.\event.h, 47,	2768
+L,	.\event.h, 48,	2778
+L,	.\event.h, 49,	2788
+L,	.\event.h, 50,	2798
+L,	.\event.h, 51,	2808
+L,	.\event.h, 52,	2818
+L,	.\event.h, 53,	2828
+L,	.\event.h, 54,	2838
+L,	.\event.h, 55,	2848
+L,	.\event.h, 56,	2858
+L,	.\event.h, 57,	2868
+L,	.\event.h, 59,	2878
+L,	.\event.h, 60,	2888
+L,	.\event.h, 61,	2898
+L,	.\event.h, 62,	2908
+L,	.\event.h, 63,	2918
+L,	.\event.h, 64,	2928
+L,	.\event.h, 65,	2938
+L,	.\event.h, 66,	2948
+L,	.\event.h, 67,	2958
+L,	.\event.h, 68,	2968
+L,	.\event.h, 69,	2978
+L,	.\event.h, 70,	2988
+L,	.\event.h, 72,	2990
+F,	MoveEventRandom,	.\event.h, 72,	2991
+L,	.\event.h, 73,	2993
+L,	.\event.h, 74,	2994
+L,	.\event.h, 75,	3019
+L,	.\event.h, 76,	3020
+L,	.\event.h, 77,	3021
+L,	.\event.h, 78,	3027
+L,	.\event.h, 79,	3036
+L,	.\event.h, 80,	3037
+L,	.\event.h, 81,	3043
+L,	.\event.h, 82,	3052
+L,	.\event.h, 83,	3053
+L,	.\event.h, 84,	3059
+L,	.\event.h, 85,	3068
+L,	.\event.h, 86,	3069
+L,	.\event.h, 87,	3075
+L,	.\event.h, 88,	3082
+L,	.\event.h, 89,	3083
+L,	.\event.h, 92,	3085
+F,	EventScroll,	.\event.h, 92,	3086
+L,	.\event.h, 93,	3088
+L,	.\event.h, 94,	3098
+L,	.\event.h, 95,	3099
+L,	.\event.h, 96,	3131
+L,	.\event.h, 97,	3153
+L,	.\event.h, 98,	3154
+L,	.\event.h, 99,	3164
+L,	.\event.h,100,	3165
+L,	.\event.h,101,	3197
+L,	.\event.h,102,	3217
+L,	.\event.h,103,	3220
+L,	.\event.h,106,	3222
+F,	DrawEvent,	.\event.h,106,	3223
+L,	.\event.h,107,	3225
+L,	.\event.h,108,	3247
+L,	.\event.h,109,	3270
+L,	.\event.h,110,	3271
+L,	.\event.h,111,	3291
+L,	.\event.h,112,	3409
+L,	.\event.h,113,	3531
+L,	.\event.h,116,	3533
+F,	DrawEventLayer,	.\event.h,116,	3534
+L,	.\event.h,117,	3535
+L,	.\event.h,118,	3536
+L,	.\event.h,120,	3537
+L,	.\event.h,121,	3555
+L,	.\event.h,123,	3573
+L,	.\event.h,124,	3582
+L,	.\event.h,125,	3583
+L,	.\event.h,126,	3592
+L,	.\event.h,127,	3593
+L,	.\event.h,128,	3627
+L,	.\event.h,129,	3643
+L,	.\event.h,130,	3644
+L,	.\event.h,131,	3660
+L,	.\event.h,132,	3676
+L,	.\event.h,133,	3684
+L,	.\event.h,134,	3686
+L,	.\event.h,135,	3698
+L,	.\event.h,136,	3700
+L,	.\event.h,138,	3702
+F,	SerchEvent,	.\event.h,138,	3703
+L,	.\event.h,139,	3704
+L,	.\event.h,140,	3705
+L,	.\event.h,141,	3731
+L,	.\event.h,142,	3732
+L,	.\event.h,143,	3733
+L,	.\event.h,144,	3777
+L,	.\event.h,145,	3778
+L,	.\event.h,146,	3822
+L,	.\event.h,147,	3823
+L,	.\event.h,148,	3867
+L,	.\event.h,149,	3868
+L,	.\event.h,150,	3911
+L,	.\event.h,151,	3912
+F,	RunEventLine,	.\eventscript.h,  7,	3914
+L,	.\eventscript.h,  7,	3916
+L,	.\eventscript.h,  8,	3917
+L,	.\eventscript.h, 16,	3918
+L,	.\eventscript.h, 17,	3925
+L,	.\eventscript.h, 19,	3939
+L,	.\eventscript.h, 20,	4035
+L,	.\eventscript.h, 21,	4036
+L,	.\eventscript.h, 22,	4037
+L,	.\eventscript.h, 23,	4042
+L,	.\eventscript.h, 24,	4043
+L,	.\eventscript.h, 25,	4076
+L,	.\eventscript.h, 26,	4082
+L,	.\eventscript.h, 27,	4083
+L,	.\eventscript.h, 28,	4084
+L,	.\eventscript.h, 29,	4085
+L,	.\eventscript.h, 30,	4118
+L,	.\eventscript.h, 31,	4122
+L,	.\eventscript.h, 33,	4127
+L,	.\eventscript.h, 34,	4128
+L,	.\eventscript.h, 35,	4129
+L,	.\eventscript.h, 36,	4258
+L,	.\eventscript.h, 37,	4259
+L,	.\eventscript.h, 38,	4260
+L,	.\eventscript.h, 39,	4327
+L,	.\eventscript.h, 40,	4328
+L,	.\eventscript.h, 41,	4329
+L,	.\eventscript.h, 42,	4427
+L,	.\eventscript.h, 43,	4428
+L,	.\eventscript.h, 44,	4429
+L,	.\eventscript.h, 45,	4496
+L,	.\eventscript.h, 46,	4497
+L,	.\eventscript.h, 47,	4498
+L,	.\eventscript.h, 48,	4596
+L,	.\eventscript.h, 49,	4597
+L,	.\eventscript.h, 50,	4598
+L,	.\eventscript.h, 51,	4697
+L,	.\eventscript.h, 52,	4698
+L,	.\eventscript.h, 53,	4699
+L,	.\eventscript.h, 54,	4797
+L,	.\eventscript.h, 55,	4798
+L,	.\eventscript.h, 56,	4799
+L,	.\eventscript.h, 57,	4866
+L,	.\eventscript.h, 58,	4867
+L,	.\eventscript.h, 59,	4868
+L,	.\eventscript.h, 60,	4935
+L,	.\eventscript.h, 61,	4936
+L,	.\eventscript.h, 62,	4937
+L,	.\eventscript.h, 63,	4942
+L,	.\eventscript.h, 64,	4943
+L,	.\eventscript.h, 65,	5038
+L,	.\eventscript.h, 66,	5044
+L,	.\eventscript.h, 67,	5045
+L,	.\eventscript.h, 68,	5046
+L,	.\eventscript.h, 69,	5047
+L,	.\eventscript.h, 70,	5113
+L,	.\eventscript.h, 71,	5132
+L,	.\eventscript.h, 72,	5136
+L,	.\eventscript.h, 74,	5141
+L,	.\eventscript.h, 75,	5142
+L,	.\eventscript.h, 76,	5143
+L,	.\eventscript.h, 77,	5253
+L,	.\eventscript.h, 78,	5254
+L,	.\eventscript.h, 79,	5255
+L,	.\eventscript.h, 80,	5321
+L,	.\eventscript.h, 81,	5322
+L,	.\eventscript.h, 82,	5323
+L,	.\eventscript.h, 83,	5368
+L,	.\eventscript.h, 84,	5391
+L,	.\eventscript.h, 85,	5392
+L,	.\eventscript.h, 86,	5393
+L,	.\eventscript.h, 87,	5461
+L,	.\eventscript.h, 88,	5462
+L,	.\eventscript.h, 89,	5481
+L,	.\eventscript.h, 90,	5487
+L,	.\eventscript.h, 91,	5488
+L,	.\eventscript.h, 92,	5489
+L,	.\eventscript.h, 93,	5490
+L,	.\eventscript.h, 94,	5509
+L,	.\eventscript.h, 95,	5513
+L,	.\eventscript.h, 96,	5518
+L,	.\eventscript.h,101,	5519
+L,	.\eventscript.h,102,	5520
+L,	.\eventscript.h,103,	5530
+L,	.\eventscript.h,104,	5540
+L,	.\eventscript.h,105,	5545
+L,	.\eventscript.h,106,	5546
+L,	.\eventscript.h,109,	5548
+F,	CheckVariable,	.\eventscript.h,109,	5549
+L,	.\eventscript.h,110,	5553
+L,	.\eventscript.h,111,	5554
+L,	.\eventscript.h,112,	5581
+L,	.\eventscript.h,113,	5582
+L,	.\eventscript.h,114,	5583
+L,	.\eventscript.h,115,	5600
+L,	.\eventscript.h,116,	5601
+L,	.\eventscript.h,117,	5602
+L,	.\eventscript.h,118,	5619
+L,	.\eventscript.h,119,	5620
+L,	.\eventscript.h,120,	5621
+L,	.\eventscript.h,121,	5638
+L,	.\eventscript.h,122,	5639
+L,	.\eventscript.h,123,	5640
+L,	.\eventscript.h,124,	5657
+L,	.\eventscript.h,125,	5658
+L,	.\eventscript.h,126,	5659
+L,	.\eventscript.h,127,	5674
+L,	.\eventscript.h,128,	5675
+L,	.\eventscript.h,129,	5676
+L,	.\eventscript.h,130,	5679
+L,	.\eventscript.h,135,	5680
+F,	PrintMessage,	.\eventscript.h,135,	5681
+L,	.\eventscript.h,136,	5683
+L,	.\eventscript.h,137,	5684
+L,	.\eventscript.h,138,	5685
+L,	.\eventscript.h,139,	5686
+L,	.\eventscript.h,141,	5687
+L,	.\eventscript.h,143,	5696
+L,	.\eventscript.h,144,	5701
+L,	.\eventscript.h,145,	5712
+L,	.\eventscript.h,146,	5717
+L,	.\eventscript.h,147,	5727
+L,	.\eventscript.h,148,	5733
+L,	.\eventscript.h,149,	5743
+L,	.\eventscript.h,150,	5754
+L,	.\eventscript.h,151,	5768
+L,	.\eventscript.h,152,	5770
+L,	.\eventscript.h,155,	5772
+F,	MakeMessage,	.\eventscript.h,155,	5773
+L,	.\eventscript.h,156,	5778
+L,	.\eventscript.h,157,	5779
+L,	.\eventscript.h,159,	5780
+L,	.\eventscript.h,161,	5790
+L,	.\eventscript.h,162,	5805
+L,	.\eventscript.h,163,	5806
+L,	.\eventscript.h,164,	5807
+L,	.\eventscript.h,165,	5815
+L,	.\eventscript.h,166,	5825
+L,	.\eventscript.h,167,	5826
+L,	.\eventscript.h,168,	5827
+L,	.\eventscript.h,169,	5838
+L,	.\eventscript.h,170,	5839
+L,	.\eventscript.h,171,	5849
+L,	.\eventscript.h,174,	5851
+F,	SwitchOnOff,	.\eventscript.h,174,	5852
+L,	.\eventscript.h,175,	5855
+L,	.\eventscript.h,176,	5856
+L,	.\eventscript.h,177,	5862
+L,	.\eventscript.h,180,	5864
+F,	SetVariable,	.\eventscript.h,180,	5865
+L,	.\eventscript.h,181,	5869
+L,	.\eventscript.h,182,	5870
+L,	.\eventscript.h,183,	5871
+L,	.\eventscript.h,184,	5930
+L,	.\eventscript.h,185,	5931
+L,	.\eventscript.h,186,	5932
+L,	.\eventscript.h,187,	5941
+L,	.\eventscript.h,188,	5942
+L,	.\eventscript.h,189,	5956
+L,	.\eventscript.h,190,	5957
+L,	.\eventscript.h,191,	5971
+L,	.\eventscript.h,192,	5972
+L,	.\eventscript.h,193,	5986
+L,	.\eventscript.h,194,	5987
+L,	.\eventscript.h,195,	6001
+L,	.\eventscript.h,196,	6002
+L,	.\eventscript.h,197,	6016
+L,	.\eventscript.h,198,	6017
+L,	.\eventscript.h,199,	6029
+L,	.\eventscript.h,200,	6030
+L,	.\eventscript.h,201,	6047
+L,	.\eventscript.h,202,	6048
+L,	.\eventscript.h,203,	6065
+L,	.\eventscript.h,204,	6066
+L,	.\eventscript.h,205,	6083
+L,	.\eventscript.h,206,	6084
+L,	.\eventscript.h,207,	6101
+L,	.\eventscript.h,208,	6102
+L,	.\eventscript.h,209,	6119
+L,	.\eventscript.h,210,	6120
+L,	.\eventscript.h,211,	6126
+L,	.\eventscript.h,212,	6135
+L,	.\eventscript.h,213,	6142
+L,	.\eventscript.h,214,	6143
+L,	.\eventscript.h,217,	6145
+F,	StatusToVariable,	.\eventscript.h,217,	6146
+L,	.\eventscript.h,218,	6149
+L,	.\eventscript.h,219,	6150
+L,	.\eventscript.h,220,	6201
+L,	.\eventscript.h,221,	6202
+L,	.\eventscript.h,222,	6203
+L,	.\eventscript.h,223,	6215
+L,	.\eventscript.h,224,	6216
+L,	.\eventscript.h,225,	6228
+L,	.\eventscript.h,226,	6229
+L,	.\eventscript.h,227,	6241
+L,	.\eventscript.h,228,	6242
+L,	.\eventscript.h,229,	6254
+L,	.\eventscript.h,230,	6255
+L,	.\eventscript.h,231,	6267
+L,	.\eventscript.h,232,	6268
+L,	.\eventscript.h,233,	6280
+L,	.\eventscript.h,234,	6281
+L,	.\eventscript.h,235,	6293
+L,	.\eventscript.h,236,	6294
+L,	.\eventscript.h,237,	6306
+L,	.\eventscript.h,238,	6307
+L,	.\eventscript.h,239,	6319
+L,	.\eventscript.h,240,	6320
+L,	.\eventscript.h,241,	6332
+L,	.\eventscript.h,242,	6333
+L,	.\eventscript.h,243,	6343
+L,	.\eventscript.h,244,	6344
+L,	.\eventscript.h,249,	6346
+F,	SetPlayerStatus,	.\eventscript.h,249,	6347
+L,	.\eventscript.h,250,	6351
+L,	.\eventscript.h,251,	6352
+L,	.\eventscript.h,252,	6371
+L,	.\eventscript.h,253,	6372
+L,	.\eventscript.h,254,	6373
+L,	.\eventscript.h,255,	6424
+L,	.\eventscript.h,256,	6425
+L,	.\eventscript.h,257,	6442
+L,	.\eventscript.h,258,	6443
+L,	.\eventscript.h,259,	6460
+L,	.\eventscript.h,260,	6461
+L,	.\eventscript.h,261,	6478
+L,	.\eventscript.h,262,	6479
+L,	.\eventscript.h,263,	6496
+L,	.\eventscript.h,264,	6497
+L,	.\eventscript.h,265,	6514
+L,	.\eventscript.h,266,	6515
+L,	.\eventscript.h,267,	6532
+L,	.\eventscript.h,268,	6533
+L,	.\eventscript.h,269,	6550
+L,	.\eventscript.h,270,	6551
+L,	.\eventscript.h,271,	6568
+L,	.\eventscript.h,272,	6569
+L,	.\eventscript.h,273,	6586
+L,	.\eventscript.h,274,	6587
+L,	.\eventscript.h,275,	6604
+L,	.\eventscript.h,276,	6605
+L,	.\eventscript.h,277,	6623
+L,	.\eventscript.h,278,	6624
+L,	.\eventscript.h,279,	6625
+L,	.\eventscript.h,280,	6626
+L,	.\eventscript.h,281,	6677
+L,	.\eventscript.h,282,	6678
+L,	.\eventscript.h,283,	6695
+L,	.\eventscript.h,284,	6696
+L,	.\eventscript.h,285,	6713
+L,	.\eventscript.h,286,	6714
+L,	.\eventscript.h,287,	6731
+L,	.\eventscript.h,288,	6732
+L,	.\eventscript.h,289,	6749
+L,	.\eventscript.h,290,	6750
+L,	.\eventscript.h,291,	6767
+L,	.\eventscript.h,292,	6768
+L,	.\eventscript.h,293,	6785
+L,	.\eventscript.h,294,	6786
+L,	.\eventscript.h,295,	6803
+L,	.\eventscript.h,296,	6804
+L,	.\eventscript.h,297,	6821
+L,	.\eventscript.h,298,	6822
+L,	.\eventscript.h,299,	6839
+L,	.\eventscript.h,300,	6840
+L,	.\eventscript.h,301,	6857
+L,	.\eventscript.h,302,	6858
+L,	.\eventscript.h,303,	6876
+L,	.\eventscript.h,304,	6877
+L,	.\eventscript.h,305,	6878
+L,	.\eventscript.h,306,	6879
+L,	.\eventscript.h,307,	6930
+L,	.\eventscript.h,308,	6931
+L,	.\eventscript.h,309,	6943
+L,	.\eventscript.h,310,	6944
+L,	.\eventscript.h,311,	6956
+L,	.\eventscript.h,312,	6957
+L,	.\eventscript.h,313,	6969
+L,	.\eventscript.h,314,	6970
+L,	.\eventscript.h,315,	6982
+L,	.\eventscript.h,316,	6983
+L,	.\eventscript.h,317,	6995
+L,	.\eventscript.h,318,	6996
+L,	.\eventscript.h,319,	7008
+L,	.\eventscript.h,320,	7009
+L,	.\eventscript.h,321,	7021
+L,	.\eventscript.h,322,	7022
+L,	.\eventscript.h,323,	7034
+L,	.\eventscript.h,324,	7035
+L,	.\eventscript.h,325,	7047
+L,	.\eventscript.h,326,	7048
+L,	.\eventscript.h,327,	7060
+L,	.\eventscript.h,328,	7061
+L,	.\eventscript.h,329,	7072
+L,	.\eventscript.h,330,	7073
+L,	.\eventscript.h,331,	7074
+L,	.\eventscript.h,334,	7076
+F,	GetItem,	.\eventscript.h,334,	7077
+L,	.\eventscript.h,335,	7081
+L,	.\eventscript.h,336,	7082
+L,	.\eventscript.h,337,	7083
+L,	.\eventscript.h,338,	7091
+L,	.\eventscript.h,339,	7092
+L,	.\eventscript.h,340,	7118
+L,	.\eventscript.h,341,	7119
+L,	.\eventscript.h,342,	7138
+L,	.\eventscript.h,343,	7142
+L,	.\eventscript.h,344,	7143
+L,	.\eventscript.h,345,	7155
+L,	.\eventscript.h,346,	7156
+L,	.\eventscript.h,347,	7166
+L,	.\eventscript.h,348,	7176
+L,	.\eventscript.h,349,	7179
+L,	.\eventscript.h,350,	7187
+L,	.\eventscript.h,351,	7189
+L,	.\eventscript.h,354,	7192
+L,	.\eventscript.h,357,	7193
+F,	MoveMap,	.\eventscript.h,357,	7194
+L,	.\eventscript.h,358,	7198
+L,	.\eventscript.h,359,	7199
+L,	.\eventscript.h,360,	7239
+L,	.\eventscript.h,361,	7245
+L,	.\eventscript.h,362,	7251
+L,	.\eventscript.h,363,	7257
+L,	.\eventscript.h,364,	7298
+L,	.\eventscript.h,367,	7300
+F,	MovePosition,	.\eventscript.h,367,	7301
+L,	.\eventscript.h,368,	7304
+L,	.\eventscript.h,369,	7305
+L,	.\eventscript.h,370,	7306
+L,	.\eventscript.h,372,	7307
+L,	.\eventscript.h,373,	7325
+L,	.\eventscript.h,375,	7343
+L,	.\eventscript.h,376,	7360
+L,	.\eventscript.h,377,	7361
+L,	.\eventscript.h,378,	7384
+L,	.\eventscript.h,379,	7385
+L,	.\eventscript.h,380,	7393
+L,	.\eventscript.h,381,	7423
+L,	.\eventscript.h,382,	7437
+L,	.\eventscript.h,384,	7478
+L,	.\eventscript.h,385,	7479
+L,	.\eventscript.h,386,	7480
+L,	.\eventscript.h,387,	7500
+L,	.\eventscript.h,388,	7530
+L,	.\eventscript.h,389,	7544
+L,	.\eventscript.h,391,	7584
+L,	.\eventscript.h,392,	7585
+L,	.\eventscript.h,393,	7586
+L,	.\eventscript.h,394,	7594
+L,	.\eventscript.h,395,	7624
+L,	.\eventscript.h,396,	7638
+L,	.\eventscript.h,398,	7679
+L,	.\eventscript.h,399,	7680
+L,	.\eventscript.h,400,	7681
+L,	.\eventscript.h,401,	7701
+L,	.\eventscript.h,402,	7731
+L,	.\eventscript.h,403,	7745
+L,	.\eventscript.h,405,	7785
+L,	.\eventscript.h,407,	7786
+L,	.\eventscript.h,408,	7787
+L,	.\eventscript.h,409,	7792
+L,	.\eventscript.h,410,	7793
+L,	.\eventscript.h,411,	7857
+L,	.\eventscript.h,412,	7880
+L,	.\eventscript.h,413,	7881
+L,	.\eventscript.h,414,	7895
+L,	.\eventscript.h,415,	8033
+L,	.\eventscript.h,416,	8101
+L,	.\eventscript.h,418,	8153
+L,	.\eventscript.h,419,	8154
+L,	.\eventscript.h,420,	8155
+L,	.\eventscript.h,421,	8187
+L,	.\eventscript.h,422,	8325
+L,	.\eventscript.h,423,	8393
+L,	.\eventscript.h,425,	8444
+L,	.\eventscript.h,426,	8445
+L,	.\eventscript.h,427,	8446
+L,	.\eventscript.h,428,	8460
+L,	.\eventscript.h,429,	8598
+L,	.\eventscript.h,430,	8666
+L,	.\eventscript.h,432,	8718
+L,	.\eventscript.h,433,	8719
+L,	.\eventscript.h,434,	8720
+L,	.\eventscript.h,435,	8752
+L,	.\eventscript.h,436,	8890
+L,	.\eventscript.h,437,	8958
+L,	.\eventscript.h,439,	9007
+L,	.\eventscript.h,440,	9008
+L,	.\eventscript.h,441,	9072
+L,	.\eventscript.h,442,	9075
+L,	.\eventscript.h,445,	9077
+F,	SetDirection,	.\eventscript.h,445,	9078
+L,	.\eventscript.h,446,	9081
+L,	.\eventscript.h,447,	9082
+L,	.\eventscript.h,448,	9099
+L,	.\eventscript.h,449,	9100
+L,	.\eventscript.h,450,	9123
+L,	.\eventscript.h,451,	9124
+L,	.\eventscript.h,452,	9133
+L,	.\eventscript.h,453,	9134
+L,	.\eventscript.h,454,	9135
+L,	.\eventscript.h,455,	9144
+L,	.\eventscript.h,456,	9145
+L,	.\eventscript.h,457,	9146
+L,	.\eventscript.h,458,	9155
+L,	.\eventscript.h,459,	9156
+L,	.\eventscript.h,460,	9157
+L,	.\eventscript.h,461,	9166
+L,	.\eventscript.h,462,	9167
+L,	.\eventscript.h,463,	9168
+L,	.\eventscript.h,464,	9169
+L,	.\eventscript.h,465,	9170
+L,	.\eventscript.h,466,	9193
+L,	.\eventscript.h,467,	9194
+L,	.\eventscript.h,468,	9209
+L,	.\eventscript.h,469,	9210
+L,	.\eventscript.h,470,	9211
+L,	.\eventscript.h,471,	9226
+L,	.\eventscript.h,472,	9227
+L,	.\eventscript.h,473,	9228
+L,	.\eventscript.h,474,	9243
+L,	.\eventscript.h,475,	9244
+L,	.\eventscript.h,476,	9245
+L,	.\eventscript.h,477,	9258
+L,	.\eventscript.h,478,	9259
+L,	.\eventscript.h,479,	9260
+L,	.\eventscript.h,480,	9262
+L,	.\eventscript.h,483,	9264
+F,	PrintQuestion,	.\eventscript.h,483,	9265
+L,	.\eventscript.h,484,	9269
+L,	.\eventscript.h,485,	9270
+L,	.\eventscript.h,486,	9275
+L,	.\eventscript.h,487,	9286
+L,	.\eventscript.h,488,	9291
+L,	.\eventscript.h,490,	9301
+L,	.\eventscript.h,491,	9307
+L,	.\eventscript.h,492,	9316
+L,	.\eventscript.h,494,	9325
+L,	.\eventscript.h,495,	9337
+L,	.\eventscript.h,496,	9338
+L,	.\eventscript.h,497,	9347
+L,	.\eventscript.h,498,	9348
+L,	.\eventscript.h,499,	9353
+L,	.\eventscript.h,500,	9354
+L,	.\eventscript.h,501,	9360
+L,	.\eventscript.h,502,	9364
+L,	.\eventscript.h,503,	9365
+L,	.\eventscript.h,504,	9368
+L,	.\eventscript.h,505,	9373
+L,	.\eventscript.h,506,	9387
+L,	.\eventscript.h,509,	9389
+F,	ConditionVariable,	.\eventscript.h,509,	9390
+L,	.\eventscript.h,510,	9395
+L,	.\eventscript.h,511,	9396
+L,	.\eventscript.h,512,	9407
+L,	.\eventscript.h,513,	9419
+L,	.\eventscript.h,516,	9421
+F,	ConditionSwitch,	.\eventscript.h,516,	9422
+L,	.\eventscript.h,517,	9425
+L,	.\eventscript.h,518,	9426
+L,	.\eventscript.h,519,	9437
+L,	.\eventscript.h,520,	9449
+L,	.\eventscript.h,523,	9451
+F,	Delay,	.\eventscript.h,523,	9452
+L,	.\eventscript.h,524,	9454
+L,	.\eventscript.h,525,	9455
+L,	.\eventscript.h,526,	9466
+L,	.\eventscript.h,527,	9477
+L,	.\eventscript.h,528,	9480
+L,	.\eventscript.h,531,	9481
+F,	Shopping,	.\eventscript.h,531,	9482
+L,	.\eventscript.h,532,	9486
+L,	.\eventscript.h,533,	9487
+L,	.\eventscript.h,534,	9488
+L,	.\eventscript.h,535,	9489
+L,	.\eventscript.h,537,	9490
+L,	.\eventscript.h,538,	9495
+L,	.\eventscript.h,540,	9503
+L,	.\eventscript.h,541,	9508
+L,	.\eventscript.h,542,	9519
+L,	.\eventscript.h,543,	9524
+L,	.\eventscript.h,545,	9534
+L,	.\eventscript.h,546,	9540
+L,	.\eventscript.h,547,	9548
+L,	.\eventscript.h,548,	9549
+L,	.\eventscript.h,549,	9573
+L,	.\eventscript.h,550,	9599
+L,	.\eventscript.h,552,	9601
+L,	.\eventscript.h,553,	9607
+L,	.\eventscript.h,554,	9615
+L,	.\eventscript.h,555,	9616
+L,	.\eventscript.h,556,	9633
+L,	.\eventscript.h,557,	9647
+L,	.\eventscript.h,558,	9649
+L,	.\eventscript.h,559,	9652
+L,	.\eventscript.h,560,	9657
+L,	.\eventscript.h,561,	9658
+L,	.\eventscript.h,563,	9662
+L,	.\eventscript.h,564,	9676
+L,	.\eventscript.h,565,	9681
+L,	.\eventscript.h,566,	9687
+L,	.\eventscript.h,568,	9696
+L,	.\eventscript.h,569,	9723
+L,	.\eventscript.h,570,	9724
+L,	.\eventscript.h,571,	9725
+L,	.\eventscript.h,572,	9730
+L,	.\eventscript.h,573,	9731
+L,	.\eventscript.h,574,	9740
+L,	.\eventscript.h,575,	9745
+L,	.\eventscript.h,576,	9746
+L,	.\eventscript.h,577,	9751
+L,	.\eventscript.h,578,	9752
+L,	.\eventscript.h,579,	9761
+L,	.\eventscript.h,580,	9766
+L,	.\eventscript.h,581,	9767
+L,	.\eventscript.h,582,	9772
+L,	.\eventscript.h,583,	9773
+L,	.\eventscript.h,584,	9778
+L,	.\eventscript.h,585,	9784
+L,	.\eventscript.h,586,	9785
+L,	.\eventscript.h,587,	9791
+L,	.\eventscript.h,588,	9792
+L,	.\eventscript.h,589,	9797
+L,	.\eventscript.h,590,	9798
+L,	.\eventscript.h,591,	9803
+L,	.\eventscript.h,592,	9809
+L,	.\eventscript.h,593,	9810
+L,	.\eventscript.h,594,	9816
+L,	.\eventscript.h,595,	9817
+L,	.\eventscript.h,596,	9822
+L,	.\eventscript.h,597,	9823
+L,	.\eventscript.h,598,	9828
+L,	.\eventscript.h,599,	9829
+L,	.\eventscript.h,600,	9834
+L,	.\eventscript.h,601,	9835
+L,	.\eventscript.h,602,	9838
+L,	.\eventscript.h,603,	9841
+L,	.\eventscript.h,604,	9851
+L,	.\eventscript.h,605,	9852
+L,	.\eventscript.h,606,	9853
+L,	.\eventscript.h,607,	9858
+L,	.\eventscript.h,608,	9865
+L,	.\eventscript.h,609,	9870
+L,	.\eventscript.h,611,	9876
+L,	.\eventscript.h,612,	9882
+L,	.\eventscript.h,613,	9904
+L,	.\eventscript.h,614,	9905
+L,	.\eventscript.h,615,	9910
+L,	.\eventscript.h,616,	9922
+L,	.\eventscript.h,617,	9923
+L,	.\eventscript.h,618,	9926
+L,	.\eventscript.h,619,	9930
+L,	.\eventscript.h,620,	9931
+L,	.\eventscript.h,621,	9932
+L,	.\eventscript.h,622,	9933
+L,	.\eventscript.h,623,	9936
+L,	.\eventscript.h,624,	9941
+L,	.\eventscript.h,625,	9942
+L,	.\eventscript.h,626,	9943
+L,	.\eventscript.h,627,	9948
+L,	.\eventscript.h,628,	9955
+L,	.\eventscript.h,629,	9960
+L,	.\eventscript.h,631,	9966
+L,	.\eventscript.h,632,	9972
+L,	.\eventscript.h,633,	9991
+L,	.\eventscript.h,635,	9996
+L,	.\eventscript.h,636,	10001
+L,	.\eventscript.h,637,	10008
+L,	.\eventscript.h,638,	10013
+L,	.\eventscript.h,639,	10019
+L,	.\eventscript.h,640,	10024
+L,	.\eventscript.h,642,	10029
+L,	.\eventscript.h,643,	10041
+L,	.\eventscript.h,644,	10042
+L,	.\eventscript.h,645,	10051
+L,	.\eventscript.h,646,	10052
+L,	.\eventscript.h,647,	10057
+L,	.\eventscript.h,648,	10058
+L,	.\eventscript.h,649,	10061
+L,	.\eventscript.h,650,	10066
+L,	.\eventscript.h,651,	10067
+L,	.\eventscript.h,652,	10072
+L,	.\eventscript.h,653,	10073
+L,	.\eventscript.h,654,	10077
+L,	.\eventscript.h,656,	10078
+L,	.\eventscript.h,657,	10089
+L,	.\eventscript.h,658,	10092
+L,	.\eventscript.h,659,	10093
+L,	.\eventscript.h,660,	10118
+L,	.\eventscript.h,661,	10123
+L,	.\eventscript.h,662,	10124
+L,	.\eventscript.h,663,	10125
+L,	.\eventscript.h,664,	10126
+L,	.\eventscript.h,665,	10129
+L,	.\eventscript.h,668,	10133
+L,	.\eventscript.h,669,	10134
+L,	.\eventscript.h,670,	10135
+L,	.\eventscript.h,671,	10136
+L,	.\eventscript.h,672,	10139
+L,	.\eventscript.h,673,	10142
+L,	.\eventscript.h,674,	10144
+L,	.\eventscript.h,675,	10148
+L,	.\eventscript.h,676,	10151
+L,	.\eventscript.h,677,	10168
+L,	.\eventscript.h,678,	10169
+L,	.\eventscript.h,679,	10170
+L,	.\eventscript.h,680,	10175
+L,	.\eventscript.h,681,	10182
+L,	.\eventscript.h,682,	10187
+L,	.\eventscript.h,683,	10193
+L,	.\eventscript.h,684,	10199
+L,	.\eventscript.h,685,	10204
+L,	.\eventscript.h,686,	10216
+L,	.\eventscript.h,687,	10217
+L,	.\eventscript.h,688,	10220
+L,	.\eventscript.h,689,	10225
+L,	.\eventscript.h,690,	10226
+L,	.\eventscript.h,691,	10227
+L,	.\eventscript.h,692,	10232
+L,	.\eventscript.h,693,	10239
+L,	.\eventscript.h,694,	10244
+L,	.\eventscript.h,695,	10250
+L,	.\eventscript.h,696,	10256
+L,	.\eventscript.h,698,	10261
+L,	.\eventscript.h,699,	10273
+L,	.\eventscript.h,700,	10274
+L,	.\eventscript.h,701,	10277
+L,	.\eventscript.h,702,	10280
+L,	.\eventscript.h,703,	10281
+L,	.\eventscript.h,704,	10282
+L,	.\eventscript.h,706,	10285
+F,	SetItem,	.\item.h, 18,	10286
+L,	.\item.h, 18,	10287
+L,	.\item.h, 19,	10288
+L,	.\item.h, 20,	10316
+L,	.\item.h, 21,	10344
+L,	.\item.h, 22,	10372
+L,	.\item.h, 23,	10400
+L,	.\item.h, 24,	10428
+L,	.\item.h, 25,	10456
+L,	.\item.h, 26,	10484
+L,	.\item.h, 27,	10512
+L,	.\item.h, 28,	10540
+L,	.\item.h, 29,	10568
+L,	.\item.h, 30,	10596
+L,	.\item.h, 31,	10624
+L,	.\item.h, 32,	10652
+L,	.\item.h, 33,	10680
+L,	.\item.h, 34,	10708
+L,	.\item.h, 35,	10736
+F,	DrawPlayer,	.\chara.h, 18,	10738
+L,	.\chara.h, 18,	10739
+L,	.\chara.h, 20,	10740
+L,	.\chara.h, 21,	10748
+L,	.\chara.h, 22,	10763
+L,	.\chara.h, 23,	10764
+L,	.\chara.h, 24,	10776
+L,	.\chara.h, 25,	10804
+L,	.\chara.h, 27,	10806
+F,	SetInventory,	.\chara.h, 27,	10807
+L,	.\chara.h, 28,	10808
+L,	.\chara.h, 29,	10809
+L,	.\chara.h, 30,	10817
+L,	.\chara.h, 31,	10827
+L,	.\chara.h, 32,	10842
+L,	.\chara.h, 33,	10844
+L,	.\chara.h, 34,	10854
+L,	.\chara.h, 35,	10864
+F,	DrawInterface,	.\interface.h,  1,	10866
+L,	.\interface.h,  1,	10867
+L,	.\interface.h,  2,	10868
+L,	.\interface.h,  3,	10869
+L,	.\interface.h,  4,	10874
+L,	.\interface.h,  5,	10880
+L,	.\interface.h,  6,	10885
+L,	.\socket.h,  2,	10887
+L,	.\socket.h,  5,	10888
+L,	.\socket.h,  6,	10889
+L,	.\socket.h,  9,	10890
+L,	.\socket.h, 10,	10891
+L,	.\socket.h, 11,	10892
+L,	.\socket.h, 12,	10893
+L,	.\socket.h, 15,	10894
+L,	.\socket.h, 16,	10895
+L,	.\socket.h, 17,	10896
+L,	.\socket.h, 63,	10897
+F,	ConnectSocket,	.\socket.h, 63,	10898
+L,	.\socket.h, 64,	10899
+L,	.\socket.h, 65,	10900
+L,	.\socket.h, 66,	10907
+L,	.\socket.h, 67,	10912
+L,	.\socket.h, 68,	10913
+L,	.\socket.h, 69,	10917
+L,	.\socket.h, 70,	10923
+L,	.\socket.h, 71,	10925
+L,	.\socket.h, 73,	10927
+F,	CloseSocket,	.\socket.h, 73,	10928
+L,	.\socket.h, 74,	10929
+L,	.\socket.h, 75,	10930
+L,	.\socket.h, 76,	10934
+L,	.\socket.h, 78,	10936
+F,	SendSocket,	.\socket.h, 78,	10937
+L,	.\socket.h, 79,	10938
+L,	.\socket.h, 80,	10939
+L,	.\socket.h, 81,	10943
+L,	.\socket.h, 82,	10947
+L,	.\socket.h, 83,	10951
+L,	.\socket.h, 84,	10958
+L,	.\socket.h, 86,	10960
+F,	RcvSocket,	.\socket.h, 86,	10961
+L,	.\socket.h, 87,	10962
+L,	.\socket.h, 88,	10966
+L,	.\socket.h, 89,	10971
+L,	.\socket.h, 90,	10976
+L,	.\socket.h, 91,	10983
+L,	.\socket.h, 92,	10998
+L,	.\socket.h, 93,	10999
+L,	.\socket.h, 94,	11006
+L,	.\socket.h, 95,	11013
+L,	.\socket.h, 96,	11015
+L,	.\socket.h, 98,	11017
+F,	GetSockBuffer,	.\socket.h, 98,	11018
+L,	.\socket.h, 99,	11019
+L,	.\socket.h,100,	11020
+L,	.\socket.h,101,	11029
+L,	.\socket.h,102,	11030
+L,	.\socket.h,103,	11038
+L,	.\socket.h,104,	11045
+L,	.\socket.h,105,	11052
+L,	.\socket.h,106,	11054
+L,	.\main.mc,109,	11056
+L,	.\main.mc,112,	11057
+L,	.\main.mc,114,	11058
+F,	main,	.\main.mc,114,	11059
+L,	.\main.mc,115,	11061
+L,	.\main.mc,117,	11062
+L,	.\main.mc,118,	11064
+L,	.\main.mc,119,	11066
+L,	.\main.mc,120,	11068
+L,	.\main.mc,121,	11072
+L,	.\main.mc,123,	11076
+L,	.\main.mc,124,	11082
+L,	.\main.mc,125,	11088
+L,	.\main.mc,127,	11090
+F,	EVENT_TIMEOUT,	.\main.mc,127,	11091
+L,	.\main.mc,128,	11092
+L,	.\main.mc,129,	11093
+L,	.\main.mc,130,	11112
+L,	.\main.mc,131,	11113
+L,	.\main.mc,132,	11114
+L,	.\main.mc,133,	11122
+L,	.\main.mc,135,	11123
+L,	.\main.mc,136,	11124
+L,	.\main.mc,137,	11139
+L,	.\main.mc,138,	11140
+L,	.\main.mc,139,	11141
+L,	.\main.mc,140,	11145
+L,	.\main.mc,141,	11149
+L,	.\main.mc,142,	11151
+L,	.\main.mc,143,	11153
+L,	.\main.mc,144,	11156
+L,	.\main.mc,145,	11158
+L,	.\main.mc,146,	11161
+L,	.\main.mc,147,	11166
+L,	.\main.mc,148,	11167
+L,	.\main.mc,149,	11177
+L,	.\main.mc,150,	11180
+L,	.\main.mc,151,	11182
+L,	.\main.mc,152,	11187
+L,	.\main.mc,153,	11188
+L,	.\main.mc,154,	11189
+L,	.\main.mc,155,	11194
+L,	.\main.mc,156,	11195
+L,	.\main.mc,157,	11198
+L,	.\main.mc,158,	11201
+L,	.\main.mc,159,	11208
+L,	.\main.mc,160,	11209
+L,	.\main.mc,162,	11210
+L,	.\main.mc,167,	11211
+L,	.\main.mc,170,	11212
+L,	.\main.mc,171,	11213
+L,	.\main.mc,172,	11215
+L,	.\main.mc,174,	11217
+F,	EVENT_KEYPRESS,	.\main.mc,174,	11218
+L,	.\main.mc,175,	11219
+L,	.\main.mc,176,	11220
+L,	.\main.mc,177,	11239
+L,	.\main.mc,178,	11240
+L,	.\main.mc,179,	11241
+L,	.\main.mc,180,	11260
+L,	.\main.mc,181,	11261
+L,	.\main.mc,182,	11262
+L,	.\main.mc,183,	11275
+L,	.\main.mc,184,	11276
+L,	.\main.mc,185,	11277
+L,	.\main.mc,186,	11278
+L,	.\main.mc,187,	11279
+L,	.\main.mc,188,	11280
+L,	.\main.mc,189,	11281
+L,	.\main.mc,191,	11282
+L,	.\main.mc,193,	11283
+L,	.\main.mc,194,	11291
+L,	.\main.mc,195,	11296
+L,	.\main.mc,196,	11301
+L,	.\main.mc,197,	11306
+L,	.\main.mc,198,	11325
+L,	.\main.mc,199,	11326
+L,	.\main.mc,200,	11332
+L,	.\main.mc,201,	11340
+L,	.\main.mc,203,	11341
+L,	.\main.mc,207,	11342
+L,	.\main.mc,209,	11343
+L,	.\main.mc,210,	11344
+L,	.\main.mc,212,	11346
+F,	EVENT_NETWORK,	.\main.mc,212,	11347
+L,	.\main.mc,213,	11348
+L,	.\main.mc,214,	11349
+L,	.\main.mc,215,	11351
+L,	.\main.mc,217,	11353
+F,	ChangeMode,	.\main.mc,217,	11354
+L,	.\main.mc,218,	11356
+L,	.\main.mc,219,	11357
+L,	.\main.mc,220,	11375
+L,	.\main.mc,221,	11376
+L,	.\main.mc,222,	11377
+L,	.\main.mc,223,	11383
+L,	.\main.mc,224,	11384
+L,	.\main.mc,225,	11385
+L,	.\main.mc,226,	11391
+L,	.\main.mc,227,	11392
+L,	.\main.mc,228,	11393
+L,	.\main.mc,229,	11400
+L,	.\main.mc,230,	11401
+L,	.\main.mc,231,	11402
+L,	.\main.mc,232,	11403
+L,	.\main.mc,233,	11404

@@ -1,4 +1,8 @@
 int SelectedAnswer = 0;
+int SelectedQuantity = 1;
+int ShopStatus = 0;
+int SecondSelect = 0;
+int EmptySlot = 1;
 
 void RunEventLine(int EventNumber)
 {
@@ -43,7 +47,7 @@ void RunEventLine(int EventNumber)
 			SetPlayerStatus(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 			break;
 		case 6:		//주인공 아이템 및 스킬 등 습득	 :: 매개변수 3개
-			GetItem(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
+			EmptySlot = GetItem(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 			break;
 		case 7:		//주인공 맵 이동_지역 워프		 :: 매개변수 3개
 			MoveMap(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
@@ -63,7 +67,7 @@ void RunEventLine(int EventNumber)
 			else
 			{
 				PrintQuestion(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount+1], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount+2]);
-				EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount--;
+				EventObject[EventNumber].LineCount--;
 				NextKey = -1;
 			}
 			
@@ -79,15 +83,14 @@ void RunEventLine(int EventNumber)
 			else EventObject[EventNumber].LineCount++;
 			break;
 		case 14:	//상점처리
-			if(NextKey == SWAP_KEY_CLR)
+			if(!Shopping(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount+1], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount+2]))
 			{
-				Shopping(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
+				EventObject[EventNumber].LineCount = EventObject[EventNumber].LineCount + 3;
 				NextKey = -1;
 			}
 			else
 			{
-				Shopping(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount+1], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount+2]);
-				EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount--;
+				EventObject[EventNumber].LineCount--;
 				NextKey = -1;
 			}
 			break;
@@ -236,7 +239,7 @@ void StatusToVariable(int Status, int Value)
 		case 9://Variable[Value] = DEX
 			Variable[Value] = Player.DEX;break;
 		case 10://Variable[Value] = GOLD
-			Variable[Value] = Player.GOLD;
+			Variable[Value] = Player.Gold;
 	}
 }
 
@@ -270,7 +273,7 @@ void SetPlayerStatus(int Status, int Operation, int Value)
 				case 9://DEX
 					Player.DEX += Variable[Value];break;
 				case 10://GOLD
-					Player.GOLD += Variable[Value];
+					Player.Gold += Variable[Value];
 			}
 			break;
 		case 1:	// -= Variable[Value]
@@ -296,7 +299,7 @@ void SetPlayerStatus(int Status, int Operation, int Value)
 				case 9://DEX
 					Player.DEX -= Variable[Value];break;
 				case 10://GOLD
-					Player.GOLD -= Variable[Value];
+					Player.Gold -= Variable[Value];
 			}
 			break;
 		case 2: // = Variable[Value]
@@ -322,15 +325,31 @@ void SetPlayerStatus(int Status, int Operation, int Value)
 				case 9://DEX
 					Player.DEX = Variable[Value];break;
 				case 10://GOLD
-					Player.GOLD = Variable[Value];
+					Player.Gold = Variable[Value];
 			}
 	}
 }
 
 //6번 이벤트 라인{6,*} - 주인공 아이템 및 스킬 습득
-void GetItem(int Category, int ItemNumber, int Quantity)
+int GetItem(int Category, int ItemNumber, int Quantity)
 {
-Player.GOLD++;
+	int i;
+	for(i = 0; i < InventorySize; i++)
+	{
+		if(Inventory[i].ListNumber == ItemNumber && Inventory[i].Quantity < 20)	//이미 소지, 소지한도 여유인 경우
+		{
+			Inventory[i].Quantity = Inventory[i].Quantity + Quantity;
+			return 1;
+		}
+		else if(Inventory[i].ListNumber == 0)	//소지하지 않은 경우
+		{
+			Inventory[i].ListNumber = ItemNumber;
+			Inventory[i].Quantity = Quantity;
+			return 1;	//추가 완료
+		}
+	}
+	return 0;	//빈 슬롯이 없음
+	//Player.Gold++;
 //////////////////////////////////////////////////////////////////////////////////// 보완
 }
 
@@ -508,37 +527,184 @@ int Delay(int Value)
 	return 0;
 }
 
-//14번 이벤트 라인{14,*,*,*} - 상점처리
-void Shopping(int ShopMode, int SellListFront, int SellListRear)
+//14번 이벤트 라인{14,*,*,*} - 상점처리(상점모드, 판매리스트처음, 판매리스트끝) //상점모드:사용안하는중..차후 추가 예정(도구전용/무기전용/스킬전용 등 상점)
+int Shopping(int ShopMode, int SellListFront, int SellListRear)
 {
 	int i;
+	string Temp;
+	int ListLength;
+
+	ListLength = SellListRear - SellListFront;
+	if(ListLength > 10) ListLength = 10;
+
 	SetColorRGB(0, 30, 100);
-	FillRectEx(4, 4, 171, 25 + (SellListRear - SellListFront) * 15, 2);
+	FillRectEx(4, 4, 171, 25 + (ListLength) * 15, 2);
 	SetColorRGB(0, 20, 70);
-	DrawRect(3, 3, 172, 25 + (SellListRear - SellListFront) * 15);
-	
-	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
-	for(i = 0; i <= SellListRear - SellListFront; i++)
+	DrawRect(3, 3, 172, 25 + (ListLength) * 15);
+
+	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
+	for(i = 0; i <= ListLength; i++)
 	{
-		DrawStr(88, 9 + i * 15, ItemList[SellItemList[SellListFront + i]].Name);
+		CopyImage(10, 10 + i * 15, icon[ItemList[SellItemList[SellListFront + i]].Icon]);	//아이템 아이콘 출력
+		DrawStr(26, 9 + i * 15, ItemList[SellItemList[SellListFront + i]].Name);	//아이템 이름 출력
 	}
-	if(NextKey == SWAP_KEY_UP)
+
+	SetFontType(S_FONT_LARGE, S_GREEN, S_BLACK, S_ALIGN_LEFT);	//109=RED,43=GREEN, 디파인에 정의 요망~
+	for(i = 0; i <= ListLength; i++)
 	{
-		SelectedAnswer = (SelectedAnswer + (SellListRear - SellListFront)) % (SellListRear - SellListFront + 1);
+		MakeStr1(Temp, "%5d AL", ItemList[SellItemList[SellListFront + i]].Cost);
+		DrawStr(100, 9 + i * 15, Temp);		//아이템 가격 출력
 	}
-	else if(NextKey == SWAP_KEY_DOWN)
+	if(ShopStatus)
+		SetColor(S_RED);
+	else
+		SetColor(S_WHITE);
+
+	DrawRect(5, 7 + SelectedAnswer * 15, 170, 21 + SelectedAnswer * 15);	//선택 위치표시
+	MakeStr1(Temp, "x%2d", SelectedQuantity);
+	SetFontType(S_FONT_LARGE, S_YELLOW, S_BLACK, S_ALIGN_LEFT);
+	DrawStr(150, 9 + SelectedAnswer * 15, Temp);	//선택 수량 출력
+
+	switch(ShopStatus)
 	{
-		SelectedAnswer = (SelectedAnswer + 1) % (SellListRear - SellListFront + 1);
+		case 0:		//아이템 목록 선택
+			if(NextKey == SWAP_KEY_UP)
+			{
+				SelectedAnswer = (SelectedAnswer + ListLength) % (ListLength + 1);
+				SelectedQuantity = 1;
+			}
+			else if(NextKey == SWAP_KEY_DOWN)
+			{
+				SelectedAnswer = (SelectedAnswer + 1) % (ListLength + 1);
+				SelectedQuantity = 1;
+			}
+			else if(NextKey == SWAP_KEY_LEFT)
+			{
+				if(SelectedQuantity > 1)
+					SelectedQuantity--;
+				else
+					SelectedQuantity = 20;
+			}
+			else if(NextKey == SWAP_KEY_RIGHT)
+			{
+				if(SelectedQuantity < 20)
+					SelectedQuantity++;
+				else
+					SelectedQuantity = 1;
+			}
+			else if(NextKey == SWAP_KEY_OK)
+			{		
+				ShopStatus = 1;	//아이템 선택 -> 다음 명령에서 돈이 맞는지 확인해야함
+			}
+			else if(NextKey == SWAP_KEY_CLR)
+			{
+				SelectedAnswer = 0;	//선택 번호 초기화
+				return 0;
+			}
+			break;
+		case 1:		//돈 확인 부분
+			SetColorRGB(0, 30, 100);
+			FillRectEx(4, 44, 171, 70, 1);
+			SetColorRGB(0, 20, 70);
+			DrawRect(3, 43, 172, 71);
+
+			SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
+			if(Player.Gold < ItemList[SellItemList[SellListFront + SelectedAnswer]].Cost * SelectedQuantity)
+			{
+				DrawStr(88, 52, "돈이 부족합니다.");
+				if(NextKey == SWAP_KEY_OK || NextKey == SWAP_KEY_CLR)
+				{		
+					ShopStatus = 0;		//아이템 선택으로 넘어감
+				}
+			}
+			else
+			{
+				ShopStatus = 2;		//구입 결정 명령으로 넘어갈차례
+			}
+			break;
+		case 2:		//구입 확인 부분
+			SetColorRGB(0, 30, 100);
+			FillRectEx(4, 44, 171, 70, 1);
+			SetColorRGB(0, 20, 70);
+			DrawRect(3, 43, 172, 71);
+
+			SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
+			MakeStr1(Temp, "%d AL입니다. 구입합니까?", ItemList[SellItemList[SellListFront + SelectedAnswer]].Cost * SelectedQuantity);
+			DrawStr(88, 52, Temp);
+
+			SetColorRGB(0, 30, 100);
+			FillRectEx(4, 74, 171, 107, 1);
+			SetColorRGB(0, 20, 70);
+			DrawRect(3, 73, 172, 108);
+			DrawStr(88, 78, "네");	//110-74 = 36 /2 = 18 -14 = 4/2 =2
+			DrawStr(88, 93, "아니오");
+			
+			if(NextKey == SWAP_KEY_UP || NextKey == SWAP_KEY_DOWN)
+			{
+				SecondSelect = (SecondSelect + 1) % 2;
+			}
+			else if(NextKey == SWAP_KEY_CLR)
+			{	
+				SecondSelect = 0;	//네/아니오 선택 초기화
+				ShopStatus = 0;	//아이템 선택으로 넘어감
+			}
+			else if(NextKey == SWAP_KEY_OK)
+			{
+				if(!SecondSelect)	//계산 완료
+				{
+					/************아이템 추가 부분 삽입 요망***************/
+					EmptySlot = GetItem(0, SellItemList[SellListFront + SelectedAnswer], SelectedQuantity);
+					if(EmptySlot)	//구입 완료
+					{
+						Player.Gold = Player.Gold - ItemList[SellItemList[SellListFront + SelectedAnswer]].Cost * SelectedQuantity;
+						ShopStatus = 3;
+					}
+					else	//구입 실패:슬롯없음
+					{
+						ShopStatus = 4;
+					}
+					/************아이템 추가 부분 삽입 요망***************/
+					
+				}
+				else
+				{
+					SecondSelect = 0;	//네/아니오 선택 초기화
+					ShopStatus = 0;	//아이템 선택으로 넘어감
+				}
+			}
+			SetColor(S_WHITE);
+			DrawRect(5, 76 + SecondSelect * 15, 170, 90 + SecondSelect * 15);	//선택 위치표시
+			break;
+		case 3:		//구입 종료 확인 부분
+			SetColorRGB(0, 30, 100);
+			FillRectEx(4, 44, 171, 70, 1);
+			SetColorRGB(0, 20, 70);
+			DrawRect(3, 43, 172, 71);
+			SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
+			DrawStr(88, 52, "구입을 완료 하였습니다.");
+			if(NextKey == SWAP_KEY_OK || NextKey == SWAP_KEY_CLR)
+			{	
+				ShopStatus = 0;	//아이템 선택으로 넘어감
+			}
+			break;
+		case 4:		//구입 실패
+			SetColorRGB(0, 30, 100);
+			FillRectEx(4, 44, 171, 70, 1);
+			SetColorRGB(0, 20, 70);
+			DrawRect(3, 43, 172, 71);
+			SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
+			DrawStr(88, 52, "슬롯이 없습니다.");
+
+			if(NextKey == SWAP_KEY_OK || NextKey == SWAP_KEY_CLR)
+			{	
+				ShopStatus = 0;	//아이템 선택으로 넘어감
+			}
+			break;
 	}
-	else if(NextKey == SWAP_KEY_OK)
-	{
-		//Variable[ShopMode] = SelectedAnswer;
-		//SelectedAnswer = 0;
-		return;
-	}
-	SetColorRGB(255, 255, 255);
-	DrawRect(5, 7 + SelectedAnswer * 15, 170, 21 + SelectedAnswer * 15);
+	return 1;
+	/*-------------------------보완요망----------------------------*/
 }
+
 
 /*/14번 이벤트 라인{14,*,*} - 키입력 변수
 void KeyState(int KeyValue, int Value)

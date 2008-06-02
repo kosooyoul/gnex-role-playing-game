@@ -1,3 +1,8 @@
+//색상에 대해서
+#define S_YELLOW	137
+#define S_RED		109
+#define S_GREEN		43
+
 //chara.h
 #define _CenterPositionX 52 + 24	//케릭터 표시위치 = 4*16-(8)-? -12 : 3
 #define _CenterPositionY 40 + 16	//케릭터 표시위치 = 4*16-(8)-? -16 : 20
