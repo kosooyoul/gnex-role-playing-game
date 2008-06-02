@@ -1,0 +1,258 @@
+@HEADER_SECTION
+	#DEFINE PLAYERVER	4
+	#DEFINE LCDCLASS	255
+	#DEFINE IMAGETYPE	255
+	#DEFINE AUDIOTYPE	255
+	#DEFINE APPTYPE		1
+	#DEFINE APPCPID		60000
+	#DEFINE APPID		1
+	#DEFINE APPNAME		"소켓통신연습 GNEX App"
+	#DEFINE COMPTYPE	0
+	#DEFINE AGENTTYPE	0
+	#DEFINE VALIDCOUNT	255
+	#DEFINE VALIDTERM	255
+	#DEFINE DIRECTRUN	0
+	#DEFINE APPVER		1
+@DATA_SECTION
+@GLOBAL_INTSYMBOL_TABLE
+.sym 	&swData 	    0     1
+.sym 	&swData2 	    1     1
+.sym 	&swData3 	    2     1
+.sym 	&swData4 	    3     1
+.sym 	&swWidth 	    4     1
+.sym 	&swHeight 	    5     1
+.sym 	&swFrame 	    6     1
+.sym 	&swFrame2 	    7     1
+.sym 	&swFrame3 	    8     1
+.sym 	&swFrame6 	    9     1
+.syma 	&swVMver 	   10     3     0
+.syma 	&swModel 	   11     8     0
+.syma 	&swSmsRcvBuf 	   12    41     0
+.syma 	&swRsRcvBuf 	   13   128     0
+.syma 	&swRcvBuf 	   14   256     0
+.sym 	&swReserved1 	   15     1
+.sym 	&swReserved2 	   16     1
+.sym 	&swReserved3 	   17     1
+.sym 	&swReserved4 	   18     1
+.sym 	&swSbuf 	   19     1
+.sym 	&Sock_Index 	   20     1
+.sym 	&Sock_Result 	   21     1
+.sym 	&Sock_LenSendString 	   22     1
+.sym 	&Sock_LenRcvString 	   23     1
+.equ 	&Sock_SendString 	   24   %%14     1
+.equ 	&Sock_RcvString 	   25   %%0     1
+.equ 	&Sock_BufferFront 	   26     0     0
+.equ 	&Sock_BufferRear 	   27     0     0
+.equa 	&Sock_Buffer 	   28    10
+ %%1 %%2 %%3 %%4 %%5 %%6 %%7 %%8 %%9 %%10
+.sym 	&i 	   29     1
+@EXTERN_INTSYMBOL_TABLE
+@STATIC_FUNC_TABLE
+.func     EVENT_TIMEOUT 	0	
+.func     EVENT_KEYPRESS 	0	
+.func     EVENT_NETWORK 	0	
+.func     OpenSocket 	0	
+.func     CloseSocket 	0	
+.func     SendSocket 	0	
+.func     RcvSocket 	0	
+.func     GetSockBuffer 	0	
+@EXTERN_FUNC_TABLE
+@IMPORT_FUNC_TABLE
+@EXPORT_FUNC_TABLE
+@MEDIA_SYMBOL_TABLE
+.symm 	%%0 	    0     0     1
+// string form = ""
+    0x00
+.symm 	%%1 	    1     0     1
+// string form = ""
+    0x00
+.symm 	%%2 	    2     0     1
+// string form = ""
+    0x00
+.symm 	%%3 	    3     0     1
+// string form = ""
+    0x00
+.symm 	%%4 	    4     0     1
+// string form = ""
+    0x00
+.symm 	%%5 	    5     0     1
+// string form = ""
+    0x00
+.symm 	%%6 	    6     0     1
+// string form = ""
+    0x00
+.symm 	%%7 	    7     0     1
+// string form = ""
+    0x00
+.symm 	%%8 	    8     0     1
+// string form = ""
+    0x00
+.symm 	%%9 	    9     0     1
+// string form = ""
+    0x00
+.symm 	%%10 	   10     0     1
+// string form = ""
+    0x00
+.equm 	%%11 	   11     0    10
+// string form = "127.0.0.1"
+    0x31 0x32 0x37 0x2e 0x30 0x2e 0x30 0x2e 0x31 0x00
+.equm 	%%12 	   12     0     6
+// string form = "V[%d]"
+    0x56 0x5b 0x25 0x64 0x5d 0x00
+.equm 	%%13 	   13     0     1
+// string form = ""
+    0x00
+.symm 	%%14 	   14     0     0
+@CODE_SECTION
+$init:     ret      
+main:      nop      
+           call     $init:
+           pushc    500   
+           pushc    1   
+           calls    SetTimer
+           end      
+EVENT_TIMEOUT: nop  
+           calls    ClearBlack
+           pushc    2   
+           pushc    0   
+           pushc    3   
+           pushc    0   
+           calls    SetFontType
+           call     GetSockBuffer:
+           calls    Flush
+           end      
+EVENT_KEYPRESS: nop 
+           ssp      
+           pushz    &swData   
+           dup      
+           eqjp     13   $$1:
+           dup      
+           eqjp     20   $$2:
+           dup      
+           eqjp     16   $$3:
+           dup      
+           eqjp     17   $$4:
+           dup      
+           eqjp     18   $$5:
+           dup      
+           eqjp     19   $$6:
+           ujp      $$7:
+$$1:       rsp      
+           call     RcvSocket:
+           calls    Flush
+           ujp      $$0:
+$$2:       rsp      
+           call     SendSocket:
+           ujp      $$0:
+$$3:       rsp      
+           zsetz    &i   &Sock_BufferFront   
+           ujp      $$0:
+$$4:       rsp      
+           zsetz    &i   &Sock_BufferRear   
+           ujp      $$0:
+$$5:       rsp      
+           call     OpenSocket:
+           ujp      $$0:
+$$6:       rsp      
+           call     CloseSocket:
+           ujp      $$0:
+$$7:       rsp      
+$$0:       end      
+EVENT_NETWORK: nop  
+           call     RcvSocket:
+           end      
+OpenSocket: nop     
+           pushz    &Sock_Index   
+           pushz    &Sock_SendString   
+           pushc    0   
+           pushz    &Sock_LenSendString   
+           calls    SockSendMedia
+           stnz     &Sock_Result   
+           gejp     0   $$8:
+           pushc    1   
+           calls    SockOpen
+           stnz     &Sock_Index   
+           pushmi   %%11   
+           pushc    20001   
+           calls    SockConnect
+           popz     &Sock_Result   
+$$8:       ret      
+CloseSocket: nop    
+           pushz    &Sock_Index   
+           calls    SockClose
+           popz     &swReserved3   
+           ret      
+SendSocket: nop     
+           pushz    &Sock_SendString   
+           pushc    32   
+           calls    StrInit
+           pushz    &Sock_SendString   
+           pushmi   %%12   
+           pushz    &i   
+           calls    MakeStr1
+           pushz    &Sock_SendString   
+           calls    StrLen
+           popz     &Sock_LenSendString   
+           pushz    &Sock_Index   
+           pushz    &Sock_SendString   
+           pushc    0   
+           pushz    &Sock_LenSendString   
+           calls    SockSendMedia
+           popz     &Sock_Result   
+           ret      
+RcvSocket: nop      
+           pushz    &Sock_RcvString   
+           pushc    32   
+           calls    StrInit
+           pushz    &Sock_RcvString   
+           pushc    20   
+           calls    SetMediaSize
+           popz     &Sock_LenRcvString   
+           pushz    &Sock_RcvString   
+           pushc    20   
+           pushc    0   
+           calls    PutChar
+           pushz    &Sock_Index   
+           pushz    &Sock_RcvString   
+           pushc    0   
+           pushc    20   
+           calls    SockRecvMedia
+           popz     &Sock_Result   
+           pushz    &Sock_RcvString   
+           calls    StrLen
+           pushc    0   
+           ne       
+           dup      
+           fjp      $$10:
+           popz     &swReserved3   
+           pushz    &Sock_BufferFront   
+           pushz    &Sock_BufferRear   
+           inc      
+           ne       
+$$10:      fjp      $$9:
+           pushi    &Sock_Buffer   &Sock_BufferRear   
+           pushz    &Sock_RcvString   
+           calls    StrCpy
+           pushz    &Sock_BufferRear   
+           inc      
+           pushc    10   
+           mod      
+           popz     &Sock_BufferRear   
+$$9:       ret      
+GetSockBuffer: nop  
+           pushi    &Sock_Buffer   &Sock_BufferFront   
+           calls    StrLen
+           eqjp     0   $$11:
+           pushc    30   
+           pushc    150   
+           pushi    &Sock_Buffer   &Sock_BufferFront   
+           calls    DrawStr
+           pushi    &Sock_Buffer   &Sock_BufferFront   
+           pushmi   %%13   
+           calls    StrCpy
+           pushz    &Sock_BufferFront   
+           inc      
+           pushc    10   
+           mod      
+           popz     &Sock_BufferFront   
+$$11:      ret      

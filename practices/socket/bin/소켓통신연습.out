@@ -1,0 +1,419 @@
+STATIC VAR.	swData           of SYSTEM          0       1       
+STATIC VAR.	swData2          of SYSTEM          1       1       
+STATIC VAR.	swData3          of SYSTEM          2       1       
+STATIC VAR.	swData4          of SYSTEM          3       1       
+STATIC VAR.	swWidth          of SYSTEM          4       1       
+STATIC VAR.	swHeight         of SYSTEM          5       1       
+STATIC VAR.	swFrame          of SYSTEM          6       1       
+STATIC VAR.	swFrame2         of SYSTEM          7       1       
+STATIC VAR.	swFrame3         of SYSTEM          8       1       
+STATIC VAR.	swFrame6         of SYSTEM          9       1       
+STATIC VAR.	swVMver          of SYSTEM          10      3       0       
+STATIC VAR.	swModel          of SYSTEM          11      8       0       
+STATIC VAR.	swSmsRcvBuf      of SYSTEM          12      41      0       
+STATIC VAR.	swRsRcvBuf       of SYSTEM          13      128     0       
+STATIC VAR.	swRcvBuf         of SYSTEM          14      256     0       
+STATIC VAR.	swReserved1      of SYSTEM          15      1       
+STATIC VAR.	swReserved2      of SYSTEM          16      1       
+STATIC VAR.	swReserved3      of SYSTEM          17      1       
+STATIC VAR.	swReserved4      of SYSTEM          18      1       
+STATIC VAR.	swSbuf           of SYSTEM          19      1       
+STATIC VAR.	Sock_Index       of SYSTEM          20      1       
+STATIC VAR.	Sock_Result      of SYSTEM          21      1       
+STATIC VAR.	Sock_LenSendString of SYSTEM          22      1       
+STATIC VAR.	Sock_LenRcvString of SYSTEM          23      1       
+STATIC VAR.	Sock_SendString  of SYSTEM          24      14      1       
+STATIC VAR.	Sock_RcvString   of SYSTEM          25      0       1       
+STATIC VAR.	Sock_BufferFront of SYSTEM          26      0       0       
+STATIC VAR.	Sock_BufferRear  of SYSTEM          27      0       0       
+STATIC VAR.	Sock_Buffer      of SYSTEM          28      10      
+ 1           2           3           4           5           6           7           8          
+ 9           10         
+STATIC VAR.	i                of SYSTEM          29      1       
+FUNCTION	EVENT_TIMEOUT    has 0     args.
+FUNCTION	EVENT_KEYPRESS   has 0     args.
+FUNCTION	EVENT_NETWORK    has 0     args.
+FUNCTION	OpenSocket       has 0     args.
+FUNCTION	CloseSocket      has 0     args.
+FUNCTION	SendSocket       has 0     args.
+FUNCTION	RcvSocket        has 0     args.
+FUNCTION	GetSockBuffer    has 0     args.
+MEDIA		%%0     has [ 0 0 0 1 ].
+MEDIA		%%1     has [ 1 1 0 1 ].
+MEDIA		%%2     has [ 2 2 0 1 ].
+MEDIA		%%3     has [ 3 3 0 1 ].
+MEDIA		%%4     has [ 4 4 0 1 ].
+MEDIA		%%5     has [ 5 5 0 1 ].
+MEDIA		%%6     has [ 6 6 0 1 ].
+MEDIA		%%7     has [ 7 7 0 1 ].
+MEDIA		%%8     has [ 8 8 0 1 ].
+MEDIA		%%9     has [ 9 9 0 1 ].
+MEDIA		%%10    has [ 10 10 0 1 ].
+MEDIA		%%11    has [ 11 11 0 10 ].
+MEDIA		%%12    has [ 12 12 0 6 ].
+MEDIA		%%13    has [ 13 13 0 1 ].
+MEDIA		%%14    has [ 14 14 0 0 ].
+CODESIZE	2        Bytes in $init           
+CODESIZE	22       Bytes in main            
+CODESIZE	38       Bytes in EVENT_TIMEOUT   
+LABEL		$$1              of EVENT_KEYPRESS  
+LABEL		$$2              of EVENT_KEYPRESS  
+LABEL		$$3              of EVENT_KEYPRESS  
+LABEL		$$4              of EVENT_KEYPRESS  
+LABEL		$$5              of EVENT_KEYPRESS  
+LABEL		$$6              of EVENT_KEYPRESS  
+LABEL		$$7              of EVENT_KEYPRESS  
+LABEL		$$0              of EVENT_KEYPRESS  
+CODESIZE	166      Bytes in EVENT_KEYPRESS  
+CODESIZE	10       Bytes in EVENT_NETWORK   
+LABEL		$$8              of OpenSocket      
+CODESIZE	64       Bytes in OpenSocket      
+CODESIZE	16       Bytes in CloseSocket     
+CODESIZE	68       Bytes in SendSocket      
+LABEL		$$10             of RcvSocket       
+LABEL		$$9              of RcvSocket       
+CODESIZE	146      Bytes in RcvSocket       
+LABEL		$$11             of GetSockBuffer   
+CODESIZE	70       Bytes in GetSockBuffer   
+000th Func is '$init'
+001th Func is 'CloseSocket'
+002th Func is 'EVENT_KEYPRESS'
+003th Func is 'EVENT_NETWORK'
+004th Func is 'EVENT_TIMEOUT'
+005th Func is 'GetSockBuffer'
+006th Func is 'OpenSocket'
+007th Func is 'RcvSocket'
+008th Func is 'SendSocket'
+009th Func is 'main'
+-------------------------------------------------
+Optimize Function '$init()'
+		Code Length : 2 Byte(s).
+		Final Optimized Code Length : 2 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'main()'
+		Code Length : 22 Byte(s).
+		Final Optimized Code Length : 22 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'EVENT_TIMEOUT()'
+		Code Length : 38 Byte(s).
+		Final Optimized Code Length : 38 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'EVENT_KEYPRESS()'
+		Code Length : 166 Byte(s).
+		Final Optimized Code Length : 166 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'EVENT_NETWORK()'
+		Code Length : 10 Byte(s).
+		Final Optimized Code Length : 10 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'OpenSocket()'
+		Code Length : 64 Byte(s).
+		Final Optimized Code Length : 64 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'CloseSocket()'
+		Code Length : 16 Byte(s).
+		Final Optimized Code Length : 16 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'SendSocket()'
+		Code Length : 68 Byte(s).
+		Final Optimized Code Length : 68 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'RcvSocket()'
+		Code Length : 146 Byte(s).
+		Final Optimized Code Length : 146 Byte(s).
+-------------------------------------------------
+-------------------------------------------------
+Optimize Function 'GetSockBuffer()'
+		Code Length : 70 Byte(s).
+		Final Optimized Code Length : 70 Byte(s).
+-------------------------------------------------
+FUNC COUNT: 10
+Set FUNC ADDRESS : $init [0x00000080]
+Set FUNC ADDRESS : CloseSocket [0x00000082]
+Set FUNC ADDRESS : EVENT_KEYPRESS [0x00000092]
+Set FUNC ADDRESS : EVENT_NETWORK [0x00000138]
+Set FUNC ADDRESS : EVENT_TIMEOUT [0x00000142]
+Set FUNC ADDRESS : GetSockBuffer [0x00000168]
+Set FUNC ADDRESS : OpenSocket [0x000001AE]
+Set FUNC ADDRESS : RcvSocket [0x000001EE]
+Set FUNC ADDRESS : SendSocket [0x00000280]
+Set FUNC ADDRESS : main [0x000002C4]
+
+FUNCTION : $init()
+{
+	0x00000080 : ret	// , $init, -1 - SAL : 107
+}
+
+
+FUNCTION : CloseSocket()
+{
+	0x00000082 : nop	// , CloseSocket, -1 - SAL : 180
+	0x00000084 : pushz		20 ( Sock_Index )	// , CloseSocket, -1 - SAL : 181
+	0x00000088 : calls		SockClose(112)	// , CloseSocket, -1 - SAL : 182
+	0x0000008C : popz		17 ( swReserved3 )	// , CloseSocket, -1 - SAL : 183
+	0x00000090 : ret	// , CloseSocket, -1 - SAL : 184
+}
+
+
+FUNCTION : EVENT_KEYPRESS()
+{
+	0x00000092 : nop	// , EVENT_KEYPRESS, -1 - SAL : 124
+	0x00000094 : ssp	// , EVENT_KEYPRESS, -1 - SAL : 125
+	0x00000096 : pushz		0 ( swData )	// , EVENT_KEYPRESS, -1 - SAL : 126
+	0x0000009A : dup	// , EVENT_KEYPRESS, -1 - SAL : 127
+	0x0000009C : eqjp		13		0x000000DC	// , EVENT_KEYPRESS, -1 - SAL : 128
+	0x000000A4 : dup	// , EVENT_KEYPRESS, -1 - SAL : 129
+	0x000000A6 : eqjp		20		0x000000EE	// , EVENT_KEYPRESS, -1 - SAL : 130
+	0x000000AE : dup	// , EVENT_KEYPRESS, -1 - SAL : 131
+	0x000000B0 : eqjp		16		0x000000FC	// , EVENT_KEYPRESS, -1 - SAL : 132
+	0x000000B8 : dup	// , EVENT_KEYPRESS, -1 - SAL : 133
+	0x000000BA : eqjp		17		0x0000010A	// , EVENT_KEYPRESS, -1 - SAL : 134
+	0x000000C2 : dup	// , EVENT_KEYPRESS, -1 - SAL : 135
+	0x000000C4 : eqjp		18		0x00000118	// , EVENT_KEYPRESS, -1 - SAL : 136
+	0x000000CC : dup	// , EVENT_KEYPRESS, -1 - SAL : 137
+	0x000000CE : eqjp		19		0x00000126	// , EVENT_KEYPRESS, -1 - SAL : 138
+	0x000000D6 : ujp		0x00000134	// , EVENT_KEYPRESS, -1 - SAL : 139
+	0x000000DC : rsp	// , EVENT_KEYPRESS, -1 - SAL : 140
+	0x000000DE : call		0x000001EE	// , EVENT_KEYPRESS, -1 - SAL : 141
+	0x000000E4 : calls		Flush(95)	// , EVENT_KEYPRESS, -1 - SAL : 142
+	0x000000E8 : ujp		0x00000136	// , EVENT_KEYPRESS, -1 - SAL : 143
+	0x000000EE : rsp	// , EVENT_KEYPRESS, -1 - SAL : 144
+	0x000000F0 : call		0x00000280	// , EVENT_KEYPRESS, -1 - SAL : 145
+	0x000000F6 : ujp		0x00000136	// , EVENT_KEYPRESS, -1 - SAL : 146
+	0x000000FC : rsp	// , EVENT_KEYPRESS, -1 - SAL : 147
+	0x000000FE : zsetz		29 ( i )		26 ( Sock_BufferFront )	// , EVENT_KEYPRESS, -1 - SAL : 148
+	0x00000104 : ujp		0x00000136	// , EVENT_KEYPRESS, -1 - SAL : 149
+	0x0000010A : rsp	// , EVENT_KEYPRESS, -1 - SAL : 150
+	0x0000010C : zsetz		29 ( i )		27 ( Sock_BufferRear )	// , EVENT_KEYPRESS, -1 - SAL : 151
+	0x00000112 : ujp		0x00000136	// , EVENT_KEYPRESS, -1 - SAL : 152
+	0x00000118 : rsp	// , EVENT_KEYPRESS, -1 - SAL : 153
+	0x0000011A : call		0x000001AE	// , EVENT_KEYPRESS, -1 - SAL : 154
+	0x00000120 : ujp		0x00000136	// , EVENT_KEYPRESS, -1 - SAL : 155
+	0x00000126 : rsp	// , EVENT_KEYPRESS, -1 - SAL : 156
+	0x00000128 : call		0x00000082	// , EVENT_KEYPRESS, -1 - SAL : 157
+	0x0000012E : ujp		0x00000136	// , EVENT_KEYPRESS, -1 - SAL : 158
+	0x00000134 : rsp	// , EVENT_KEYPRESS, -1 - SAL : 159
+	0x00000136 : end	// , EVENT_KEYPRESS, -1 - SAL : 160
+}
+
+
+FUNCTION : EVENT_NETWORK()
+{
+	0x00000138 : nop	// , EVENT_NETWORK, -1 - SAL : 161
+	0x0000013A : call		0x000001EE	// , EVENT_NETWORK, -1 - SAL : 162
+	0x00000140 : end	// , EVENT_NETWORK, -1 - SAL : 163
+}
+
+
+FUNCTION : EVENT_TIMEOUT()
+{
+	0x00000142 : nop	// , EVENT_TIMEOUT, -1 - SAL : 114
+	0x00000144 : calls		ClearBlack(59)	// , EVENT_TIMEOUT, -1 - SAL : 115
+	0x00000148 : pushc		2	// , EVENT_TIMEOUT, -1 - SAL : 116
+	0x0000014C : pushc		0	// , EVENT_TIMEOUT, -1 - SAL : 117
+	0x00000150 : pushc		3	// , EVENT_TIMEOUT, -1 - SAL : 118
+	0x00000154 : pushc		0	// , EVENT_TIMEOUT, -1 - SAL : 119
+	0x00000158 : calls		SetFontType(40)	// , EVENT_TIMEOUT, -1 - SAL : 120
+	0x0000015C : call		0x00000168	// , EVENT_TIMEOUT, -1 - SAL : 121
+	0x00000162 : calls		Flush(95)	// , EVENT_TIMEOUT, -1 - SAL : 122
+	0x00000166 : end	// , EVENT_TIMEOUT, -1 - SAL : 123
+}
+
+
+FUNCTION : GetSockBuffer()
+{
+	0x00000168 : nop	// , GetSockBuffer, -1 - SAL : 242
+	0x0000016A : pushi		28 ( Sock_Buffer )		26 ( Sock_BufferFront )	// , GetSockBuffer, -1 - SAL : 243
+	0x00000170 : calls		StrLen(160)	// , GetSockBuffer, -1 - SAL : 244
+	0x00000174 : eqjp		0		0x000001AC	// , GetSockBuffer, -1 - SAL : 245
+	0x0000017C : pushc		30	// , GetSockBuffer, -1 - SAL : 246
+	0x00000180 : pushc		150	// , GetSockBuffer, -1 - SAL : 247
+	0x00000184 : pushi		28 ( Sock_Buffer )		26 ( Sock_BufferFront )	// , GetSockBuffer, -1 - SAL : 248
+	0x0000018A : calls		DrawStr(85)	// , GetSockBuffer, -1 - SAL : 249
+	0x0000018E : pushi		28 ( Sock_Buffer )		26 ( Sock_BufferFront )	// , GetSockBuffer, -1 - SAL : 250
+	0x00000194 : pushmi		%%13	// , GetSockBuffer, -1 - SAL : 251
+	0x00000198 : calls		StrCpy(161)	// , GetSockBuffer, -1 - SAL : 252
+	0x0000019C : pushz		26 ( Sock_BufferFront )	// , GetSockBuffer, -1 - SAL : 253
+	0x000001A0 : inc	// , GetSockBuffer, -1 - SAL : 254
+	0x000001A2 : pushc		10	// , GetSockBuffer, -1 - SAL : 255
+	0x000001A6 : mod	// , GetSockBuffer, -1 - SAL : 256
+	0x000001A8 : popz		26 ( Sock_BufferFront )	// , GetSockBuffer, -1 - SAL : 257
+	0x000001AC : ret	// , GetSockBuffer, -1 - SAL : 258
+}
+
+
+FUNCTION : OpenSocket()
+{
+	0x000001AE : nop	// , OpenSocket, -1 - SAL : 164
+	0x000001B0 : pushz		20 ( Sock_Index )	// , OpenSocket, -1 - SAL : 165
+	0x000001B4 : pushz		24 ( Sock_SendString )	// , OpenSocket, -1 - SAL : 166
+	0x000001B8 : pushc		0	// , OpenSocket, -1 - SAL : 167
+	0x000001BC : pushz		22 ( Sock_LenSendString )	// , OpenSocket, -1 - SAL : 168
+	0x000001C0 : calls		SockSendMedia(116)	// , OpenSocket, -1 - SAL : 169
+	0x000001C4 : stnz		21 ( Sock_Result )	// , OpenSocket, -1 - SAL : 170
+	0x000001C8 : gejp		0		0x000001EC	// , OpenSocket, -1 - SAL : 171
+	0x000001D0 : pushc		1	// , OpenSocket, -1 - SAL : 172
+	0x000001D4 : calls		SockOpen(111)	// , OpenSocket, -1 - SAL : 173
+	0x000001D8 : stnz		20 ( Sock_Index )	// , OpenSocket, -1 - SAL : 174
+	0x000001DC : pushmi		%%11	// , OpenSocket, -1 - SAL : 175
+	0x000001E0 : pushc		20001	// , OpenSocket, -1 - SAL : 176
+	0x000001E4 : calls		SockConnect(114)	// , OpenSocket, -1 - SAL : 177
+	0x000001E8 : popz		21 ( Sock_Result )	// , OpenSocket, -1 - SAL : 178
+	0x000001EC : ret	// , OpenSocket, -1 - SAL : 179
+}
+
+
+FUNCTION : RcvSocket()
+{
+	0x000001EE : nop	// , RcvSocket, -1 - SAL : 203
+	0x000001F0 : pushz		25 ( Sock_RcvString )	// , RcvSocket, -1 - SAL : 204
+	0x000001F4 : pushc		32	// , RcvSocket, -1 - SAL : 205
+	0x000001F8 : calls		StrInit(159)	// , RcvSocket, -1 - SAL : 206
+	0x000001FC : pushz		25 ( Sock_RcvString )	// , RcvSocket, -1 - SAL : 207
+	0x00000200 : pushc		20	// , RcvSocket, -1 - SAL : 208
+	0x00000204 : calls		SetMediaSize(158)	// , RcvSocket, -1 - SAL : 209
+	0x00000208 : popz		23 ( Sock_LenRcvString )	// , RcvSocket, -1 - SAL : 210
+	0x0000020C : pushz		25 ( Sock_RcvString )	// , RcvSocket, -1 - SAL : 211
+	0x00000210 : pushc		20	// , RcvSocket, -1 - SAL : 212
+	0x00000214 : pushc		0	// , RcvSocket, -1 - SAL : 213
+	0x00000218 : calls		PutChar(166)	// , RcvSocket, -1 - SAL : 214
+	0x0000021C : pushz		20 ( Sock_Index )	// , RcvSocket, -1 - SAL : 215
+	0x00000220 : pushz		25 ( Sock_RcvString )	// , RcvSocket, -1 - SAL : 216
+	0x00000224 : pushc		0	// , RcvSocket, -1 - SAL : 217
+	0x00000228 : pushc		20	// , RcvSocket, -1 - SAL : 218
+	0x0000022C : calls		SockRecvMedia(120)	// , RcvSocket, -1 - SAL : 219
+	0x00000230 : popz		21 ( Sock_Result )	// , RcvSocket, -1 - SAL : 220
+	0x00000234 : pushz		25 ( Sock_RcvString )	// , RcvSocket, -1 - SAL : 221
+	0x00000238 : calls		StrLen(160)	// , RcvSocket, -1 - SAL : 222
+	0x0000023C : pushc		0	// , RcvSocket, -1 - SAL : 223
+	0x00000240 : ne	// , RcvSocket, -1 - SAL : 224
+	0x00000242 : dup	// , RcvSocket, -1 - SAL : 225
+	0x00000244 : fjp		0x0000025A	// , RcvSocket, -1 - SAL : 226
+	0x0000024A : popz		17 ( swReserved3 )	// , RcvSocket, -1 - SAL : 227
+	0x0000024E : pushz		26 ( Sock_BufferFront )	// , RcvSocket, -1 - SAL : 228
+	0x00000252 : pushz		27 ( Sock_BufferRear )	// , RcvSocket, -1 - SAL : 229
+	0x00000256 : inc	// , RcvSocket, -1 - SAL : 230
+	0x00000258 : ne	// , RcvSocket, -1 - SAL : 231
+	0x0000025A : fjp		0x0000027E	// , RcvSocket, -1 - SAL : 232
+	0x00000260 : pushi		28 ( Sock_Buffer )		27 ( Sock_BufferRear )	// , RcvSocket, -1 - SAL : 233
+	0x00000266 : pushz		25 ( Sock_RcvString )	// , RcvSocket, -1 - SAL : 234
+	0x0000026A : calls		StrCpy(161)	// , RcvSocket, -1 - SAL : 235
+	0x0000026E : pushz		27 ( Sock_BufferRear )	// , RcvSocket, -1 - SAL : 236
+	0x00000272 : inc	// , RcvSocket, -1 - SAL : 237
+	0x00000274 : pushc		10	// , RcvSocket, -1 - SAL : 238
+	0x00000278 : mod	// , RcvSocket, -1 - SAL : 239
+	0x0000027A : popz		27 ( Sock_BufferRear )	// , RcvSocket, -1 - SAL : 240
+	0x0000027E : ret	// , RcvSocket, -1 - SAL : 241
+}
+
+
+FUNCTION : SendSocket()
+{
+	0x00000280 : nop	// , SendSocket, -1 - SAL : 185
+	0x00000282 : pushz		24 ( Sock_SendString )	// , SendSocket, -1 - SAL : 186
+	0x00000286 : pushc		32	// , SendSocket, -1 - SAL : 187
+	0x0000028A : calls		StrInit(159)	// , SendSocket, -1 - SAL : 188
+	0x0000028E : pushz		24 ( Sock_SendString )	// , SendSocket, -1 - SAL : 189
+	0x00000292 : pushmi		%%12	// , SendSocket, -1 - SAL : 190
+	0x00000296 : pushz		29 ( i )	// , SendSocket, -1 - SAL : 191
+	0x0000029A : calls		MakeStr1(174)	// , SendSocket, -1 - SAL : 192
+	0x0000029E : pushz		24 ( Sock_SendString )	// , SendSocket, -1 - SAL : 193
+	0x000002A2 : calls		StrLen(160)	// , SendSocket, -1 - SAL : 194
+	0x000002A6 : popz		22 ( Sock_LenSendString )	// , SendSocket, -1 - SAL : 195
+	0x000002AA : pushz		20 ( Sock_Index )	// , SendSocket, -1 - SAL : 196
+	0x000002AE : pushz		24 ( Sock_SendString )	// , SendSocket, -1 - SAL : 197
+	0x000002B2 : pushc		0	// , SendSocket, -1 - SAL : 198
+	0x000002B6 : pushz		22 ( Sock_LenSendString )	// , SendSocket, -1 - SAL : 199
+	0x000002BA : calls		SockSendMedia(116)	// , SendSocket, -1 - SAL : 200
+	0x000002BE : popz		21 ( Sock_Result )	// , SendSocket, -1 - SAL : 201
+	0x000002C2 : ret	// , SendSocket, -1 - SAL : 202
+}
+
+
+FUNCTION : main()
+{
+	0x000002C4 : nop	// , main, -1 - SAL : 108
+	0x000002C6 : call		0x00000080	// , main, -1 - SAL : 109
+	0x000002CC : pushc		500	// , main, -1 - SAL : 110
+	0x000002D0 : pushc		1	// , main, -1 - SAL : 111
+	0x000002D4 : calls		SetTimer(149)	// , main, -1 - SAL : 112
+	0x000002D8 : end	// , main, -1 - SAL : 113
+}
+
+====================== SYMBOL TABLE =====================
+
+========================================================
+			SYMBOL TABLE
+
+--------------------------------------------------------
+	  VALID VAR(STATIC) : 0 - ().swData
+	  VALID VAR(STATIC) : 1 - ().swData2
+	  VALID VAR(STATIC) : 2 - ().swData3
+	  VALID VAR(STATIC) : 3 - ().swData4
+	  VALID VAR(STATIC) : 4 - ().swWidth
+	  VALID VAR(STATIC) : 5 - ().swHeight
+	  VALID VAR(STATIC) : 6 - ().swFrame
+	  VALID VAR(STATIC) : 7 - ().swFrame2
+	  VALID VAR(STATIC) : 8 - ().swFrame3
+	  VALID VAR(STATIC) : 9 - ().swFrame6
+	  VALID VAR(STATIC) : 10 - ().swVMver
+	  VALID VAR(STATIC) : 11 - ().swModel
+	  VALID VAR(STATIC) : 12 - ().swSmsRcvBuf
+	  VALID VAR(STATIC) : 13 - ().swRsRcvBuf
+	  VALID VAR(STATIC) : 14 - ().swRcvBuf
+	  VALID VAR(STATIC) : 15 - ().swReserved1
+	  VALID VAR(STATIC) : 16 - ().swReserved2
+	  VALID VAR(STATIC) : 17 - ().swReserved3
+	  VALID VAR(STATIC) : 18 - ().swReserved4
+	  VALID VAR(STATIC) : 19 - ().swSbuf
+	  VALID VAR(STATIC) : 20 - ().Sock_Index
+	  VALID VAR(STATIC) : 21 - ().Sock_Result
+	  VALID VAR(STATIC) : 22 - ().Sock_LenSendString
+	  VALID VAR(STATIC) : 23 - ().Sock_LenRcvString
+	  VALID VAR(STATIC) : 24 - ().Sock_SendString
+	  VALID VAR(STATIC) : 25 - ().Sock_RcvString
+	  VALID VAR(STATIC) : 26 - ().Sock_BufferFront
+	  VALID VAR(STATIC) : 27 - ().Sock_BufferRear
+	  VALID VAR(STATIC) : 28 - ().Sock_Buffer
+	  VALID VAR(STATIC) : 29 - ().i
+========================================================
+
+============================== SYMBOL POOL ==============================
+0  th SYMBOL POOL[0x000003CC] : Real Offset 0x000003CC
+1  th SYMBOL POOL[0x000003D0] : Real Offset 0x000003D0
+2  th SYMBOL POOL[0x000003D4] : Real Offset 0x000003D4
+3  th SYMBOL POOL[0x000003D8] : Real Offset 0x000003D8
+4  th SYMBOL POOL[0x000003DC] : Real Offset 0x000003DC
+5  th SYMBOL POOL[0x000003E0] : Real Offset 0x000003E0
+6  th SYMBOL POOL[0x000003E4] : Real Offset 0x000003E4
+7  th SYMBOL POOL[0x000003E8] : Real Offset 0x000003E8
+8  th SYMBOL POOL[0x000003EC] : Real Offset 0x000003EC
+9  th SYMBOL POOL[0x000003F0] : Real Offset 0x000003F0
+10 th SYMBOL POOL[0x000003F4] : Real Offset 0x000003F4
+11 th SYMBOL POOL[0x00000400] : Real Offset 0x00000400
+12 th SYMBOL POOL[0x00000420] : Real Offset 0x00000420
+13 th SYMBOL POOL[0x000004C4] : Real Offset 0x000004C4
+14 th SYMBOL POOL[0x000006C4] : Real Offset 0x000006C4
+15 th SYMBOL POOL[0x00000AC4] : Real Offset 0x00000AC4
+16 th SYMBOL POOL[0x00000AC8] : Real Offset 0x00000AC8
+17 th SYMBOL POOL[0x00000ACC] : Real Offset 0x00000ACC
+18 th SYMBOL POOL[0x00000AD0] : Real Offset 0x00000AD0
+19 th SYMBOL POOL[0x00000AD4] : Real Offset 0x00000AD4
+20 th SYMBOL POOL[0x00000AD8] : Real Offset 0x00000AD8
+21 th SYMBOL POOL[0x00000ADC] : Real Offset 0x00000ADC
+22 th SYMBOL POOL[0x00000AE0] : Real Offset 0x00000AE0
+23 th SYMBOL POOL[0x00000AE4] : Real Offset 0x00000AE4
+24 th SYMBOL POOL[0x00000AE8] : Real Offset 0x00000AE8
+25 th SYMBOL POOL[0x00000AEC] : Real Offset 0x00000AEC
+26 th SYMBOL POOL[0x00000AF0] : Real Offset 0x00000AF0
+27 th SYMBOL POOL[0x00000AF4] : Real Offset 0x00000AF4
+28 th SYMBOL POOL[0x00000AF8] : Real Offset 0x00000AF8
+29 th SYMBOL POOL[0x00000B20] : Real Offset 0x00000B20
