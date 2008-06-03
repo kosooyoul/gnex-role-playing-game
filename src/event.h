@@ -20,7 +20,7 @@ struct EventObject{
 
 	int ScrollMapX;
 	int ScrollMapY;
-}EventObject[3];
+}EventObject[10];
 
 string Message[9]={
 "당신 누구쇼? 바바지?",
@@ -35,7 +35,7 @@ string Message[9]={
 };
 
 int EventLine[40] = { 
- 0, 1, 0, 2,14, 1, 1,10, 3, 2,
+ 0, 1, 0, 2,14,-3, 1,10, 3, 2,
  0, 0,11, 1, 2, 2, 3, 0, 7,-1,
  0, 8,-1, 0, 0, 0, 0, 0, 0, 0,
  0, 0, 0, 0,-1, 0, 1, 0, 0,-1
@@ -67,11 +67,59 @@ void SetEvent(){
 	EventObject[1].LineCount = 0;		//테스트 코드
 	EventObject[1].ScrollMapX = 0;
 	EventObject[1].ScrollMapY = 0;
+
+	EventObject[2].graphic = 0;		//테스트 코드
+	EventObject[2].map = 0;		//테스트 코드
+	EventObject[2].x = 6;		//테스트 코드
+	EventObject[2].y = 6;		//테스트 코드
+	EventObject[2].direction = 1;		//테스트 코드
+	EventObject[2].frame = 0;		//테스트 코드
+	EventObject[2].EventLoop = 0;		//테스트 코드
+	EventObject[2].EventPage = 35;		//테스트 코드
+	EventObject[2].LineCount = 0;		//테스트 코드
+	EventObject[2].ScrollMapX = 0;
+	EventObject[2].ScrollMapY = 0;
+
+	EventObject[3].graphic = 3;		//테스트 코드
+	EventObject[3].map = 0;		//테스트 코드
+	EventObject[3].x = 7;		//테스트 코드
+	EventObject[3].y = 8;		//테스트 코드
+	EventObject[3].direction = 1;		//테스트 코드
+	EventObject[3].frame = 0;		//테스트 코드
+	EventObject[3].EventLoop = 0;		//테스트 코드
+	EventObject[3].EventPage = 35;		//테스트 코드
+	EventObject[3].LineCount = 0;		//테스트 코드
+	EventObject[3].ScrollMapX = 0;
+	EventObject[3].ScrollMapY = 0;
+
+	EventObject[4].graphic = 5;		//테스트 코드
+	EventObject[4].map = 0;		//테스트 코드
+	EventObject[4].x = 8;		//테스트 코드
+	EventObject[4].y = 7;		//테스트 코드
+	EventObject[4].direction = 1;		//테스트 코드
+	EventObject[4].frame = 0;		//테스트 코드
+	EventObject[4].EventLoop = 0;		//테스트 코드
+	EventObject[4].EventPage = 35;		//테스트 코드
+	EventObject[4].LineCount = 0;		//테스트 코드
+	EventObject[4].ScrollMapX = 0;
+	EventObject[4].ScrollMapY = 0;
+
+	EventObject[5].graphic = 6;		//테스트 코드
+	EventObject[5].map = 0;		//테스트 코드
+	EventObject[5].x = 2;		//테스트 코드
+	EventObject[5].y = 4;		//테스트 코드
+	EventObject[5].direction = 1;		//테스트 코드
+	EventObject[5].frame = 0;		//테스트 코드
+	EventObject[5].EventLoop = 0;		//테스트 코드
+	EventObject[5].EventPage = 35;		//테스트 코드
+	EventObject[5].LineCount = 0;		//테스트 코드
+	EventObject[5].ScrollMapX = 0;
+	EventObject[5].ScrollMapY = 0;
 }
 
 void MoveEventRandom(int EventNumber)
 {
-	switch(Rand(0, 5))
+	switch(Rand(0, 20))
 	{
 		case 0:
 			SetDirection(EventNumber + 1, SWAP_KEY_RIGHT);

@@ -1,6 +1,9 @@
 //송신할 데이터 조합 메시지
 string DataMsg;
 
+//수신완료된 데이터 메시지
+string RcvdMsg;
+
 //소켓 연결
 int Sock_Index;
 int Sock_Result;
@@ -99,7 +102,7 @@ void GetSockBuffer()	//버퍼 꺼내기
 {
 	if(StrLen(Sock_Buffer[Sock_BufferFront]) != 0)
 	{
-		DrawStr(30,150,Sock_Buffer[Sock_BufferFront]);    //수신명령문 실행
+		StrCpy(RcvdMsg, Sock_Buffer[Sock_BufferFront]);	//임시문자열에 저장
 		StrCpy(Sock_Buffer[Sock_BufferFront], "");
 		Sock_BufferFront = (Sock_BufferFront + 1) % SVR_BufferSize;
 	}

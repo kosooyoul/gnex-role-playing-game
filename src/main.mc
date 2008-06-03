@@ -8,7 +8,6 @@
            소속 : 세명대학교 정보통신학과 03학번/09년 졸업예정자
 
 
-
 ### 핸드폰 RPG게임 구현 진행 과정 ###
 
  0일차: 1월25일 : GNEX 관련 서적으로부터 기능 및 함수 조사, 예제로 나와있는 슈팅게임 Starwars2 분석
@@ -43,18 +42,17 @@
 23일차: 5월29일 : 소켓통신 구현(졸작서버 프로그램과 통신 테스트) 헤더파일로 추가, 모드 구분(0:타이틀,1:롤플레잉모드)
 24일차: 5월30일 : 아이템 구조체 작성 및 상점처리 구현 시도
 25일차: 6월 2일 : 상점처리 구현(물품 카테고리 구분안됨, 최대 판매 물품 10개로 한정), 아이템 습득 부분 구현(카테고리 구분안됨, 소지한도 (ex)20을 초과)
-26일차: 6월 
+26일차: 6월 3일 : 주인공 상태 인터페이스(게이지 등) 구현 중(그래픽 수정요망), 퀵슬롯 표현(카테고리 사용하기 위해 인벤토리배열을 다시 배열로 만들거나 해야함, 아니면 코드만 늘어남), 상점처리(14번이벤트)에서 시세비율적용(* 1.Sise), 메뉴인터페이스 연습때 만들던 시스템 가져와 적용 및 테스트, 아이템 아이콘 추가, 메인소스 정리
+27일차: 6월 4일 :
 
 
 
 
+메뉴시스템 추가 요망
+전투시스템 추가 요망:필드턴제시뮬레이션(어스토니시아스토리)
 
-
-
-
-**이벤트 함수 추가요망(상점)
-**전투시스템:필드턴제시뮬레이션, 어스토니시아스토리
-**모두 세분화
+상점시스템 수정 요망
+인터페이스 수정 요망
 
 
 */
@@ -111,123 +109,222 @@ int RunningEventNumber = -1;	//RunningEventNumber번째의 이벤트를 수행, 
 int NextKey = -1;				//이벤트 수행중 키입력을 기다리기 위함
 int GameMode = 0;				//게임 모드/ 0:타이틀, 1:롤플레이
 
+//******************************************************************************************************[ Main ]
 void main()
 {
 	//mode: title, play(move), battle, event, menu(item,skill,status,.....)
 	SetItem();
 	SetArea();
 	SetEvent();
+	InitPlayer();						//주인공 초기화
+
 	SetTimer(30, 1);					//이동 및 맵 출력 시간 간격, 이벤트 수행 속도
-	SetTimer1(1000, 1);					//이벤트 이동 시간 간격
+	SetTimer1(500, 1);					//이벤트 이동 시간 간격
 
 	Variable[0] = 200;					//테스트 코드
-	Player.Gold = 1000;					//테스트 코드
+	SetQuickSlot();						//테스트 코드
 }
 
-void EVENT_TIMEOUT()
-{
-	switch(GameMode)
-	{
-		case 0:	//타이틀
-			CopyImage(0, 0, title);
+//******************************************************************************************************[ EVENT_TIMEOUT ]
+void EVENT_TIMEOUT(){
+	switch(GameMode){
+		//타이틀(GameMode=0)
+		case 0:	
+			if(!swData){
+				CopyImage(0, 0, title);
+			}
 			break;
 
-		case 1: //롤플레이
-			switch(swData)
-			{
-				case 0:	
+		//이동모드(GameMode=1)
+		case 1:
+			switch(swData){
+				//타이머0(t=30)
+				case 0:
+					//자연스러운 이동 #1
 					SetDirection(0, MovingDirection);
-					MovePosition(0, MovingDirection);	//자연스러운 이동 #1
-					MapScroll();						//맵 스크롤
-					DrawSubLayer();						//하위맵 출력
-					DrawSupLayer(0);					//상위맵 0단계 출력
-					DrawEventLayer();					//주인공 및 이벤트 출력
-					DrawSupLayer(1);					//상위맵 1단계 출력
-					if(RunningEventNumber >= 0)			//이벤트 수행부분
-					{
+					MovePosition(0, MovingDirection);
+					//맵 스크롤
+					MapScroll();						
+					//각 레이어 출력
+					DrawSubLayer();			//하위맵 출력
+					DrawSupLayer(0);		//상위맵 0단계 출력
+					DrawEventLayer();		//주인공 및 이벤트 출력
+					DrawSupLayer(1);		//상위맵 1단계 출력
+
+					//이벤트 수행중에
+					if(RunningEventNumber >= 0){
 						EventObject[RunningEventNumber].EventLoop = 1;
 						RunEventLine(RunningEventNumber);
 					}
-					DrawInterface();					//인터페이스 출력
 					break;
+
+				//타이머1(t=500)
 				case 1:
-					if(RunningEventNumber < 0)			//이벤트 이동
-					{
-						MoveEventRandom(0);				//테스트 코드
-						MoveEventRandom(1);				//테스트 코드
-					}
+					MoveEventRandom(0);				//테스트 코드 : 0번 이벤트 랜덤이동
+					MoveEventRandom(1);				//테스트 코드 : 1번 이벤트 랜덤이동
+					MoveEventRandom(2);				//테스트 코드 : 2번 이벤트 랜덤이동
+					MoveEventRandom(3);				//테스트 코드 : 3번 이벤트 랜덤이동
+					MoveEventRandom(4);				//테스트 코드 : 4번 이벤트 랜덤이동
+					MoveEventRandom(5);				//테스트 코드 : 5번 이벤트 랜덤이동
+					break;
 			}
 			break;
-		
-		case 2:	//상점모드?
 
-
-
-
+		//메뉴 모드(GameMode=2)
+		case 2:
+			if(!swData){
+				RestoreLCD();
+				DrawMenu(4, 22);
+				switch (selected_menu){
+					case 0:	DrawState(4, 22);	break;
+					case 1:	DrawItem(4, 22);	break;
+					case 2:	DrawSkill(4, 22);	break;
+					case 3:	DrawEquip(4, 22);	break;
+					case 4:	DrawQuest(4, 22);	break;
+				}
+			}
 			break;
 
-
+		//이벤트수행 모드(GameMode=3)
+		case 3:
+			RestoreLCD();
+			EventObject[RunningEventNumber].EventLoop = 1;
+			RunEventLine(RunningEventNumber);
+			break;
 	}
+	
+	//인터페이스 출력
+	if(GameMode){
+		DrawInterface();
+	}
+
+	//소켓을 통해 수신된 메시지 표시 :: 테스트 코드
+	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
+	DrawStr(50,50,RcvdMsg);
 	Flush();
 }
 
-void EVENT_KEYPRESS()
-{
-	switch(GameMode)
-	{
+//******************************************************************************************************[ EVENT_KEYPRESS ]
+void EVENT_KEYPRESS(){
+	switch(GameMode){
+		//타이틀(GameMode=0)
 		case 0:
-			switch(swData)
-			{
-				case SWAP_KEY_OK:	//메뉴선택
-					ChangeMode(1);
+			switch(swData){
+				//타이틀 메뉴선택
+				case SWAP_KEY_OK:	ChangeMode(1);	break;
+				//타이틀 메뉴변경
+				case SWAP_KEY_UP:	break;
+				//타이틀 메뉴변경
+				case SWAP_KEY_DOWN:	break;
+			}
+			break;
+
+		//이동모드(GameMode=1)
+		case 1:
+			switch(swData){
+				//정면에 이벤트 실행
+				case SWAP_KEY_OK:
+					RunningEventNumber = SerchEvent() - 1;
+					//이벤트가 있다면 그 이벤트는 나를 볼 것이다
+					if(RunningEventNumber >= 0){
+						EventObject[RunningEventNumber].direction = (Player.direction + 2) %4;
+						ChangeMode(3);
+					}
 					break;
-				case SWAP_KEY_UP:	//메뉴변경
+
+				//메뉴 출력
+				case SWAP_KEY_CLR:
+					ChangeMode(2);
 					break;
-				case SWAP_KEY_DOWN:	//메뉴변경
+				
+				//자연스러운 이동 #1
+				case SWAP_KEY_UP:
+				case SWAP_KEY_DOWN:
+				case SWAP_KEY_LEFT:
+				case SWAP_KEY_RIGHT:
+				case SWAP_KEY_RELEASE:
+				 	MovingDirection = swData;
+					break;
+
+				//퀵슬롯 선택
+				case SWAP_KEY_1:
+				case SWAP_KEY_2:
+				case SWAP_KEY_3:
+				case SWAP_KEY_4:
+				case SWAP_KEY_5:
+				case SWAP_KEY_6:
+				case SWAP_KEY_7:
+				case SWAP_KEY_8:
+				case SWAP_KEY_9:
+				case SWAP_KEY_0:
+					//UseQuickSlot(swData);
+					break;
+
+				default:
 					break;
 			}
 			break;
 
-		case 1:
-			//if(swData == SWAP_KEY_RELEASE) return;
-			if(RunningEventNumber < 0)MovingDirection = swData;			//자연스러운 이동 #1
-			if(swData == SWAP_KEY_OK){
-				if(RunningEventNumber < 0){
-					RunningEventNumber = SerchEvent() - 1;
-					EventObject[RunningEventNumber].direction = (Player.direction + 2) %4;
-				}
-				else NextKey = SWAP_KEY_OK;
-			}else NextKey = swData;
+		//메뉴 모드(GameMode=2)
+		case 2:
+			//입력키에 대한 메뉴선택
+			ShowMenu(swData);
 			break;
 
-		case 2:	//상점모드?
-
-
-
+		//이벤트수행 모드(GameMode=3)
+		case 3:
+			if(RunningEventNumber >= 0)
+				NextKey = swData;
+			else
+				//이동모드로
+				ChangeMode(1);
 			break;
 
 	}
+
+	//네트워크 테스트 코드//
+	switch(swData){
+		case SWAP_KEY_1:	ConnectSocket();							break;	//네트워크 접속
+		case SWAP_KEY_2:	DataMsg = Message[Rand(0, 8)];SendSocket();	break;	//메시지 송신
+		case SWAP_KEY_3:	RcvSocket();GetSockBuffer();				break;	//메시지 수신
+		case SWAP_KEY_4:	CloseSocket();								break;	//네트워크 종료
+		case SWAP_KEY_5:												break;
+		case SWAP_KEY_6:												break;
+		case SWAP_KEY_7:												break;
+		case SWAP_KEY_8:												break;
+		case SWAP_KEY_9:												break;
+		case SWAP_KEY_0:												break;
+		case SWAP_KEY_STAR:												break;
+		case SWAP_KEY_SHARP:											break;
+	}//네트워크 테스트 코드//
+
 }
 
-void EVENT_NETWORK()
-{
+//******************************************************************************************************[ EVENT_NETWORK ]
+void EVENT_NETWORK(){
 	RcvSocket();	//소켓 바로 수신
 }
 
-void ChangeMode(int Mode)
-{
-	switch(Mode)
-	{
-		case 0:
-			GameMode = 0;
-			break;
-		case 1:
-			GameMode = 1;
-			break;
+//******************************************************************************************************[ Any Fuction ]
+void ChangeMode(int Mode){
+	switch(Mode){
+		//타이틀로
+		case 0:				GameMode = 0;	break;
+		//이동모드로
+		case 1:				GameMode = 1;	break;
+		//메뉴모드로
 		case 2:
-			GameMode = 2;
+		//이벤트실행모드로
+		case 3:
+			DrawSubLayer();			//하위맵 출력
+			DrawSupLayer(0);		//상위맵 0단계 출력
+			DrawEventLayer();		//주인공 및 이벤트 출력
+			DrawSupLayer(1);		//상위맵 1단계 출력
+			SaveLCD();
+			GameMode = Mode;
 			break;
-		default:
-			break;
+					
+		//
+		default:							break;
 	}
 }

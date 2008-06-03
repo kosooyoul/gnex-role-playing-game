@@ -1,8 +1,8 @@
-int SelectedAnswer = 0;
-int SelectedQuantity = 1;
-int ShopStatus = 0;
-int SecondSelect = 0;
-int EmptySlot = 1;
+int SelectedAnswer = 0;		//첫번째 선택
+int SelectedQuantity = 1;	//선택 수량
+int ShopStatus = 0;			//상점 상태
+int SecondSelect = 0;		//두번째 선택
+int EmptySlot;				//아이템 추가를 완료 하였는지
 
 void RunEventLine(int EventNumber)
 {
@@ -527,81 +527,76 @@ int Delay(int Value)
 	return 0;
 }
 
-//14번 이벤트 라인{14,*,*,*} - 상점처리(상점모드, 판매리스트처음, 판매리스트끝) //상점모드:사용안하는중..차후 추가 예정(도구전용/무기전용/스킬전용 등 상점)
-int Shopping(int ShopMode, int SellListFront, int SellListRear)
-{
+//14번 이벤트 라인{14,*,*,*} - 상점처리(시세비율, 판매리스트처음, 판매리스트끝),카테고리별 구분 요망
+int Shopping(int Sise, int SellListFront, int SellListRear){
 	int i;
 	string Temp;
 	int ListLength;
 
-	ListLength = SellListRear - SellListFront;
-	if(ListLength > 10) ListLength = 10;
-
-	SetColorRGB(0, 30, 100);
+	ListLength = SellListRear - SellListFront;	//리스트 출력길이 구함
+	if(ListLength > 10) ListLength = 10;		//10개가 넘으면 10개.
+	SetColorRGB(0, 30, 100);					//이 길이의 상점 배경 출력
 	FillRectEx(4, 4, 171, 25 + (ListLength) * 15, 2);
 	SetColorRGB(0, 20, 70);
 	DrawRect(3, 3, 172, 25 + (ListLength) * 15);
 
-	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
-	for(i = 0; i <= ListLength; i++)
-	{
-		CopyImage(10, 10 + i * 15, icon[ItemList[SellItemList[SellListFront + i]].Icon]);	//아이템 아이콘 출력
-		DrawStr(26, 9 + i * 15, ItemList[SellItemList[SellListFront + i]].Name);	//아이템 이름 출력
+	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);	//아이템 이름과 아이콘 출력
+	for(i = 0; i <= ListLength; i++){
+		CopyImage(10, 10 + i * 15, icon[ItemList[SellItemList[SellListFront + i]].Icon]);
+		DrawStr(26, 9 + i * 15, ItemList[SellItemList[SellListFront + i]].Name);
 	}
 
-	SetFontType(S_FONT_LARGE, S_GREEN, S_BLACK, S_ALIGN_LEFT);	//109=RED,43=GREEN, 디파인에 정의 요망~
-	for(i = 0; i <= ListLength; i++)
-	{
-		MakeStr1(Temp, "%5d AL", ItemList[SellItemList[SellListFront + i]].Cost);
-		DrawStr(100, 9 + i * 15, Temp);		//아이템 가격 출력
+	SetFontType(S_FONT_LARGE, S_GREEN, S_BLACK, S_ALIGN_LEFT);	//아이템 가격 출력
+	for(i = 0; i <= ListLength; i++){
+		MakeStr1(Temp, "%5d AL", ItemList[SellItemList[SellListFront + i]].Cost * (10 + Sise) / 10);
+		DrawStr(100, 9 + i * 15, Temp);
 	}
-	if(ShopStatus)
+
+	if(ShopStatus)		//상점모드에 따라 아이템선택표시상자 테두리 색상
 		SetColor(S_RED);
 	else
 		SetColor(S_WHITE);
 
-	DrawRect(5, 7 + SelectedAnswer * 15, 170, 21 + SelectedAnswer * 15);	//선택 위치표시
+	DrawRect(5, 7 + SelectedAnswer * 15, 170, 21 + SelectedAnswer * 15);	//아이템 선택 위치표시
 	MakeStr1(Temp, "x%2d", SelectedQuantity);
-	SetFontType(S_FONT_LARGE, S_YELLOW, S_BLACK, S_ALIGN_LEFT);
-	DrawStr(150, 9 + SelectedAnswer * 15, Temp);	//선택 수량 출력
+	SetFontType(S_FONT_LARGE, S_YELLOW, S_BLACK, S_ALIGN_LEFT);				//아이템 선택 수량 출력
+	DrawStr(150, 9 + SelectedAnswer * 15, Temp);
 
-	switch(ShopStatus)
-	{
+	switch(ShopStatus){
 		case 0:		//아이템 목록 선택
-			if(NextKey == SWAP_KEY_UP)
-			{
+			if(NextKey == SWAP_KEY_UP){
 				SelectedAnswer = (SelectedAnswer + ListLength) % (ListLength + 1);
 				SelectedQuantity = 1;
 			}
-			else if(NextKey == SWAP_KEY_DOWN)
-			{
+			else if(NextKey == SWAP_KEY_DOWN){
 				SelectedAnswer = (SelectedAnswer + 1) % (ListLength + 1);
 				SelectedQuantity = 1;
 			}
-			else if(NextKey == SWAP_KEY_LEFT)
-			{
+			else if(NextKey == SWAP_KEY_LEFT){
 				if(SelectedQuantity > 1)
 					SelectedQuantity--;
 				else
 					SelectedQuantity = 20;
 			}
-			else if(NextKey == SWAP_KEY_RIGHT)
-			{
+			else if(NextKey == SWAP_KEY_RIGHT){
 				if(SelectedQuantity < 20)
 					SelectedQuantity++;
 				else
 					SelectedQuantity = 1;
 			}
-			else if(NextKey == SWAP_KEY_OK)
-			{		
+			else if(NextKey == SWAP_KEY_OK){		
 				ShopStatus = 1;	//아이템 선택 -> 다음 명령에서 돈이 맞는지 확인해야함
 			}
-			else if(NextKey == SWAP_KEY_CLR)
-			{
-				SelectedAnswer = 0;	//선택 번호 초기화
-				return 0;
+			else if(NextKey == SWAP_KEY_CLR){
+				SelectedAnswer = 0;		//선택 번호 초기화
+				SelectedQuantity = 1;	//선택 수량
+				ShopStatus = 0;			//상점 상태
+				SecondSelect = 0;		//두번째 선택
+
+				return 0;				//상점 종료
 			}
 			break;
+
 		case 1:		//돈 확인 부분
 			SetColorRGB(0, 30, 100);
 			FillRectEx(4, 44, 171, 70, 1);
@@ -609,19 +604,15 @@ int Shopping(int ShopMode, int SellListFront, int SellListRear)
 			DrawRect(3, 43, 172, 71);
 
 			SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
-			if(Player.Gold < ItemList[SellItemList[SellListFront + SelectedAnswer]].Cost * SelectedQuantity)
-			{
+			if(Player.Gold < ItemList[SellItemList[SellListFront + SelectedAnswer]].Cost * (10 + Sise) / 10 * SelectedQuantity){
 				DrawStr(88, 52, "돈이 부족합니다.");
-				if(NextKey == SWAP_KEY_OK || NextKey == SWAP_KEY_CLR)
-				{		
-					ShopStatus = 0;		//아이템 선택으로 넘어감
-				}
+				if(NextKey == SWAP_KEY_OK || NextKey == SWAP_KEY_CLR) ShopStatus = 0;		//아이템 선택으로 넘어감
 			}
-			else
-			{
+			else{
 				ShopStatus = 2;		//구입 결정 명령으로 넘어갈차례
 			}
 			break;
+
 		case 2:		//구입 확인 부분
 			SetColorRGB(0, 30, 100);
 			FillRectEx(4, 44, 171, 70, 1);
@@ -629,7 +620,7 @@ int Shopping(int ShopMode, int SellListFront, int SellListRear)
 			DrawRect(3, 43, 172, 71);
 
 			SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
-			MakeStr1(Temp, "%d AL입니다. 구입합니까?", ItemList[SellItemList[SellListFront + SelectedAnswer]].Cost * SelectedQuantity);
+			MakeStr1(Temp, "%d AL입니다. 구입합니까?", ItemList[SellItemList[SellListFront + SelectedAnswer]].Cost * (10 + Sise) / 10 * SelectedQuantity);
 			DrawStr(88, 52, Temp);
 
 			SetColorRGB(0, 30, 100);
@@ -639,42 +630,34 @@ int Shopping(int ShopMode, int SellListFront, int SellListRear)
 			DrawStr(88, 78, "네");	//110-74 = 36 /2 = 18 -14 = 4/2 =2
 			DrawStr(88, 93, "아니오");
 			
-			if(NextKey == SWAP_KEY_UP || NextKey == SWAP_KEY_DOWN)
-			{
+			if(NextKey == SWAP_KEY_UP || NextKey == SWAP_KEY_DOWN){
 				SecondSelect = (SecondSelect + 1) % 2;
 			}
-			else if(NextKey == SWAP_KEY_CLR)
-			{	
-				SecondSelect = 0;	//네/아니오 선택 초기화
-				ShopStatus = 0;	//아이템 선택으로 넘어감
+			else if(NextKey == SWAP_KEY_CLR){	
+				SecondSelect = 0;		//네/아니오 선택 초기화
+				ShopStatus = 0;			//아이템 선택으로 넘어감
 			}
-			else if(NextKey == SWAP_KEY_OK)
-			{
-				if(!SecondSelect)	//계산 완료
-				{
-					/************아이템 추가 부분 삽입 요망***************/
+			else if(NextKey == SWAP_KEY_OK){
+				if(!SecondSelect){	//예를 선택했으니, 우선 인벤토리가 비었나 봄세↓
 					EmptySlot = GetItem(0, SellItemList[SellListFront + SelectedAnswer], SelectedQuantity);
-					if(EmptySlot)	//구입 완료
-					{
-						Player.Gold = Player.Gold - ItemList[SellItemList[SellListFront + SelectedAnswer]].Cost * SelectedQuantity;
+
+					if(EmptySlot){	//구입 완료하였으면 돈을 감소
+						Player.Gold = Player.Gold - ItemList[SellItemList[SellListFront + SelectedAnswer]].Cost * (10 + Sise) / 10 * SelectedQuantity;
 						ShopStatus = 3;
 					}
-					else	//구입 실패:슬롯없음
-					{
+					else{			//구입 실패:슬롯없음
 						ShopStatus = 4;
-					}
-					/************아이템 추가 부분 삽입 요망***************/
-					
+					}					
 				}
-				else
-				{
+				else{
 					SecondSelect = 0;	//네/아니오 선택 초기화
-					ShopStatus = 0;	//아이템 선택으로 넘어감
+					ShopStatus = 0;		//아이템 선택으로 넘어감
 				}
 			}
 			SetColor(S_WHITE);
-			DrawRect(5, 76 + SecondSelect * 15, 170, 90 + SecondSelect * 15);	//선택 위치표시
+			DrawRect(5, 76 + SecondSelect * 15, 170, 90 + SecondSelect * 15);	//네/아니오:선택 위치표시
 			break;
+
 		case 3:		//구입 종료 확인 부분
 			SetColorRGB(0, 30, 100);
 			FillRectEx(4, 44, 171, 70, 1);
@@ -682,11 +665,11 @@ int Shopping(int ShopMode, int SellListFront, int SellListRear)
 			DrawRect(3, 43, 172, 71);
 			SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
 			DrawStr(88, 52, "구입을 완료 하였습니다.");
-			if(NextKey == SWAP_KEY_OK || NextKey == SWAP_KEY_CLR)
-			{	
-				ShopStatus = 0;	//아이템 선택으로 넘어감
+			if(NextKey == SWAP_KEY_OK || NextKey == SWAP_KEY_CLR){				//아이템 선택으로 넘어감
+				ShopStatus = 0;
 			}
 			break;
+
 		case 4:		//구입 실패
 			SetColorRGB(0, 30, 100);
 			FillRectEx(4, 44, 171, 70, 1);
@@ -695,14 +678,12 @@ int Shopping(int ShopMode, int SellListFront, int SellListRear)
 			SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
 			DrawStr(88, 52, "슬롯이 없습니다.");
 
-			if(NextKey == SWAP_KEY_OK || NextKey == SWAP_KEY_CLR)
-			{	
-				ShopStatus = 0;	//아이템 선택으로 넘어감
+			if(NextKey == SWAP_KEY_OK || NextKey == SWAP_KEY_CLR){				//아이템 선택으로 넘어감
+				ShopStatus = 0;
 			}
 			break;
 	}
-	return 1;
-	/*-------------------------보완요망----------------------------*/
+	return 1;	//상점이 종료되지 않았음을 반환.
 }
 
 
