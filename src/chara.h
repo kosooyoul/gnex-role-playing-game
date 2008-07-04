@@ -54,7 +54,7 @@ void DrawPlayer(){
 		Player.frame = (Player.frame+1) % 16;	//MOVE
 	else
 		Player.frame = (Player.frame) % 16;		//NOT MOVE
-	CopyImage(_CenterPositionX, _CenterPositionY, chara[16 * Player.graphic + Player.direction*4 + Player.frame/4]); //4패턴(*) 4배 감속(/)
+	CopyImage(_CenterPositionX, _CenterPositionY + _TopSize, chara[16 * Player.graphic + Player.direction*4 + Player.frame/4]); //4패턴(*) 4배 감속(/)
 }
 
 void SetInventory(){	//인벤토리 설정

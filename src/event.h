@@ -44,6 +44,8 @@ int EventLine[40] = {
 
 //초기 이벤트 설정
 void SetEvent(){
+	int Actor;
+
 	EventObject[0].graphic = 1;		//테스트 코드
 	EventObject[0].map = 0;		//테스트 코드
 	EventObject[0].x = 10;		//테스트 코드
@@ -115,6 +117,10 @@ void SetEvent(){
 	EventObject[5].LineCount = 0;		//테스트 코드
 	EventObject[5].ScrollMapX = 0;
 	EventObject[5].ScrollMapY = 0;
+
+	//맵상에 이벤트 적용
+	for(Actor = 0; Actor < 6; Actor++)
+		EventLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start] = Actor;
 }
 
 void MoveEventRandom(int EventNumber)
@@ -157,7 +163,7 @@ void DrawEvent(int EventNumber){
 	else
 		EventObject[EventNumber].frame = (EventObject[EventNumber].frame) % 16;		//NOT MOVE
 	if(EventObject[EventNumber].x >= Area[Player.map].x_start && EventObject[EventNumber].y >= Area[Player.map].y_start && EventObject[EventNumber].x < Area[Player.map].x_start + Area[Player.map].x_size && EventObject[EventNumber].y < Area[Player.map].y_start + Area[Player.map].y_size)
-		CopyImage((EventObject[EventNumber].x - Player.x - Area[Player.map].x_start) * 16 + _CenterPositionX + ScrollMapX - EventObject[EventNumber].ScrollMapX, (EventObject[EventNumber].y - Player.y - Area[Player.map].y_start) * 16 + _CenterPositionY + ScrollMapY - EventObject[EventNumber].ScrollMapY, chara[EventObject[EventNumber].graphic * 16 + EventObject[EventNumber].direction*4 + EventObject[EventNumber].frame/4]); //4패턴
+		CopyImage((EventObject[EventNumber].x - Player.x - Area[Player.map].x_start) * 16 + _CenterPositionX + ScrollMapX - EventObject[EventNumber].ScrollMapX, (EventObject[EventNumber].y - Player.y - Area[Player.map].y_start) * 16 + _CenterPositionY + ScrollMapY - EventObject[EventNumber].ScrollMapY + _TopSize, chara[EventObject[EventNumber].graphic * 16 + EventObject[EventNumber].direction*4 + EventObject[EventNumber].frame/4]); //4패턴
 }
 
 //이벤트 맵 그리기 - 주인공과 같은 레이어 출력
@@ -168,9 +174,9 @@ void DrawEventLayer(){
 	TempX = Area[Player.map].x_start + Player.x;
 	TempY = Area[Player.map].y_start + Player.y;
 
-	for(y = -5; y < 7;y++)
+	for(y = -7; y < 9;y++)
 	{
-		for(x = -6; x < 7;x++)
+		for(x = -8; x < 9;x++)
 		{
 			if(TempX + x < 30 && TempY + y < 30 && TempX + x >= 0 && TempY + y >= 0)
 				if(EventLayer[TempY + y][TempX + x] > 0)

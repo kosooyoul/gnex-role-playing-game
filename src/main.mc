@@ -43,9 +43,8 @@
 24일차: 5월30일 : 아이템 구조체 작성 및 상점처리 구현 시도
 25일차: 6월 2일 : 상점처리 구현(물품 카테고리 구분안됨, 최대 판매 물품 10개로 한정), 아이템 습득 부분 구현(카테고리 구분안됨, 소지한도 (ex)20을 초과)
 26일차: 6월 3일 : 주인공 상태 인터페이스(게이지 등) 구현 중(그래픽 수정요망), 퀵슬롯 표현(카테고리 사용하기 위해 인벤토리배열을 다시 배열로 만들거나 해야함, 아니면 코드만 늘어남), 상점처리(14번이벤트)에서 시세비율적용(* 1.Sise), 메뉴인터페이스 연습때 만들던 시스템 가져와 적용 및 테스트, 아이템 아이콘 추가, 메인소스 정리
-27일차: 6월 4일 :
-
-
+27일차: 6월28일 : GNEX(ⓜPlayer)가 설치되있는 모바일 구입 및 디스플레이 사이즈 측정(가로:240,세로:320), 측정된 사이즈에 맞게 출력화면 재구성 요망
+28일차: 7월 4일 : LG-SH150A(본인단말기)사이즈에 맞추어 출력 화면 재조정, 테스트 코드 추가, 소스정리 요망
 
 
 메뉴시스템 추가 요망
@@ -79,7 +78,7 @@
 	#DEFINE AUDIOTYPE	255
 	#DEFINE APPTYPE		1
 	#DEFINE APPCPID		19732		//테스트 고유번호
-	#DEFINE APPID		10001		//프로그램 ID
+	#DEFINE APPID		11001		//프로그램 ID
 	#DEFINE APPNAME		"AHYANET RPG ^o^!!"	//프로그램 이름
 	#DEFINE COMPTYPE	0
 	#DEFINE AGENTTYPE	0
@@ -118,7 +117,7 @@ void main()
 	SetEvent();
 	InitPlayer();						//주인공 초기화
 
-	SetTimer(30, 1);					//이동 및 맵 출력 시간 간격, 이벤트 수행 속도
+	SetTimer(40, 1);					//이동 및 맵 출력 시간 간격, 이벤트 수행 속도(에뮬에선 30, 기기에선 임시 40)
 	SetTimer1(500, 1);					//이벤트 이동 시간 간격
 
 	Variable[0] = 200;					//테스트 코드
@@ -131,6 +130,7 @@ void EVENT_TIMEOUT(){
 		//타이틀(GameMode=0)
 		case 0:	
 			if(!swData){
+				ClearBlack();
 				CopyImage(0, 0, title);
 			}
 			break;
@@ -174,13 +174,13 @@ void EVENT_TIMEOUT(){
 		case 2:
 			if(!swData){
 				RestoreLCD();
-				DrawMenu(4, 22);
+				DrawMenu(MenuPX, MenuPY);
 				switch (selected_menu){
-					case 0:	DrawState(4, 22);	break;
-					case 1:	DrawItem(4, 22);	break;
-					case 2:	DrawSkill(4, 22);	break;
-					case 3:	DrawEquip(4, 22);	break;
-					case 4:	DrawQuest(4, 22);	break;
+					case 0:	DrawState(MenuPX, MenuPY);	break;
+					case 1:	DrawItem(MenuPX, MenuPY);	break;
+					case 2:	DrawSkill(MenuPX, MenuPY);	break;
+					case 3:	DrawEquip(MenuPX, MenuPY);	break;
+					case 4:	DrawQuest(MenuPX, MenuPY);	break;
 				}
 			}
 			break;
@@ -293,9 +293,9 @@ void EVENT_KEYPRESS(){
 		case SWAP_KEY_7:												break;
 		case SWAP_KEY_8:												break;
 		case SWAP_KEY_9:												break;
-		case SWAP_KEY_0:												break;
-		case SWAP_KEY_STAR:												break;
-		case SWAP_KEY_SHARP:											break;
+		case SWAP_KEY_0:	SVR_IP = "127.0.0.1";						break;	//아이피 설정->현재컴퓨터
+		case SWAP_KEY_STAR:	SVR_IP = "118.37.164.161";					break;	//아이피 설정->인천집
+		case SWAP_KEY_SHARP:SVR_IP = "121.188.152.217";					break;	//아이피 설정->자취방
 	}//네트워크 테스트 코드//
 
 }

@@ -1,5 +1,5 @@
 Loading linking files...
-C:\Users\TG\Desktop\모바일GNEX\Proj2\main.sal
+C:\Documents and Settings\Administrator\바탕 화면\GNEX_SDK\Ahyane's_MRPG\main.sal
 
 Generating code...
 
@@ -10,14 +10,14 @@ HEADER_COMPTYPE is 0
 
 Script profile : 
 
-	Script size       : 290650 Byte(s)
-	Code size         : 33980 Byte(s)
-	Symbol count      : 177
-	Total media count : 787
-	Total media size  : 227786 Byte(s)
-		String count  : 114
-		String size   : 672 Byte(s)
+	Script size       : 285456 Byte(s)
+	Code size         : 28606 Byte(s)
+	Symbol count      : 179
+	Total media count : 792
+	Total media size  : 227880 Byte(s)
+		String count  : 119
+		String size   : 766 Byte(s)
 		Image count   : 673
 		Image size    : 227114 Byte(s)
 
-ahyane.dgs - 0 error(s), 0 warning(s)
+ahyane.sgs - 0 error(s), 0 warning(s)

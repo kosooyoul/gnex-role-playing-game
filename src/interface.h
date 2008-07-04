@@ -14,53 +14,61 @@ void DrawInterface(){
 	int i;
 	string Temp;
 
-//int LV, EXP; 	int MAXHP, HP;	int MAXMP, MP;	int STR, DEF, WIS, DEX;	int Gold;
-	//SetColorRGB(0, 0, 0);
-	//FillRect(0, 166, 175, 204);
-	CopyImage(0,166, systembase);		//테스트 코드 인터페이스 틀
 
+//int LV, EXP; 	int MAXHP, HP;	int MAXMP, MP;	int STR, DEF, WIS, DEX;	int Gold;
+	SetColorRGB(0, 0, 0);
+	FillRect(0, 0, 239, 31);
+	FillRect(0, 248, 239, 319);
+	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);	//테스트 코드 현재 아이피 출력
+	MakeStrStr(Temp, "IP = %s (*:인천,#:제천)", SVR_IP);		//테스트 코드 현재 아이피 출력
+	DrawStr(8, 8, Temp);										//테스트 코드 현재 아이피 출력
+	SetFontType(S_FONT_MEDIUM, S_WHITE, S_BLACK, S_ALIGN_RIGHT);	//테스트 코드 제작자
+	DrawStr(236, 310, "010-2839-4096 Ahyane");					//테스트 코드 제작자
+	/* _ */
+	CopyImage(0+InterPX,166+InterPY, systembase);				//테스트 코드 인터페이스 틀
+	
 	//레벨 표시
 	SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_LEFT);
 	MakeStr1(Temp, "%d", Player.LV);
-	DrawStr(15, 168, Temp);
+	DrawStr(15+InterPX, 168+InterPY, Temp);
 
 	//체력 표시
 	MakeStr2(Temp, "%d/%d", Player.HP, Player.MAXHP);
-	DrawStr(69, 177, Temp);
+	DrawStr(69+InterPX, 177+InterPY, Temp);
 
 	//마나 표시
 	MakeStr2(Temp, "%d/%d", Player.MP, Player.MAXMP);
-	DrawStr(69, 183, Temp);
+	DrawStr(69+InterPX, 183+InterPY, Temp);
 
 	//경험치 표시
 	MakeStr1(Temp, "%d%", Player.EXP);
-	DrawStr(69, 189, Temp);
+	DrawStr(69+InterPX, 189+InterPY, Temp);
 
 	//돈 표시
 	MakeStr1(Temp, "%d\%", Player.Gold);
-	DrawStr(130, 168, Temp);
+	DrawStr(130+InterPX, 168+InterPY, Temp);
 
 	//퀵슬롯 표시 : 임시 - 인벤토리출력
 	
 	for(i = 0; i < QuickSlotSize; i++){
-		CopyImage(111 + (i % QuickSlotWidth) * 13, 178 + (i / QuickSlotWidth) * 13, icon[ItemList[Inventory[QuickSlot[i].ListNumber].ListNumber].Icon]);
+		CopyImage(111 + (i % QuickSlotWidth) * 13+InterPX, 178 + (i / QuickSlotWidth) * 13+InterPY, icon[ItemList[Inventory[QuickSlot[i].ListNumber].ListNumber].Icon]);
 
 		SetColorRGB(0, 0, 0);
-		FillRect(109 + (i % QuickSlotWidth) * 13, 176 + (i / QuickSlotWidth) * 13, 113 + (i % QuickSlotWidth) * 13, 182 + (i / QuickSlotWidth) * 13);
+		FillRect(109 + (i % QuickSlotWidth) * 13+InterPX, 176 + (i / QuickSlotWidth) * 13+InterPY, 113 + (i % QuickSlotWidth) * 13+InterPX, 182 + (i / QuickSlotWidth) * 13+InterPY);
 
 		MakeStr1(Temp, "%d", (i + 1) % 10);
 		SetFontType(S_FONT_SMALL, S_CYAN, S_BLACK, S_ALIGN_RIGHT);//퀵슬롯 버튼 표시
-		DrawStr(114 + (i % QuickSlotWidth) * 13, 177 + (i / QuickSlotWidth) * 13, Temp);
+		DrawStr(114 + (i % QuickSlotWidth) * 13+InterPX, 177 + (i / QuickSlotWidth) * 13+InterPY, Temp);
 
 		if(Inventory[QuickSlot[i].ListNumber].ListNumber){	//아이템이 있으면 수량 표시
 			MakeStr1(Temp, "%d", Inventory[QuickSlot[i].ListNumber].Quantity);
 			SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_RIGHT);//수량그림자
-			DrawStr(121 + (i % QuickSlotWidth) * 13, 183 + (i / QuickSlotWidth) * 13, Temp);
-			DrawStr(122 + (i % QuickSlotWidth) * 13, 182 + (i / QuickSlotWidth) * 13, Temp);
+			DrawStr(121 + (i % QuickSlotWidth) * 13+InterPX, 183 + (i / QuickSlotWidth) * 13+InterPY, Temp);
+			DrawStr(122 + (i % QuickSlotWidth) * 13+InterPX, 182 + (i / QuickSlotWidth) * 13+InterPY, Temp);
 			SetFontType(S_FONT_SMALL, S_WHITE, S_BLACK, S_ALIGN_RIGHT);//수량표시
-			DrawStr(122 + (i % QuickSlotWidth) * 13, 183 + (i / QuickSlotWidth) * 13, Temp);
+			DrawStr(122 + (i % QuickSlotWidth) * 13+InterPX, 183 + (i / QuickSlotWidth) * 13+InterPY, Temp);
 		}
-	}
+	}//*/
 }
 
 //메뉴 > 베이스 출력

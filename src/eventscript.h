@@ -141,13 +141,13 @@ void PrintMessage(int MessageNumber)
 	Length = StrLen(Message[MessageNumber]) / 26;
 	//대화창 배경
 	SetColorRGB(0, 30, 100);
-	FillRectEx(4, 4, 171, 25 + Length * 15, 2);
+	FillRectEx(4+_LeftMSG, 4+_TopMSG, 171+_LeftMSG, 25 + Length * 15+_TopMSG, 2);
 	SetColorRGB(0, 20, 70);
-	DrawRect(3, 3, 172, 25 + Length * 15);
+	DrawRect(3+_LeftMSG, 3+_TopMSG, 172+_LeftMSG, 25 + Length * 15+_TopMSG);
 	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
 	for(i = 0; i < Length + 1; i++){
 		StrSub(TempString, Message[MessageNumber], i * 26, 26);
-		DrawStr(9, 9 + i * 15, TempString);
+		DrawStr(9+_LeftMSG, 9 + i * 15+_TopMSG, TempString);
 	}
 }
 
@@ -483,13 +483,13 @@ void SetDirection(int Actor, int Direction)
 void PrintQuestion(int Value, int String1, int String2)
 {
 	SetColorRGB(0, 30, 100);
-	FillRectEx(4, 4, 171, 25 + 1 * 15, 2);
+	FillRectEx(4, 4 + _TopSize, 171, 25 + 1 * 15 + _TopSize, 2);
 	SetColorRGB(0, 20, 70);
-	DrawRect(3, 3, 172, 25 + 1 * 15);
+	DrawRect(3, 3 + _TopSize, 172, 25 + 1 * 15 + _TopSize);
 	
 	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
-	DrawStr(88, 9 + 0 * 15, String1);
-	DrawStr(88, 9 + 1 * 15, String2);
+	DrawStr(88, 9 + 0 * 15 + _TopSize, String1);
+	DrawStr(88, 9 + 1 * 15 + _TopSize, String2);
 
 	if(NextKey == SWAP_KEY_UP || NextKey == SWAP_KEY_DOWN)
 	{
@@ -502,7 +502,7 @@ void PrintQuestion(int Value, int String1, int String2)
 		return;
 	}
 	SetColorRGB(255, 255, 255);
-	DrawRect(5, 7 + SelectedAnswer * 15, 170, 21 + SelectedAnswer * 15);
+	DrawRect(5, 7 + SelectedAnswer * 15 + _TopSize, 170, 21 + SelectedAnswer * 15 + _TopSize);
 }
 
 //11번 이벤트 라인{11,*,*,*,*} - 변수에 대한 조건분기
@@ -536,20 +536,20 @@ int Shopping(int Sise, int SellListFront, int SellListRear){
 	ListLength = SellListRear - SellListFront;	//리스트 출력길이 구함
 	if(ListLength > 10) ListLength = 10;		//10개가 넘으면 10개.
 	SetColorRGB(0, 30, 100);					//이 길이의 상점 배경 출력
-	FillRectEx(4, 4, 171, 25 + (ListLength) * 15, 2);
+	FillRectEx(4, 4 + _TopSize, 171, 25 + (ListLength) * 15 + _TopSize, 2);
 	SetColorRGB(0, 20, 70);
-	DrawRect(3, 3, 172, 25 + (ListLength) * 15);
+	DrawRect(3, 3 + _TopSize, 172, 25 + (ListLength) * 15 + _TopSize);
 
 	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);	//아이템 이름과 아이콘 출력
 	for(i = 0; i <= ListLength; i++){
-		CopyImage(10, 10 + i * 15, icon[ItemList[SellItemList[SellListFront + i]].Icon]);
-		DrawStr(26, 9 + i * 15, ItemList[SellItemList[SellListFront + i]].Name);
+		CopyImage(10, 10 + i * 15 + _TopSize, icon[ItemList[SellItemList[SellListFront + i]].Icon]);
+		DrawStr(26, 9 + i * 15 + _TopSize, ItemList[SellItemList[SellListFront + i]].Name);
 	}
 
 	SetFontType(S_FONT_LARGE, S_GREEN, S_BLACK, S_ALIGN_LEFT);	//아이템 가격 출력
 	for(i = 0; i <= ListLength; i++){
 		MakeStr1(Temp, "%5d AL", ItemList[SellItemList[SellListFront + i]].Cost * (10 + Sise) / 10);
-		DrawStr(100, 9 + i * 15, Temp);
+		DrawStr(100, 9 + i * 15 + _TopSize, Temp);
 	}
 
 	if(ShopStatus)		//상점모드에 따라 아이템선택표시상자 테두리 색상
@@ -557,10 +557,10 @@ int Shopping(int Sise, int SellListFront, int SellListRear){
 	else
 		SetColor(S_WHITE);
 
-	DrawRect(5, 7 + SelectedAnswer * 15, 170, 21 + SelectedAnswer * 15);	//아이템 선택 위치표시
+	DrawRect(5, 7 + SelectedAnswer * 15 + _TopSize, 170, 21 + SelectedAnswer * 15 + _TopSize);	//아이템 선택 위치표시
 	MakeStr1(Temp, "x%2d", SelectedQuantity);
 	SetFontType(S_FONT_LARGE, S_YELLOW, S_BLACK, S_ALIGN_LEFT);				//아이템 선택 수량 출력
-	DrawStr(150, 9 + SelectedAnswer * 15, Temp);
+	DrawStr(150, 9 + SelectedAnswer * 15 + _TopSize, Temp);
 
 	switch(ShopStatus){
 		case 0:		//아이템 목록 선택
@@ -599,13 +599,13 @@ int Shopping(int Sise, int SellListFront, int SellListRear){
 
 		case 1:		//돈 확인 부분
 			SetColorRGB(0, 30, 100);
-			FillRectEx(4, 44, 171, 70, 1);
+			FillRectEx(4, 44 + _TopSize, 171, 70 + _TopSize, 1);
 			SetColorRGB(0, 20, 70);
-			DrawRect(3, 43, 172, 71);
+			DrawRect(3, 43 + _TopSize, 172, 71 + _TopSize);
 
 			SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
 			if(Player.Gold < ItemList[SellItemList[SellListFront + SelectedAnswer]].Cost * (10 + Sise) / 10 * SelectedQuantity){
-				DrawStr(88, 52, "돈이 부족합니다.");
+				DrawStr(88, 52 + _TopSize, "돈이 부족합니다.");
 				if(NextKey == SWAP_KEY_OK || NextKey == SWAP_KEY_CLR) ShopStatus = 0;		//아이템 선택으로 넘어감
 			}
 			else{
@@ -615,20 +615,20 @@ int Shopping(int Sise, int SellListFront, int SellListRear){
 
 		case 2:		//구입 확인 부분
 			SetColorRGB(0, 30, 100);
-			FillRectEx(4, 44, 171, 70, 1);
+			FillRectEx(4, 44 + _TopSize, 171, 70 + _TopSize, 1);
 			SetColorRGB(0, 20, 70);
-			DrawRect(3, 43, 172, 71);
+			DrawRect(3, 43 + _TopSize, 172, 71 + _TopSize);
 
 			SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
 			MakeStr1(Temp, "%d AL입니다. 구입합니까?", ItemList[SellItemList[SellListFront + SelectedAnswer]].Cost * (10 + Sise) / 10 * SelectedQuantity);
-			DrawStr(88, 52, Temp);
+			DrawStr(88, 52 + _TopSize, Temp);
 
 			SetColorRGB(0, 30, 100);
-			FillRectEx(4, 74, 171, 107, 1);
+			FillRectEx(4, 74 + _TopSize, 171, 107 + _TopSize, 1);
 			SetColorRGB(0, 20, 70);
-			DrawRect(3, 73, 172, 108);
-			DrawStr(88, 78, "네");	//110-74 = 36 /2 = 18 -14 = 4/2 =2
-			DrawStr(88, 93, "아니오");
+			DrawRect(3, 73 + _TopSize, 172, 108 + _TopSize);
+			DrawStr(88, 78 + _TopSize, "네");	//110-74 = 36 /2 = 18 -14 = 4/2 =2
+			DrawStr(88, 93 + _TopSize, "아니오");
 			
 			if(NextKey == SWAP_KEY_UP || NextKey == SWAP_KEY_DOWN){
 				SecondSelect = (SecondSelect + 1) % 2;
@@ -655,16 +655,16 @@ int Shopping(int Sise, int SellListFront, int SellListRear){
 				}
 			}
 			SetColor(S_WHITE);
-			DrawRect(5, 76 + SecondSelect * 15, 170, 90 + SecondSelect * 15);	//네/아니오:선택 위치표시
+			DrawRect(5, 76 + SecondSelect * 15 + _TopSize, 170, 90 + SecondSelect * 15 + _TopSize);	//네/아니오:선택 위치표시
 			break;
 
 		case 3:		//구입 종료 확인 부분
 			SetColorRGB(0, 30, 100);
-			FillRectEx(4, 44, 171, 70, 1);
+			FillRectEx(4, 44 + _TopSize, 171, 70 + _TopSize, 1);
 			SetColorRGB(0, 20, 70);
-			DrawRect(3, 43, 172, 71);
+			DrawRect(3, 43 + _TopSize, 172, 71 + _TopSize);
 			SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
-			DrawStr(88, 52, "구입을 완료 하였습니다.");
+			DrawStr(88, 52 + _TopSize, "구입을 완료 하였습니다.");
 			if(NextKey == SWAP_KEY_OK || NextKey == SWAP_KEY_CLR){				//아이템 선택으로 넘어감
 				ShopStatus = 0;
 			}
@@ -672,11 +672,11 @@ int Shopping(int Sise, int SellListFront, int SellListRear){
 
 		case 4:		//구입 실패
 			SetColorRGB(0, 30, 100);
-			FillRectEx(4, 44, 171, 70, 1);
+			FillRectEx(4, 44 + _TopSize, 171, 70 + _TopSize, 1);
 			SetColorRGB(0, 20, 70);
-			DrawRect(3, 43, 172, 71);
+			DrawRect(3, 43 + _TopSize, 172, 71 + _TopSize);
 			SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
-			DrawStr(88, 52, "슬롯이 없습니다.");
+			DrawStr(88, 52 + _TopSize, "슬롯이 없습니다.");
 
 			if(NextKey == SWAP_KEY_OK || NextKey == SWAP_KEY_CLR){				//아이템 선택으로 넘어감
 				ShopStatus = 0;

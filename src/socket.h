@@ -65,6 +65,7 @@ void EVENT_KEYPRESS(){
 
 void ConnectSocket()	//소켓 연결
 {
+	SendSocket();		//테스트 코드
 	Sock_Result = SockSendMedia(Sock_Index, Sock_SendString, 0, Sock_LenSendString);
 	if(Sock_Result < 0)
 	{
@@ -78,7 +79,7 @@ void CloseSocket()	//소켓 닫음
 	Sock_Result = SockClose(Sock_Index);
 }
 
-void SendSocket()
+void SendSocket()	//소켓 데이터 송신
 {
 	StrInit(Sock_SendString, 32);
 	StrCpy(Sock_SendString, DataMsg);	//MakeStr1(Sock_SendString,"V[%d]",2);
