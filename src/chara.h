@@ -8,7 +8,7 @@ struct Chara{
 	string Name;
 	int Job;
 
-	int LV, EXP; 
+	int LV, MAXEXP, EXP; 
 
 	int MAXHP, HP;
 	int MAXMP, MP;
@@ -34,9 +34,10 @@ void InitPlayer(){
 	Player.frame = 2;
 
 	Player.LV = 100;
+	Player.MAXEXP = 50;		//(Player.LV - 80) * 2 + 10;
 	Player.EXP = 0;
-	Player.MAXHP = 100;
-	Player.HP = 100;
+	Player.MAXHP = 60;
+	Player.HP = 60;
 	Player.MAXMP = 20;
 	Player.MP = 20;
 

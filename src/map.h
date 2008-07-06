@@ -2,6 +2,7 @@ int ScrollMapX = 0;
 int ScrollMapY = 0;
 
 struct Map{
+	string name;
 	int x_start, y_start;
 	int x_size, y_size;
 	int backchip;			//배경 맵칩
@@ -9,12 +10,14 @@ struct Map{
 
 //맵 영역 설정
 void SetArea(){
+	Area[0].name = "UNKNOWN TOWN 1";
 	Area[0].x_start = 0;
 	Area[0].y_start = 0;
 	Area[0].x_size = 30;
 	Area[0].y_size = 30;
 	Area[0].backchip = 85;		//풀밭142 검정85 자갈바닥58
 
+	Area[1].name = "UNKNOWN TOWN 2";
 	Area[1].x_start = 1;
 	Area[1].y_start = 4;
 	Area[1].x_size = 20;
@@ -45,9 +48,9 @@ void DrawSubLayer(){
 	TempPX = Player.x - _PlayerPosition;
 	TempPY = Player.y - _PlayerPosition;
 
-	for(x=-1;x<12+4;x++)
+	for(x=-1;x<16;x++)
 	{
-		for(y=0;y<11+4;y++)
+		for(y=0;y<15;y++)
 		{
 			if(x + TempPX >= 0 && y + TempPY >= 0 && x + TempPX < Area[Player.map].x_size && y + TempPY  < Area[Player.map].y_size)
 				CopyImage(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, subchip[SubLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX]]);
@@ -70,9 +73,9 @@ void DrawSupLayer(int Level){
 	switch(Level)
 	{
 		case 0:	//바닥, 벽
-			for(x=-1;x<12+4;x++)
+			for(x=-1;x<16;x++)
 			{
-				for(y=0;y<11+4;y++)
+				for(y=0;y<15;y++)
 				{
 					if(x + TempPX >= 0 && y + TempPY >= 0 && x + TempPX < Area[Player.map].x_size && y + TempPY  < Area[Player.map].y_size)
 						if(SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX] <= _SupChipWall)
@@ -81,14 +84,15 @@ void DrawSupLayer(int Level){
 			}
 			break;
 		case 1:	//천장이나 하늘
-			for(x=-1;x<12+4;x++)
+			for(x=-1;x<16;x++)
 			{
-				for(y=0;y<11+4;y++)
+				for(y=0;y<15;y++)
 				{
+					//근접 셀 이미지 반투명 처리
 					if(x + TempPX >= 0 && y + TempPY >= 0 && x + TempPX < Area[Player.map].x_size && y + TempPY  < Area[Player.map].y_size)
 						if(SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX] > _SupChipWall)
 						{
-							if(x >= 4 && y >= 4 && x <= 6 && y <= 6)CopyImageEx(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, supchip[SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX]],1,0,0,0);
+							if(x >= 6 && y >= 6 && x <= 8 && y <= 8)CopyImageEx(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, supchip[SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX]],1,0,0,0);
 							else CopyImageEx(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, supchip[SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX]],0,0,0,0);
 						}
 				}

@@ -22,7 +22,7 @@ struct EventObject{
 	int ScrollMapY;
 }EventObject[10];
 
-string Message[9]={
+string Message[12]={
 "당신 누구쇼? 바바지?",
 "안녕하세요?",
 "문장 출력 잘되나?",
@@ -31,14 +31,18 @@ string Message[9]={
 "알피지 게임 만들기",
 "우훗",
 "예~ +ㅁ+",
-"아니요 ㅜㅜ"
+"아니요 ㅜㅜ",
+"레벨이 상승하였습니다!",
+"체력이 감소하였습니다!",
+"마나가 감소하였습니다!"
 };
 
-int EventLine[40] = { 
+int EventLine[50] = { 
  0, 1, 0, 2,14,-3, 1,10, 3, 2,
  0, 0,11, 1, 2, 2, 3, 0, 7,-1,
- 0, 8,-1, 0, 0, 0, 0, 0, 0, 0,
- 0, 0, 0, 0,-1, 0, 1, 0, 0,-1
+ 0, 1,-1, 5, 0, 0, 1, 0, 9,-1,
+ 5, 3, 1, 1, 0,10,-1,-1,-1,-1,
+ 5, 5, 1, 1, 0,11,-1,-1,-1,-1
 };
 
 
@@ -65,7 +69,7 @@ void SetEvent(){
 	EventObject[1].direction = 1;		//테스트 코드
 	EventObject[1].frame = 0;		//테스트 코드
 	EventObject[1].EventLoop = 0;		//테스트 코드
-	EventObject[1].EventPage = 35;		//테스트 코드
+	EventObject[1].EventPage = 23;		//테스트 코드
 	EventObject[1].LineCount = 0;		//테스트 코드
 	EventObject[1].ScrollMapX = 0;
 	EventObject[1].ScrollMapY = 0;
@@ -77,7 +81,7 @@ void SetEvent(){
 	EventObject[2].direction = 1;		//테스트 코드
 	EventObject[2].frame = 0;		//테스트 코드
 	EventObject[2].EventLoop = 0;		//테스트 코드
-	EventObject[2].EventPage = 35;		//테스트 코드
+	EventObject[2].EventPage = 30;		//테스트 코드
 	EventObject[2].LineCount = 0;		//테스트 코드
 	EventObject[2].ScrollMapX = 0;
 	EventObject[2].ScrollMapY = 0;
@@ -89,7 +93,7 @@ void SetEvent(){
 	EventObject[3].direction = 1;		//테스트 코드
 	EventObject[3].frame = 0;		//테스트 코드
 	EventObject[3].EventLoop = 0;		//테스트 코드
-	EventObject[3].EventPage = 35;		//테스트 코드
+	EventObject[3].EventPage = 40;		//테스트 코드
 	EventObject[3].LineCount = 0;		//테스트 코드
 	EventObject[3].ScrollMapX = 0;
 	EventObject[3].ScrollMapY = 0;
@@ -101,7 +105,7 @@ void SetEvent(){
 	EventObject[4].direction = 1;		//테스트 코드
 	EventObject[4].frame = 0;		//테스트 코드
 	EventObject[4].EventLoop = 0;		//테스트 코드
-	EventObject[4].EventPage = 35;		//테스트 코드
+	EventObject[4].EventPage = 20;		//테스트 코드
 	EventObject[4].LineCount = 0;		//테스트 코드
 	EventObject[4].ScrollMapX = 0;
 	EventObject[4].ScrollMapY = 0;
@@ -113,7 +117,7 @@ void SetEvent(){
 	EventObject[5].direction = 1;		//테스트 코드
 	EventObject[5].frame = 0;		//테스트 코드
 	EventObject[5].EventLoop = 0;		//테스트 코드
-	EventObject[5].EventPage = 35;		//테스트 코드
+	EventObject[5].EventPage = 20;		//테스트 코드
 	EventObject[5].LineCount = 0;		//테스트 코드
 	EventObject[5].ScrollMapX = 0;
 	EventObject[5].ScrollMapY = 0;

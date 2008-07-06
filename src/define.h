@@ -10,9 +10,9 @@
 //chara.h
 #define _CenterPositionX 52 + 24+32	//케릭터 표시위치 = 4*16-(8)-? -12 : 3	;+16*2	+0
 #define _CenterPositionY 40 + 16+32	//케릭터 표시위치 = 4*16-(8)-? -16 : 20	;+16*2	+32
-#define InventorySize	16			//인벤토리 슬롯의 갯수
-#define SkilSlotSize	16			//스킬목록 슬롯의 갯수
-#define EquipmentSize	16			//장비목록 슬롯의 갯수
+#define InventorySize	18			//인벤토리 슬롯의 갯수
+#define SkilSlotSize	18			//스킬목록 슬롯의 갯수
+#define EquipmentSize	18			//장비목록 슬롯의 갯수
 
 //map.h
 #define _PlayerPosition 7			//주인공 화면위치 조절
@@ -27,8 +27,8 @@ string	SVR_IP = "118.37.164.161";	//인천집 서버 IP //인천집:118.37.164.1
 #define SVR_BufferSize	10			//서버로부터 받은 데이터 목록의 크기
 
 //interface.h
-#define QuickSlotSize	10			//퀵슬롯의 슬롯 갯수
-#define QuickSlotWidth	5			//퀵슬롯의 너비
+#define QuickSlotSize	18			//퀵슬롯의 슬롯 갯수
+#define QuickSlotWidth	6			//퀵슬롯의 너비
 #define InterPX			0			//인터페이스 위치
 #define InterPY			82			//인터페이스 위치
 #define MenuPX			4			//메뉴 위치
