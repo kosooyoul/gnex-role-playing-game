@@ -21,6 +21,9 @@ void RunEventLine(int EventNumber)
 		case 0:		//문장 출력						 :: 매개변수 1개
 			if(NextKey == SWAP_KEY_OK)
 			{
+				//메시지 리스트에 삽입
+				INTER_ADD_MSG_LIST(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount]);
+				///////////////////////////////////////////////////////////////////////////////////////////////////////
 				PrintMessage(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 				NextKey = -1;
 			}
@@ -227,15 +230,15 @@ void StatusToVariable(int Status, int Value)
 		case 3://Variable[Value] = HP
 			Variable[Value] = Player.HP;break;
 		case 4://Variable[Value] = MAX MP
-			Variable[Value] = Player.MAXMP;break;
+			Variable[Value] = Player.MAXSP;break;
 		case 5://Variable[Value] = MP
-			Variable[Value] = Player.MP;break;
+			Variable[Value] = Player.SP;break;
 		case 6://Variable[Value] = STR
 			Variable[Value] = Player.STR;break;
 		case 7://Variable[Value] = DEF
 			Variable[Value] = Player.DEF;break;
 		case 8://Variable[Value] = WIS
-			Variable[Value] = Player.WIS;break;
+			Variable[Value] = Player.INT;break;
 		case 9://Variable[Value] = DEX
 			Variable[Value] = Player.DEX;break;
 		case 10://Variable[Value] = GOLD
@@ -261,15 +264,15 @@ void SetPlayerStatus(int Status, int Operation, int Value)
 				case 3://HP
 					Player.HP += Variable[Value];break;
 				case 4://MAX MP
-					Player.MAXMP += Variable[Value];break;
+					Player.MAXSP += Variable[Value];break;
 				case 5://MP
-					Player.MP += Variable[Value];break;
+					Player.SP += Variable[Value];break;
 				case 6://STR
 					Player.STR += Variable[Value];break;
 				case 7://DEF
 					Player.DEF += Variable[Value];break;
 				case 8://WIS
-					Player.WIS += Variable[Value];break;
+					Player.INT += Variable[Value];break;
 				case 9://DEX
 					Player.DEX += Variable[Value];break;
 				case 10://GOLD
@@ -287,15 +290,15 @@ void SetPlayerStatus(int Status, int Operation, int Value)
 				case 3://HP
 					Player.HP -= Variable[Value];break;
 				case 4://MAX MP
-					Player.MAXMP -= Variable[Value];break;
+					Player.MAXSP -= Variable[Value];break;
 				case 5://MP
-					Player.MP -= Variable[Value];break;
+					Player.SP -= Variable[Value];break;
 				case 6://STR
 					Player.STR -= Variable[Value];break;
 				case 7://DEF
 					Player.DEF -= Variable[Value];break;
 				case 8://WIS
-					Player.WIS -= Variable[Value];break;
+					Player.INT -= Variable[Value];break;
 				case 9://DEX
 					Player.DEX -= Variable[Value];break;
 				case 10://GOLD
@@ -313,15 +316,15 @@ void SetPlayerStatus(int Status, int Operation, int Value)
 				case 3://HP
 					Player.HP = Variable[Value];break;
 				case 4://MAX MP
-					Player.MAXMP = Variable[Value];break;
+					Player.MAXSP = Variable[Value];break;
 				case 5://MP
-					Player.MP = Variable[Value];break;
+					Player.SP = Variable[Value];break;
 				case 6://STR
 					Player.STR = Variable[Value];break;
 				case 7://DEF
 					Player.DEF = Variable[Value];break;
 				case 8://WIS
-					Player.WIS = Variable[Value];break;
+					Player.INT = Variable[Value];break;
 				case 9://DEX
 					Player.DEX = Variable[Value];break;
 				case 10://GOLD

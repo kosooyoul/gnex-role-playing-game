@@ -10,9 +10,9 @@
 //chara.h
 #define _CenterPositionX 52 + 24+32	//케릭터 표시위치 = 4*16-(8)-? -12 : 3	;+16*2	+0
 #define _CenterPositionY 40 + 16+32	//케릭터 표시위치 = 4*16-(8)-? -16 : 20	;+16*2	+32
-#define InventorySize	18			//인벤토리 슬롯의 갯수
-#define SkilSlotSize	18			//스킬목록 슬롯의 갯수
-#define EquipmentSize	18			//장비목록 슬롯의 갯수
+#define InventorySize	24			//인벤토리 슬롯의 갯수
+#define SkilSlotSize	24			//스킬목록 슬롯의 갯수
+#define EquipmentSize	24			//장비목록 슬롯의 갯수
 
 //map.h
 #define _PlayerPosition 7			//주인공 화면위치 조절
