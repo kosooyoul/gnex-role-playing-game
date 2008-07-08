@@ -21,7 +21,7 @@ struct Chara{
 }Player;
 
 struct Slot Inventory[InventorySize];	//인벤토리, 가능한 8의 배수로:8열씩 출력예정, 40개정도, 카테고리 > 소모품, 영구템, 사용불가품 (소지갯수)
-struct Slot SkillSlot[SkilSlotSize];	//스킬목록, 가능한 8의 배수로:8열씩 출력예정, 40개정도, 카테고리 > 셀프스킬, 대상스킬, 비전투스킬 / 속성별 분류 (스킬레벨)
+struct Slot SkillSlot[SkillSlotSize];	//스킬목록, 가능한 8의 배수로:8열씩 출력예정, 40개정도, 카테고리 > 셀프스킬, 대상스킬, 비전투스킬 / 속성별 분류 (스킬레벨)
 struct Slot Equipment[EquipmentSize];	//장비목록, 가능한 8의 배수로:8열씩 출력예정, 40개정도, 카테고리 > 각각 6개 부위로 분류 (인챈트횟수)
 const string PlayerJob[15] = {
 						"주민","견습생", "마술사", "주술사", "복사",
@@ -33,6 +33,8 @@ const string EquipPart[6] = {"머리", "왼손", "오른손", "의상", "신발"
 
 //주인공 초기화
 void InitPlayer(){
+	int i;	//테스트
+
 	Player.graphic = 4;
 	Player.map = 0;
 	Player.x = 5;
@@ -65,14 +67,19 @@ void InitPlayer(){
 	Player.Equip[4] = 34;	Player.Upgrade[4] = 7;
 	Player.Equip[5] = 36;	Player.Upgrade[5] = 7;
 	
+	for(i=0;i<48;i++)
+		{Inventory[i].ListNumber = i % 15 + 1;	Inventory[i].Quantity = i;
+		SkillSlot[i].ListNumber = i % 21 + 1;	SkillSlot[i].Quantity = i;
+		Equipment[i].ListNumber = i % 37 + 1;	Equipment[i].Quantity = i;}
 
-	Inventory[0].ListNumber = 15;	Inventory[0].Quantity = 3;
+/*
 	SkillSlot[0].ListNumber = 1;	SkillSlot[0].Quantity = 3;
 	SkillSlot[1].ListNumber = 2;	SkillSlot[1].Quantity = 5;
 	SkillSlot[2].ListNumber = 3;	SkillSlot[2].Quantity = 5;
 	SkillSlot[3].ListNumber = 10;	SkillSlot[3].Quantity = 1;
 	SkillSlot[4].ListNumber = 11;	SkillSlot[4].Quantity = 1;
 	SkillSlot[5].ListNumber = 12;	SkillSlot[5].Quantity = 1;
+	*/
 }
 
 //주인공 그리기

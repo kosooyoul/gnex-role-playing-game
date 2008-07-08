@@ -7,7 +7,7 @@
 /*		, Hotspot X, Hotspot Y, BlockInfo, BlockIdx, Transparent, Transparent Color       */
 /*                                                                           */
 /* First written : Sunday, January 27, 2008 12:46:16			     */
-/* Last modified : Monday, July 07, 2008 22:41:21			     */
+/* Last modified : Tuesday, July 08, 2008 22:13:27			     */
 /*                                                                           */
 /* Copyright(c) 2000~2007 Sinjisoft Corporation.  All rights reserved.       */
 /*****************************************************************************/
@@ -706,4 +706,14 @@ interface_menu[003],11,570,0,161,145,0,0,0,819,1,2366701
 interface_selitem,10,0,135,22,22,0,0,0,821,1,2366701
 interface_selmenu,9,23,135,35,23,0,0,0,822,1,2366701
 interface_scroll,11,69,135,9,16,0,0,0,823,1,2366701
+
+Image=interface_info.bmp
+interface_infomenu,11,0,25,93,108,0,0,0,824,1,9334100
+interface_infowindow,11,93,25,156,95,0,0,0,825,1,9334100
+interface_yesno,11,0,133,93,51,0,0,0,826,1,9334100
+interface_oneline,11,0,0,240,25,0,0,0,827,1,9334100
+interface_selyesno,11,93,145,83,22,0,0,0,828,1,9334100
+interface_closeinfo,11,176,145,55,11,0,0,0,829,1,9334100
+interface_setquick,11,249,0,166,96,0,0,0,830,1,9334100
+interface_cell,11,249,96,22,22,0,0,0,831,1,9334100
 

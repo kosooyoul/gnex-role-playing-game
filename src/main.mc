@@ -43,10 +43,11 @@
 24일차: 5월30일 : 아이템 구조체 작성 및 상점처리 구현 시도
 25일차: 6월 2일 : 상점처리 구현(물품 카테고리 구분안됨, 최대 판매 물품 10개로 한정), 아이템 습득 부분 구현(카테고리 구분안됨, 소지한도 (ex)20을 초과)
 26일차: 6월 3일 : 주인공 상태 인터페이스(게이지 등) 구현 중(그래픽 수정요망), 퀵슬롯 표현(카테고리 사용하기 위해 인벤토리배열을 다시 배열로 만들거나 해야함, 아니면 코드만 늘어남), 상점처리(14번이벤트)에서 시세비율적용(* 1.Sise), 메뉴인터페이스 연습때 만들던 시스템 가져와 적용 및 테스트, 아이템 아이콘 추가, 메인소스 정리
-27일차: 6월28일 : GNEX(ⓜPlayer)가 설치되있는 모바일 구입 및 디스플레이 사이즈 측정(가로:240,세로:287), 측정된 사이즈에 맞게 출력화면 재구성 요망
+27일차: 6월28일 : GNEX(ⓜPlayer)가 설치되있는 모바일 구입 및 디스플레이 사이즈 측정(가로:240,세로:298), 측정된 사이즈에 맞게 출력화면 재구성 요망
 28일차: 7월 4일 : LG-SH150A(본인단말기)사이즈에 맞추어 출력 화면 재조정, 테스트 코드 추가, 소스정리 요망
 29일차: 7월 6일 : 인터페이스 재구성
-
+30일차: 7월 7일 : 인터페이스 일부 수정, 스킬 & 장비에 대한 데이터 작업, 인터페이스중 사용자 메뉴 그래픽 변경 및 수정, 하단에 메시지 출력되도록 함
+31일차: 7월 8일 : 인터페이스:메뉴 및 인벤토리 스킬목록 장비목록 개선 및 목록스크롤과 선택한슬롯에 대한 기능과 퀵슬롯설정과 연결
 
 메뉴시스템 추가 요망
 전투시스템 추가 요망:필드턴제시뮬레이션(어스토니시아스토리)
@@ -65,9 +66,9 @@
 	#DEFINE IMAGETYPE	255
 	#DEFINE AUDIOTYPE	255
 	#DEFINE SCRIPTTYPE	1
-	#DEFINE SCRIPTCPID	19732		//테스트 고유번호
+	#DEFINE SCRIPTCPID	19732			//테스트 고유번호
 	#DEFINE SCRIPTID	1
-	#DEFINE SCRIPTNAME	"AHYANET RPG ^o^"
+	#DEFINE SCRIPTNAME	"AHYANET RPG"
 	#DEFINE VALIDCOUNT	255
 	#DEFINE VALIDTERM	255
 %}
@@ -78,9 +79,9 @@
 	#DEFINE IMAGETYPE	255
 	#DEFINE AUDIOTYPE	255
 	#DEFINE APPTYPE		1
-	#DEFINE APPCPID		19732		//테스트 고유번호
-	#DEFINE APPID		11005		//프로그램 ID
-	#DEFINE APPNAME		"AHYANET 11005"	//프로그램 이름
+	#DEFINE APPCPID		19732			//테스트 고유번호
+	#DEFINE APPID		10152			//프로그램 ID
+	#DEFINE APPNAME		"AHYANET 10152"	//프로그램 이름
 	#DEFINE COMPTYPE	2
 	#DEFINE AGENTTYPE	0
 	#DEFINE VALIDCOUNT	255
@@ -100,6 +101,7 @@
 #include "item.h"			//*  아이템
 #include "monster.h"		//*  몬스터
 #include "skill.h"			//*  스킬
+#include "equip.h"			//*  장비
 #include "chara.h"			//   주인공
 #include "interface.h"		//   인터페이스
 #include "socket.h"			// ! 소켓
@@ -114,6 +116,8 @@ void main()
 {
 	//mode: title, play(move), battle, event, menu(item,skill,status,.....)
 	SetItem();
+	SetSkill();
+	SetEquip();
 	SetArea();
 	SetEvent();
 	InitPlayer();						//주인공 초기화
@@ -180,11 +184,11 @@ void EVENT_TIMEOUT(){
 				RestoreLCD();
 				DrawMenu(MenuPX, MenuPY);
 				switch (selected_menu){
-					case 0:	DrawState(MenuPX, MenuPY);	break;
-					case 1:	DrawItem(MenuPX, MenuPY);	break;
-					case 2:	DrawSkill(MenuPX, MenuPY);	break;
-					case 3:	DrawEquip(MenuPX, MenuPY);	break;
-					case 4:	DrawQuest(MenuPX, MenuPY);	break;
+					case 0:	DrawState(MenuPX, MenuPY);		break;
+					case 1:	DrawEquip(MenuPX, MenuPY);		break;
+					case 2:	DrawItem(MenuPX, MenuPY);		break;
+					case 3:	DrawSkill(MenuPX, MenuPY);		break;
+					case 4:	break;
 				}
 			}
 			break;
@@ -258,13 +262,13 @@ void EVENT_KEYPRESS(){
 				case SWAP_KEY_4:
 				case SWAP_KEY_5:
 				case SWAP_KEY_6:
-				case SWAP_KEY_7:	break;
-				case SWAP_KEY_8:	QuickSlot_VIEW = (QuickSlot_VIEW + 2) % 3;break;
-				case SWAP_KEY_9:	break;
-				case SWAP_KEY_0:	QuickSlot_VIEW = (QuickSlot_VIEW + 1) % 3;break;
+				case SWAP_KEY_7:		break;
+				case SWAP_KEY_8:		QuickSlot_VIEW = (QuickSlot_VIEW + 2) % 3;break;
+				case SWAP_KEY_9:		break;
+				case SWAP_KEY_0:		QuickSlot_VIEW = (QuickSlot_VIEW + 1) % 3;break;
 					//UseQuickSlot(swData);
 					break;
-
+				case SWAP_KEY_SHARP:	INTER_MSG_LIST_VIEW = (INTER_MSG_LIST_VIEW + 9) % 10;break;
 				default:
 					break;
 			}

@@ -12,7 +12,7 @@ struct Equip{
 
 struct Equip EquipList[38];	//장비 리스트(임시 38개)
 
-const string EquipType[6] = {"장비 없음", "머리", "손", "의상", "신발", "장신구"};
+const string EquipType[6] = {"", "머리", "손", "의상", "신발", "장신구"};
 
 void SetEquip(){	//장비 설정
 	EquipList[0].Name = "장비 없음";		EquipList[0].Cost = 0;		EquipList[0].Icon = 0;		EquipList[0].Type = 0;	EquipList[0].Tip = "장비 없음";
