@@ -3,6 +3,7 @@ int Variable[50];
 
 struct EventObject{
 	//기본 정보
+	int NameNumber;		//이름목록의 번호
 	int	x, y;
 	int direction;
 	int frame;
@@ -22,9 +23,15 @@ struct EventObject{
 	int ScrollMapY;
 }EventObject[10];
 
+//이벤트들의 이름
+const string NameList[10] = {
+						"도구상인", "장비상인", "스킬상인", "여관주인", "상인",
+						"몬스터", "주민", "사병", "마법사", "정체불명"
+};
+
 string Message[12]={
 "당신 누구쇼? 바바지?",
-"안녕하세요?",
+"안녕하세요? 긴 문장 테스트? 가나다라마바사아1234567890킁안녕하세요? 안녕안녕 뭐? 가나다라마바사아1234567890 킁~안녕하세요?안녕안녕 뭐? 가나다라마바사아1234567890-킁안녕하세요? 안녕안녕 뭐? 가나다라마바사아1234567890",
 "문장 출력 잘되나?",
 "이벤트 스크립트 테스트",
 "게임 알고리즘 매니아 아야넷",
@@ -37,12 +44,14 @@ string Message[12]={
 "마나가 감소하였습니다!"
 };
 
-int EventLine[50] = { 
- 0, 1, 0, 2,14,-3, 1,10, 3, 2,
- 0, 0,11, 1, 2, 2, 3, 0, 7,-1,
- 0, 1,-1, 5, 0, 0, 1, 0, 9,-1,
- 5, 3, 1, 1, 0,10,-1,-1,-1,-1,
- 5, 5, 1, 1, 0,11,-1,-1,-1,-1
+int EventLine[35] = { 
+ 0, 0, 1,-1,
+ 0, 0, 2,-1,
+ 0, 0, 3,-1,
+ 0, 0, 4,-1,
+ 0, 0, 5,-1,
+ 0, 0, 6,-1,
+ 0, 0, 7,14,-2, 4,14, 0,-1, 2,-1
 };
 
 
@@ -50,18 +59,20 @@ int EventLine[50] = {
 void SetEvent(){
 	int Actor;
 
+	EventObject[0].NameNumber = 1;		//테스트 코드
 	EventObject[0].graphic = 1;		//테스트 코드
 	EventObject[0].map = 0;		//테스트 코드
 	EventObject[0].x = 10;		//테스트 코드
 	EventObject[0].y = 10;		//테스트 코드
-	EventObject[0].direction = 1;		//테스트 코드
+	EventObject[0].direction = 2;		//테스트 코드
 	EventObject[0].frame = 0;		//테스트 코드
 	EventObject[0].EventLoop = 0;		//테스트 코드
-	EventObject[0].EventPage = 0;		//테스트 코드
+	EventObject[0].EventPage = 24;		//테스트 코드
 	EventObject[0].LineCount = 0;		//테스트 코드
 	EventObject[0].ScrollMapX = 0;
 	EventObject[0].ScrollMapY = 0;
 
+	EventObject[1].NameNumber = 2;		//테스트 코드
 	EventObject[1].graphic = 2;		//테스트 코드
 	EventObject[1].map = 0;		//테스트 코드
 	EventObject[1].x = 1;		//테스트 코드
@@ -69,11 +80,12 @@ void SetEvent(){
 	EventObject[1].direction = 1;		//테스트 코드
 	EventObject[1].frame = 0;		//테스트 코드
 	EventObject[1].EventLoop = 0;		//테스트 코드
-	EventObject[1].EventPage = 23;		//테스트 코드
+	EventObject[1].EventPage = 4;		//테스트 코드
 	EventObject[1].LineCount = 0;		//테스트 코드
 	EventObject[1].ScrollMapX = 0;
 	EventObject[1].ScrollMapY = 0;
 
+	EventObject[2].NameNumber = 3;		//테스트 코드
 	EventObject[2].graphic = 0;		//테스트 코드
 	EventObject[2].map = 0;		//테스트 코드
 	EventObject[2].x = 6;		//테스트 코드
@@ -81,11 +93,12 @@ void SetEvent(){
 	EventObject[2].direction = 1;		//테스트 코드
 	EventObject[2].frame = 0;		//테스트 코드
 	EventObject[2].EventLoop = 0;		//테스트 코드
-	EventObject[2].EventPage = 30;		//테스트 코드
+	EventObject[2].EventPage = 8;		//테스트 코드
 	EventObject[2].LineCount = 0;		//테스트 코드
 	EventObject[2].ScrollMapX = 0;
 	EventObject[2].ScrollMapY = 0;
 
+	EventObject[3].NameNumber = 4;		//테스트 코드
 	EventObject[3].graphic = 3;		//테스트 코드
 	EventObject[3].map = 0;		//테스트 코드
 	EventObject[3].x = 7;		//테스트 코드
@@ -93,11 +106,12 @@ void SetEvent(){
 	EventObject[3].direction = 1;		//테스트 코드
 	EventObject[3].frame = 0;		//테스트 코드
 	EventObject[3].EventLoop = 0;		//테스트 코드
-	EventObject[3].EventPage = 40;		//테스트 코드
+	EventObject[3].EventPage = 12;		//테스트 코드
 	EventObject[3].LineCount = 0;		//테스트 코드
 	EventObject[3].ScrollMapX = 0;
 	EventObject[3].ScrollMapY = 0;
 
+	EventObject[4].NameNumber = 5;		//테스트 코드
 	EventObject[4].graphic = 5;		//테스트 코드
 	EventObject[4].map = 0;		//테스트 코드
 	EventObject[4].x = 8;		//테스트 코드
@@ -105,11 +119,12 @@ void SetEvent(){
 	EventObject[4].direction = 1;		//테스트 코드
 	EventObject[4].frame = 0;		//테스트 코드
 	EventObject[4].EventLoop = 0;		//테스트 코드
-	EventObject[4].EventPage = 20;		//테스트 코드
+	EventObject[4].EventPage = 16;		//테스트 코드
 	EventObject[4].LineCount = 0;		//테스트 코드
 	EventObject[4].ScrollMapX = 0;
 	EventObject[4].ScrollMapY = 0;
 
+	EventObject[5].NameNumber = 6;		//테스트 코드
 	EventObject[5].graphic = 6;		//테스트 코드
 	EventObject[5].map = 0;		//테스트 코드
 	EventObject[5].x = 2;		//테스트 코드
@@ -117,13 +132,13 @@ void SetEvent(){
 	EventObject[5].direction = 1;		//테스트 코드
 	EventObject[5].frame = 0;		//테스트 코드
 	EventObject[5].EventLoop = 0;		//테스트 코드
-	EventObject[5].EventPage = 20;		//테스트 코드
+	EventObject[5].EventPage = 0;		//테스트 코드
 	EventObject[5].LineCount = 0;		//테스트 코드
 	EventObject[5].ScrollMapX = 0;
 	EventObject[5].ScrollMapY = 0;
 
 	//맵상에 이벤트 적용
-	for(Actor = 0; Actor < 6; Actor++)
+	for(Actor = 1; Actor <= 6; Actor++)
 		EventLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start] = Actor;
 }
 

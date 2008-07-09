@@ -7,7 +7,7 @@
 /*		, Hotspot X, Hotspot Y, BlockInfo, BlockIdx, Transparent, Transparent Color       */
 /*                                                                           */
 /* First written : Sunday, January 27, 2008 12:46:16			     */
-/* Last modified : Tuesday, July 08, 2008 22:13:27			     */
+/* Last modified : Thursday, July 10, 2008 00:51:04			     */
 /*                                                                           */
 /* Copyright(c) 2000~2007 Sinjisoft Corporation.  All rights reserved.       */
 /*****************************************************************************/
@@ -686,6 +686,12 @@ symbol_qs[002],10,240,14,7,7,0,0,0,784,0,2134048
 
 Image=interface_bottom.bmp
 interface_bottom,11,0,0,240,53,0,0,0,785,0,2134048
+interface_talksingle,11,0,53,240,19,0,0,0,832,1,62207
+interface_talkmulti,11,0,72,240,14,0,0,0,833,1,16777215
+interface_talkborder,11,0,86,240,7,0,0,0,834,1,62207
+interface_talkname,11,0,93,86,19,0,0,0,835,1,9334100
+interface_okinfo,11,86,93,23,11,0,0,0,836,1,9334100
+interface_what,11,109,93,7,8,0,0,0,837,1,9334100
 
 Image=interface_menu.bmp
 interface_button[000],11,0,0,39,27,0,0,0,806,1,2366701

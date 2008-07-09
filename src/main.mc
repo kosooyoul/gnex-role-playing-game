@@ -48,6 +48,9 @@
 29일차: 7월 6일 : 인터페이스 재구성
 30일차: 7월 7일 : 인터페이스 일부 수정, 스킬 & 장비에 대한 데이터 작업, 인터페이스중 사용자 메뉴 그래픽 변경 및 수정, 하단에 메시지 출력되도록 함
 31일차: 7월 8일 : 인터페이스:메뉴 및 인벤토리 스킬목록 장비목록 개선 및 목록스크롤과 선택한슬롯에 대한 기능과 퀵슬롯설정과 연결
+32일차: 7월 9일 : 퀵슬롯:아이템과 스킬 구분, 장비에 대한 메뉴 추가(장착하기,버리기,강화하기,설명보기,닫기,. 장비 해제는 불가능 -ㅅ-), 대화창 이미지 변경 및 출력 방식 수정, 메시지 목록 제거, 이벤트스크립트 문장출력에서 이름도 출력되게 수정
+
+
 
 메뉴시스템 추가 요망
 전투시스템 추가 요망:필드턴제시뮬레이션(어스토니시아스토리)
@@ -80,8 +83,8 @@
 	#DEFINE AUDIOTYPE	255
 	#DEFINE APPTYPE		1
 	#DEFINE APPCPID		19732			//테스트 고유번호
-	#DEFINE APPID		10152			//프로그램 ID
-	#DEFINE APPNAME		"AHYANET 10152"	//프로그램 이름
+	#DEFINE APPID		10153			//프로그램 ID
+	#DEFINE APPNAME		"AHYANET 10153"	//프로그램 이름
 	#DEFINE COMPTYPE	2
 	#DEFINE AGENTTYPE	0
 	#DEFINE VALIDCOUNT	255
@@ -263,12 +266,10 @@ void EVENT_KEYPRESS(){
 				case SWAP_KEY_5:
 				case SWAP_KEY_6:
 				case SWAP_KEY_7:		break;
-				case SWAP_KEY_8:		QuickSlot_VIEW = (QuickSlot_VIEW + 2) % 3;break;
+				case SWAP_KEY_8:		QuickSlot_VIEW = (QuickSlot_VIEW + 2) % 3;break;//퀵슬롯 선택(ABC)
 				case SWAP_KEY_9:		break;
-				case SWAP_KEY_0:		QuickSlot_VIEW = (QuickSlot_VIEW + 1) % 3;break;
-					//UseQuickSlot(swData);
-					break;
-				case SWAP_KEY_SHARP:	INTER_MSG_LIST_VIEW = (INTER_MSG_LIST_VIEW + 9) % 10;break;
+				case SWAP_KEY_0:		QuickSlot_VIEW = (QuickSlot_VIEW + 1) % 3;break;//퀵슬롯 선택(ABC)
+				case SWAP_KEY_SHARP:	break;
 				default:
 					break;
 			}

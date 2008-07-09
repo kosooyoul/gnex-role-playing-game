@@ -21,15 +21,13 @@ void RunEventLine(int EventNumber)
 		case 0:		//문장 출력						 :: 매개변수 1개
 			if(NextKey == SWAP_KEY_OK)
 			{
-				//메시지 리스트에 삽입
-				INTER_ADD_MSG_LIST(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount]);
-				///////////////////////////////////////////////////////////////////////////////////////////////////////
-				PrintMessage(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
+				PrintMessage(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 				NextKey = -1;
 			}
 			else
 			{
-				PrintMessage(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount--]);
+				PrintMessage(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount + 1]);
+				EventObject[EventNumber].LineCount--;
 				NextKey = -1;
 			}
 
@@ -134,24 +132,43 @@ int CheckVariable(int Value1, int Operation, int Value2)
 
 
 
-//0번 이벤트 라인{0,*} - 문장출력
-void PrintMessage(int MessageNumber)
+//0번 이벤트 라인{0,*,*} - 문장출력
+void PrintMessage(int NameNumber,int MessageNumber)
 {
 	string TempString;
 	int Length;
 	int i;
-	//반각문자는 18자 전각문자는 9자가 한 줄(반각문자 108자 전각문자 54자까지만 권장, 즉 6줄)
-	Length = StrLen(Message[MessageNumber]) / 26;
+	//반각문자는 72자 전각문자는 36자가 한 줄(반각문자 72*6자 전각문자 36*6자까지만 권장(6줄)(주인공 이미지 보일 정도까지만)
+	Length = StrLen(Message[MessageNumber]) / 36;
 	//대화창 배경
-	SetColorRGB(0, 30, 100);
-	FillRectEx(4+_LeftMSG, 4+_TopMSG, 171+_LeftMSG, 25 + Length * 15+_TopMSG, 2);
-	SetColorRGB(0, 20, 70);
-	DrawRect(3+_LeftMSG, 3+_TopMSG, 172+_LeftMSG, 25 + Length * 15+_TopMSG);
+	SetColorRGB(0, 0, 0);
+	FillRectEx(4, 224 - 14 * Length, 235, 240, 2);
+
 	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
 	for(i = 0; i < Length + 1; i++){
-		StrSub(TempString, Message[MessageNumber], i * 26, 26);
-		DrawStr(9+_LeftMSG, 9 + i * 15+_TopMSG, TempString);
+		if(i == 0) CopyImage(0, 220 - 14 * Length, interface_talksingle);	//대화창 한줄
+		else CopyImage(0,  238 - 14 * i, interface_talkmulti);				//대화창 여러줄
+
+		StrSub(TempString, Message[MessageNumber], i * 36, 36);
+		DrawStr(9, 227 - (Length - i) * 14, TempString);
 	}
+
+	CopyImage(4, 202 - 14 * Length, interface_talkname);					//대화창 이름
+	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
+	switch(NameNumber){
+		case -1://플레이어 이름
+			DrawStr(37, 207 - 14 * Length, Player.Name);
+			break;
+		case 0:	//이벤트 자신
+			DrawStr(37, 207 - 14 * Length, NameList[EventObject[SerchEvent() - 1].NameNumber - 1]);
+			break;
+		default://지정
+			DrawStr(37, 207 - 14 * Length, NameList[NameNumber - 1]);
+			break;
+	}
+
+	CopyImage(0, 238, interface_talkborder);								//대화창 하단 테두리
+	CopyImage(216, 210 - Length * 14, interface_okinfo);					//대화창 상단 ok
 }
 
 //1번 이벤트 라인{1,*,*,*,*} - 변수 및 단어로 문장 조합

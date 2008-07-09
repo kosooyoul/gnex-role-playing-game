@@ -67,19 +67,15 @@ void InitPlayer(){
 	Player.Equip[4] = 34;	Player.Upgrade[4] = 7;
 	Player.Equip[5] = 36;	Player.Upgrade[5] = 7;
 	
-	for(i=0;i<48;i++)
-		{Inventory[i].ListNumber = i % 15 + 1;	Inventory[i].Quantity = i;
-		SkillSlot[i].ListNumber = i % 21 + 1;	SkillSlot[i].Quantity = i;
-		Equipment[i].ListNumber = i % 37 + 1;	Equipment[i].Quantity = i;}
-
-/*
+	for(i=0;i<37;i++)
+		{Equipment[i].ListNumber = i % 37+1;	Equipment[i].Quantity = Rand(1,5);}
+	Inventory[0].ListNumber = 14;	Inventory[0].Quantity = 3;
 	SkillSlot[0].ListNumber = 1;	SkillSlot[0].Quantity = 3;
 	SkillSlot[1].ListNumber = 2;	SkillSlot[1].Quantity = 5;
 	SkillSlot[2].ListNumber = 3;	SkillSlot[2].Quantity = 5;
 	SkillSlot[3].ListNumber = 10;	SkillSlot[3].Quantity = 1;
 	SkillSlot[4].ListNumber = 11;	SkillSlot[4].Quantity = 1;
 	SkillSlot[5].ListNumber = 12;	SkillSlot[5].Quantity = 1;
-	*/
 }
 
 //주인공 그리기
