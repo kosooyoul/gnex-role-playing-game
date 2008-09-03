@@ -2,56 +2,68 @@ int Switch[50];
 int Variable[50];
 
 struct EventObject{
-	//기본 정보
+	//기본정보
 	int NameNumber;		//이름목록의 번호
 	int	x, y;
 	int direction;
-	int frame;
 	int graphic;
 	int map;
+
+	//출력정보
+	int frame;
+	int ScrollMapX;
+	int ScrollMapY;
+
 	//발생조건
 	int Switch;			//비교할 스위치 번호(Switch[Switch]의 값이 On(=1)인 경우에 실행)
 	int Variable;		//비교할 변수 번호
 	int Operation;		//변수 비교 기호
 	int VariableValue;	//이벤트가 원하는 변수 값
-	
+
+	//이벤트 제어 변수
 	int EventLoop;		//명령 반복 횟수
 	int EventPage;		//수행할 명령 목록
 	int LineCount;		//수행중인 명령 위치
-
-	int ScrollMapX;
-	int ScrollMapY;
 }EventObject[10];
 
 //이벤트들의 이름
-const string NameList[10] = {
-						"도구상인", "장비상인", "스킬상인", "여관주인", "상인",
-						"몬스터", "주민", "사병", "마법사", "정체불명"
+const string NameList[] = {
+"도구상인",
+"행인",
+"나그네",
+"마법견습생",
+"사병",
+"주민",
+"마법사",
+"타임로더",
+"몬스터",
+"정체불명"
 };
 
-string Message[12]={
-"당신 누구쇼? 바바지?",
-"안녕하세요? 긴 문장 테스트? 가나다라마바사아1234567890킁안녕하세요? 안녕안녕 뭐? 가나다라마바사아1234567890 킁~안녕하세요?안녕안녕 뭐? 가나다라마바사아1234567890-킁안녕하세요? 안녕안녕 뭐? 가나다라마바사아1234567890",
-"문장 출력 잘되나?",
-"이벤트 스크립트 테스트",
-"게임 알고리즘 매니아 아야넷",
-"알피지 게임 만들기",
-"우훗",
-"예~ +ㅁ+",
-"아니요 ㅜㅜ",
-"레벨이 상승하였습니다!",
-"체력이 감소하였습니다!",
-"마나가 감소하였습니다!"
+string EditMessage = "";
+const string Message[]={
+"안녕하세요?",
+"누구세요?",
+"뭐라고?",
+"무슨 일이야?",
+"나한테 볼일 있나?",
+"이봐, 잘 좀 보고 다녀",
+"랄랄라~",
+"오늘이 마지막 세일이예요~",
+"잘지내세요?",
+"앗~! 모르는 사람이다~ 헤헷",
+"어서오세요~ 전투 테스트입니다.",
+"전투 테스트 끝났습니다. 다음에 또 봐요~"
 };
 
-int EventLine[35] = { 
+int EventLine[] = { 
+ 0, 0,10,15, 0, 0, 0, 0,11, -1,	//전투테스트
  0, 0, 1,-1,
  0, 0, 2,-1,
  0, 0, 3,-1,
  0, 0, 4,-1,
  0, 0, 5,-1,
- 0, 0, 6,-1,
- 0, 0, 7,14,-2, 4,14, 0,-1, 2,-1
+ 0, 0, 7,14,-2, 0,14, 0,-1, 2, 1, 2, 3, 2, 1, 0,-1,-1,-1	//상점 및 문장조합 테스트
 };
 
 
@@ -60,77 +72,77 @@ void SetEvent(){
 	int Actor;
 
 	EventObject[0].NameNumber = 1;		//테스트 코드
-	EventObject[0].graphic = 1;		//테스트 코드
-	EventObject[0].map = 0;		//테스트 코드
-	EventObject[0].x = 10;		//테스트 코드
-	EventObject[0].y = 10;		//테스트 코드
+	EventObject[0].graphic = 1;			//테스트 코드
+	EventObject[0].map = 0;				//테스트 코드
+	EventObject[0].x = 15;				//테스트 코드
+	EventObject[0].y = 10;				//테스트 코드
 	EventObject[0].direction = 2;		//테스트 코드
-	EventObject[0].frame = 0;		//테스트 코드
+	EventObject[0].frame = 0;			//테스트 코드
 	EventObject[0].EventLoop = 0;		//테스트 코드
-	EventObject[0].EventPage = 24;		//테스트 코드
+	EventObject[0].EventPage = 30;		//테스트 코드
 	EventObject[0].LineCount = 0;		//테스트 코드
 	EventObject[0].ScrollMapX = 0;
 	EventObject[0].ScrollMapY = 0;
 
 	EventObject[1].NameNumber = 2;		//테스트 코드
-	EventObject[1].graphic = 2;		//테스트 코드
-	EventObject[1].map = 0;		//테스트 코드
-	EventObject[1].x = 1;		//테스트 코드
-	EventObject[1].y = 1;		//테스트 코드
+	EventObject[1].graphic = 2;			//테스트 코드
+	EventObject[1].map = 0;				//테스트 코드
+	EventObject[1].x = 9;				//테스트 코드
+	EventObject[1].y = 8;				//테스트 코드
 	EventObject[1].direction = 1;		//테스트 코드
-	EventObject[1].frame = 0;		//테스트 코드
+	EventObject[1].frame = 0;			//테스트 코드
 	EventObject[1].EventLoop = 0;		//테스트 코드
-	EventObject[1].EventPage = 4;		//테스트 코드
+	EventObject[1].EventPage = 10;		//테스트 코드
 	EventObject[1].LineCount = 0;		//테스트 코드
 	EventObject[1].ScrollMapX = 0;
 	EventObject[1].ScrollMapY = 0;
 
 	EventObject[2].NameNumber = 3;		//테스트 코드
-	EventObject[2].graphic = 0;		//테스트 코드
-	EventObject[2].map = 0;		//테스트 코드
-	EventObject[2].x = 6;		//테스트 코드
-	EventObject[2].y = 6;		//테스트 코드
+	EventObject[2].graphic = 0;			//테스트 코드
+	EventObject[2].map = 0;				//테스트 코드
+	EventObject[2].x = 10;				//테스트 코드
+	EventObject[2].y = 7;				//테스트 코드
 	EventObject[2].direction = 1;		//테스트 코드
-	EventObject[2].frame = 0;		//테스트 코드
+	EventObject[2].frame = 0;			//테스트 코드
 	EventObject[2].EventLoop = 0;		//테스트 코드
-	EventObject[2].EventPage = 8;		//테스트 코드
+	EventObject[2].EventPage = 14;		//테스트 코드
 	EventObject[2].LineCount = 0;		//테스트 코드
 	EventObject[2].ScrollMapX = 0;
 	EventObject[2].ScrollMapY = 0;
 
 	EventObject[3].NameNumber = 4;		//테스트 코드
-	EventObject[3].graphic = 3;		//테스트 코드
-	EventObject[3].map = 0;		//테스트 코드
-	EventObject[3].x = 7;		//테스트 코드
-	EventObject[3].y = 8;		//테스트 코드
+	EventObject[3].graphic = 3;			//테스트 코드
+	EventObject[3].map = 0;				//테스트 코드
+	EventObject[3].x = 12;				//테스트 코드
+	EventObject[3].y = 11;				//테스트 코드
 	EventObject[3].direction = 1;		//테스트 코드
-	EventObject[3].frame = 0;		//테스트 코드
+	EventObject[3].frame = 0;			//테스트 코드
 	EventObject[3].EventLoop = 0;		//테스트 코드
-	EventObject[3].EventPage = 12;		//테스트 코드
+	EventObject[3].EventPage = 18;		//테스트 코드
 	EventObject[3].LineCount = 0;		//테스트 코드
 	EventObject[3].ScrollMapX = 0;
 	EventObject[3].ScrollMapY = 0;
 
 	EventObject[4].NameNumber = 5;		//테스트 코드
-	EventObject[4].graphic = 5;		//테스트 코드
-	EventObject[4].map = 0;		//테스트 코드
-	EventObject[4].x = 8;		//테스트 코드
-	EventObject[4].y = 7;		//테스트 코드
+	EventObject[4].graphic = 5;			//테스트 코드
+	EventObject[4].map = 0;				//테스트 코드
+	EventObject[4].x = 13;				//테스트 코드
+	EventObject[4].y = 10;				//테스트 코드
 	EventObject[4].direction = 1;		//테스트 코드
-	EventObject[4].frame = 0;		//테스트 코드
+	EventObject[4].frame = 0;			//테스트 코드
 	EventObject[4].EventLoop = 0;		//테스트 코드
-	EventObject[4].EventPage = 16;		//테스트 코드
+	EventObject[4].EventPage = 22;		//테스트 코드
 	EventObject[4].LineCount = 0;		//테스트 코드
 	EventObject[4].ScrollMapX = 0;
 	EventObject[4].ScrollMapY = 0;
 
 	EventObject[5].NameNumber = 6;		//테스트 코드
-	EventObject[5].graphic = 6;		//테스트 코드
-	EventObject[5].map = 0;		//테스트 코드
-	EventObject[5].x = 2;		//테스트 코드
-	EventObject[5].y = 4;		//테스트 코드
+	EventObject[5].graphic = 6;			//테스트 코드
+	EventObject[5].map = 0;				//테스트 코드
+	EventObject[5].x = 13;				//테스트 코드
+	EventObject[5].y = 15;				//테스트 코드
 	EventObject[5].direction = 1;		//테스트 코드
-	EventObject[5].frame = 0;		//테스트 코드
+	EventObject[5].frame = 0;			//테스트 코드
 	EventObject[5].EventLoop = 0;		//테스트 코드
 	EventObject[5].EventPage = 0;		//테스트 코드
 	EventObject[5].LineCount = 0;		//테스트 코드

@@ -90,18 +90,11 @@ void DrawInterface(){
 	//SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);		//메시지 표시
 	//for(i = 0; i < 3; i++)DrawStr(4, 248 + i * 12, INTER_MSG_LIST[(i + INTER_MSG_LIST_VIEW + INTER_MSG_LIST_LAST)%12]);
 	
-	//접촉중인 이벤트_테스트코드
-	if(SerchEvent() && GameMode==1){
+	/*/접촉중인 이벤트_테스트코드
+	if(SerchEvent()){
 		SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
 		DrawStr(120, 260, NameList[EventObject[SerchEvent() - 1].NameNumber - 1]);
-		switch(Player.direction){
-			case 0:	CopyImage(116, 102, interface_what);break;//상
-			case 2:	CopyImage(116, 134, interface_what);break;//하
-			case 3:	CopyImage(100, 118, interface_what);break;//좌
-			case 1:	CopyImage(132, 118, interface_what);break;//우
-		}
-	}
-
+	}//*/
 
 	//퀵슬롯 표시 : 임시 - 인벤토리출력
 	for(i = QuickSlot_VIEW * 6; i < QuickSlot_VIEW * 6 + QuickSlotWidth; i++){
@@ -350,7 +343,7 @@ void DrawSkill(int win_x, int win_y){
 		CopyImage(66 + (i%6) * 23, 127 + (i/6-selected_line) * 23, icon[SkillList[SkillSlot[i].ListNumber].Icon]);
 		//스킬이 있으면 레벨 표시
 		if(SkillSlot[i].ListNumber){
-			MakeStr1(TempString, "%d", SkillSlot[i].Quantity);
+			MakeStr1(TempString, "L_%d", SkillSlot[i].Quantity);
 			SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_RIGHT);	//레벨그림자
 			DrawStr((i%6) * 23 + 79,(i/6-selected_line) * 23 + 135, TempString);
 			DrawStr((i%6) * 23 + 80,(i/6-selected_line) * 23 + 134, TempString);
@@ -510,7 +503,7 @@ void DrawEquip(int win_x, int win_y){
 		CopyImage(66 + (i%6) * 23, 173 + (i/6-selected_line) * 23, icon[EquipList[Equipment[i].ListNumber].Icon]);
 		//장비가 있으면 인챈트 표시
 		if(Equipment[i].ListNumber){
-			MakeStr1(TempString, "%d", Equipment[i].Quantity);
+			MakeStr1(TempString, "U_%d", Equipment[i].Quantity);
 			SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_RIGHT);	//인챈트그림자
 			DrawStr((i%6) * 23 + 79, (i/6-selected_line) * 23 + 181, TempString);
 			DrawStr((i%6) * 23 + 80, (i/6-selected_line) * 23 + 180, TempString);
@@ -1104,3 +1097,70 @@ void ShowMenu(int Key){
 			break;
 	}
 }
+
+//전투맵출력
+void DrawBatMap(int Status){
+	int x, y;
+	int TempChipNum;
+	int TX = Player.x-BattlePosX;
+	int TY = Player.y-BattlePosY;
+
+	int PosX = 24 - TX * 16;
+	int PosY = 78 - TY * 16;
+
+	//하위 레이어
+	for(x=TX;x<12+TX;x++){for(y=TY;y<10+TY;y++){
+			if(x >= 0 && y >= 0 && x < Area[Player.map].x_size && y < Area[Player.map].y_size)
+				CopyImage(x * 16 + PosX, y * 16 + PosY , subchip[SubLayer[y + Area[Player.map].y_start][x + Area[Player.map].x_start]]);
+			else
+				CopyImage(x * 16 + PosX, y * 16 + PosY , subchip[Area[Player.map].backchip]);
+	}}
+
+	//바닥, 벽
+	for(x=TX;x<12+TX;x++){for(y=TY;y<10+TY;y++){
+			if(x >= 0 && y >= 0 && x < Area[Player.map].x_size && y  < Area[Player.map].y_size)
+				if(SupLayer[y + Area[Player.map].y_start][x + Area[Player.map].x_start] <= _SupChipWall)
+					CopyImage(x * 16 + PosX, y * 16 + PosY , supchip[SupLayer[y + Area[Player.map].y_start][x + Area[Player.map].x_start]]);
+	}}
+	
+	if(ScrollMapX){
+		if(ScrollMapX>0)ScrollMapX-=3;
+		else ScrollMapX+=3;
+	}else if(ScrollMapY){
+		if(ScrollMapY>0)ScrollMapY-=3;
+		else ScrollMapY+=3;
+	}
+
+
+	
+	//테스트 코드 - 몹
+	if(EnemyObject[0].HP > 0){
+		EnemyObject[0].frame = (EnemyObject[0].frame+1) % 16;	//MOVE-제자리 행동
+		CopyImage(EnemyObject[0].BatX*16 + 20, EnemyObject[0].BatY*16 + 54, chara[16 * EnemyObject[0].graphic + EnemyObject[0].BatD*4 + EnemyObject[0].frame/4]); //4패턴(*) 4배 감속(/)
+	}else{
+		if(BattleLayer[EnemyObject[0].BatY][EnemyObject[0].BatX] == 1)BattleLayer[EnemyObject[0].BatY][EnemyObject[0].BatX] = 0;
+	}
+	//테스트 코드 - 몹
+
+
+	//주인공 그리기
+	Player.frame = (Player.frame+1) % 16;	//MOVE-제자리 행동
+	CopyImage(Player.BatX*16 + 20 + ScrollMapX, Player.BatY*16 + 54 + ScrollMapY, chara[16 * Player.graphic + Player.BatD*4 + Player.frame/4]); //4패턴(*) 4배 감속(/)
+
+	//천장이나 하늘
+	for(x=TX;x<12+TX;x++){for(y=TY;y<10+TY;y++){
+			//근접 셀 이미지 반투명 처리
+			if(x >= 0 && y >= 0 && x < Area[Player.map].x_size && y  < Area[Player.map].y_size){if(SupLayer[y + Area[Player.map].y_start][x + Area[Player.map].x_start] > _SupChipWall){
+					CopyImageEx(x * 16 + PosX, y * 16 + PosY , supchip[SupLayer[y + Area[Player.map].y_start][x + Area[Player.map].x_start]],1,0,0,0);
+			}}
+	}}
+
+}
+
+//인터페이스출력
+void DrawBatInterface(){
+	CopyImage(19, 57, interface_battle);		
+	//interface_battle
+}
+
+

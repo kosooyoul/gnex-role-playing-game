@@ -6,7 +6,7 @@
 #define S_RED		109
 #define S_GREEN		43
 #define S_CYAN		46
-
+#define S_BLUE		49
 //chara.h
 #define _CenterPositionX 52 + 24+32	//케릭터 표시위치 = 4*16-(8)-? -12 : 3	;+16*2	+0
 #define _CenterPositionY 40 + 16+32	//케릭터 표시위치 = 4*16-(8)-? -16 : 20	;+16*2	+32
@@ -33,6 +33,8 @@ string	SVR_IP = "118.37.164.161";	//인천집 서버 IP //인천집:118.37.164.1
 #define InterPY			82			//인터페이스 위치
 #define MenuPX			4			//메뉴 위치
 #define MenuPY			110			//메뉴 위치
+#define BattlePosX		5			//전장 맵 위치
+#define BattlePosY		5
 
 
 //event.h

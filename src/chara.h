@@ -4,6 +4,8 @@ struct Chara{
 	int	x, y;
 	int direction;
 	int frame;
+
+	int BatX, BatY, BatD;
 	
 	string Name;
 	int Job;
@@ -13,7 +15,10 @@ struct Chara{
 	int MAXHP, HP;
 	int MAXSP, SP;
 
+	int Turn;
 	int STR, DEF, INT, DEX, STAT, SKILL;
+	int MOV;	//한턴 이동거리
+
 	int Gold;
 
 	int Equip[6];		//0:Head, 1:Weapon, 2:Armor, 3:Shield, 4:Shoes, 5:Accessary
@@ -37,8 +42,8 @@ void InitPlayer(){
 
 	Player.graphic = 4;
 	Player.map = 0;
-	Player.x = 5;
-	Player.y = 5;
+	Player.x = 13;
+	Player.y = 13;
 	Player.direction = 3;
 	Player.frame = 2;
 	
@@ -48,17 +53,23 @@ void InitPlayer(){
 	Player.MAXEXP = 50;		//(Player.LV - 80) * 2 + 10;
 	Player.EXP = 0;
 	Player.MAXHP = 60;
-	Player.HP = 60;
+	Player.HP = 20;
 	Player.MAXSP = 20;
-	Player.SP = 20;
+	Player.SP = 10;
 
+	Player.BatX = 5;	//전투용 기본값(좌표)
+	Player.BatY = 5;	//전투용 기본값(좌표)
+	Player.BatD = 2;	//전투용 기본값(방향)
+
+	Player.Turn = 0;
 	Player.STR = 50;
 	Player.DEF = 50;
 	Player.INT = 50;
 	Player.DEX = 50;
 	Player.STAT = 20;
 	Player.SKILL = 10;
-	Player.Gold = 1740;
+	Player.MOV = 2;		//기본이동거리 2
+	Player.Gold = 1740000;
 
 	Player.Equip[0] = 4;	Player.Upgrade[0] = 7;
 	Player.Equip[1] = 27;	Player.Upgrade[1] = 9;
@@ -68,8 +79,8 @@ void InitPlayer(){
 	Player.Equip[5] = 36;	Player.Upgrade[5] = 7;
 	
 	for(i=0;i<37;i++)
-		{Equipment[i].ListNumber = i % 37+1;	Equipment[i].Quantity = Rand(1,5);}
-	Inventory[0].ListNumber = 14;	Inventory[0].Quantity = 3;
+		{Equipment[i].ListNumber = i % 37+1;	Equipment[i].Quantity = Rand(1,5);Inventory[i].ListNumber = Rand(1,15);	Inventory[i].Quantity = Rand(2,10);}
+	Inventory[47].ListNumber = 14;	Inventory[47].Quantity = 3;
 	SkillSlot[0].ListNumber = 1;	SkillSlot[0].Quantity = 3;
 	SkillSlot[1].ListNumber = 2;	SkillSlot[1].Quantity = 5;
 	SkillSlot[2].ListNumber = 3;	SkillSlot[2].Quantity = 5;

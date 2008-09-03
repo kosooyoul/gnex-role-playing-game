@@ -15,7 +15,7 @@ struct Equip EquipList[38];	//장비 리스트(임시 38개)
 const string EquipType[6] = {"", "머리", "손", "의상", "신발", "장신구"};
 
 void SetEquip(){	//장비 설정
-	EquipList[0].Name = "장비 없음";		EquipList[0].Cost = 0;		EquipList[0].Icon = 0;		EquipList[0].Type = 0;	EquipList[0].Tip = "장비 없음";
+	EquipList[0].Name = "장비없음";		EquipList[0].Cost = 0;		EquipList[0].Icon = 0;		EquipList[0].Type = 0;	EquipList[0].Tip = "장비없음";
 	EquipList[1].Name = "헬멧";				EquipList[1].Cost = 300;	EquipList[1].Icon = 1;		EquipList[1].Type = 1;	EquipList[1].Tip = "내용무";
 	EquipList[2].Name = "날개모자";			EquipList[2].Cost = 500;	EquipList[2].Icon = 2;		EquipList[2].Type = 1;	EquipList[2].Tip = "내용무";
 	EquipList[3].Name = "위저드햇";			EquipList[3].Cost = 400;	EquipList[3].Icon = 3;		EquipList[3].Type = 1;	EquipList[3].Tip = "내용무";

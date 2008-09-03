@@ -1,23 +1,25 @@
 Loading linking files...
-C:\Documents and Settings\Administrator\πŸ≈¡ »≠∏È\GNEX_SDK\Ahyane's_MRPG\main.sal
+C:\Users\Ahyane\Desktop\GNEX\Project\Old\main.sal
 
 Generating code...
 
 Linking...
 
-HEADER_COMPTYPE is 0
+Resource Compress method 2...
+
+HEADER_COMPTYPE is 2
 
 
 Script profile : 
 
-	Script size       : 285456 Byte(s)
-	Code size         : 28606 Byte(s)
-	Symbol count      : 179
-	Total media count : 792
-	Total media size  : 227880 Byte(s)
-		String count  : 119
-		String size   : 766 Byte(s)
-		Image count   : 673
-		Image size    : 227114 Byte(s)
+	Script size       : 427738 Byte(s)
+	Code size         : 56670 Byte(s)
+	Symbol count      : 256
+	Total media count : 1231
+	Total media size  : 331686 Byte(s)
+		String count  : 522
+		String size   : 3772 Byte(s)
+		Image count   : 709
+		Image size    : 327914 Byte(s)
 
 ahyane.sgs - 0 error(s), 0 warning(s)

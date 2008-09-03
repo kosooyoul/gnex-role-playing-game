@@ -9,13 +9,13 @@ struct Skill{
 
 struct Skill SkillList[22];	//스킬 리스트(임시 22개)
 
-const string SkillType[7] = {"스킬 없음", "패시브", "자신긍정스킬", "타겟부정스킬", "범위부정스킬", "양성스킬", "특수스킬"};
+const string SkillType[7] = {"스킬없음", "패시브", "자신긍정스킬", "타겟부정스킬", "범위부정스킬", "양성스킬", "특수스킬"};
 //"주민","견습생", "마술사", "주술사", "복사",
 //"불의 마법사", "물의 마법사", "땅의 마법사", "소환의 마법사", "염력의 마법사",
 //"차원의 마법사", "빛의 마법사", "프리스트", "마도사", "타임워커"
 
 void SetSkill(){	//스킬 설정
-	SkillList[0].Name = "스킬 없음";		SkillList[0].SP = 0;		SkillList[0].Icon = 0;		SkillList[0].Type = 0;	SkillList[0].Tip = "스킬 없음";
+	SkillList[0].Name = "스킬없음";		SkillList[0].SP = 0;		SkillList[0].Icon = 0;		SkillList[0].Type = 0;	SkillList[0].Tip = "스킬없음";
 	SkillList[1].Name = "치료술";			SkillList[1].SP = 3;		SkillList[1].Icon = 17;		SkillList[1].Type = 2;	SkillList[1].Tip = "자신을 치료합니다";
 	SkillList[2].Name = "경공";				SkillList[2].SP = 5;		SkillList[2].Icon = 18;		SkillList[2].Type = 6;	SkillList[2].Tip = "다른 곳으로 날라갑니다";
 	SkillList[3].Name = "빛나는구체";		SkillList[3].SP = 4;		SkillList[3].Icon = 19;		SkillList[3].Type = 3;	SkillList[3].Tip = "빛의 속성으로 공격합니다";
