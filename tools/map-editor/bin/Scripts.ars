@@ -1,0 +1,10 @@
+END()
+PrintString(1)	//안녕하세요?
+PrintString(2)	//문장 출력 잘 되나? ㅎㅎ
+Select(1,7,8)	//V[1] <- "예~ +ㅁ+"/"아뇨~ ㅜㅜ"
+SetValue(2,0,0)	//V[2] = 0
+IF(V[1] == V[2]) ElseGoto(6)
+PrintString(7)	//예~ +ㅁ+
+PrintString(8)	//아뇨~ ㅜㅜ
+END()
+
