@@ -1,12 +1,13 @@
 int SelectedAnswer = 0;		//첫번째 선택
 int SelectedScroll = 0;		//아이템 목록 스크롤 수
-int ThirdSelect = 1;	//선택 수량
+int ThirdSelect = 1;		//선택 수량
 int EventStatus = 0;		//이벤트 상태 / 상점 상태
 int SecondSelect = 0;		//두번째 선택
 int EmptySlot;				//아이템 추가를 완료 하였는지
 int SellOrBuy = 0;			//상점 구입인지 판매인지
 int BattleLimitMoveX = 0;	//전장맵 이동 제한
 int BattleLimitMoveY = 0;	//전장맵 이동 제한
+struct Point SelectTarget;	//선택 대상
 
 void RunEventLine(int EventNumber)
 {
@@ -1116,14 +1117,21 @@ int Battle(int GrpNum, int BatMap){
 
 								//스킬
 								case 2:
+									SecondSelect = 0;
+									SelectedAnswer = 4;		//스킬선택메뉴
 									break;
 
 								//도구
 								case 3:
+									SecondSelect = 0;
+									SelectedAnswer = 5;		//스킬선택메뉴
 									break;
 
 								//상태
 								case 4:
+									SelectTarget.X = Player.BatX;
+									SelectTarget.Y = Player.BatY;
+									SelectedAnswer = 6;		//상태보기
 									break;
 
 								//휴식
@@ -1205,7 +1213,6 @@ int Battle(int GrpNum, int BatMap){
 
 						//공격
 						case SWAP_KEY_OK:		//테스트코드
-
 							switch(SecondSelect){
 								case 1:
 										TargetEnemy = BattleLayer[Player.BatY-1][Player.BatX];
@@ -1237,14 +1244,234 @@ int Battle(int GrpNum, int BatMap){
 
 				//주인공턴-스킬사용모드
 				case 4:
+					CopyImageEx(25, 183, interface_battlefunctionlist, 1, 0, 0, 0);
+					CopyImageEx(31 + (162 * (SecondSelect+SelectedScroll) / (SkillSlotSize-1)), 219, interface_scroll2, 1, 0, 0, 0);
+
+					FillRectEx(24, 167, 215, 181, 2);
+					SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
+					DrawStr(120, 169, SkillList[SkillSlot[SecondSelect+SelectedScroll].ListNumber].Name);
+
+					for(i = 0; i < 8; i++){
+						CopyImage(37 + i * 22, 196, icon[SkillList[SkillSlot[i + SelectedScroll].ListNumber].Icon]);
+						if(SkillSlot[i + SelectedScroll].ListNumber){
+							MakeStr1(Temp, "L_%d", SkillSlot[i + SelectedScroll].Quantity);
+							SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_RIGHT);	//레벨그림자
+							DrawStr(i * 22 + 51, 204, Temp);
+							DrawStr(i * 22 + 52, 203, Temp);
+							SetFontType(S_FONT_SMALL, S_WHITE, S_BLACK, S_ALIGN_RIGHT);	//레벨표시
+							DrawStr(i * 22 + 52, 204, Temp);
+						}
+					}
+					CopyImage(32 + 22 * SecondSelect, 190, interface_selitem);
+
+					switch(NextKey){
+						case SWAP_KEY_LEFT:
+							
+							if(SecondSelect > 0){
+								SecondSelect--;
+							}else{
+								if(SelectedScroll > 0)
+									SelectedScroll--;
+							}
+							break;
+
+						case SWAP_KEY_RIGHT:
+							if(SecondSelect < 7){
+								SecondSelect++;
+							}else{
+								if(SecondSelect + SelectedScroll < SkillSlotSize - 1)
+									SelectedScroll++;
+							}
+							break;
+						
+						case SWAP_KEY_OK:		//////스킬 사용 루틴삽입 요망//////
+							if(!SkillSlot[SecondSelect + SelectedScroll].ListNumber) break;
+						case SWAP_KEY_CLR:		SelectedScroll = 0;SecondSelect = 0;SelectedAnswer = 0;break;
+						default:
+							break;
+					}
 					break;
 
 				//주인공턴-도구사용모드
 				case 5:
+					CopyImageEx(25, 183, interface_battlefunctionlist, 1, 0, 0, 0);
+					CopyImageEx(31 + (162 * (SecondSelect+SelectedScroll) / (InventorySize-1)), 219, interface_scroll2, 1, 0, 0, 0);
+					
+					FillRectEx(24, 167, 215, 181, 2);
+					SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
+					DrawStr(120, 169, ItemList[Inventory[SecondSelect+SelectedScroll].ListNumber].Name);
+
+					for(i = 0; i < 8; i++){
+						CopyImage(37 + i * 22, 196, icon[ItemList[Inventory[i+SelectedScroll].ListNumber].Icon]);
+						if(Inventory[i+SelectedScroll].ListNumber){
+							MakeStr1(Temp, "%d", Inventory[i+SelectedScroll].Quantity);
+							SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_RIGHT);	//수량그림자
+							DrawStr(i * 22 + 51, 204, Temp);
+							DrawStr(i * 22 + 52, 203, Temp);
+							SetFontType(S_FONT_SMALL, S_WHITE, S_BLACK, S_ALIGN_RIGHT);	//수량표시
+							DrawStr(i * 22 + 52, 204, Temp);
+						}
+					}
+					CopyImage(32 + 22 * SecondSelect, 190, interface_selitem);
+
+					switch(NextKey){
+						case SWAP_KEY_LEFT:
+							
+							if(SecondSelect > 0){
+								SecondSelect--;
+							}else{
+								if(SelectedScroll > 0)
+									SelectedScroll--;
+							}
+							break;
+
+						case SWAP_KEY_RIGHT:
+							if(SecondSelect < 7){
+								SecondSelect++;
+							}else{
+								if(SecondSelect + SelectedScroll < InventorySize - 1)
+									SelectedScroll++;
+							}
+							break;
+
+						case SWAP_KEY_OK:		//////아이템 사용 루틴삽입 요망//////
+							if(!Inventory[SecondSelect + SelectedScroll].ListNumber) break;
+						case SWAP_KEY_CLR:		SelectedScroll = 0;SecondSelect = 0;SelectedAnswer = 0;break;
+						default:
+							break;
+					}
 					break;
 				
-				//주인공턴-상태보기모드
+				//주인공턴-상태보기모드-1.선택
 				case 6:
+					CopyImage(24+(SelectTarget.X)*16, 70+(SelectTarget.Y)*16, interface_seltarget);
+
+					switch(NextKey){
+						case SWAP_KEY_UP:
+							if(SelectTarget.Y > 0)SelectTarget.Y--;
+							break;
+						case SWAP_KEY_DOWN:
+							if(SelectTarget.Y < 9)SelectTarget.Y++;
+							break;
+						case SWAP_KEY_LEFT:
+							if(SelectTarget.X > 0)SelectTarget.X--;
+							break;
+						case SWAP_KEY_RIGHT:
+							if(SelectTarget.X < 11)SelectTarget.X++;
+							break;
+						case SWAP_KEY_OK:
+							SecondSelect = BattleLayer[SelectTarget.Y][SelectTarget.X];
+							if(SecondSelect == -1){
+								SelectedAnswer = 7;
+							}else if(SecondSelect != 0){
+								SelectedAnswer = 8;
+								SecondSelect--;
+							}
+							break;
+						case SWAP_KEY_CLR:		SecondSelect = 0;SelectedAnswer = 0;break;
+						default:
+							break;
+					}
+					break;
+
+				//주인공턴-상태보기모드-2.확인-주인공
+				case 7:
+					CopyImage(24+(SelectTarget.X)*16, 70+(SelectTarget.Y)*16, interface_seltarget);
+
+					CopyImageEx(25, 142, interface_battleinfo, 1, 0, 0, 0);
+					CopyImageEx(191, 132, interface_okinfo, 1, 0, 0, 0);
+					
+					SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
+					DrawStr(33, 149, Player.Name);
+					MakeStr1(Temp, "Lv %d", Player.LV);
+					DrawStr(146, 149, Temp);
+
+					MakeStr2(Temp, "HP %d/%d", Player.HP, Player.MAXHP);
+					DrawStr(33, 168, Temp);
+
+					MakeStr2(Temp, "SP %d/%d", Player.SP, Player.MAXSP);
+					DrawStr(33, 185, Temp);
+
+					//PRINT STAT
+					MakeStr1(Temp, "STR %2d", Player.STR);
+					DrawStr(105, 168, Temp);
+					MakeStr1(Temp, "DEF %2d", Player.DEF);
+					DrawStr(105, 185, Temp);
+					MakeStr1(Temp, "INT %2d", Player.INT);
+					DrawStr(160, 168, Temp);
+					MakeStr1(Temp, "DEX %2d", Player.DEX);
+					DrawStr(160, 185, Temp);
+
+					DrawStr(37, 206, "EQUIP");
+
+					for(i = 0; i < 6; i++){
+						CopyImage(78 + i * 23, 207, icon[EquipList[Player.Equip[i]].Icon]);
+						if(Player.Equip[i]){
+							MakeStr1(Temp, "U_%d", Player.Upgrade[i]);
+							SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_RIGHT);	//수량그림자
+							DrawStr(i * 23 + 91, 215, Temp);
+							DrawStr(i * 23 + 92, 214, Temp);
+							SetFontType(S_FONT_SMALL, S_WHITE, S_BLACK, S_ALIGN_RIGHT);	//수량표시
+							DrawStr(i * 23 + 92, 215, Temp);
+						}
+					}
+
+					switch(NextKey){
+						case SWAP_KEY_OK:
+						case SWAP_KEY_CLR:	SelectedAnswer = 6;break;
+						default:			break;
+					}
+					break;
+
+				//주인공턴-상태보기모드-2.확인-적
+				case 8:
+					CopyImage(24+(SelectTarget.X)*16, 70+(SelectTarget.Y)*16, interface_seltarget);
+
+					CopyImageEx(25, 142, interface_battleinfo, 1, 0, 0, 0);
+					CopyImageEx(191, 132, interface_okinfo, 1, 0, 0, 0);
+					
+					SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
+					DrawStr(33, 149, NameList[EnemyObject[SecondSelect].NameNumber]);
+					MakeStr1(Temp, "Lv %d", EnemyObject[SecondSelect].LV);
+					DrawStr(146, 149, Temp);
+
+					MakeStr2(Temp, "HP %d/%d", EnemyObject[SecondSelect].HP, EnemyObject[SecondSelect].MAXHP);
+					DrawStr(33, 168, Temp);
+
+					MakeStr2(Temp, "SP %d/%d", EnemyObject[SecondSelect].SP, EnemyObject[SecondSelect].MAXSP);
+					DrawStr(33, 185, Temp);
+
+					//PRINT STAT
+					MakeStr1(Temp, "STR %2d", EnemyObject[SecondSelect].STR);
+					DrawStr(105, 168, Temp);
+					MakeStr1(Temp, "DEF %2d", EnemyObject[SecondSelect].DEF);
+					DrawStr(105, 185, Temp);
+					MakeStr1(Temp, "INT %2d", EnemyObject[SecondSelect].INT);
+					DrawStr(160, 168, Temp);
+					MakeStr1(Temp, "DEX %2d", EnemyObject[SecondSelect].DEX);
+					DrawStr(160, 185, Temp);
+
+					DrawStr(37, 206, "EQUIP");
+
+					for(i = 0; i < 6; i++){
+						CopyImage(78 + i * 23, 207, icon[54]);							//54번 아이콘 물음표
+						if(Player.Equip[i]){
+							SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_RIGHT);	//수량그림자
+							DrawStr(i * 23 + 91, 215, "U_?");
+							DrawStr(i * 23 + 92, 214, "U_?");
+							SetFontType(S_FONT_SMALL, S_WHITE, S_BLACK, S_ALIGN_RIGHT);	//수량표시
+							DrawStr(i * 23 + 92, 215, "U_?");
+						}
+					}
+
+					switch(NextKey){
+						case SWAP_KEY_OK:
+						case SWAP_KEY_CLR:	SelectedAnswer = 6;break;
+						default:			break;
+					}
+					break;
+				
+				case 9:
 					break;
 				
 			}

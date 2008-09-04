@@ -1,3 +1,8 @@
+struct Point{
+	int X;
+	int Y;
+};
+
 //맵표시관련 모듈에 대해서
 #define _TopSize	32				//상단의 인터페이스 구성
 

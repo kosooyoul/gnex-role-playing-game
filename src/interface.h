@@ -480,7 +480,7 @@ void DrawEquip(int win_x, int win_y){
 		CopyImage(66 + (i%6) * 23, 110, icon[EquipList[Player.Equip[i]].Icon]);
 		//장비가 있으면 인챈트 표시
 		if(Player.Equip[i]){
-			MakeStr1(TempString, "%d", Player.Upgrade[i]);
+			MakeStr1(TempString, "U_%d", Player.Upgrade[i]);
 			SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_RIGHT);	//레벨그림자
 			DrawStr((i%6) * 23 + 79, 118, TempString);
 			DrawStr((i%6) * 23 + 80, 117, TempString);

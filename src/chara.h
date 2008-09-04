@@ -78,8 +78,8 @@ void InitPlayer(){
 	Player.Equip[4] = 34;	Player.Upgrade[4] = 7;
 	Player.Equip[5] = 36;	Player.Upgrade[5] = 7;
 	
-	for(i=0;i<37;i++)
-		{Equipment[i].ListNumber = i % 37+1;	Equipment[i].Quantity = Rand(1,5);Inventory[i].ListNumber = Rand(1,15);	Inventory[i].Quantity = Rand(2,10);}
+	for(i=0;i<39;i++)
+		{Equipment[i].ListNumber = i % 39+1;	Equipment[i].Quantity = Rand(1,5);Inventory[i].ListNumber = Rand(1,15);	Inventory[i].Quantity = Rand(2,10);}
 	Inventory[47].ListNumber = 14;	Inventory[47].Quantity = 3;
 	SkillSlot[0].ListNumber = 1;	SkillSlot[0].Quantity = 3;
 	SkillSlot[1].ListNumber = 2;	SkillSlot[1].Quantity = 5;
