@@ -51,6 +51,8 @@
 41일차: 8월17일 : 전투모드 메뉴구현중, 공격제한 표시, 적표시 테스트
 42일차: 9월 3일 : 전투모드 스킬 및 아이템 선택 구성
 43일차: 9월 4일 : 전투모드 상태보기 구성
+44일차: 9월 5일 : 다른 맵이동 테스트 후 이벤트 출력오류 수정
+
 
 맵, 이벤트 에디터 제작 완성 요망
 인터페이스 보정 요망
@@ -118,10 +120,11 @@ void main()
 	SetItem();
 	SetSkill();
 	SetEquip();
+	InitPlayer();						//주인공 초기화
+
 	SetArea();
 	SetEvent();
 	SetEnemy();
-	InitPlayer();						//주인공 초기화
 
 	SetTimer(40, 1);					//이동 및 맵 출력 시간 간격, 이벤트 수행 속도(에뮬 40, 핸드폰 임시 40)
 	SetTimer1(500, 1);					//이벤트 이동 시간 간격
@@ -132,6 +135,7 @@ void main()
 
 //******************************************************************************************************[ EVENT_TIMEOUT ]
 void EVENT_TIMEOUT(){
+	int i;
 	switch(GameMode){
 		//타이틀(GameMode=0)
 		case 0:	
@@ -169,12 +173,8 @@ void EVENT_TIMEOUT(){
 
 				//타이머1(t=500)
 				case 1:
-					MoveEventRandom(0);				//테스트 코드 : 0번 이벤트 랜덤이동
-					MoveEventRandom(1);				//테스트 코드 : 1번 이벤트 랜덤이동
-					MoveEventRandom(2);				//테스트 코드 : 2번 이벤트 랜덤이동
-					MoveEventRandom(3);				//테스트 코드 : 3번 이벤트 랜덤이동
-					MoveEventRandom(4);				//테스트 코드 : 4번 이벤트 랜덤이동
-					MoveEventRandom(5);				//테스트 코드 : 5번 이벤트 랜덤이동
+					for(i = 0; i < MAX_EVENT_COUNT; i++)MoveEventRandom(i);	//테스트 코드 : 이벤트 랜덤이동
+
 					break;
 			}
 			break;

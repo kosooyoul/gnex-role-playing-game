@@ -24,7 +24,7 @@ struct EventObject{
 	int EventLoop;		//명령 반복 횟수
 	int EventPage;		//수행할 명령 목록
 	int LineCount;		//수행중인 명령 위치
-}EventObject[10];
+}EventObject[MAX_EVENT_COUNT];
 
 //이벤트들의 이름
 const string NameList[] = {
@@ -57,20 +57,20 @@ const string Message[]={
 };
 
 int EventLine[] = { 
- 0, 0,10,15, 0, 0, 0, 0,11, -1,	//전투테스트
- 0, 0, 1,-1,
- 0, 0, 2,-1,
- 0, 0, 3,-1,
- 0, 0, 4,-1,
- 0, 0, 5,-1,
- 0, 0, 7,14,-2, 0,14, 0,-1, 2, 1, 2, 3, 2, 1, 0,-1,-1,-1	//상점 및 문장조합 테스트
+ 0, 0,10,/* 3*/15, 0, 0,/* 6*/ 0, 0,11,/* 9*/ -1,/*10*/	//전투테스트
+ 0, 0, 1,/*13*/-1,/*14*/
+ 0, 0, 2,/*17*/-1,/*18*/
+ 0, 0, 3,/*21*/-1,/*22*/
+ 0, 0, 4,/*25*/-1,/*26*/
+ 0, 0, 5,/*29*/-1,/*30*/
+ 0, 0, 7,/*33*/14,-2, 0,14,/*37*/ 0,-1, 2,/*40*/ 1, 2, 3, 2, 1,/*45*/ 0, -1,-1,/*48*/ 7, 1,14,14,/*52*/-1,	//상점 및 문장조합 테스트
+ 7, 0,10, 9,/*56*/-1	//방에서 나오기
+
 };
 
 
 //초기 이벤트 설정
 void SetEvent(){
-	int Actor;
-
 	EventObject[0].NameNumber = 1;		//테스트 코드
 	EventObject[0].graphic = 1;			//테스트 코드
 	EventObject[0].map = 0;				//테스트 코드
@@ -138,9 +138,9 @@ void SetEvent(){
 
 	EventObject[5].NameNumber = 6;		//테스트 코드
 	EventObject[5].graphic = 6;			//테스트 코드
-	EventObject[5].map = 0;				//테스트 코드
+	EventObject[5].map = 1;				//테스트 코드
 	EventObject[5].x = 13;				//테스트 코드
-	EventObject[5].y = 15;				//테스트 코드
+	EventObject[5].y = 12;				//테스트 코드
 	EventObject[5].direction = 1;		//테스트 코드
 	EventObject[5].frame = 0;			//테스트 코드
 	EventObject[5].EventLoop = 0;		//테스트 코드
@@ -148,28 +148,51 @@ void SetEvent(){
 	EventObject[5].LineCount = 0;		//테스트 코드
 	EventObject[5].ScrollMapX = 0;
 	EventObject[5].ScrollMapY = 0;
+	
+	EventObject[6].NameNumber = 9;		//테스트 코드
+	EventObject[6].graphic = 1;			//테스트 코드
+	EventObject[6].map = 1;				//테스트 코드
+	EventObject[6].x = 15;				//테스트 코드
+	EventObject[6].y = 15;				//테스트 코드
+	EventObject[6].direction = 1;		//테스트 코드
+	EventObject[6].frame = 0;			//테스트 코드
+	EventObject[6].EventLoop = 0;		//테스트 코드
+	EventObject[6].EventPage = 53;		//테스트 코드
+	EventObject[6].LineCount = 0;		//테스트 코드
+	EventObject[6].ScrollMapX = 0;
+	EventObject[6].ScrollMapY = 0;
 
+	ApplyEventOnMap();
+}
+
+void ApplyEventOnMap(){
+	int Actor;
 	//맵상에 이벤트 적용
-	for(Actor = 1; Actor <= 6; Actor++)
-		EventLayer[EventObject[Actor - 1].y + Area[EventObject[Actor - 1].map].y_start][EventObject[Actor - 1].x + Area[EventObject[Actor - 1].map].x_start] = Actor;
+	for(Actor = 0; Actor < MAX_EVENT_COUNT; Actor++)
+		if(Player.map == EventObject[Actor].map)
+			EventLayer[EventObject[Actor].y + Area[EventObject[Actor].map].y_start][EventObject[Actor].x + Area[EventObject[Actor].map].x_start] = Actor+1;
+		else
+			EventLayer[EventObject[Actor].y + Area[EventObject[Actor].map].y_start][EventObject[Actor].x + Area[EventObject[Actor].map].x_start] = 0;
 }
 
 void MoveEventRandom(int EventNumber)
 {
-	switch(Rand(0, 20))
-	{
-		case 0:
-			SetDirection(EventNumber + 1, SWAP_KEY_RIGHT);
-			MovePosition(EventNumber + 1, SWAP_KEY_RIGHT);break;
-		case 1:
-			SetDirection(EventNumber + 1, SWAP_KEY_LEFT);
-			MovePosition(EventNumber + 1, SWAP_KEY_LEFT);break;
-		case 2:
-			SetDirection(EventNumber + 1, SWAP_KEY_UP);
-			MovePosition(EventNumber + 1, SWAP_KEY_UP);break;
-		case 3:
-			SetDirection(EventNumber + 1, SWAP_KEY_DOWN);
-			MovePosition(EventNumber + 1, SWAP_KEY_DOWN);			
+	if(EventObject[EventNumber].map == Player.map){
+		switch(Rand(0, 20))
+		{
+			case 0:
+				SetDirection(EventNumber + 1, SWAP_KEY_RIGHT);
+				MovePosition(EventNumber + 1, SWAP_KEY_RIGHT);break;
+			case 1:
+				SetDirection(EventNumber + 1, SWAP_KEY_LEFT);
+				MovePosition(EventNumber + 1, SWAP_KEY_LEFT);break;
+			case 2:
+				SetDirection(EventNumber + 1, SWAP_KEY_UP);
+				MovePosition(EventNumber + 1, SWAP_KEY_UP);break;
+			case 3:
+				SetDirection(EventNumber + 1, SWAP_KEY_DOWN);
+				MovePosition(EventNumber + 1, SWAP_KEY_DOWN);			
+		}
 	}
 }
 
@@ -189,12 +212,13 @@ void EventScroll(int EventNumber){
 
 
 void DrawEvent(int EventNumber){
+string te;
 	if(EventObject[EventNumber].ScrollMapX || EventObject[EventNumber].ScrollMapY)
 		EventObject[EventNumber].frame = (EventObject[EventNumber].frame+1) % 16;	//MOVE
 	else
 		EventObject[EventNumber].frame = (EventObject[EventNumber].frame) % 16;		//NOT MOVE
-	if(EventObject[EventNumber].x >= Area[Player.map].x_start && EventObject[EventNumber].y >= Area[Player.map].y_start && EventObject[EventNumber].x < Area[Player.map].x_start + Area[Player.map].x_size && EventObject[EventNumber].y < Area[Player.map].y_start + Area[Player.map].y_size)
-		CopyImage((EventObject[EventNumber].x - Player.x - Area[Player.map].x_start) * 16 + _CenterPositionX + ScrollMapX - EventObject[EventNumber].ScrollMapX, (EventObject[EventNumber].y - Player.y - Area[Player.map].y_start) * 16 + _CenterPositionY + ScrollMapY - EventObject[EventNumber].ScrollMapY + _TopSize, chara[EventObject[EventNumber].graphic * 16 + EventObject[EventNumber].direction*4 + EventObject[EventNumber].frame/4]); //4패턴
+	if(EventObject[EventNumber].x >= 0 && EventObject[EventNumber].y >= 0 && EventObject[EventNumber].x < Area[Player.map].x_size && EventObject[EventNumber].y < Area[Player.map].y_size)
+		CopyImage((EventObject[EventNumber].x - Player.x) * 16 + _CenterPositionX + ScrollMapX - EventObject[EventNumber].ScrollMapX, (EventObject[EventNumber].y - Player.y) * 16 + _CenterPositionY + ScrollMapY - EventObject[EventNumber].ScrollMapY + _TopSize, chara[EventObject[EventNumber].graphic * 16 + EventObject[EventNumber].direction*4 + EventObject[EventNumber].frame/4]); //4패턴
 }
 
 //이벤트 맵 그리기 - 주인공과 같은 레이어 출력
@@ -209,11 +233,13 @@ void DrawEventLayer(){
 	{
 		for(x = -8; x < 9;x++)
 		{
-			if(TempX + x < 30 && TempY + y < 30 && TempX + x >= 0 && TempY + y >= 0)
+			//if(TempX + x < 30 && TempY + y < 30 && TempX + x >= 0 && TempY + y >= 0)	//임시 제거 (다른맵에서의 이벤트 출력 불량으로인한)
 				if(EventLayer[TempY + y][TempX + x] > 0)
 				{
-					EventScroll(EventLayer[TempY + y][TempX + x]-1);
-					DrawEvent(EventLayer[TempY + y][TempX + x]-1);
+					if(EventObject[EventLayer[TempY + y][TempX + x]-1].map == Player.map){
+						EventScroll(EventLayer[TempY + y][TempX + x]-1);
+						DrawEvent(EventLayer[TempY + y][TempX + x]-1);
+					}
 				}
 		}
 		if(y == 0)DrawPlayer();	//주인공 출력

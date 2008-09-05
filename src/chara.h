@@ -42,8 +42,8 @@ void InitPlayer(){
 
 	Player.graphic = 4;
 	Player.map = 0;
-	Player.x = 13;
-	Player.y = 13;
+	Player.x = 13;//-8;
+	Player.y = 13;//-5;
 	Player.direction = 3;
 	Player.frame = 2;
 	
@@ -68,7 +68,7 @@ void InitPlayer(){
 	Player.DEX = 50;
 	Player.STAT = 20;
 	Player.SKILL = 10;
-	Player.MOV = 2;		//기본이동거리 2
+	Player.MOV = 3;		//기본이동거리 2
 	Player.Gold = 1740000;
 
 	Player.Equip[0] = 4;	Player.Upgrade[0] = 7;

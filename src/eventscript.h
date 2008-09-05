@@ -23,7 +23,7 @@ void RunEventLine(int EventNumber)
 
 	switch(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++])
 	{
-		case 0:		//문장 출력						 :: 매개변수 1개
+		case 0:		//문장 출력						 :: 매개변수 2개
 			if(NextKey == SWAP_KEY_OK)
 			{
 				PrintMessage(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
@@ -416,6 +416,8 @@ void MoveMap(int MapNumber, int PositionX, int PositionY)
 	Player.map = MapNumber;
 	Player.x = PositionX;
 	Player.y = PositionY;
+
+	ApplyEventOnMap();
 	EventLayer[Area[Player.map].y_start + Player.y][Area[Player.map].x_start + Player.x] = -1;
 }
 

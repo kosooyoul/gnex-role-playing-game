@@ -17,12 +17,12 @@ void SetArea(){
 	Area[0].y_size = 30;
 	Area[0].backchip = 85;		//풀밭142 검정85 자갈바닥58
 
-	Area[1].name = "UNKNOWN TOWN 2";
-	Area[1].x_start = 1;
-	Area[1].y_start = 4;
-	Area[1].x_size = 20;
-	Area[1].y_size = 20;
-	Area[1].backchip = 142;		//풀밭142 검정85 자갈바닥58
+	Area[1].name = "HOUSE";
+	Area[1].x_start = 0;//20;
+	Area[1].y_start = 30;//30;
+	Area[1].x_size = 30;//9;
+	Area[1].y_size = 30;//11;
+	Area[1].backchip = 85;		//풀밭142 검정85 자갈바닥58
 }
 
 //맵 스크롤

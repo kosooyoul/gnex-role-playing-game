@@ -32,7 +32,7 @@ void SetEnemy(){
 	EnemyObject[0].graphic = 6;			//테스트 코드
 	EnemyObject[0].BatX = 5;			//테스트 코드
 	EnemyObject[0].BatY = 5;			//테스트 코드
-	EnemyObject[0].BatD = 2;		//테스트 코드
+	EnemyObject[0].BatD = 2;			//테스트 코드
 	EnemyObject[0].frame = 0;			//테스트 코드
 
 	EnemyObject[0].LV = 50;				//테스트 코드
