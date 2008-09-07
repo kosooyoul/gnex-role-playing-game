@@ -116,7 +116,7 @@ Private Sub Command2_Click()
     Open MLFileName For Input As MLFileNum                            '파일을 읽기 전용으로 열기
     'Do Until EOF(MLFileNum)
                                    
-    For i = 0 To 29
+    For i = 0 To 39
         Line Input #MLFileNum, Temp
         If Temp <> "" Then
             Code = Code + Temp + vbCrLf

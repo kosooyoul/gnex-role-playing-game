@@ -1,27 +1,12630 @@
 VERSION 5.00
 Begin VB.Form Form1 
    BorderStyle     =   1  '단일 고정
-   Caption         =   "맵 편집 [ 30 x 30 ]"
-   ClientHeight    =   7575
+   Caption         =   "맵 편집 [ 40 x 40 ]"
+   ClientHeight    =   9855
    ClientLeft      =   45
    ClientTop       =   330
-   ClientWidth     =   7545
+   ClientWidth     =   9870
    Icon            =   "MapEdit.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MDIChild        =   -1  'True
-   ScaleHeight     =   7575
-   ScaleWidth      =   7545
+   MinButton       =   0   'False
+   ScaleHeight     =   9855
+   ScaleWidth      =   9870
    Begin VB.PictureBox Picture1 
-      BackColor       =   &H00808080&
-      Height          =   7515
+      Appearance      =   0  '평면
+      BorderStyle     =   0  '없음
+      ForeColor       =   &H80000008&
+      Height          =   9915
       Left            =   0
-      ScaleHeight     =   497
+      ScaleHeight     =   661
       ScaleMode       =   3  '픽셀
-      ScaleWidth      =   497
+      ScaleWidth      =   661
       TabIndex        =   0
       Top             =   0
-      Width           =   7515
+      Width           =   9915
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1599
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1598
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1597
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1596
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1595
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1594
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1593
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1592
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1591
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1590
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1589
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1588
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1587
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1586
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1585
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1584
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1583
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1582
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1581
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1580
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1579
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1578
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1577
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1576
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1575
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1574
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1573
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1572
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1571
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1570
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1569
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1568
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1567
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1566
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1565
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1564
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1563
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1562
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1561
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1560
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1559
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1558
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1557
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1556
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1555
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1554
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1553
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1552
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1551
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1550
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1549
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1548
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1547
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1546
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1545
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1544
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1543
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1542
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1541
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1540
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1539
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1538
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1537
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1536
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1535
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1534
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1533
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1532
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1531
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1530
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1529
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1528
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1527
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1526
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1525
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1524
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1523
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1522
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1521
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1520
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1519
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1518
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1517
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1516
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1515
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1514
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1513
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1512
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1511
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1510
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1509
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1508
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1507
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1506
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1505
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1504
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1503
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1502
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1501
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1500
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1499
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1498
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1497
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1496
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1495
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1494
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1493
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1492
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1491
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1490
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1489
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1488
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1487
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1486
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1485
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1484
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1483
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1482
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1481
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1480
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1479
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1478
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1477
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1476
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1475
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1474
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1473
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1472
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1471
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1470
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1469
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1468
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1467
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1466
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1465
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1464
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1463
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1462
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1461
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1460
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1459
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1458
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1457
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1456
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1455
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1454
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1453
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1452
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1451
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1450
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1449
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1448
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1447
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1446
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1445
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1444
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1443
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1442
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1441
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1440
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1439
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1438
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1437
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1436
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1435
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1434
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1433
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1432
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1431
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1430
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1429
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1428
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1427
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1426
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1425
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1424
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1423
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1422
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1421
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1420
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1419
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1418
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1417
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1416
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1415
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1414
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1413
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1412
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1411
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1410
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1409
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1408
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1407
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1406
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1405
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1404
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1403
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1402
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1401
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1400
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1399
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1398
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1397
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1396
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1395
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1394
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1393
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1392
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1391
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1390
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1389
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1388
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1387
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1386
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1385
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1384
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1383
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1382
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1381
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1380
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1379
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1378
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1377
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1376
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1375
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1374
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1373
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1372
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1371
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1370
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1369
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1368
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1367
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1366
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1365
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1364
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1363
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1362
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1361
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1360
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1359
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1358
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1357
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1356
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1355
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1354
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1353
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1352
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1351
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1350
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1349
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1348
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1347
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1346
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1345
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1344
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1343
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1342
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1341
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1340
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1339
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1338
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1337
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1336
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1335
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1334
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1333
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1332
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1331
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1330
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1329
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1328
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1327
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1326
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1325
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1324
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1323
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1322
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1321
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1320
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1319
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1318
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1317
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1316
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1315
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1314
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1313
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1312
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1311
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1310
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1309
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1308
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1307
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1306
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1305
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1304
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1303
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1302
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1301
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1300
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1299
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1298
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1297
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1296
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1295
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1294
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1293
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1292
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1291
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1290
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1289
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1288
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1287
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1286
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1285
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1284
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1283
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1282
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1281
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1280
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1279
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1278
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1277
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1276
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1275
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1274
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1273
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1272
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1271
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1270
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1269
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1268
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1267
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1266
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1265
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1264
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1263
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1262
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1261
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1260
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1259
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1258
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1257
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1256
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1255
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1254
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1253
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1252
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1251
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1250
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1249
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1248
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1247
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1246
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1245
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1244
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1243
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1242
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1241
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1240
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1239
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1238
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1237
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1236
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1235
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1234
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1233
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1232
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1231
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1230
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1229
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1228
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1227
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1226
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1225
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1224
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1223
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1222
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1221
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1220
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1219
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1218
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1217
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1216
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1215
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1214
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1213
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1212
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1211
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1210
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1209
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1208
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1207
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1206
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1205
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1204
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1203
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1202
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1201
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1200
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1199
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1198
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1197
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1196
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1195
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1194
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1193
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1192
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1191
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1190
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1189
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1188
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1187
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1186
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1185
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1184
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1183
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1182
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1181
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1180
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1179
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1178
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1177
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1176
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1175
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1174
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1173
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1172
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1171
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1170
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1169
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1168
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1167
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1166
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1165
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1164
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1163
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1162
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1161
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1160
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1159
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1158
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1157
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1156
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1155
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1154
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1153
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1152
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1151
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1150
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1149
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1148
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1147
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1146
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1145
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1144
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1143
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1142
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1141
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1140
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1139
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1138
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1137
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1136
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1135
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1134
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1133
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1132
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1131
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1130
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1129
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1128
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1127
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1126
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1125
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1124
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1123
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1122
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1121
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1120
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1119
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1118
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1117
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1116
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1115
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1114
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1113
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1112
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1111
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1110
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1109
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1108
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1107
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1106
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1105
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1104
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1103
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1102
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1101
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1100
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1099
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1098
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1097
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1096
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1095
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1094
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1093
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1092
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1091
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1090
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1089
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1088
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1087
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1086
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1085
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1084
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1083
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1082
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1081
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1080
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1079
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1078
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1077
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1076
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1075
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1074
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1073
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1072
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1071
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1070
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1069
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1068
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1067
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1066
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1065
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1064
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1063
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1062
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1061
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1060
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1059
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1058
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1057
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1056
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1055
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1054
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1053
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1052
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1051
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1050
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1049
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1048
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1047
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1046
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1045
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1044
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1043
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1042
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1041
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1040
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1039
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1038
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1037
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1036
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1035
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1034
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1033
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1032
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1031
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1030
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1029
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1028
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1027
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1026
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1025
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1024
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1023
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1022
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1021
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1020
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1019
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1018
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1017
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1016
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1015
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1014
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1013
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1012
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1011
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1010
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1009
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1008
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1007
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1006
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1005
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1004
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1003
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1002
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1001
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1000
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   999
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   998
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   997
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   996
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   995
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   994
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   993
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   992
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   991
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   990
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   989
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   988
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   987
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   986
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   985
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   984
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   983
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   982
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   981
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   980
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   979
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   978
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   977
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   976
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   975
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   974
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   973
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   972
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   971
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   970
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   969
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   968
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   967
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   966
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   965
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   964
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   963
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   962
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   961
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   960
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   959
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   958
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   957
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   956
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   955
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   954
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   953
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   952
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   951
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   950
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   949
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   948
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   947
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   946
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   945
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   944
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   943
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   942
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   941
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   940
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   939
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   938
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   937
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   936
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   935
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   934
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   933
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   932
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   931
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   930
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   929
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   928
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   927
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   926
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   925
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   924
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   923
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   922
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   921
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   920
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   919
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   918
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   917
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   916
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   915
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   914
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   913
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   912
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   911
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   910
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   909
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   908
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   907
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   906
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   905
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   904
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   903
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   902
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   901
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image overchip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   900
+         Left            =   0
+         Top             =   120
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1599
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1598
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1597
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1596
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1595
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1594
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1593
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1592
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1591
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1590
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1589
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1588
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1587
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1586
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1585
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1584
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1583
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1582
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1581
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1580
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1579
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1578
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1577
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1576
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1575
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1574
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1573
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1572
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1571
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1570
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1569
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1568
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1567
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1566
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1565
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1564
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1563
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1562
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1561
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1560
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1559
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1558
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1557
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1556
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1555
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1554
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1553
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1552
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1551
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1550
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1549
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1548
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1547
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1546
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1545
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1544
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1543
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1542
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1541
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1540
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1539
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1538
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1537
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1536
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1535
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1534
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1533
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1532
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1531
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1530
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1529
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1528
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1527
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1526
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1525
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1524
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1523
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1522
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1521
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1520
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1519
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1518
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1517
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1516
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1515
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1514
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1513
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1512
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1511
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1510
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1509
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1508
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1507
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1506
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1505
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1504
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1503
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1502
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1501
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1500
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1499
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1498
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1497
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1496
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1495
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1494
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1493
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1492
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1491
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1490
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1489
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1488
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1487
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1486
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1485
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1484
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1483
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1482
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1481
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1480
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1479
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1478
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1477
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1476
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1475
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1474
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1473
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1472
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1471
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1470
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1469
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1468
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1467
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1466
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1465
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1464
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1463
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1462
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1461
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1460
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1459
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1458
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1457
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1456
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1455
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1454
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1453
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1452
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1451
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1450
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1449
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1448
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1447
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1446
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1445
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1444
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1443
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1442
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1441
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1440
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1439
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1438
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1437
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1436
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1435
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1434
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1433
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1432
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1431
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1430
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1429
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1428
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1427
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1426
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1425
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1424
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1423
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1422
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1421
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1420
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1419
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1418
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1417
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1416
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1415
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1414
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1413
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1412
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1411
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1410
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1409
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1408
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1407
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1406
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1405
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1404
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1403
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1402
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1401
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1400
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1399
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1398
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1397
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1396
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1395
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1394
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1393
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1392
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1391
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1390
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1389
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1388
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1387
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1386
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1385
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1384
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1383
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1382
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1381
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1380
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1379
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1378
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1377
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1376
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1375
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1374
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1373
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1372
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1371
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1370
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1369
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1368
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1367
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1366
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1365
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1364
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1363
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1362
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1361
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1360
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1359
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1358
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1357
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1356
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1355
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1354
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1353
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1352
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1351
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1350
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1349
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1348
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1347
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1346
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1345
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1344
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1343
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1342
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1341
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1340
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1339
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1338
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1337
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1336
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1335
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1334
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1333
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1332
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1331
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1330
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1329
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1328
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1327
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1326
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1325
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1324
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1323
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1322
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1321
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1320
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1319
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1318
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1317
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1316
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1315
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1314
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1313
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1312
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1311
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1310
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1309
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1308
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1307
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1306
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1305
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1304
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1303
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1302
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1301
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1300
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1299
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1298
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1297
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1296
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1295
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1294
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1293
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1292
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1291
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1290
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1289
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1288
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1287
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1286
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1285
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1284
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1283
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1282
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1281
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1280
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1279
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1278
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1277
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1276
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1275
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1274
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1273
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1272
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1271
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1270
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1269
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1268
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1267
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1266
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1265
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1264
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1263
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1262
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1261
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1260
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1259
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1258
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1257
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1256
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1255
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1254
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1253
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1252
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1251
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1250
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1249
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1248
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1247
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1246
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1245
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1244
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1243
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1242
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1241
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1240
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1239
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1238
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1237
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1236
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1235
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1234
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1233
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1232
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1231
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1230
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1229
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1228
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1227
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1226
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1225
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1224
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1223
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1222
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1221
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1220
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1219
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1218
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1217
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1216
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1215
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1214
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1213
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1212
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1211
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1210
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1209
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1208
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1207
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1206
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1205
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1204
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1203
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1202
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1201
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1200
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1199
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1198
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1197
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1196
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1195
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1194
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1193
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1192
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1191
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1190
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1189
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1188
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1187
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1186
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1185
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1184
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1183
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1182
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1181
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1180
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1179
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1178
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1177
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1176
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1175
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1174
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1173
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1172
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1171
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1170
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1169
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1168
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1167
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1166
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1165
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1164
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1163
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1162
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1161
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1160
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1159
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1158
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1157
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1156
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1155
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1154
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1153
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1152
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1151
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1150
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1149
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1148
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1147
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1146
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1145
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1144
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1143
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1142
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1141
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1140
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1139
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1138
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1137
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1136
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1135
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1134
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1133
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1132
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1131
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1130
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1129
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1128
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1127
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1126
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1125
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1124
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1123
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1122
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1121
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1120
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1119
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1118
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1117
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1116
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1115
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1114
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1113
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1112
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1111
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1110
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1109
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1108
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1107
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1106
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1105
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1104
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1103
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1102
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1101
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1100
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1099
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1098
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1097
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1096
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1095
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1094
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1093
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1092
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1091
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1090
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1089
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1088
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1087
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1086
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1085
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1084
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1083
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1082
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1081
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1080
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1079
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1078
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1077
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1076
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1075
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1074
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1073
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1072
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1071
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1070
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1069
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1068
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1067
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1066
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1065
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1064
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1063
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1062
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1061
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1060
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1059
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1058
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1057
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1056
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1055
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1054
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1053
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1052
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1051
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1050
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1049
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1048
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1047
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1046
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1045
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1044
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1043
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1042
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1041
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1040
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1039
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1038
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1037
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1036
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1035
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1034
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1033
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1032
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1031
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1030
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1029
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1028
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1027
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1026
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1025
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1024
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1023
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1022
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1021
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1020
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1019
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1018
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1017
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1016
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1015
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1014
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1013
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1012
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1011
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1010
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1009
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1008
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1007
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1006
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1005
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1004
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1003
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1002
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1001
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   1000
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   999
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   998
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   997
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   996
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   995
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   994
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   993
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   992
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   991
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   990
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   989
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   988
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   987
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   986
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   985
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   984
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   983
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   982
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   981
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   980
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   979
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   978
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   977
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   976
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   975
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   974
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   973
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   972
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   971
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   970
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   969
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   968
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   967
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   966
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   965
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   964
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   963
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   962
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   961
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   960
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   959
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   958
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   957
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   956
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   955
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   954
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   953
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   952
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   951
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   950
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   949
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   948
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   947
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   946
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   945
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   944
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   943
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   942
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   941
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   940
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   939
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   938
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   937
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   936
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   935
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   934
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   933
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   932
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   931
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   930
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   929
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   928
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   927
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   926
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   925
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   924
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   923
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   922
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   921
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   920
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   919
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   918
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   917
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   916
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   915
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   914
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   913
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   912
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   911
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   910
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   909
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   908
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   907
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   906
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   905
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   904
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   903
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   902
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   901
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
+      Begin VB.Image chip 
+         Appearance      =   0  '평면
+         BorderStyle     =   1  '단일 고정
+         Height          =   285
+         Index           =   900
+         Left            =   120
+         Top             =   0
+         Width           =   285
+      End
       Begin VB.Label mapevent 
          Alignment       =   2  '가운데 맞춤
          Appearance      =   0  '평면
@@ -1242,17 +13845,6 @@ Begin VB.Form Form1
          Top             =   1560
          Visible         =   0   'False
          Width           =   1920
-      End
-      Begin VB.Shape Shape4 
-         BorderColor     =   &H00FFFFFF&
-         DrawMode        =   7  '역상
-         FillColor       =   &H00FFFFFF&
-         FillStyle       =   0  '단색
-         Height          =   600
-         Left            =   120
-         Top             =   120
-         Visible         =   0   'False
-         Width           =   480
       End
       Begin VB.Image overchip 
          Appearance      =   0  '평면
@@ -17860,6 +30452,17 @@ Begin VB.Form Form1
          Y1              =   32
          Y2              =   32
       End
+      Begin VB.Shape Shape4 
+         BorderColor     =   &H00FFFFFF&
+         DrawMode        =   7  '역상
+         FillColor       =   &H00FFFFFF&
+         FillStyle       =   0  '단색
+         Height          =   960
+         Left            =   120
+         Top             =   120
+         Visible         =   0   'False
+         Width           =   720
+      End
       Begin VB.Shape Shape1 
          BorderColor     =   &H00FFFFFF&
          FillColor       =   &H00FFFFFF&
@@ -17921,7 +30524,7 @@ Private Sub overchip_MouseMove(Index As Integer, Button As Integer, Shift As Int
             OverArea(Index) = SelectedMapOverChip
         End If
     End If
-    Me.Caption = "맵 편집 - [ X : " & Int(Index / 30) & " Y : " & (Index - Int(Index / 30) * 30) & " ChipNumber : " & Area(Index) & " / " & OverArea(Index) & " ]"
+    Me.Caption = "맵 편집 - [ X : " & Int(Index / 40) & " Y : " & (Index - Int(Index / 40) * 40) & " ChipNumber : " & Area(Index) & " / " & OverArea(Index) & " ]"
 End Sub
 
 Private Sub overchip_MouseUp(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
@@ -17952,21 +30555,21 @@ Private Sub Form_Load()
         Line2(i).Y2 = Picture1.Height
     Next i
     
-    For i = 0 To 899
+    For i = 0 To 1599
         chip(i).Appearance = 0
-        chip(i).Top = Int(i / 30) * 16 + 8
-        chip(i).Left = (i - Int(i / 30) * 30) * 16 + 8
+        chip(i).Top = Int(i / 40) * 16 + 8
+        chip(i).Left = (i - Int(i / 40) * 40) * 16 + 8
         chip(i).Width = 17
         chip(i).Height = 17
         overchip(i).Appearance = 0
-        overchip(i).Top = Int(i / 30) * 16 + 8
-        overchip(i).Left = (i - Int(i / 30) * 30) * 16 + 8
+        overchip(i).Top = Int(i / 40) * 16 + 8
+        overchip(i).Left = (i - Int(i / 40) * 40) * 16 + 8
         overchip(i).Width = 17
         overchip(i).Height = 17
         overchip(i).BorderStyle = 0
     Next i
-    Shape1.Width = 16 * 30
-    Shape1.Height = 16 * 30
+    Shape1.Width = 16 * 40
+    Shape1.Height = 16 * 40
     Shape4.Width = Shape1.Width
     Shape4.Height = Shape1.Height
     

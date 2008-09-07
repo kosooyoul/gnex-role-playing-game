@@ -1,9 +1,9 @@
 Attribute VB_Name = "Module1"
 Option Explicit
 Public SelectedMapChip As Integer
-Public Area(899) As Integer
+Public Area(1599) As Integer
 Public SelectedMapOverChip As Integer
-Public OverArea(899) As Integer
+Public OverArea(1599) As Integer
 
 Public Function AddEvent(Code As String)
 If Form5.Code.ListCount <= 0 Then

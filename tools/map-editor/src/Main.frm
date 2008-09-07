@@ -3,29 +3,13 @@ Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
 Begin VB.MDIForm MDIForm1 
    BackColor       =   &H8000000C&
    Caption         =   "Ahyane's RPG Map & Event Script Editor v1"
-   ClientHeight    =   6900
+   ClientHeight    =   8055
    ClientLeft      =   165
    ClientTop       =   735
-   ClientWidth     =   10125
+   ClientWidth     =   12735
    Icon            =   "Main.frx":0000
    LinkTopic       =   "MDIForm1"
    StartUpPosition =   3  'Windows 기본값
-   Begin MSComctlLib.StatusBar StatusBar1 
-      Align           =   2  '아래 맞춤
-      Height          =   255
-      Left            =   0
-      TabIndex        =   3
-      Top             =   6645
-      Width           =   10125
-      _ExtentX        =   17859
-      _ExtentY        =   450
-      _Version        =   393216
-      BeginProperty Panels {8E3867A5-8586-11D1-B16A-00C0F0283628} 
-         NumPanels       =   1
-         BeginProperty Panel1 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
-         EndProperty
-      EndProperty
-   End
    Begin MSComctlLib.ImageList ImageList1 
       Left            =   3000
       Top             =   1800
@@ -50,10 +34,11 @@ Begin VB.MDIForm MDIForm1
       Left            =   0
       TabIndex        =   0
       Top             =   0
-      Width           =   10125
-      _ExtentX        =   17859
+      Width           =   12735
+      _ExtentX        =   22463
       _ExtentY        =   635
       ButtonWidth     =   1667
+      ButtonHeight    =   582
       Appearance      =   1
       Style           =   1
       TextAlignment   =   1
@@ -134,10 +119,11 @@ Begin VB.MDIForm MDIForm1
       Left            =   0
       TabIndex        =   2
       Top             =   360
-      Width           =   10125
-      _ExtentX        =   17859
+      Width           =   12735
+      _ExtentX        =   22463
       _ExtentY        =   635
       ButtonWidth     =   609
+      ButtonHeight    =   582
       Appearance      =   1
       Style           =   1
       ImageList       =   "ImageList2"
@@ -437,7 +423,9 @@ Private Function LoadCode()
     
     i = 0
     ChipCount = 0
-    While ChipCount < 900
+    While ChipCount < 1600
+    
+    'If ChipCount - Int(ChipCount / 40) * 40 = 30 Then ChipCount = ChipCount + 10   '30*30을 40*40으로 변환시 필요
     
         If Right(Mid(Form2.Text2.Text, i + 1, 2), 1) = "," Then
             Area(ChipCount) = Val(Mid(Form2.Text2.Text, i + 1, 1))
@@ -466,7 +454,8 @@ Private Function LoadCode()
     
     i = 0
     ChipCount = 0
-    While ChipCount < 900
+    While ChipCount < 1600
+        'If ChipCount - Int(ChipCount / 40) * 40 = 30 Then ChipCount = ChipCount + 10   '30*30을 40*40으로 변환시 필요
         
         If Right(Mid(Form2.Text1.Text, i + 1, 2), 1) = "," Then
             OverArea(ChipCount) = Val(Mid(Form2.Text1.Text, i + 1, 1))
@@ -562,7 +551,7 @@ Private Sub Toolbar2_ButtonClick(ByVal Button As MSComctlLib.Button)
     Dim i As Integer
     Select Case Button.Key
         Case "q1"
-            For i = 0 To 899
+            For i = 0 To 1599
                 If Toolbar2.Buttons(11).Value Then
                     Form1.chip(i).Picture = Form3.mapchip(SelectedMapChip).Picture
                     Area(i) = SelectedMapChip
@@ -580,7 +569,7 @@ Private Sub Toolbar2_ButtonClick(ByVal Button As MSComctlLib.Button)
                 Count = Int(Text1.Text)
             End If
             For i = 0 To Count
-                RndPos = Rnd * 899
+                RndPos = Rnd * 1599
                 If Toolbar2.Buttons(11).Value Then
                     Form1.chip(RndPos).Picture = Form3.mapchip(SelectedMapChip).Picture
                     Area(RndPos) = SelectedMapChip
@@ -595,22 +584,22 @@ Private Sub Toolbar2_ButtonClick(ByVal Button As MSComctlLib.Button)
         Case "q4"
             TempString = ""
             
-            For i = 0 To 899
-                If i > 0 And i / 30 = Int(i / 30) Then TempString = TempString & vbCrLf
-                    TempString = TempString & Area(i) & ","
+            For i = 0 To 1599
+                If i > 0 And i / 40 = Int(i / 40) Then TempString = TempString & vbCrLf
+                    TempString = TempString & Right("  " & Area(i), 3) & ","
             Next i
             Form2.Text2.Text = TempString
             
             TempString = ""
-            For i = 0 To 899
-                If i > 0 And i / 30 = Int(i / 30) Then TempString = TempString & vbCrLf
-                    TempString = TempString & OverArea(i) & ","
+            For i = 0 To 1599
+                If i > 0 And i / 40 = Int(i / 40) Then TempString = TempString & vbCrLf
+                    TempString = TempString & Right("  " & OverArea(i), 3) & ","
             Next i
             Form2.Text1.Text = TempString
         Case "q5"
             Call LoadCode
         Case "q6"
-            For i = 0 To 899
+            For i = 0 To 1599
                 Form1.chip(i).BorderStyle = Toolbar2.Buttons(9).Value
             Next i
         Case "q7"
