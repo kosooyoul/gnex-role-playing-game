@@ -23,33 +23,36 @@ struct EnemyObject{
 	//획득
 	int gExp, gGold;
 
-}EnemyObject[1];
+}EnemyObject[2];
 
-const int EnemyGroup[] = {0,0,0,0,0,0,0,0,0,0};
+const int EnemyGroup[] = {0,1,0,0,0,0,0,0,0,0};
 
 void SetEnemy(){
 	EnemyObject[0].NameNumber = 1;		//테스트 코드
 	EnemyObject[0].graphic = 6;			//테스트 코드
-	EnemyObject[0].BatX = 5;			//테스트 코드
-	EnemyObject[0].BatY = 5;			//테스트 코드
-	EnemyObject[0].BatD = 2;			//테스트 코드
 	EnemyObject[0].frame = 0;			//테스트 코드
-
 	EnemyObject[0].LV = 50;				//테스트 코드
 	EnemyObject[0].MAXHP = 40;
-	EnemyObject[0].HP = EnemyObject[0].MAXHP;
 	EnemyObject[0].MAXSP = 10;
-	EnemyObject[0].SP = EnemyObject[0].MAXSP;
-
 	EnemyObject[0].Turn = 0;
-
 	EnemyObject[0].STR = 30;
 	EnemyObject[0].DEF = 30;
 	EnemyObject[0].INT = 30;
-	EnemyObject[0].DEX = 30;
+	EnemyObject[0].DEX = 60;
 	EnemyObject[0].gExp = 15;
 	EnemyObject[0].gGold = 50;
 
-	EnemyObject[0].ScrollMapX = 0;
-	EnemyObject[0].ScrollMapY = 0;
+	EnemyObject[1].NameNumber = 3;		//테스트 코드
+	EnemyObject[1].graphic = 3;			//테스트 코드
+	EnemyObject[1].frame = 0;			//테스트 코드
+	EnemyObject[1].LV = 80;				//테스트 코드
+	EnemyObject[1].MAXHP = 60;
+	EnemyObject[1].MAXSP = 10;
+	EnemyObject[1].Turn = 0;
+	EnemyObject[1].STR = 20;
+	EnemyObject[1].DEF = 30;
+	EnemyObject[1].INT = 10;
+	EnemyObject[1].DEX = 90;
+	EnemyObject[1].gExp = 15;
+	EnemyObject[1].gGold = 50;
 }

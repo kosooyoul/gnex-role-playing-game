@@ -52,8 +52,10 @@
 42일차: 9월 3일 : 전투모드 스킬 및 아이템 선택 구성
 43일차: 9월 4일 : 전투모드 상태보기 구성
 44일차: 9월 5일 : 다른 맵이동 테스트 후 이벤트 출력오류 수정
+45일차: 9월 6일 : 다른 맵으로 이동 후 키입력 대기 현상 수정, 전투모드 1:1전투로 수정, 이벤트라인 중 상점과 전투는 파일에서 분리, 맵에디터 편집 사이즈 40*40로 수정
+46일차: 9월 7일 : 이벤트 그래픽 투명/이동설정 가능하도록 수정 및 맵편집 이벤트추가 후 테스트
 
-
+전투는 아직 1:1
 맵, 이벤트 에디터 제작 완성 요망
 인터페이스 보정 요망
 메뉴시스템 보정 요망
@@ -100,6 +102,8 @@
 #include "map.h"			//   맵표시
 #include "event.h"			//   이벤트
 #include "eventscript.h"	//   이벤트처리
+#include "shop.h"			//   이벤트처리-상점처리
+#include "battle.h"			//   이벤트처리-전투처리
 #include "item.h"			//*  아이템
 #include "monster.h"		//*  몬스터
 #include "skill.h"			//*  스킬
@@ -114,8 +118,7 @@ int NextKey = -1;				//이벤트 수행중 키입력을 기다리기 위함
 int GameMode = 0;				//게임 모드/ 0:타이틀, 1:롤플레이
 
 //******************************************************************************************************[ Main ]
-void main()
-{
+void main(){
 	//mode: title, play(move), battle, event, menu(item,skill,status,.....)
 	SetItem();
 	SetSkill();
@@ -127,7 +130,7 @@ void main()
 	SetEnemy();
 
 	SetTimer(40, 1);					//이동 및 맵 출력 시간 간격, 이벤트 수행 속도(에뮬 40, 핸드폰 임시 40)
-	SetTimer1(500, 1);					//이벤트 이동 시간 간격
+	SetTimer1(500, 1);					//이벤트 이동 시간 간격//기본 500
 	Variable[1] = 1;
 	Variable[0] = 200;					//테스트 코드
 	SetQuickSlot();						//테스트 코드
@@ -136,6 +139,7 @@ void main()
 //******************************************************************************************************[ EVENT_TIMEOUT ]
 void EVENT_TIMEOUT(){
 	int i;
+
 	switch(GameMode){
 		//타이틀(GameMode=0)
 		case 0:	
@@ -173,8 +177,10 @@ void EVENT_TIMEOUT(){
 
 				//타이머1(t=500)
 				case 1:
-					for(i = 0; i < MAX_EVENT_COUNT; i++)MoveEventRandom(i);	//테스트 코드 : 이벤트 랜덤이동
-
+					for(i = 0; i < MAX_EVENT_COUNT; i++){
+						if(EventObject[i].MoveType == 1)
+							MoveEventRandom(i);			//테스트 코드 : 이벤트 랜덤이동
+					}
 					break;
 			}
 			break;

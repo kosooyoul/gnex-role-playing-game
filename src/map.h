@@ -6,23 +6,37 @@ struct Map{
 	int x_start, y_start;
 	int x_size, y_size;
 	int backchip;			//배경 맵칩
-}Area[2];
+}Area[4];
 
 //맵 영역 설정
 void SetArea(){
-	Area[0].name = "UNKNOWN TOWN 1";
+	Area[0].name = "EAST JECHOEN";
 	Area[0].x_start = 0;
 	Area[0].y_start = 0;
-	Area[0].x_size = 30;
-	Area[0].y_size = 30;
+	Area[0].x_size = 23;
+	Area[0].y_size = 23;
 	Area[0].backchip = 85;		//풀밭142 검정85 자갈바닥58
 
 	Area[1].name = "HOUSE";
-	Area[1].x_start = 0;//20;
-	Area[1].y_start = 30;//30;
-	Area[1].x_size = 30;//9;
-	Area[1].y_size = 30;//11;
+	Area[1].x_start = 23;//20;
+	Area[1].y_start = 0;//30;
+	Area[1].x_size = 17;//9;
+	Area[1].y_size = 15;//11;
 	Area[1].backchip = 85;		//풀밭142 검정85 자갈바닥58
+	
+	Area[2].name = "HOUSE";
+	Area[2].x_start = 23;//20;
+	Area[2].y_start = 15;//30;
+	Area[2].x_size = 17;//9;
+	Area[2].y_size = 12;//11;
+	Area[2].backchip = 85;		//풀밭142 검정85 자갈바닥58
+
+	Area[3].name = "ITEM SHOP";
+	Area[3].x_start = 23;//20;
+	Area[3].y_start = 27;//30;
+	Area[3].x_size = 17;//9;
+	Area[3].y_size = 13;//11;
+	Area[3].backchip = 85;		//풀밭142 검정85 자갈바닥58
 }
 
 //맵 스크롤

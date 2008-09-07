@@ -111,7 +111,7 @@ void DrawInterface(){
 		}else if(QuickSlot[i].Quantity == 1){			//스킬인 경우 : 1
 			CopyImage((i % QuickSlotWidth) * 21 + 96, 16, icon[SkillList[SkillSlot[QuickSlot[i].ListNumber].ListNumber].Icon]);
 			if(SkillSlot[QuickSlot[i].ListNumber].ListNumber){	//아이템이 있으면 수량 표시
-				MakeStr1(Temp, "%d", SkillSlot[QuickSlot[i].ListNumber].Quantity);
+				MakeStr1(Temp, "L_%d", SkillSlot[QuickSlot[i].ListNumber].Quantity);
 				SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_RIGHT);//수량그림자
 				DrawStr((i % QuickSlotWidth) * 21 + 109, 24, Temp);
 				DrawStr((i % QuickSlotWidth) * 21 + 110, 23, Temp);
@@ -269,7 +269,7 @@ void DrawItem(int win_x, int win_y){
 						else if(QuickSlot[i].Quantity == 1){		//스킬인 경우 : 1
 							CopyImage(i%6 * 23 + 79, i/6 * 23 + 146, icon[SkillList[SkillSlot[QuickSlot[i].ListNumber].ListNumber].Icon]);
 							if(SkillSlot[QuickSlot[i].ListNumber].ListNumber){	//스킬이 있으면 수치 표시
-								MakeStr1(TempString, "%d", SkillSlot[QuickSlot[i].ListNumber].Quantity);
+								MakeStr1(TempString, "L_%d", SkillSlot[QuickSlot[i].ListNumber].Quantity);
 								SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_RIGHT);//수량그림자
 								DrawStr(i%6 * 23 + 92, i/6 * 23 + 154, TempString);
 								DrawStr(i%6 * 23 + 93, i/6 * 23 + 153, TempString);
@@ -407,7 +407,7 @@ void DrawSkill(int win_x, int win_y){
 						else if(QuickSlot[i].Quantity == 1){				//스킬인 경우 : 1
 							CopyImage(i%6 * 23 + 79, i/6 * 23 + 146, icon[SkillList[SkillSlot[QuickSlot[i].ListNumber].ListNumber].Icon]);
 							if(SkillSlot[QuickSlot[i].ListNumber].ListNumber){	//스킬이 있으면 수치 표시
-								MakeStr1(TempString, "%d", SkillSlot[QuickSlot[i].ListNumber].Quantity);
+								MakeStr1(TempString, "L_%d", SkillSlot[QuickSlot[i].ListNumber].Quantity);
 								SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_RIGHT);//수량그림자
 								DrawStr(i%6 * 23 + 92, i/6 * 23 + 154, TempString);
 								DrawStr(i%6 * 23 + 93, i/6 * 23 + 153, TempString);
@@ -419,7 +419,7 @@ void DrawSkill(int win_x, int win_y){
 					//퀵슬롯 설정할 아이콘 및 위치 표시
 					CopyImage(selected_subsubsubmenu%6 * 23 + 69, selected_subsubsubmenu/6 * 23 + 136, interface_cell);
 					CopyImage(selected_subsubsubmenu%6 * 23 + 75, selected_subsubsubmenu/6 * 23 + 142, icon[SkillList[SkillSlot[selected_submenu].ListNumber].Icon]);
-					MakeStr1(TempString, "%d", SkillSlot[selected_submenu].Quantity);
+					MakeStr1(TempString, "L_%d", SkillSlot[selected_submenu].Quantity);
 					SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_RIGHT);//수치그림자
 					DrawStr(selected_subsubsubmenu%6 * 23 + 88, selected_subsubsubmenu/6 * 23 + 150, TempString);
 					DrawStr(selected_subsubsubmenu%6 * 23 + 89, selected_subsubsubmenu/6 * 23 + 149, TempString);
@@ -1099,7 +1099,7 @@ void ShowMenu(int Key){
 }
 
 //전투맵출력
-void DrawBatMap(int Status){
+void DrawBatMap(int GrpNum){
 	int x, y;
 	int TempChipNum;
 	int TX = Player.x-BattlePosX;
@@ -1130,18 +1130,15 @@ void DrawBatMap(int Status){
 		if(ScrollMapY>0)ScrollMapY-=3;
 		else ScrollMapY+=3;
 	}
-
-
 	
-	//테스트 코드 - 몹
-	if(EnemyObject[0].HP > 0){
-		EnemyObject[0].frame = (EnemyObject[0].frame+1) % 16;	//MOVE-제자리 행동
-		CopyImage(EnemyObject[0].BatX*16 + 20, EnemyObject[0].BatY*16 + 54, chara[16 * EnemyObject[0].graphic + EnemyObject[0].BatD*4 + EnemyObject[0].frame/4]); //4패턴(*) 4배 감속(/)
+	//테스트 코드 - 몹 ▼ 체력확인
+	if(EnemyObject[GrpNum].HP > 0){
+		EnemyObject[GrpNum].frame = (EnemyObject[GrpNum].frame+1) % 16;	//MOVE-제자리 행동
+		CopyImage(EnemyObject[GrpNum].BatX*16 + 20, EnemyObject[GrpNum].BatY*16 + 54, chara[16 * EnemyObject[GrpNum].graphic + EnemyObject[GrpNum].BatD*4 + EnemyObject[GrpNum].frame/4]); //4패턴(*) 4배 감속(/)
 	}else{
-		if(BattleLayer[EnemyObject[0].BatY][EnemyObject[0].BatX] == 1)BattleLayer[EnemyObject[0].BatY][EnemyObject[0].BatX] = 0;
+		if(BattleLayer[EnemyObject[GrpNum].BatY][EnemyObject[GrpNum].BatX] == GrpNum+1)BattleLayer[EnemyObject[GrpNum].BatY][EnemyObject[GrpNum].BatX] = 0;
 	}
-	//테스트 코드 - 몹
-
+	//테스트 코드 - 몹 ▲
 
 	//주인공 그리기
 	Player.frame = (Player.frame+1) % 16;	//MOVE-제자리 행동
@@ -1162,5 +1159,3 @@ void DrawBatInterface(){
 	CopyImage(19, 57, interface_battle);		
 	//interface_battle
 }
-
-

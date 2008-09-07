@@ -3,7 +3,7 @@ struct Point{
 	int Y;
 };
 
-#define MAX_EVENT_COUNT		7		//이벤트 수 현재 7 개다
+#define MAX_EVENT_COUNT		14		//이벤트 수 현재 7 개다. 최대 카운터 + 1
 
 //맵표시관련 모듈에 대해서
 #define _TopSize	32				//상단의 인터페이스 구성

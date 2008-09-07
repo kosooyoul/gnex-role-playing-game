@@ -42,8 +42,8 @@ void InitPlayer(){
 
 	Player.graphic = 4;
 	Player.map = 0;
-	Player.x = 13;//-8;
-	Player.y = 13;//-5;
+	Player.x = 11;
+	Player.y = 12;
 	Player.direction = 3;
 	Player.frame = 2;
 	
