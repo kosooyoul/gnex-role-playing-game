@@ -1,8 +1,14 @@
+#define MOVE_EFFECT_COUNT	10		//워프시 화면 전환효과
+#define MAP_POS_X1			0
+#define MAP_POS_X2			239
+#define MAP_POS_Y1			32
+#define MAP_POS_Y2			244
+
 int SelectedAnswer = 0;		//첫번째 선택
 int SelectedScroll = 0;		//아이템 목록 스크롤 수
+int SecondSelect = 0;		//두번째 선택
 int ThirdSelect = 1;		//선택 수량
 int EventStatus = 0;		//이벤트 상태 / 상점 상태
-int SecondSelect = 0;		//두번째 선택
 int EmptySlot;				//아이템 추가를 완료 하였는지
 
 void RunEventLine(int EventNumber)
@@ -52,13 +58,21 @@ void RunEventLine(int EventNumber)
 			EmptySlot = GetItem(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 			break;
 		case 7:		//주인공 맵 이동_지역 워프		 :: 매개변수 3개
-			MoveMap(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
-			//워프후 이벤트 강제 종료 ▼ 워프(맵이동)시 버튼입력 대기가 되버려 삽입함
-			EventObject[EventNumber].LineCount = 0;
-			//EventObject[EventNumber].EventLoop = 0;
-			RunningEventNumber = -1;
-			ChangeMode(1);
-			//워프후 이벤트 강제 종료 ▲
+			if(SecondSelect < MOVE_EFFECT_COUNT)
+			{
+				MoveMap(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount + 1], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount + 2]);
+				EventObject[EventNumber].LineCount--;
+			}
+			else
+			{
+				MoveMap(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
+				//워프후 이벤트 강제 종료 ▼ 워프(맵이동)시 버튼입력 대기가 되버려 삽입함
+				EventObject[EventNumber].LineCount = 0;
+				//EventObject[EventNumber].EventLoop = 0;
+				RunningEventNumber = -1;
+				ChangeMode(1);
+				//워프후 이벤트 강제 종료 ▲
+			}
 			break;
 		case 8:		//개체 위치 이동_좌표만			 :: 매개변수 2개
 			MovePosition(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
@@ -149,7 +163,52 @@ int CheckVariable(int Value1, int Operation, int Value2)
 	return 0;
 }
 
+//맵 이동을 위한 화면 전환 처리
+void ScreenEffect(int Type, int Count){
+	
+	switch(Type){
+		//페이드인-페이드아웃
+		case 0:
+			switch(Count){
+					case 0:FillRectEx(MAP_POS_X1,MAP_POS_Y1,MAP_POS_X2,MAP_POS_Y2,3);break;
+					case 1:FillRectEx(MAP_POS_X1,MAP_POS_Y1,MAP_POS_X2,MAP_POS_Y2,2);break;
+					case 2:FillRectEx(MAP_POS_X1,MAP_POS_Y1,MAP_POS_X2,MAP_POS_Y2,1);break;
+					case 3:
+					case 4:
+					case 5:
+					case 6:FillRectEx(MAP_POS_X1,MAP_POS_Y1,MAP_POS_X2,MAP_POS_Y2,0);break;
+					case 7:FillRectEx(MAP_POS_X1,MAP_POS_Y1,MAP_POS_X2,MAP_POS_Y2,1);break;
+					case 8:FillRectEx(MAP_POS_X1,MAP_POS_Y1,MAP_POS_X2,MAP_POS_Y2,2);break;
+					case 9:FillRectEx(MAP_POS_X1,MAP_POS_Y1,MAP_POS_X2,MAP_POS_Y2,3);break;
+			}
+			break;
 
+		//눈 깜빡
+		case 1:
+			switch(Count){
+				case 0:
+				case 1:
+				case 2:
+				case 3:
+				case 4:	FillRect(MAP_POS_X1,MAP_POS_Y2,MAP_POS_X2,MAP_POS_Y2-MAP_POS_Y2/MOVE_EFFECT_COUNT*(Count+1));
+						FillRect(MAP_POS_X1,MAP_POS_Y1,MAP_POS_X2,MAP_POS_Y1+MAP_POS_Y2/MOVE_EFFECT_COUNT*(Count+1));
+						FillRect(MAP_POS_X2,MAP_POS_Y1,MAP_POS_X2-MAP_POS_X2/MOVE_EFFECT_COUNT*(Count+1),MAP_POS_Y2);
+						FillRect(MAP_POS_X1,MAP_POS_Y1,MAP_POS_X1+MAP_POS_X2/MOVE_EFFECT_COUNT*(Count+1),MAP_POS_Y2);
+						break;
+
+				case 5:
+				case 6:
+				case 7:
+				case 8:
+				case 9:	FillRect(MAP_POS_X1,MAP_POS_Y2,MAP_POS_X2,MAP_POS_Y2-MAP_POS_Y2/MOVE_EFFECT_COUNT*(MOVE_EFFECT_COUNT-Count));
+						FillRect(MAP_POS_X1,MAP_POS_Y1,MAP_POS_X2,MAP_POS_Y1+MAP_POS_Y2/MOVE_EFFECT_COUNT*(MOVE_EFFECT_COUNT-Count));
+						FillRect(MAP_POS_X2,MAP_POS_Y1,MAP_POS_X2-MAP_POS_X2/MOVE_EFFECT_COUNT*(MOVE_EFFECT_COUNT-Count),MAP_POS_Y2);
+						FillRect(MAP_POS_X1,MAP_POS_Y1,MAP_POS_X1+MAP_POS_X2/MOVE_EFFECT_COUNT*(MOVE_EFFECT_COUNT-Count),MAP_POS_Y2);
+						break;
+			}
+			break;
+	}
+}
 
 //0번 이벤트 라인{0,*,*} - 문장출력
 void PrintMessage(int NameNumber,int MessageNumber)
@@ -414,14 +473,33 @@ int GetItem(int Category, int ItemNumber, int Quantity)
 //7번 이벤트 라인{7,*,*,*} - 주인공 맵 이동
 void MoveMap(int MapNumber, int PositionX, int PositionY)
 {
-	EventLayer[Area[Player.map].y_start + Player.y][Area[Player.map].x_start + Player.x] = 0;
-	Player.map = MapNumber;
-	Player.x = PositionX;
-	Player.y = PositionY;
+	string temp;
 
-	ApplyEventOnMap();
-	EventLayer[Area[Player.map].y_start + Player.y][Area[Player.map].x_start + Player.x] = -1;
-	MovingDirection = 0;	//워프 후 계속이동 됨을 방지
+	DrawSubLayer();			//하위맵 출력
+	DrawSupLayer(0);		//상위맵 0단계 출력
+	DrawEventLayer();		//주인공 및 이벤트 출력
+	DrawSupLayer(1);		//상위맵 1단계 출력
+
+	SetColor(S_BLACK);		//Rand(0,127)//클리어 색상
+	ScreenEffect(1, SecondSelect);
+
+	if(SecondSelect == MOVE_EFFECT_COUNT / 2){
+	
+		EventLayer[Area[Player.map].y_start + Player.y][Area[Player.map].x_start + Player.x] = 0;
+		Player.map = MapNumber;
+		Player.x = PositionX;
+		Player.y = PositionY;
+		ApplyEventOnMap();
+		EventLayer[Area[Player.map].y_start + Player.y][Area[Player.map].x_start + Player.x] = -1;
+		MovingDirection = 0;							//워프 후 계속이동 됨을 방지
+
+	}else if(SecondSelect == MOVE_EFFECT_COUNT){
+		SecondSelect = 0;								//MOVE_EFFECT_COUNT에 대한 비교 값 초기화
+		return;
+	}
+
+	SecondSelect++;										//이펙트 카운트 증가
+
 }
 
 //8번 이벤트 라인{8,*,*} - 케릭터 한칸 이동

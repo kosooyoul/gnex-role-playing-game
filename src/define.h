@@ -13,7 +13,7 @@ struct Point{
 #define S_RED		109
 #define S_GREEN		43
 #define S_CYAN		46
-#define S_BLUE		49
+#define S_BLUE		20
 //chara.h
 #define _CenterPositionX 52 + 24+32	//케릭터 표시위치 = 4*16-(8)-? -12 : 3	;+16*2	+0
 #define _CenterPositionY 40 + 16+32	//케릭터 표시위치 = 4*16-(8)-? -16 : 20	;+16*2	+32
