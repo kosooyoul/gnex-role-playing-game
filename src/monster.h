@@ -39,6 +39,7 @@ void SetEnemy(){
 	EnemyObject[0].DEF = 30;
 	EnemyObject[0].INT = 30;
 	EnemyObject[0].DEX = 60;
+	EnemyObject[0].MOV = 2;
 	EnemyObject[0].gExp = 15;
 	EnemyObject[0].gGold = 50;
 
@@ -53,6 +54,7 @@ void SetEnemy(){
 	EnemyObject[1].DEF = 30;
 	EnemyObject[1].INT = 10;
 	EnemyObject[1].DEX = 90;
+	EnemyObject[1].MOV = 2;
 	EnemyObject[1].gExp = 15;
 	EnemyObject[1].gGold = 50;
 }

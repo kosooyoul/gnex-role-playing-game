@@ -33,6 +33,10 @@ int Battle(int GrpNum, int BatMap){
 	switch(EventStatus){
 		//초기 설정
 		case 0:
+			//선택변수들 초기화
+			SelectedAnswer = 0;
+			SecondSelect = 0;
+
 			for(i = 0; i < 10; i++)
 				for(j = 0; j < 12; j++)
 					BattleLayer[i][j] = 0;
@@ -60,8 +64,9 @@ int Battle(int GrpNum, int BatMap){
 
 		//우선턴 결정
 		case 1:
-			//if(NextKey != SWAP_KEY_OK)break;
-
+			BattleLimitMoveX = 0;	//이동제한 초기화
+			BattleLimitMoveY = 0;
+			
 			if(EnemyObject[GrpNum].Turn < 10 && Player.Turn < 10){
 				if(EnemyObject[GrpNum].DEX <= Player.DEX){
 					Player.Turn += (Player.DEX + 1) * 10 / (EnemyObject[GrpNum].DEX + 1);
@@ -74,8 +79,6 @@ int Battle(int GrpNum, int BatMap){
 			else{
 				if(EnemyObject[GrpNum].Turn <= Player.Turn){
 					Player.Turn -= 10;
-					BattleLimitMoveX = 0;	//이동제한 초기화
-					BattleLimitMoveY = 0;
 					EventStatus = 2;	//주인공 턴
 				}else{
 					EnemyObject[GrpNum].Turn -= 10;
@@ -556,7 +559,39 @@ int Battle(int GrpNum, int BatMap){
 
 		//적 턴
 		case 3:
-			SetFontType(S_FONT_LARGE, S_YELLOW, S_BLACK, S_ALIGN_LEFT);
+
+			SetColor(S_RED);
+			DrawLimitArea(EnemyObject[GrpNum].MOV + 1, EnemyObject[GrpNum].BatX-BattleLimitMoveX, EnemyObject[GrpNum].BatY-BattleLimitMoveY);
+
+
+
+			if(EnemyObject[GrpNum].ScrollMapX){
+				if(EnemyObject[GrpNum].ScrollMapX>0)EnemyObject[GrpNum].ScrollMapX-=3;
+				else EnemyObject[GrpNum].ScrollMapX+=3;
+			}else if(EnemyObject[GrpNum].ScrollMapY){
+				if(EnemyObject[GrpNum].ScrollMapY>0)EnemyObject[GrpNum].ScrollMapY-=3;
+				else EnemyObject[GrpNum].ScrollMapY+=3;
+			}else{
+				if(Abs(BattleLimitMoveX)+Abs(BattleLimitMoveY) == EnemyObject[GrpNum].MOV){
+					EventStatus = 1;
+				}else{
+					if(Abs(EnemyObject[GrpNum].BatX - Player.BatX) > Abs(EnemyObject[GrpNum].BatY - Player.BatY)){
+						if(EnemyObject[GrpNum].BatX < Player.BatX){
+							MoveEnemy(1, GrpNum);
+						}else if(EnemyObject[GrpNum].BatX > Player.BatX){
+							MoveEnemy(3, GrpNum);
+						}
+					
+					}else{
+						if(EnemyObject[GrpNum].BatY < Player.BatY){
+							MoveEnemy(2, GrpNum);
+						}else if(EnemyObject[GrpNum].BatY > Player.BatY){
+							MoveEnemy(0, GrpNum);
+						}
+					}
+				}
+			}
+
 			switch(NextKey){
 				case SWAP_KEY_OK:		EventStatus = 1;break;	//테스트 적의 턴 종료
 			}
@@ -640,6 +675,74 @@ void MoveBattleMap(int Direction){
 			Player.BatD = 1;
 	}
 	BattleLayer[Player.BatY][Player.BatX] = -1;
+
+}
+
+void MoveEnemy(int Direction, int EnemyNum){
+	int TempX;
+	int TempY;
+	int FLAG = 1;
+
+	TempX = Area[Player.map].x_start + EnemyObject[EnemyNum].BatX + Player.x-BattlePosX;
+	TempY = Area[Player.map].y_start + EnemyObject[EnemyNum].BatY + Player.y-BattlePosY;
+
+	BattleLayer[EnemyObject[EnemyNum].BatY][EnemyObject[EnemyNum].BatX] = 0;
+
+	while(FLAG++%10){
+		switch (Direction){
+			case 0://상
+				if(	EnemyObject[EnemyNum].BatY > 0 && Player.y - (BattlePosY - EnemyObject[EnemyNum].BatY) > 0 &&
+					BattleLayer[EnemyObject[EnemyNum].BatY-1][EnemyObject[EnemyNum].BatX] == 0){
+					if(		SupLayer[TempY - 1][TempX] <= _SupChipMoveable || SupLayer[TempY - 1][TempX] > _SupChipWall &&
+							Abs(BattleLimitMoveX) + Abs(BattleLimitMoveY - 1) <= EnemyObject[EnemyNum].MOV){
+								EnemyObject[EnemyNum].BatY--;
+								BattleLimitMoveY--;
+								EnemyObject[EnemyNum].ScrollMapY=15;
+								FLAG = 0;
+					}else Direction = 1;
+				}
+				break;
+			case 2://하
+				if(	EnemyObject[EnemyNum].BatY < 9 &&
+					BattleLayer[EnemyObject[EnemyNum].BatY+1][EnemyObject[EnemyNum].BatX] == 0){
+					if(		SupLayer[TempY + 1][TempX] <= _SupChipMoveable || SupLayer[TempY + 1][TempX] > _SupChipWall &&
+							Abs(BattleLimitMoveX) + Abs(BattleLimitMoveY + 1) <= EnemyObject[EnemyNum].MOV){
+								EnemyObject[EnemyNum].BatY++;
+								BattleLimitMoveY++;
+								EnemyObject[EnemyNum].ScrollMapY = -15;
+								FLAG = 0;
+					}else Direction = 3;
+				}
+				break;
+			case 3://좌
+				if(	EnemyObject[EnemyNum].BatX > 0 && Player.x - (BattlePosX - EnemyObject[EnemyNum].BatX) > 0 &&
+					BattleLayer[EnemyObject[EnemyNum].BatY][EnemyObject[EnemyNum].BatX-1] == 0){
+					if(		SupLayer[TempY][TempX - 1] <= _SupChipMoveable || SupLayer[TempY][TempX - 1] > _SupChipWall &&
+							Abs(BattleLimitMoveX - 1) + Abs(BattleLimitMoveY) <= EnemyObject[EnemyNum].MOV){
+								EnemyObject[EnemyNum].BatX--;
+								BattleLimitMoveX--;
+								EnemyObject[EnemyNum].ScrollMapX = 15;
+								FLAG = 0;
+					}else Direction = 0;
+				}
+				break;
+			case 1://우
+				if(	EnemyObject[EnemyNum].BatX < 11 &&
+					BattleLayer[EnemyObject[EnemyNum].BatY][EnemyObject[EnemyNum].BatX+1] == 0){
+					if(		SupLayer[TempY][TempX + 1] <= _SupChipMoveable || SupLayer[TempY][TempX + 1] > _SupChipWall &&
+							Abs(BattleLimitMoveX + 1) + Abs(BattleLimitMoveY) <= EnemyObject[EnemyNum].MOV){
+								EnemyObject[EnemyNum].BatX++;
+								BattleLimitMoveX++;
+								EnemyObject[EnemyNum].ScrollMapX = -15;
+								FLAG = 0;
+					}else Direction = 2;
+				}
+				break;
+		}
+	}
+
+	EnemyObject[EnemyNum].BatD = Direction;
+	BattleLayer[EnemyObject[EnemyNum].BatY][EnemyObject[EnemyNum].BatX] = EnemyNum + 1;
 
 }
 

@@ -55,7 +55,7 @@
 45일차: 9월 6일 : 다른 맵으로 이동 후 키입력 대기 현상 수정, 전투모드 1:1전투로 수정, 이벤트라인 중 상점과 전투는 파일에서 분리, 맵에디터 편집 사이즈 40*40로 수정
 46일차: 9월 7일 : 이벤트 그래픽 투명/이동설정 가능하도록 수정 및 맵편집 이벤트추가 후 테스트
 47일차: 9월 8일 : 다른 맵이동시 화면처리 구현(Type:0=페이드인/아웃, 1=시야줄였다늘리기)
-
+48일차: 9월 9일 : 전투시 적 이동 구현중
 
 전투는 아직 1:1
 맵, 이벤트 에디터 제작 완성 요망
@@ -63,7 +63,6 @@
 메뉴시스템 보정 요망
 
 */
-
 
 #ifdef _GVM
 %{
@@ -86,8 +85,8 @@
 	#DEFINE AUDIOTYPE	255
 	#DEFINE APPTYPE		1
 	#DEFINE APPCPID		19732			//테스트 고유번호
-	#DEFINE APPID		10154			//프로그램 ID
-	#DEFINE APPNAME		"AHYANET 10154"	//프로그램 이름
+	#DEFINE APPID		10155			//프로그램 ID
+	#DEFINE APPNAME		"AHYANET 10155"	//프로그램 이름
 	#DEFINE COMPTYPE	2
 	#DEFINE AGENTTYPE	0
 	#DEFINE VALIDCOUNT	255
@@ -119,6 +118,23 @@ int RunningEventNumber = -1;	//RunningEventNumber번째의 이벤트를 수행, 
 int NextKey = -1;				//이벤트 수행중 키입력을 기다리기 위함
 int GameMode = 0;				//게임 모드/ 0:타이틀, 1:롤플레이
 
+void TEST(){
+	string Temp;
+
+	//SetColor(S_BLACK);
+	//FillRectEx(0,230,240,280,2);
+	SetFontType(S_FONT_MEDIUM, S_YELLOW, S_BLACK, S_ALIGN_LEFT);
+	MakeStr1(Temp,"Frame = %d",Player.frame%4);
+	DrawStr(20,245,Temp);
+	MakeStr2(Temp,"Scroll = %d, %d",ScrollMapX,ScrollMapY);
+	DrawStr(20,255,Temp);
+	MakeStr1(Temp,"Direction = %d",Player.direction);
+	DrawStr(20,265,Temp);
+	MakeStr2(Temp,"Position = %d, %d",BattleLimitMoveX,BattleLimitMoveY);
+	DrawStr(20,275,Temp);
+
+}
+
 //******************************************************************************************************[ Main ]
 void main(){
 	//mode: title, play(move), battle, event, menu(item,skill,status,.....)
@@ -141,7 +157,6 @@ void main(){
 //******************************************************************************************************[ EVENT_TIMEOUT ]
 void EVENT_TIMEOUT(){
 	int i;
-
 	switch(GameMode){
 		//타이틀(GameMode=0)
 		case 0:	
@@ -215,9 +230,11 @@ void EVENT_TIMEOUT(){
 		DrawInterface();
 	}
 
-	/*/소켓을 통해 수신된 메시지 표시 :: 테스트 코드
+	//소켓을 통해 수신된 메시지 표시 :: 테스트 코드
 	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);	
 	DrawStr(50,50,RcvdMsg);	//*/
+	
+	TEST();					//테스트코드
 
 	Flush();
 }
@@ -298,10 +315,10 @@ void EVENT_KEYPRESS(){
 
 	}
 
-	/*/네트워크 테스트 코드//
+	//네트워크 테스트 코드//
 	switch(swData){
 		case SWAP_KEY_1:	ConnectSocket();							break;	//네트워크 접속
-		case SWAP_KEY_2:	DataMsg = Message[Rand(0, 8)];SendSocket();	break;	//메시지 송신
+		case SWAP_KEY_2:	DataMsg = Message[Rand(0, 14)];SendSocket();	break;	//메시지 송신
 		case SWAP_KEY_3:	RcvSocket();GetSockBuffer();				break;	//메시지 수신
 		case SWAP_KEY_4:	CloseSocket();								break;	//네트워크 종료
 		case SWAP_KEY_5:												break;
