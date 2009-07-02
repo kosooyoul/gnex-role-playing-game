@@ -3,7 +3,7 @@ int BattleLimitMoveY = 0;	//전장맵 이동 제한
 struct Point SelectTarget;	//선택 대상
 
 //15번 이벤트 라인{15,*,*} - 전투처리(적그룹번호, 맵종류)
-int Battle(int GrpNum, int BatMap){
+int Battle(int EventNumber, int GrpNum, int BatMap){
 	string Temp;
 	int i, j;
 	int TargetEnemy;
@@ -25,7 +25,7 @@ int Battle(int GrpNum, int BatMap){
 
 	if(EventStatus){
 		SetColor(S_BLACK);
-		FillRectEx(0, 32, 239, 244, 2);
+		FillRectEx(0, 32, 239, 256, 2);
 		DrawBatInterface();
 		DrawBatMap(GrpNum);		
 	}	
@@ -43,21 +43,25 @@ int Battle(int GrpNum, int BatMap){
 
 			BattleLayer[Player.BatY][Player.BatX] = -1;
 
-			while(1){
-				EnemyObject[GrpNum].BatX = Rand(0,12);
-				EnemyObject[GrpNum].BatY = Rand(0,10);
+			//while(1){
+				
+				EnemyObject[GrpNum].BatX = EventObject[EventNumber].x - (Player.x - BattlePosX);
+				EnemyObject[GrpNum].BatY = EventObject[EventNumber].y - (Player.y - BattlePosY);
 
 				i = Area[Player.map].x_start + EnemyObject[GrpNum].BatX + Player.x-BattlePosX;
 				j = Area[Player.map].y_start + EnemyObject[GrpNum].BatY + Player.y-BattlePosY;
 
+				//
+				BattleLayer[EnemyObject[GrpNum].BatY][EnemyObject[GrpNum].BatX] = GrpNum+1;
+				/*
 				if(SupLayer[j][i] <= _SupChipMoveable || SupLayer[j][i] > _SupChipWall){
 					if(BattleLayer[EnemyObject[GrpNum].BatY][EnemyObject[GrpNum].BatX] == 0){
 						BattleLayer[EnemyObject[GrpNum].BatY][EnemyObject[GrpNum].BatX] = GrpNum+1;
 						break;
 					}
-				}
-			}
-			EnemyObject[GrpNum].BatD = Rand(0,3);
+				}*/
+			//}
+			EnemyObject[GrpNum].BatD = EventObject[EventNumber].direction;
 			EnemyObject[GrpNum].HP = EnemyObject[GrpNum].MAXHP;
 			EnemyObject[GrpNum].SP = EnemyObject[GrpNum].MAXSP;
 			EventStatus = 1;
@@ -140,7 +144,7 @@ int Battle(int GrpNum, int BatMap){
 								SecondSelect = 0;
 								Player.BatX = 5;	//기본값으로 초기화(좌표)
 								Player.BatY = 5;	//기본값으로 초기화(좌표)
-								Player.BatD = 2;	//기본값으로 초기화(방향)
+								Player.BatD = Player.direction;	//기본값으로 초기화(방향)
 								Player.Turn = 0;				//주인공 턴 초기화
 								EnemyObject[GrpNum].Turn = 0;	//적 턴 초기화
 								return 2;		//도주

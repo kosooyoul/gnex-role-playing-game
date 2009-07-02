@@ -2,7 +2,7 @@
 #define MAP_POS_X1			0
 #define MAP_POS_X2			239
 #define MAP_POS_Y1			32
-#define MAP_POS_Y2			244
+#define MAP_POS_Y2			256
 
 int SelectedAnswer = 0;		//첫번째 선택
 int SelectedScroll = 0;		//아이템 목록 스크롤 수
@@ -117,7 +117,7 @@ void RunEventLine(int EventNumber)
 			}
 			break;
 		case 15:	//전투처리
-			if(Battle(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount+1]))
+			if(Battle(EventNumber, EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount+1]))
 			{
 				EventObject[EventNumber].LineCount = EventObject[EventNumber].LineCount + 2;
 				NextKey = -1;
@@ -131,6 +131,9 @@ void RunEventLine(int EventNumber)
 		/*case 14:
 		KeyState(EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage][EventObject[EventNumber].LineCount++]);
 		break;//*/
+		case 17:	//이동속도, 이동빈도 설정, 효력
+			SetMovement(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
+			break;
 
 		default:
 			EventObject[EventNumber].LineCount = 0;
@@ -258,7 +261,7 @@ void PrintMessage(int NameNumber,int MessageNumber)
 void MakeMessage(int FrontMessage, int NextMessage, int ValueType, int Value)
 {
 	string TempString;
-
+	StrInit(EditMessage, 0);
 	StrCpy(EditMessage, Message[FrontMessage]);
 
 	switch(ValueType)
@@ -456,7 +459,12 @@ int GetItem(int Category, int ItemNumber, int Quantity)
 		if(Inventory[i].ListNumber == ItemNumber && Inventory[i].Quantity < 99)	//이미 소지, 소지한도 여유인 경우
 		{
 			Inventory[i].Quantity = Inventory[i].Quantity + Quantity;
-			return 1;
+			if(Inventory[i].Quantity > 99){
+				Quantity = Inventory[i].Quantity - 99;
+				Inventory[i].Quantity = 99;
+			}else{
+				return 1;
+			}
 		}
 		else if(Inventory[i].ListNumber == 0)	//소지하지 않은 경우
 		{
@@ -676,3 +684,10 @@ void KeyState(int KeyValue, int Value)
 	if(MovingDirection == SWAP_KEY_LEFT) Switch[Value] = 1;
 	else Switch[Value] = 0;
 }//*/
+
+//17번 이동속도, 이동빈도 설정
+void SetMovement(int movement, int movecount, int time){
+	Player.Movement = movement;
+	Player.MoveCount = movecount;
+	Player.MovementApplyTime = time;
+}

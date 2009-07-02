@@ -1,6 +1,6 @@
 /*
 ### 핸드폰 RPG게임 구현 진행 과정 ###
-
+08년
  0일차: 1월25일 : GNEX 관련 서적으로부터 기능 및 함수 조사, 예제로 나와있는 슈팅게임 Starwars2 분석
  1일차: 1월26일 : 인터넷에서 GNEX 조사, 개발환경 설치
  2일차: 1월27일 : RPG게임의 기본 시스템 디자인 시도
@@ -9,9 +9,6 @@
  5일차: 1월30일 : 장착아이템부분 디자인, 아이템/스킬/장비 아이콘 출력 테스트, 키 이벤트 코드/함수로 분리, NPC삽입 시도 및 NPC 랜덤이동루프 시도
  6일차: 1월31일 : 이벤트에 접근하여 버튼 누를경우 문장표시 시도(단문장 하나), 한글 작게 출력안되 안습
  7일차: 2월 1일 : 문장 반각문자 108자/전각문자 54자출력이내 출력, 소스 정리 및 헤더파일로 분리
---[ 제작 중지 ]-------------------------------------------------------------------------------------------------------
- 7.5차:         : 일본어 공부, 게임 방식 구상
---[ 다시 시작 ]-------------------------------------------------------------------------------------------------------
  8일차: 2월28일 : 기존 작성하던 프로젝트를 개선하기위해 작성한 소스를 참고하여 코드를 다시 작성
  9일차: 2월29일 : 새 프로젝트 생성, 맵출력 및 케릭터 이동 구현, 문장출력구현 라인경계에서 한글깨짐, 이동 및 변수스위치조작등 기타이벤트 구현중
 10일차: 3월 1일 : 조건분기 구현, 선택지 구현 중, 이벤트 목록 수행 구현, 딜레이 구현, 맵 에디터 프로그램 제작VB(2개 레이어 맵)
@@ -57,10 +54,10 @@
 47일차: 9월 8일 : 다른 맵이동시 화면처리 구현(Type:0=페이드인/아웃, 1=시야줄였다늘리기)
 48일차: 9월 9일 : 전투시 적 이동 구현중
 
-전투는 아직 1:1
-맵, 이벤트 에디터 제작 완성 요망
-인터페이스 보정 요망
-메뉴시스템 보정 요망
+### 핸드폰 RPG게임 구현 잠시 중지 ###
+09년
+49일차: 5월16일 : 타이틀 헤더 추가
+50일차: 7월02일 : 인터페이스, 장비, 스킬, 아이템에 대한 설명 표시 적용, 이동속도 변경 이벤트 추가, 케릭터 이미지 줄임
 
 */
 
@@ -83,10 +80,11 @@
 	#DEFINE LCDCLASS	255
 	#DEFINE IMAGETYPE	255
 	#DEFINE AUDIOTYPE	255
+	//#DEFINE CARRIERTYPE	177
 	#DEFINE APPTYPE		1
-	#DEFINE APPCPID		19732			//테스트 고유번호
-	#DEFINE APPID		10155			//프로그램 ID
-	#DEFINE APPNAME		"AHYANET 10155"	//프로그램 이름
+	#DEFINE APPCPID		19732				//테스트 고유번호
+	#DEFINE APPID		10125				//프로그램 ID
+	#DEFINE APPNAME		"AHYANE-125"		//프로그램 이름
 	#DEFINE COMPTYPE	2
 	#DEFINE AGENTTYPE	0
 	#DEFINE VALIDCOUNT	255
@@ -99,6 +97,8 @@
 #include <SScript.h>
 #include <mapchip.sbm>		//* s구성화면 칩 로드
 #include "define.h"			//*! 정의목록
+#include "ahyane.h"			//*! 기타 함수
+//#include "flushmanager.h"	//  u화면출력관리
 #include "mapdata.h"		//*  맵데이터
 #include "map.h"			//   맵표시
 #include "event.h"			//   이벤트
@@ -111,6 +111,7 @@
 #include "equip.h"			//*  장비
 #include "chara.h"			//   주인공
 #include "interface.h"		//   인터페이스
+#include "title.h"			//   타이틀
 #include "socket.h"			// ! 소켓
 
 int MovingDirection = 0;
@@ -135,9 +136,8 @@ void TEST(){
 
 }
 
-//******************************************************************************************************[ Main ]
-void main(){
-	//mode: title, play(move), battle, event, menu(item,skill,status,.....)
+void init(){
+
 	SetItem();
 	SetSkill();
 	SetEquip();
@@ -148,7 +148,13 @@ void main(){
 	SetEnemy();
 
 	SetTimer(40, 1);					//이동 및 맵 출력 시간 간격, 이벤트 수행 속도(에뮬 40, 핸드폰 임시 40)
-	SetTimer1(500, 1);					//이벤트 이동 시간 간격//기본 500
+	SetTimer1(200, 1);					//이벤트 이동 시간 간격//기본 500
+}
+
+//******************************************************************************************************[ Main ]
+void EVENT_START(){	// = void main()
+	init();
+	//mode: title, play(move), battle, event, menu(item,skill,status,.....)
 	Variable[1] = 1;
 	Variable[0] = 200;					//테스트 코드
 	SetQuickSlot();						//테스트 코드
@@ -161,11 +167,7 @@ void EVENT_TIMEOUT(){
 		//타이틀(GameMode=0)
 		case 0:	
 			if(!swData){
-				ClearBlack();
-				SetFontType(S_FONT_MEDIUM, S_YELLOW, S_BLACK, S_ALIGN_CENTER);
-				DrawStr(120,145,"Press OK, please.");
-				SetFontType(S_FONT_MEDIUM, S_WHITE, S_BLACK, S_ALIGN_RIGHT);
-				DrawStr(230,276,"by Ahyane");
+				DrawTitle();				//타이틀 출력
 			}
 			break;
 
@@ -178,7 +180,9 @@ void EVENT_TIMEOUT(){
 					SetDirection(0, MovingDirection);
 					MovePosition(0, MovingDirection);
 					//맵 스크롤
-					MapScroll();						
+					MapScroll();
+					
+					
 					//각 레이어 출력
 					DrawSubLayer();			//하위맵 출력
 					DrawSupLayer(0);		//상위맵 0단계 출력
@@ -195,8 +199,14 @@ void EVENT_TIMEOUT(){
 				//타이머1(t=500) 
 				case 1:
 					for(i = 0; i < MAX_EVENT_COUNT; i++){
-						if(EventObject[i].MoveType == 1)
-							MoveEventRandom(i);			//테스트 코드 : 이벤트 랜덤이동
+						switch(EventObject[i].MoveType){
+							case 1:			//이벤트 랜덤이동
+								MoveEventRandom(i);
+								break;
+							case 2:			//이벤트 제자리 이동
+								MoveEventStop(i);
+								break;
+						}							
 					}
 					break;
 			}
@@ -227,14 +237,14 @@ void EVENT_TIMEOUT(){
 	
 	//인터페이스 출력
 	if(GameMode){
-		DrawInterface();
+		DrawOutBack();
+		//DrawInterface();
+		//TEST();					//테스트코드
 	}
 
 	//소켓을 통해 수신된 메시지 표시 :: 테스트 코드
 	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);	
-	DrawStr(50,50,RcvdMsg);	//*/
-	
-	TEST();					//테스트코드
+	DrawStr(50,50,RcvdMsg);	//*/	
 
 	Flush();
 }
@@ -256,6 +266,7 @@ void EVENT_KEYPRESS(){
 
 		//이동모드(GameMode=1)
 		case 1:
+			
 			switch(swData){
 				//정면에 이벤트 실행
 				case SWAP_KEY_OK:
@@ -318,7 +329,7 @@ void EVENT_KEYPRESS(){
 	//네트워크 테스트 코드//
 	switch(swData){
 		case SWAP_KEY_1:	ConnectSocket();							break;	//네트워크 접속
-		case SWAP_KEY_2:	DataMsg = Message[Rand(0, 14)];SendSocket();	break;	//메시지 송신
+		case SWAP_KEY_2:	DataMsg = Message[Rand(0,14)];SendSocket();	break;	//메시지 송신
 		case SWAP_KEY_3:	RcvSocket();GetSockBuffer();				break;	//메시지 수신
 		case SWAP_KEY_4:	CloseSocket();								break;	//네트워크 종료
 		case SWAP_KEY_5:												break;

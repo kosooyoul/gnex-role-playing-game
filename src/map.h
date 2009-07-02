@@ -6,11 +6,11 @@ struct Map{
 	int x_start, y_start;
 	int x_size, y_size;
 	int backchip;			//배경 맵칩
-}Area[4];
+}Area[MAX_AREA_COUNT];
 
 //맵 영역 설정
 void SetArea(){
-	Area[0].name = "EAST JECHOEN";
+	Area[0].name = "VILLAGE";
 	Area[0].x_start = 0;
 	Area[0].y_start = 0;
 	Area[0].x_size = 23;
@@ -37,20 +37,52 @@ void SetArea(){
 	Area[3].x_size = 17;//9;
 	Area[3].y_size = 13;//11;
 	Area[3].backchip = 85;		//풀밭142 검정85 자갈바닥58
+
+	Area[4].name = "WEST FIELD";	//(38, 8) : 시작위치1, (39, 8) : 이동 이벤트 발생
+	Area[4].x_start = 0;
+	Area[4].y_start = 40;
+	Area[4].x_size = 40;
+	Area[4].y_size = 20;
+	Area[4].backchip = 85;
+
+	Area[5].name = "NORTH FIELD";
+	Area[5].x_start = 0;
+	Area[5].y_start = 0;
+	Area[5].x_size = 0;
+	Area[5].y_size = 0;
+	Area[5].backchip = 85;
 }
 
 //맵 스크롤
 void MapScroll(){
 	if(ScrollMapX)
 	{
-		if(ScrollMapX>0)ScrollMapX-=3;
-		else ScrollMapX+=3;
+		if(ScrollMapX>0){
+			ScrollMapX-=Player.Movement;
+			//ScrollLCD(1,-5, 0, 0);
+			if(ScrollMapX < 0) ScrollMapX = 0;
+		}else{
+			ScrollMapX+=Player.Movement;
+			//ScrollLCD(1, 5, 0, 0);
+			if(ScrollMapX > 0) ScrollMapX = 0;
+		}
+		//UpdateBuffer();
+		
 	}
 	else if(ScrollMapY)
 	{
-		if(ScrollMapY>0)ScrollMapY-=3;
-		else ScrollMapY+=3;
+		if(ScrollMapY>0){
+			ScrollMapY-=Player.Movement;
+			//ScrollLCD(1, 0,-5, 0);
+			if(ScrollMapY < 0) ScrollMapY = 0;
+		}else{
+			ScrollMapY+=Player.Movement;
+			//ScrollLCD(1, 0, 5, 0);
+			if(ScrollMapY > 0) ScrollMapY = 0;
+		}
+		//UpdateBuffer();
 	}
+	
 }
 
 //하위 맵 그리기 - 주인공보다 하위 맵
@@ -112,4 +144,27 @@ void DrawSupLayer(int Level){
 				}
 			}
 	}
+}
+
+void DrawTile(int x, int y){
+	int TempPX;
+	int TempPY;
+
+	TempPX = Player.x - _PlayerPosition;
+	TempPY = Player.y - _PlayerPosition;
+
+	if(x + TempPX >= 0 && y + TempPY >= 0 && x + TempPX < Area[Player.map].x_size && y + TempPY  < Area[Player.map].y_size){
+		if(SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX] <= _SupChipWall){
+			CopyImage(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, supchip[SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX]]);
+		}
+	}
+
+	if(x + TempPX >= 0 && y + TempPY >= 0 && x + TempPX < Area[Player.map].x_size && y + TempPY  < Area[Player.map].y_size){
+		if(SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX] > _SupChipWall)
+		{
+			if(x >= 6 && y >= 6 && x <= 8 && y <= 8)CopyImageEx(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, supchip[SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX]],1,0,0,0);
+			else CopyImageEx(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, supchip[SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX]],0,0,0,0);
+		}
+	}
+
 }

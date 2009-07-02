@@ -3,16 +3,22 @@ struct Point{
 	int Y;
 };
 
-#define MAX_EVENT_COUNT		14		//이벤트 수 현재 7 개다. 최대 카운터 + 1
+#define MAX_EVENT_COUNT		17		//이벤트 수 현재 17 개다. 최대 카운터 + 1
+#define MAX_AREA_COUNT		6		//지역 수
 
 //맵표시관련 모듈에 대해서
 #define _TopSize	32				//상단의 인터페이스 구성
 
 //색상에 대해서
-#define S_YELLOW	137
-#define S_RED		109
-#define S_GREEN		43
-#define S_CYAN		46
+#define S_RED		109		//빨간색
+#define S_MARGENTA	112		//보라색
+#define S_ROSE		114		//장미색
+#define S_ORANGE	117		//주황색
+#define S_PINK		119		//분혼색
+#define S_APRICOT	122		//살구색
+#define S_YELLOW	129		//노란색
+#define S_GREEN		43+1
+#define S_CYAN		46+27
 #define S_BLUE		20
 //chara.h
 #define _CenterPositionX 52 + 24+32	//케릭터 표시위치 = 4*16-(8)-? -12 : 3	;+16*2	+0
@@ -29,7 +35,7 @@ struct Point{
 
 //socket.h
 //#define	SVR_IP	"127.0.0.1"	//인천집 서버 IP //인천집:118.37.164.161, 자취방:121.188.152.217
-string	SVR_IP = "118.37.164.161";	//인천집 서버 IP //인천집:118.37.164.161, 자취방:121.188.152.217
+string	SVR_IP = "127.0.0.1";	//인천집 서버 IP //인천집:118.37.164.161, 자취방:121.188.152.217
 #define	SVR_PORT	20001			//서버포트
 #define SVR_BufferSize	10			//서버로부터 받은 데이터 목록의 크기
 

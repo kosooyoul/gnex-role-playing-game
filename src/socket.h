@@ -69,7 +69,7 @@ void ConnectSocket()	//소켓 연결
 	Sock_Result = SockSendMedia(Sock_Index, Sock_SendString, 0, Sock_LenSendString);
 	if(Sock_Result < 0)
 	{
-		Sock_Index = SockOpen(S_NET_SOCK_TCP); //성공 : 0~2, 실패 : -1
+		//Sock_Index = SockOpen(S_NET_SOCK_TCP); //성공 : 0~2, 실패 : -1
 		Sock_Result = SockConnect(Sock_Index, SVR_IP, SVR_PORT);
 	}
 }
@@ -88,10 +88,10 @@ void SendSocket()	//소켓 데이터 송신
 }
 
 void RcvSocket(){	//소켓 데이터 수신
-	StrInit(Sock_RcvString, 32);
-	Sock_LenRcvString = SetMediaSize(Sock_RcvString, 20);
-	PutChar(Sock_RcvString, 20, '\0');
-	Sock_Result = SockRecvMedia(Sock_Index, Sock_RcvString, 0, 20);
+	StrInit(Sock_RcvString, 100);
+	Sock_LenRcvString = SetMediaSize(Sock_RcvString, 100);
+	PutChar(Sock_RcvString, 100, '\0');
+	Sock_Result = SockRecvMedia(Sock_Index, Sock_RcvString, 0, 100);
 	if(StrLen(Sock_RcvString) != 0 && Sock_BufferFront != Sock_BufferRear + 1)		//버퍼에 저장
 	{
 		StrCpy(Sock_Buffer[Sock_BufferRear],Sock_RcvString);

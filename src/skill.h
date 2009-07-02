@@ -10,17 +10,14 @@ struct Skill{
 struct Skill SkillList[22];	//스킬 리스트(임시 22개)
 
 const string SkillType[7] = {"스킬없음", "패시브", "자신긍정스킬", "타겟부정스킬", "범위부정스킬", "양성스킬", "특수스킬"};
-//"주민","견습생", "마술사", "주술사", "복사",
-//"불의 마법사", "물의 마법사", "땅의 마법사", "소환의 마법사", "염력의 마법사",
-//"차원의 마법사", "빛의 마법사", "프리스트", "마도사", "타임워커"
 
 void SetSkill(){	//스킬 설정
-	SkillList[0].Name = "스킬없음";		SkillList[0].SP = 0;		SkillList[0].Icon = 0;		SkillList[0].Type = 0;	SkillList[0].Tip = "스킬없음";
-	SkillList[1].Name = "치료술";			SkillList[1].SP = 3;		SkillList[1].Icon = 17;		SkillList[1].Type = 2;	SkillList[1].Tip = "자신을 치료합니다";
-	SkillList[2].Name = "경공";				SkillList[2].SP = 5;		SkillList[2].Icon = 18;		SkillList[2].Type = 6;	SkillList[2].Tip = "다른 곳으로 날라갑니다";
-	SkillList[3].Name = "빛나는구체";		SkillList[3].SP = 4;		SkillList[3].Icon = 19;		SkillList[3].Type = 3;	SkillList[3].Tip = "빛의 속성으로 공격합니다";
-	SkillList[4].Name = "마법화구";			SkillList[4].SP = 5;		SkillList[4].Icon = 20;		SkillList[4].Type = 3;	SkillList[4].Tip = "목표물에 불을 붙임";
-	SkillList[5].Name = "프리즈";			SkillList[5].SP = 8;		SkillList[5].Icon = 21;		SkillList[5].Type = 3;	SkillList[5].Tip = "목표물을 얼려버림";
+	SkillList[0].Name = "스킬없음";			SkillList[0].SP = 0;		SkillList[0].Icon = 0;		SkillList[0].Type = 0;	SkillList[0].Tip = "스킬없음";
+	SkillList[1].Name = "치료술";			SkillList[1].SP = 3;		SkillList[1].Icon = 17;		SkillList[1].Type = 2;	SkillList[1].Tip = "자신의 기를 소모하여 해당 개체를 치료합니다";
+	SkillList[2].Name = "순간이동";			SkillList[2].SP = 5;		SkillList[2].Icon = 18;		SkillList[2].Type = 6;	SkillList[2].Tip = "아주 짧은 시간 안에 일정 거리를 이동합니다";
+	SkillList[3].Name = "빛나는구체";		SkillList[3].SP = 4;		SkillList[3].Icon = 19;		SkillList[3].Type = 3;	SkillList[3].Tip = "빛의 공을 생성하여 목표물을 향해 발사합니다";
+	SkillList[4].Name = "마법화구";			SkillList[4].SP = 5;		SkillList[4].Icon = 20;		SkillList[4].Type = 3;	SkillList[4].Tip = "불의 공을 생성하여 목표물을 향해 발사합니다";
+	SkillList[5].Name = "프리즈";			SkillList[5].SP = 8;		SkillList[5].Icon = 21;		SkillList[5].Type = 3;	SkillList[5].Tip = "목표물을 움직이지 못하게 얼립니다. 때로는 음식을 보관하기위해 사용하기도 함.";
 	SkillList[6].Name = "돌소나기";			SkillList[6].SP = 7;		SkillList[6].Icon = 22;		SkillList[6].Type = 4;	SkillList[6].Tip = "하늘에서 돌이 떨어짐";
 	SkillList[7].Name = "화염폭풍";			SkillList[7].SP = 10;		SkillList[7].Icon = 23;		SkillList[7].Type = 4;	SkillList[7].Tip = "작열하는 폭풍을 발생";
 	SkillList[8].Name = "글라시아";			SkillList[8].SP = 20;		SkillList[8].Icon = 24;		SkillList[8].Type = 4;	SkillList[8].Tip = "거대한 얼음을 생성";
@@ -34,7 +31,7 @@ void SetSkill(){	//스킬 설정
 	SkillList[16].Name = "힐";				SkillList[16].SP = 15;		SkillList[16].Icon = 32;	SkillList[16].Type = 2;	SkillList[16].Tip = "체력을 회복합니다";
 	SkillList[17].Name = "홀리라이트";		SkillList[17].SP = 100;		SkillList[17].Icon = 33;	SkillList[17].Type = 3;	SkillList[17].Tip = "성스러운 구체를 발사";
 	SkillList[18].Name = "블레싱";			SkillList[18].SP = 70;		SkillList[18].Icon = 34;	SkillList[18].Type = 2;	SkillList[18].Tip = "일정시간 동안 능력치 상승";
-	SkillList[19].Name = "천상의심판";		SkillList[19].SP = 5;		SkillList[19].Icon = 35;	SkillList[19].Type = 5;	SkillList[19].Tip = "하늘의 심판을 받게함";
+	SkillList[19].Name = "신의심판";		SkillList[19].SP = 5;		SkillList[19].Icon = 35;	SkillList[19].Type = 5;	SkillList[19].Tip = "번개로 신의 심판을 받게함";
 	SkillList[20].Name = "선라이즈";		SkillList[20].SP = 7;		SkillList[20].Icon = 36;	SkillList[20].Type = 5;	SkillList[20].Tip = "한곳에 모든 마력을 분사";
 	SkillList[21].Name = "시간제어";		SkillList[21].SP = 9;		SkillList[21].Icon = 37;	SkillList[21].Type = 6;	SkillList[21].Tip = "시간의 정지 또는 역재생";
 }

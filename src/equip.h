@@ -10,16 +10,16 @@ struct Equip{
 	int Eliment[2];		//속성번호, 속성등급
 };
 
-struct Equip EquipList[40];	//장비 리스트(임시 40개)
+struct Equip EquipList[41];	//장비 리스트(임시 40개)
 
 const string EquipType[6] = {"", "머리", "손", "의상", "신발", "장신구"};
 
 void SetEquip(){	//장비 설정
-	EquipList[0].Name = "장비없음";		EquipList[0].Cost = 0;		EquipList[0].Icon = 0;		EquipList[0].Type = 0;	EquipList[0].Tip = "장비없음";
+	EquipList[0].Name = "장비없음";			EquipList[0].Cost = 0;		EquipList[0].Icon = 0;		EquipList[0].Type = 0;	EquipList[0].Tip = "장비없음";
 	EquipList[1].Name = "헬멧";				EquipList[1].Cost = 300;	EquipList[1].Icon = 1;		EquipList[1].Type = 1;	EquipList[1].Tip = "내용무";
 	EquipList[2].Name = "날개모자";			EquipList[2].Cost = 500;	EquipList[2].Icon = 2;		EquipList[2].Type = 1;	EquipList[2].Tip = "내용무";
 	EquipList[3].Name = "위저드햇";			EquipList[3].Cost = 400;	EquipList[3].Icon = 3;		EquipList[3].Type = 1;	EquipList[3].Tip = "내용무";
-	EquipList[4].Name = "마술사모자";		EquipList[4].Cost = 500;	EquipList[4].Icon = 4;		EquipList[4].Type = 1;	EquipList[4].Tip = "내용무";
+	EquipList[4].Name = "마술사모자";		EquipList[4].Cost = 500;	EquipList[4].Icon = 4;		EquipList[4].Type = 1;	EquipList[4].Tip = "마술사들이 공연할때 멋으로 쓰는 모자. 모자속에서 비둘기가 나오기도 함.";
 	EquipList[5].Name = "근위대모자";		EquipList[5].Cost = 800;	EquipList[5].Icon = 5;		EquipList[5].Type = 1;	EquipList[5].Tip = "내용무";
 	EquipList[6].Name = "그라디우스";		EquipList[6].Cost = 700;	EquipList[6].Icon = 8;		EquipList[6].Type = 2;	EquipList[6].Tip = "내용무";
 	EquipList[7].Name = "브리트라";			EquipList[7].Cost = 1000;	EquipList[7].Icon = 9;		EquipList[7].Type = 2;	EquipList[7].Tip = "내용무";
@@ -47,7 +47,7 @@ void SetEquip(){	//장비 설정
 	EquipList[29].Name = "태양의가호";		EquipList[29].Cost = 15000;	EquipList[29].Icon = 31;	EquipList[29].Type = 2;	EquipList[29].Tip = "내용무";
 	EquipList[30].Name = "미스릴실드";		EquipList[30].Cost = 30000;	EquipList[30].Icon = 32;	EquipList[30].Type = 2;	EquipList[30].Tip = "내용무";
 	EquipList[31].Name = "궁극의보호구";	EquipList[31].Cost = 50000;	EquipList[31].Icon = 33;	EquipList[31].Type = 2;	EquipList[31].Tip = "내용무";
-	EquipList[32].Name = "슈즈";			EquipList[32].Cost = 500;	EquipList[32].Icon = 34;	EquipList[32].Type = 4;	EquipList[32].Tip = "내용무";
+	EquipList[32].Name = "슈즈";			EquipList[32].Cost = 500;	EquipList[32].Icon = 34;	EquipList[32].Type = 4;	EquipList[32].Tip = "걷거나 뛰어다니기 편하도록 제작한 신발";
 	EquipList[33].Name = "달핀슈즈";		EquipList[33].Cost = 4000;	EquipList[33].Icon = 35;	EquipList[33].Type = 4;	EquipList[33].Tip = "내용무";
 	EquipList[34].Name = "윙슈즈";			EquipList[34].Cost = 5000;	EquipList[34].Icon = 36;	EquipList[34].Type = 4;	EquipList[34].Tip = "내용무";
 	EquipList[35].Name = "절대의반지";		EquipList[35].Cost = 800;	EquipList[35].Icon = 37;	EquipList[35].Type = 5;	EquipList[35].Tip = "내용무";
@@ -55,5 +55,6 @@ void SetEquip(){	//장비 설정
 	EquipList[37].Name = "다이아몬드링";	EquipList[37].Cost = 1000;	EquipList[37].Icon = 39;	EquipList[37].Type = 5;	EquipList[37].Tip = "내용무";
 	EquipList[38].Name = "크라운";			EquipList[38].Cost = 90000;	EquipList[38].Icon = 6;		EquipList[38].Type = 1;	EquipList[38].Tip = "내용무";
 	EquipList[39].Name = "헤드폰";			EquipList[39].Cost = 12000;	EquipList[39].Icon = 7;		EquipList[39].Type = 1;	EquipList[39].Tip = "내용무";
+	EquipList[40].Name = "정체불명의고리";	EquipList[40].Cost = 0;		EquipList[40].Icon = 54;	EquipList[40].Type = 2;	EquipList[40].Tip = "알수 없는 힘이 깃들어 있는 고리";
 	
 }

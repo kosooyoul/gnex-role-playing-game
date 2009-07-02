@@ -29,6 +29,13 @@ void INTER_ADD_MSG_LIST(int MSGNUM){
 	INTER_MSG_LIST_LAST = (INTER_MSG_LIST_LAST + 1) % 12;		//마지막 위치 변경
 }
 
+void DrawOutBack(){
+	SetColor(S_BLACK);
+	FillRect(0, 0, swWidth, 32);
+	FillRect(0, 256, swWidth, swHeight - 1);
+	DrawQuickSlot();
+}
+
 //인터페이스 그리기
 void DrawInterface(){
 	int i;
@@ -73,9 +80,6 @@ void DrawInterface(){
 	SetFontType(S_FONT_SMALL, S_WHITE, S_BLACK, S_ALIGN_RIGHT);
 	DrawStr(72, 2, Temp);
 
-	//선택된 퀵슬롯 심볼 출력
-	CopyImage(225, 4, symbol_qs[QuickSlot_VIEW]);
-
 	//하단 인터페이스 표시
 	CopyImage(0, 245, interface_bottom);
 	//CopyImage(228, 253 + INTER_MSG_LIST_VIEW, interface_scroll);	//메시지 스크롤
@@ -96,7 +100,22 @@ void DrawInterface(){
 		DrawStr(120, 260, NameList[EventObject[SerchEvent() - 1].NameNumber - 1]);
 	}//*/
 
-	//퀵슬롯 표시 : 임시 - 인벤토리출력
+	DrawQuickSlot();
+	
+	//돈 표시
+	SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_RIGHT);
+	MakeStr1(Temp, "%d\%", Player.Gold);
+	DrawStr(56, 289, Temp);
+}
+
+void DrawQuickSlot(){
+	int i;
+	string Temp;
+	CopyImage(0, 0, interface_top);
+	//선택된 퀵슬롯 심볼 출력
+	CopyImage(225, 4, symbol_qs[QuickSlot_VIEW]);
+
+	//퀵슬롯 표시
 	for(i = QuickSlot_VIEW * 6; i < QuickSlot_VIEW * 6 + QuickSlotWidth; i++){
 		if(QuickSlot[i].Quantity == 0){					//아이템인 경우 : 0
 			CopyImage((i % QuickSlotWidth) * 21 + 96, 16, icon[ItemList[Inventory[QuickSlot[i].ListNumber].ListNumber].Icon]);
@@ -120,11 +139,6 @@ void DrawInterface(){
 			}
 		}
 	}
-
-	//돈 표시
-	SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_RIGHT);
-	MakeStr1(Temp, "%d\%", Player.Gold);
-	DrawStr(56, 289, Temp);
 }
 
 //메뉴 > 베이스 출력
@@ -188,6 +202,7 @@ void DrawState(int win_x, int win_y){
 //메뉴 > 인벤토리 출력
 void DrawItem(int win_x, int win_y){
 	string TempString = "";
+
 	int i;
 	//PRINT SELECTED ITEM
 	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
@@ -195,7 +210,8 @@ void DrawItem(int win_x, int win_y){
 	MakeStr1(TempString, "x %2d", Inventory[selected_submenu].Quantity);
 	DrawStr(185, 70, TempString);
 	DrawStr(61, 87, ItemType[ItemList[Inventory[selected_submenu].ListNumber].Type]);
-	DrawStr(61, 104, ItemList[Inventory[selected_submenu].ListNumber].Tip);
+	StrSub(TempString, ItemList[Inventory[selected_submenu].ListNumber].Tip, 0, 24);
+	DrawStr(61, 104, TempString);
 
 	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_RIGHT);
 	MakeStr1(TempString, "%d AL", ItemList[Inventory[selected_submenu].ListNumber].Cost / 2);
@@ -296,7 +312,8 @@ void DrawItem(int win_x, int win_y){
 					CopyImage(68, 130, icon[ItemList[Inventory[selected_submenu].ListNumber].Icon]);//아이템 아이콘 표시
 					SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
 					DrawStr(90, 133, ItemList[Inventory[selected_submenu].ListNumber].Name);		//아이템 이름 표시
-					/*설명 루틴 삽입*/
+																									//아이템 설명 표시
+					DrawMultiLineText(ItemList[Inventory[selected_submenu].ListNumber].Tip, 67, 45, 153, 13);
 					break;
 			}
 			break;
@@ -329,7 +346,8 @@ void DrawSkill(int win_x, int win_y){
 	MakeStr1(TempString, "Lv %2d", SkillSlot[selected_submenu].Quantity);
 	DrawStr(180, 70, TempString);
 	DrawStr(61, 87, SkillType[SkillList[SkillSlot[selected_submenu].ListNumber].Type]);
-	DrawStr(61, 104, SkillList[SkillSlot[selected_submenu].ListNumber].Tip);
+	StrSub(TempString, SkillList[SkillSlot[selected_submenu].ListNumber].Tip, 0, 24);
+	DrawStr(61, 104, TempString);
 
 	//남은 스킬포인트
 	MakeStr1(TempString, "+ %2d", Player.SKILL);
@@ -434,7 +452,8 @@ void DrawSkill(int win_x, int win_y){
 					CopyImage(68, 130, icon[SkillList[SkillSlot[selected_submenu].ListNumber].Icon]);	//스킬 아이콘 표시
 					SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
 					DrawStr(90, 133, SkillList[SkillSlot[selected_submenu].ListNumber].Name);			//스킬 이름 표시
-					/*설명 루틴 삽입*/
+																										//스킬 설명 표시
+					DrawMultiLineText(SkillList[SkillSlot[selected_submenu].ListNumber].Tip, 67, 45, 153, 13);
 					break;
 			}
 			break;
@@ -473,7 +492,8 @@ void DrawEquip(int win_x, int win_y){
 	DrawStr(103, 70, EquipList[Player.Equip[selected_submenu]].Name);	//장비 이름출력
 	MakeStr1(TempString, "+ %d", Player.Upgrade[selected_submenu]);
 	DrawStr(191, 70, TempString);										//장비 인챈트 출력
-	DrawStr(60, 87, EquipList[Player.Equip[selected_submenu]].Tip);		//장비 설명 출력
+	StrSub(TempString, EquipList[Player.Equip[selected_submenu]].Tip, 0, 24);
+	DrawStr(60, 87, TempString);
 
 	//EQUIP ICON LIST
 	for(i = 0; i < 6; i++){
@@ -496,8 +516,8 @@ void DrawEquip(int win_x, int win_y){
 	DrawStr(103, 133, EquipList[Equipment[selected_subsubmenu].ListNumber].Name);			//장비 이름출력
 	MakeStr1(TempString, "+ %d", Equipment[selected_subsubmenu].Quantity);
 	DrawStr(191, 133, TempString);															//장비 인챈트 출력
-	DrawStr(60, 150, EquipList[Equipment[selected_subsubmenu].ListNumber].Tip);				//장비 설명 출력
-
+	StrSub(TempString, EquipList[Equipment[selected_subsubmenu].ListNumber].Tip, 0, 24);
+	DrawStr(60, 150, TempString);
 	//선택목록 ICON LIST
 	for(i = selected_line * 6; i < 12 + selected_line * 6; i++){
 		CopyImage(66 + (i%6) * 23, 173 + (i/6-selected_line) * 23, icon[EquipList[Equipment[i].ListNumber].Icon]);
@@ -561,7 +581,8 @@ void DrawEquip(int win_x, int win_y){
 					CopyImage(68, 130, icon[EquipList[Equipment[selected_subsubmenu].ListNumber].Icon]);	//장비 아이콘 표시
 					SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
 					DrawStr(90, 133, EquipList[Equipment[selected_subsubmenu].ListNumber].Name);			//장비 이름 표시
-					/*설명 루틴 삽입*/
+																											//장비 설명 표시
+					DrawMultiLineText(EquipList[Equipment[selected_subsubmenu].ListNumber].Tip, 67, 45, 153, 13);
 					break;
 			}
 			break;
@@ -914,7 +935,22 @@ void ShowMenu(int Key){
 				//하위2
 				case 2:
 					switch(selected_menu){
-						case 1:	if(Equipment[selected_subsubmenu].ListNumber > 0)focus_selector = 3;break;	//장비 해제 불가 -ㅅ-;
+						case 1:
+							if(Equipment[selected_subsubmenu].ListNumber > 0){
+								focus_selector = 3;
+							}else{
+								//장비 해제
+								Temp = Player.Equip[selected_submenu];
+								Player.Equip[selected_submenu] = Equipment[selected_subsubmenu].ListNumber;
+								Equipment[selected_subsubmenu].ListNumber = Temp;
+								Temp = Player.Upgrade[selected_submenu];
+								Player.Upgrade[selected_submenu] = Equipment[selected_subsubmenu].Quantity;
+								Equipment[selected_subsubmenu].Quantity = Temp;
+								//선택 완료 메시지로
+								selected_subsubsubsubsubmenu = 0;
+								focus_selector = 1;
+							}
+							break;
 						case 2:
 						case 3:
 							//아이템,스킬 선택 메뉴 선택(사용,버림/강화,퀵슬롯,설명)
@@ -1134,7 +1170,8 @@ void DrawBatMap(int GrpNum){
 	//테스트 코드 - 몹 ▼ 체력확인
 	if(EnemyObject[GrpNum].HP > 0){
 		EnemyObject[GrpNum].frame = (EnemyObject[GrpNum].frame+1) % 16;	//MOVE-제자리 행동
-		CopyImage(EnemyObject[GrpNum].BatX*16 + 20, EnemyObject[GrpNum].BatY*16 + 54, chara[16 * EnemyObject[GrpNum].graphic + EnemyObject[GrpNum].BatD*4 + EnemyObject[GrpNum].frame/4]); //4패턴(*) 4배 감속(/)
+		CopyImage(EnemyObject[GrpNum].BatX*16 + 20 + EnemyObject[GrpNum].ScrollMapX, EnemyObject[GrpNum].BatY*16 + 54 + EnemyObject[GrpNum].ScrollMapY,
+			chara[IMG_CHARA[16 * EnemyObject[GrpNum].graphic + EnemyObject[GrpNum].BatD*4 + EnemyObject[GrpNum].frame/4]]); //4패턴(*) 4배 감속(/)
 	}else{
 		if(BattleLayer[EnemyObject[GrpNum].BatY][EnemyObject[GrpNum].BatX] == GrpNum+1)BattleLayer[EnemyObject[GrpNum].BatY][EnemyObject[GrpNum].BatX] = 0;
 	}
@@ -1142,7 +1179,8 @@ void DrawBatMap(int GrpNum){
 
 	//주인공 그리기
 	Player.frame = (Player.frame+1) % 16;	//MOVE-제자리 행동
-	CopyImage(Player.BatX*16 + 20 + ScrollMapX, Player.BatY*16 + 54 + ScrollMapY, chara[16 * Player.graphic + Player.BatD*4 + Player.frame/4]); //4패턴(*) 4배 감속(/)
+	CopyImage(Player.BatX*16 + 20 + ScrollMapX, Player.BatY*16 + 54 + ScrollMapY,
+			chara[IMG_CHARA[16 * Player.graphic + Player.BatD*4 + Player.frame/4]]); //4패턴(*) 4배 감속(/)
 
 	//천장이나 하늘
 	for(x=TX;x<12+TX;x++){for(y=TY;y<10+TY;y++){
