@@ -57,7 +57,8 @@
 ### 핸드폰 RPG게임 구현 잠시 중지 ###
 09년
 49일차: 5월16일 : 타이틀 헤더 추가
-50일차: 7월02일 : 인터페이스, 장비, 스킬, 아이템에 대한 설명 표시 적용, 이동속도 변경 이벤트 추가, 케릭터 이미지 줄임
+50일차: 7월02일 : 인터페이스, 장비, 스킬, 아이템에 대한 설명 표시 적용, 이동속도 빠르게 변경 이벤트 추가, 케릭터 이미지 줄임
+51일차:11월21일 : 인터페이스 상단은 체력과 마나,경험치 게이지만 표시, 메뉴이미지 중복 이미지 합체, 하단은 메시지목록 추가, 옵션 상태 표시(디자인만), 엔피시와 접촉시 이름표시, 전투 시스템 기존 방법 제거 및 새 방법 디자인중, 상점목록 스크롤방식 수정
 
 */
 
@@ -104,7 +105,7 @@
 #include "event.h"			//   이벤트
 #include "eventscript.h"	//   이벤트처리
 #include "shop.h"			//   이벤트처리-상점처리
-#include "battle.h"			//   이벤트처리-전투처리
+#include "battle_simple.h"	//   이벤트처리-전투처리
 #include "item.h"			//*  아이템
 #include "monster.h"		//*  몬스터
 #include "skill.h"			//*  스킬
@@ -125,14 +126,8 @@ void TEST(){
 	//SetColor(S_BLACK);
 	//FillRectEx(0,230,240,280,2);
 	SetFontType(S_FONT_MEDIUM, S_YELLOW, S_BLACK, S_ALIGN_LEFT);
-	MakeStr1(Temp,"Frame = %d",Player.frame%4);
-	DrawStr(20,245,Temp);
-	MakeStr2(Temp,"Scroll = %d, %d",ScrollMapX,ScrollMapY);
-	DrawStr(20,255,Temp);
-	MakeStr1(Temp,"Direction = %d",Player.direction);
-	DrawStr(20,265,Temp);
-	MakeStr2(Temp,"Position = %d, %d",BattleLimitMoveX,BattleLimitMoveY);
-	DrawStr(20,275,Temp);
+	MakeStr2(Temp,"SelectedScroll=%d, SelectedAnswer=%d",SelectedScroll,SelectedAnswer);
+	DrawStr(20,200,Temp);
 
 }
 
@@ -189,6 +184,8 @@ void EVENT_TIMEOUT(){
 					DrawEventLayer();		//주인공 및 이벤트 출력
 					DrawSupLayer(1);		//상위맵 1단계 출력
 
+					DrawInterface();		//인터페이스 출력
+
 					//이벤트 수행중에
 					if(RunningEventNumber >= 0){
 						EventObject[RunningEventNumber].EventLoop = 1;
@@ -236,11 +233,11 @@ void EVENT_TIMEOUT(){
 	}
 	
 	//인터페이스 출력
-	if(GameMode){
-		DrawOutBack();
+	//if(GameMode){
+		//DrawOutBack();
 		//DrawInterface();
-		//TEST();					//테스트코드
-	}
+		TEST();					//테스트코드
+	//}
 
 	//소켓을 통해 수신된 메시지 표시 :: 테스트 코드
 	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);	
@@ -280,6 +277,7 @@ void EVENT_KEYPRESS(){
 
 				//메뉴 출력
 				case SWAP_KEY_CLR:
+					//메뉴모드
 					ChangeMode(2);
 					break;
 				
@@ -303,7 +301,7 @@ void EVENT_KEYPRESS(){
 				case SWAP_KEY_8:		QuickSlot_VIEW = (QuickSlot_VIEW + 2) % 3;break;//퀵슬롯 선택(ABC)
 				case SWAP_KEY_9:		break;
 				case SWAP_KEY_0:		QuickSlot_VIEW = (QuickSlot_VIEW + 1) % 3;break;//퀵슬롯 선택(ABC)
-				case SWAP_KEY_SHARP:	break;
+				case SWAP_KEY_SHARP:	INTER_MSG_LIST_VIEW = (INTER_MSG_LIST_VIEW + 9) % 10;break;//메시지리스트 스크롤
 				default:
 					break;
 			}
@@ -326,7 +324,7 @@ void EVENT_KEYPRESS(){
 
 	}
 
-	//네트워크 테스트 코드//
+	/*/네트워크 테스트 코드//
 	switch(swData){
 		case SWAP_KEY_1:	ConnectSocket();							break;	//네트워크 접속
 		case SWAP_KEY_2:	DataMsg = Message[Rand(0,14)];SendSocket();	break;	//메시지 송신
@@ -364,6 +362,8 @@ void ChangeMode(int Mode){
 			DrawSupLayer(0);		//상위맵 0단계 출력
 			DrawEventLayer();		//주인공 및 이벤트 출력
 			DrawSupLayer(1);		//상위맵 1단계 출력
+			DrawInterface();		//인터페이스 출력
+
 			SaveLCD();
 			GameMode = Mode;
 			break;

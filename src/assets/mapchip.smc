@@ -1,18 +1,18 @@
 /*****************************************************************************/
 /* GNEX Image Master v3.20 Map Output for Mobile C						 */
 /*                                                                           */
-/* Output file : C:\Documents and Settings\js203\바탕 화면\AHYANE_MINI_PROJECT_1\mapchip.smc					*/
-/*    IDF file  : C:\Documents and Settings\js203\바탕 화면\AHYANE_MINI_PROJECT_1\mapchip.idf					*/
+/* Output file : C:\Documents and Settings\Ahyane\바탕 화면\AhyaneRPG_090702\AhyaneRPG\mapchip.smc					*/
+/*    IDF file  : C:\Documents and Settings\Ahyane\바탕 화면\AhyaneRPG_090702\AhyaneRPG\mapchip.idf					*/
 /*                                                                           */
 /* First written : Sunday, January 27, 2008 12:46:16			     */
-/* Last modified : Thursday, September 04, 2008 18:02:25			     */
+/* Last modified : Saturday, November 21, 2009 21:02:03			     */
 /*                                                                           */
 /* Copyright(c) 2000~2007 Sinjisoft Corporation.  All rights reserved.       */
 /*****************************************************************************/
 
 // 전체 블럭에 대해 지정한 속성 배열 저장
-binary mapchip_BlockInfo={0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-int mapchip_BlockName[716]; // 전체 블럭에 대한 블럭 포인터 배열 저장
+binary mapchip_BlockInfo={0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+int mapchip_BlockName[720]; // 전체 블럭에 대한 블럭 포인터 배열 저장
 void mapchip_BlockNameInit()
 {
 	mapchip_BlockName[0]=subchip[0];
@@ -672,63 +672,67 @@ void mapchip_BlockNameInit()
 	mapchip_BlockName[654]=chara[109];
 	mapchip_BlockName[655]=chara[110];
 	mapchip_BlockName[656]=chara[111];
-	mapchip_BlockName[657]=interface_top;
-	mapchip_BlockName[658]=interface_top1;
-	mapchip_BlockName[659]=interface_top2;
-	mapchip_BlockName[660]=interface_top3;
-	mapchip_BlockName[661]=interface_top4;
-	mapchip_BlockName[662]=symbol_qs[0];
-	mapchip_BlockName[663]=symbol_qs[1];
-	mapchip_BlockName[664]=symbol_qs[2];
-	mapchip_BlockName[665]=interface_bottom;
-	mapchip_BlockName[666]=interface_talksingle;
-	mapchip_BlockName[667]=interface_talkmulti;
-	mapchip_BlockName[668]=interface_talkborder;
-	mapchip_BlockName[669]=interface_talkname;
-	mapchip_BlockName[670]=interface_okinfo;
-	mapchip_BlockName[671]=interface_what;
-	mapchip_BlockName[672]=interface_button[0];
-	mapchip_BlockName[673]=interface_button[1];
-	mapchip_BlockName[674]=interface_button[2];
-	mapchip_BlockName[675]=interface_button[3];
-	mapchip_BlockName[676]=interface_button[4];
-	mapchip_BlockName[677]=interface_entered[0];
-	mapchip_BlockName[678]=interface_entered[1];
-	mapchip_BlockName[679]=interface_entered[2];
-	mapchip_BlockName[680]=interface_entered[3];
-	mapchip_BlockName[681]=interface_entered[4];
-	mapchip_BlockName[682]=interface_window;
-	mapchip_BlockName[683]=interface_menu[0];
-	mapchip_BlockName[684]=interface_menu[1];
-	mapchip_BlockName[685]=interface_menu[2];
-	mapchip_BlockName[686]=interface_menu[3];
-	mapchip_BlockName[687]=interface_selitem;
-	mapchip_BlockName[688]=interface_selmenu;
-	mapchip_BlockName[689]=interface_scroll;
-	mapchip_BlockName[690]=interface_scroll2;
-	mapchip_BlockName[691]=interface_infomenu;
-	mapchip_BlockName[692]=interface_infowindow;
-	mapchip_BlockName[693]=interface_yesno;
-	mapchip_BlockName[694]=interface_oneline;
-	mapchip_BlockName[695]=interface_selyesno;
-	mapchip_BlockName[696]=interface_closeinfo;
-	mapchip_BlockName[697]=interface_setquick;
-	mapchip_BlockName[698]=interface_cell;
-	mapchip_BlockName[699]=interface_selquantity;
-	mapchip_BlockName[700]=interface_playersell\;
-	mapchip_BlockName[701]=interface_sellist;
-	mapchip_BlockName[702]=interface_battle;
-	mapchip_BlockName[703]=interface_turn[0];
-	mapchip_BlockName[704]=interface_turn[1];
-	mapchip_BlockName[705]=interface_turn[2];
-	mapchip_BlockName[706]=interface_batmenu[0];
-	mapchip_BlockName[707]=interface_batmenu[1];
-	mapchip_BlockName[708]=interface_batmenu[2];
-	mapchip_BlockName[709]=interface_batmenu[3];
-	mapchip_BlockName[710]=interface_batmenu[4];
-	mapchip_BlockName[711]=interface_batmenu[5];
-	mapchip_BlockName[712]=interface_batmenu[6];
-	mapchip_BlockName[713]=interface_battlefunctionlist;
-	mapchip_BlockName[714]=interface_battleinfo;
-	mapchip_BlockName[715]=interface_seltarget;
+	mapchip_BlockName[657]=chara[112];
+	mapchip_BlockName[658]=chara[113];
+	mapchip_BlockName[659]=chara[114];
+	mapchip_BlockName[660]=chara[115];
+	mapchip_BlockName[661]=chara[116];
+	mapchip_BlockName[662]=chara[117];
+	mapchip_BlockName[663]=chara[118];
+	mapchip_BlockName[664]=chara[119];
+	mapchip_BlockName[665]=chara[120];
+	mapchip_BlockName[666]=chara[121];
+	mapchip_BlockName[667]=chara[122];
+	mapchip_BlockName[668]=chara[123];
+	mapchip_BlockName[669]=chara[124];
+	mapchip_BlockName[670]=chara[125];
+	mapchip_BlockName[671]=chara[126];
+	mapchip_BlockName[672]=chara[127];
+	mapchip_BlockName[673]=interface_top_left;
+	mapchip_BlockName[674]=interface_top1;
+	mapchip_BlockName[675]=interface_top2;
+	mapchip_BlockName[676]=interface_top3;
+	mapchip_BlockName[677]=interface_top4;
+	mapchip_BlockName[678]=symbol_qs[0];
+	mapchip_BlockName[679]=symbol_qs[1];
+	mapchip_BlockName[680]=symbol_qs[2];
+	mapchip_BlockName[681]=interface_top_right;
+	mapchip_BlockName[682]=interface_top_exp;
+	mapchip_BlockName[683]=interface_bottom;
+	mapchip_BlockName[684]=interface_talksingle;
+	mapchip_BlockName[685]=interface_talkmulti;
+	mapchip_BlockName[686]=interface_talkborder;
+	mapchip_BlockName[687]=interface_talkname;
+	mapchip_BlockName[688]=interface_okinfo;
+	mapchip_BlockName[689]=interface_who;
+	mapchip_BlockName[690]=interface_button[0];
+	mapchip_BlockName[691]=interface_button[1];
+	mapchip_BlockName[692]=interface_button[2];
+	mapchip_BlockName[693]=interface_button[3];
+	mapchip_BlockName[694]=interface_button[4];
+	mapchip_BlockName[695]=interface_entered[0];
+	mapchip_BlockName[696]=interface_entered[1];
+	mapchip_BlockName[697]=interface_entered[2];
+	mapchip_BlockName[698]=interface_entered[3];
+	mapchip_BlockName[699]=interface_entered[4];
+	mapchip_BlockName[700]=interface_menu[0];
+	mapchip_BlockName[701]=interface_menu[1];
+	mapchip_BlockName[702]=interface_menu[2];
+	mapchip_BlockName[703]=interface_menu[3];
+	mapchip_BlockName[704]=interface_selitem;
+	mapchip_BlockName[705]=interface_selmenu;
+	mapchip_BlockName[706]=interface_scroll;
+	mapchip_BlockName[707]=interface_scroll2;
+	mapchip_BlockName[708]=interface_infomenu;
+	mapchip_BlockName[709]=interface_infowindow;
+	mapchip_BlockName[710]=interface_yesno;
+	mapchip_BlockName[711]=interface_oneline;
+	mapchip_BlockName[712]=interface_selyesno;
+	mapchip_BlockName[713]=interface_closeinfo;
+	mapchip_BlockName[714]=interface_setquick;
+	mapchip_BlockName[715]=interface_cell;
+	mapchip_BlockName[716]=interface_selquantity;
+	mapchip_BlockName[717]=interface_playersell\;
+	mapchip_BlockName[718]=interface_sellist;
+	mapchip_BlockName[719]=interface_battle;
 }

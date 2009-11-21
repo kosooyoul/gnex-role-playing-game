@@ -2,7 +2,7 @@
 #define MAP_POS_X1			0
 #define MAP_POS_X2			239
 #define MAP_POS_Y1			32
-#define MAP_POS_Y2			256
+#define MAP_POS_Y2			240
 
 int SelectedAnswer = 0;		//첫번째 선택
 int SelectedScroll = 0;		//아이템 목록 스크롤 수
@@ -28,6 +28,9 @@ void RunEventLine(int EventNumber)
 		case 0:		//문장 출력						 :: 매개변수 2개
 			if(NextKey == SWAP_KEY_OK)
 			{
+				//메시지 리스트에 삽입
+				INTER_ADD_MSG_LIST(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount + 1]);
+				///////////////////////////////////////////////////////////////////////////////////////////////////////
 				PrintMessage(EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++], EventLine[EventObject[EventNumber].EventPage + EventObject[EventNumber].LineCount++]);
 				NextKey = -1;
 			}
@@ -228,33 +231,33 @@ void PrintMessage(int NameNumber,int MessageNumber)
 	Length = StrLen(MSG) / 36;
 	//대화창 배경
 	SetColorRGB(0, 0, 0);
-	FillRectEx(4, 224 - 14 * Length, 235, 240, 2);
+	FillRectEx(4, 221 - 14 * Length, 235, 237, 2);
 
 	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
 	for(i = 0; i < Length + 1; i++){
-		if(i == 0) CopyImage(0, 220 - 14 * Length, interface_talksingle);	//대화창 한줄
-		else CopyImage(0,  238 - 14 * i, interface_talkmulti);				//대화창 여러줄
+		if(i == 0) CopyImage(0, 217 - 14 * Length, interface_talksingle);	//대화창 한줄
+		else CopyImage(0,  235 - 14 * i, interface_talkmulti);				//대화창 여러줄
 
 		StrSub(TempString, MSG, i * 36, 36);
-		DrawStr(9, 227 - (Length - i) * 14, TempString);
+		DrawStr(9, 224 - (Length - i) * 14, TempString);
 	}
 
-	CopyImage(4, 202 - 14 * Length, interface_talkname);					//대화창 이름
+	CopyImage(4, 197 - 14 * Length, interface_talkname);					//대화창 이름
 	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
 	switch(NameNumber){
 		case -1://플레이어 이름
-			DrawStr(38, 207 - 14 * Length, Player.Name);
+			DrawStr(51, 202 - 14 * Length, Player.Name);
 			break;
 		case 0:	//이벤트 자신
-			DrawStr(38, 207 - 14 * Length, NameList[EventObject[SerchEvent() - 1].NameNumber - 1]);
+			DrawStr(51, 202 - 14 * Length, NameList[EventObject[SerchEvent() - 1].NameNumber - 1]);
 			break;
 		default://지정
-			DrawStr(38, 207 - 14 * Length, NameList[NameNumber - 1]);
+			DrawStr(51, 202 - 14 * Length, NameList[NameNumber - 1]);
 			break;
 	}
 
-	CopyImage(0, 238, interface_talkborder);								//대화창 하단 테두리
-	CopyImage(216, 210 - Length * 14, interface_okinfo);					//대화창 상단 ok
+	CopyImage(0, 235, interface_talkborder);								//대화창 하단 테두리
+	CopyImage(216, 207 - Length * 14, interface_okinfo);					//대화창 상단 ok
 }
 
 //1번 이벤트 라인{1,*,*,*,*} - 변수 및 단어로 문장 조합
@@ -487,6 +490,7 @@ void MoveMap(int MapNumber, int PositionX, int PositionY)
 	DrawSupLayer(0);		//상위맵 0단계 출력
 	DrawEventLayer();		//주인공 및 이벤트 출력
 	DrawSupLayer(1);		//상위맵 1단계 출력
+	DrawInterface();		//인터페이스 출력
 
 	SetColor(S_BLACK);		//Rand(0,127)//클리어 색상
 	ScreenEffect(1, SecondSelect);

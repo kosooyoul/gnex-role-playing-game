@@ -1,3 +1,5 @@
+#define ITEM_LAST_INDEX_ON_VIEW		6
+
 int SellOrBuy = 0;			//상점 구입인지 판매인지
 
 //14번 이벤트 라인{14,*,*,*} - 상점처리(시세비율, 판매리스트처음, 판매리스트끝),카테고리별 구분 요망
@@ -53,15 +55,34 @@ int Shopping(int Sise, int SellListFront, int SellListRear){
 										SelectedAnswer--;
 									else{
 										if(SelectedScroll > 0)SelectedScroll--;
-										else {SelectedScroll = ListLength - 6; SelectedAnswer = 6;}
+										else {SelectedScroll = ListLength - ITEM_LAST_INDEX_ON_VIEW; SelectedAnswer = ITEM_LAST_INDEX_ON_VIEW;}
 									}
 									break;
 								case SWAP_KEY_DOWN:	//스크롤 아래로 이동
-									if(SelectedAnswer < 6)
+									if(SelectedAnswer < ITEM_LAST_INDEX_ON_VIEW)
 										SelectedAnswer++;
 									else{
-										if(SelectedScroll < ListLength - 6)SelectedScroll++;
+										if(SelectedScroll < ListLength - ITEM_LAST_INDEX_ON_VIEW)SelectedScroll++;
 										else {SelectedScroll = 0; SelectedAnswer = 0;}
+									}
+									break;
+
+								case SWAP_KEY_LEFT:
+									if(SelectedAnswer > 0)
+										SelectedAnswer = 0;
+									else{
+										if(SelectedScroll >= ITEM_LAST_INDEX_ON_VIEW)SelectedScroll -= ITEM_LAST_INDEX_ON_VIEW;
+										else if(SelectedScroll == 0 && SelectedAnswer == 0){SelectedScroll = ListLength - ITEM_LAST_INDEX_ON_VIEW; SelectedAnswer = ITEM_LAST_INDEX_ON_VIEW;}
+										else {SelectedScroll = 0; SelectedAnswer = 0;}
+									}
+									break;
+								case SWAP_KEY_RIGHT:
+									if(SelectedAnswer < ITEM_LAST_INDEX_ON_VIEW)
+										SelectedAnswer = ITEM_LAST_INDEX_ON_VIEW;
+									else{
+										if(SelectedScroll <= ListLength - ITEM_LAST_INDEX_ON_VIEW - ITEM_LAST_INDEX_ON_VIEW)SelectedScroll += ITEM_LAST_INDEX_ON_VIEW;
+										else if(SelectedScroll == ListLength - ITEM_LAST_INDEX_ON_VIEW && SelectedAnswer == ITEM_LAST_INDEX_ON_VIEW){SelectedScroll = 0; SelectedAnswer = 0;}
+										else {SelectedScroll = ListLength - ITEM_LAST_INDEX_ON_VIEW; SelectedAnswer = ITEM_LAST_INDEX_ON_VIEW;}
 									}
 									break;
 								case SWAP_KEY_OK:		ThirdSelect = 1;EventStatus = 2;break;	//아이템 선택 -> 수량 1로 시작
@@ -178,6 +199,24 @@ int Shopping(int Sise, int SellListFront, int SellListRear){
 									else{
 										if(SelectedScroll < 41)SelectedScroll++;
 										else {SelectedScroll = 0; SelectedAnswer = 0;}
+									}
+									break;
+								case SWAP_KEY_LEFT:
+									if(SelectedAnswer > 0)
+										SelectedAnswer = 0;
+									else{
+										if(SelectedScroll >= ITEM_LAST_INDEX_ON_VIEW)SelectedScroll -= ITEM_LAST_INDEX_ON_VIEW;
+										else if(SelectedScroll == 0 && SelectedAnswer == 0){SelectedScroll = 41; SelectedAnswer = ITEM_LAST_INDEX_ON_VIEW;}
+										else {SelectedScroll = 0; SelectedAnswer = 0;}
+									}
+									break;
+								case SWAP_KEY_RIGHT:
+									if(SelectedAnswer < ITEM_LAST_INDEX_ON_VIEW)
+										SelectedAnswer = ITEM_LAST_INDEX_ON_VIEW;
+									else{
+										if(SelectedScroll <= 41 - ITEM_LAST_INDEX_ON_VIEW)SelectedScroll += ITEM_LAST_INDEX_ON_VIEW;
+										else if(SelectedScroll == 41 && SelectedAnswer == ITEM_LAST_INDEX_ON_VIEW){SelectedScroll = 0; SelectedAnswer = 0;}
+										else {SelectedScroll = 41; SelectedAnswer = ITEM_LAST_INDEX_ON_VIEW;}
 									}
 									break;
 								case SWAP_KEY_OK:

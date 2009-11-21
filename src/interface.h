@@ -8,11 +8,11 @@ int selected_subsubsubsubmenu = 0;		//선택한 하위4 메뉴
 int selected_subsubsubsubsubmenu = 0;	//선택한 하위5 메뉴
 int selected_line = 0;					//선택한 리스트의 라인 이동수
 
-int QuickSlot_VIEW = 0;					//사용하고자 하는 퀵슬롯 (A,B,C)
-
+int QuickSlot_VIEW = 0;					//보고자 하는 퀵슬롯 (A,B,C)
+int INTER_MSG_LIST_VIEW = 9;			//메시지 보일 시작부분 0 ~ 9
 int INTER_MSG_LIST_LAST = 0;			//가장 마지막으로 날라온 메시지 카운터
 										//메시지 목록(12문장)
-string INTER_MSG_LIST[12] = {"","","","","","","","","","",""};
+string INTER_MSG_LIST[12] = {"","","","","","","","","http://www.ahyane.net","퀵슬롯 전환은 '8'과 '0'버튼 이용","메뉴이용은 'CLR'버튼 이용","메시지 목록 스크롤은 '#'버튼입니다."};
 
 //퀵슬롯 설정 :: 테스트
 void SetQuickSlot(){
@@ -25,15 +25,37 @@ void SetQuickSlot(){
 
 //인터페이스 메시지 리스트 추가
 void INTER_ADD_MSG_LIST(int MSGNUM){
-	INTER_MSG_LIST[INTER_MSG_LIST_LAST] = Message[MSGNUM];		//메시지 갱신
-	INTER_MSG_LIST_LAST = (INTER_MSG_LIST_LAST + 1) % 12;		//마지막 위치 변경
-}
+	//메시지 갱신
+	int font_width, font_num;					//한 폰트의 길이, 한 줄에 가능한 글자 수
+	int first_pos = 0;							//각 문장의 처음 위치
+	int empty_pos = 0;							//문장의 마지막 위치
+	int all_size = StrLen(Message[MSGNUM]);		//주어진 문장 전체 길이
+	string str_div;								//잘린 문자열
+	int i, j;
 
-void DrawOutBack(){
-	SetColor(S_BLACK);
-	FillRect(0, 0, swWidth, 32);
-	FillRect(0, 256, swWidth, swHeight - 1);
-	DrawQuickSlot();
+	font_width = GetFontWidth();        //한 폰트의 길이
+										//여백을 뺀 공간에 들어가는 글자수
+	font_num = (swWidth - 20) / font_width;
+
+	while(1){
+		StrSub(str_div, Message[MSGNUM], first_pos, first_pos + font_num);
+		for(i = 0; i < font_num;){
+			if(GetChar(str_div, i) & 0x80){					//한글은 첫 bit가 1 (음수형태)
+				if(i + 1 == font_num) break;					//한글이 문장 마지막에 걸칠 경우
+				else i += 2;
+			}else i++;
+			empty_pos = i;										//문장의 마지막 위치 값을 입력
+		}
+		StrSub(INTER_MSG_LIST[INTER_MSG_LIST_LAST], Message[MSGNUM], first_pos, empty_pos);
+
+		if(first_pos >= all_size) break;					//while(1) 종료 조건 (전체 글자 모두 출력되면)
+
+		INTER_MSG_LIST_LAST = (INTER_MSG_LIST_LAST + 1)  % 12;	//마지막 위치 변경
+
+		first_pos += empty_pos;								//다음줄 계산
+	}
+	INTER_MSG_LIST_VIEW = 9;
+
 }
 
 //인터페이스 그리기
@@ -42,76 +64,84 @@ void DrawInterface(){
 	string Temp;
 
 	//인터페이스_상위 게이지 바탕 이미지 출력
-	CopyImage(17, 14, interface_top1);
-	CopyImage(17, 23, interface_top1);
+	CopyImage(28, 9, interface_top1);
+	CopyImage(28, 20, interface_top1);
 
-	//게이지 출력
-	SetColorRGB(200, 130, 50);
-	CopyImage(Player.HP * 50 / Player.MAXHP - 33, 14, interface_top2);
-	SetColorRGB(50, 130, 200);
-	CopyImage(Player.SP * 50 / Player.MAXSP - 33, 23, interface_top3);
-	SetColorRGB(130, 70, 160);
-	CopyImage(Player.EXP * 30 / Player.MAXEXP + 23, 5, interface_top4);
-
+	//게이지 출력 : HP / SP
+	//SetColorRGB(200, 130, 50);
+	CopyImage(Player.HP * 50 / Player.MAXHP - 22, 9, interface_top2);
+	//SetColorRGB(50, 130, 200);
+	CopyImage(Player.SP * 50 / Player.MAXSP - 22, 20, interface_top3);
+	
 	//인터페이스_상위 이미지 출력
-	CopyImage(0, 0, interface_top);
+	CopyImage(0, 0, interface_top_left);
+	CopyImage(0, 0, interface_top_right);
+	CopyImage(0, 0, interface_top_exp);
+
+	//게이지 출력 : EXP
+	//SetColorRGB(130, 70, 160);
+	CopyImage(Player.EXP * 240 / Player.MAXEXP - 240, 33, interface_top4);
 
 	//레벨 표시
-	SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_CENTER);
-	MakeStr1(Temp, "%d", Player.LV);
-	DrawStr(25, 2, Temp);
+	//SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_CENTER);
+	//MakeStr1(Temp, "%d", Player.LV);
+	//DrawStr(25, 2, Temp);
 
 	//체력 표시
-	SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_LEFT);
-	MakeStr1(Temp, "%d", Player.HP);
-	DrawStr(70, 13, Temp);
+	//SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_LEFT);
+	//MakeStr1(Temp, "%d", Player.HP);
+	//DrawStr(70, 13, Temp);
 
 	//마나 표시
-	MakeStr1(Temp, "%d", Player.SP);
-	DrawStr(70, 22, Temp);
+	//MakeStr1(Temp, "%d", Player.SP);
+	//DrawStr(70, 22, Temp);
 
 	//경험치 표시
-	SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_RIGHT);
-	MakeStr1(Temp, "%d", Player.EXP * 100 / Player.MAXEXP);
-	DrawStr(72, 3, Temp);
-	DrawStr(71, 2, Temp);
-	DrawStr(73, 2, Temp);
-	DrawStr(72, 1, Temp);
-	SetFontType(S_FONT_SMALL, S_WHITE, S_BLACK, S_ALIGN_RIGHT);
-	DrawStr(72, 2, Temp);
+	//SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_RIGHT);
+	//MakeStr1(Temp, "%d", Player.EXP * 100 / Player.MAXEXP);
+	//DrawStr(72, 3, Temp);
+	//DrawStr(71, 2, Temp);
+	//DrawStr(73, 2, Temp);
+	//DrawStr(72, 1, Temp);
+	//SetFontType(S_FONT_SMALL, S_WHITE, S_BLACK, S_ALIGN_RIGHT);
+	//DrawStr(72, 2, Temp);
 
 	//하단 인터페이스 표시
-	CopyImage(0, 245, interface_bottom);
-	//CopyImage(228, 253 + INTER_MSG_LIST_VIEW, interface_scroll);	//메시지 스크롤
+	CopyImage(0, 241, interface_bottom);
+	CopyImage(228, 251 + INTER_MSG_LIST_VIEW, interface_scroll);	//메시지 스크롤
 
-	SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_CENTER);
-	DrawStr(126, 289, Area[Player.map].name);
-	MakeStr1(Temp, "%d", Player.x);
-	DrawStr(179, 289, Temp);
-	MakeStr1(Temp, "%d", Player.y);
-	DrawStr(201, 289, Temp);
+	//맵이름 및 좌표
+	//SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_CENTER);
+	//DrawStr(126, 289, Area[Player.map].name);
+	//MakeStr1(Temp, "%d", Player.x);
+	//DrawStr(179, 289, Temp);
+	//MakeStr1(Temp, "%d", Player.y);
+	//DrawStr(201, 289, Temp);
 
-	//SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);		//메시지 표시
-	//for(i = 0; i < 3; i++)DrawStr(4, 248 + i * 12, INTER_MSG_LIST[(i + INTER_MSG_LIST_VIEW + INTER_MSG_LIST_LAST)%12]);
+	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);		//메시지 표시
+	for(i = 0; i < 3; i++)DrawStr(6, 246 + i * 12, INTER_MSG_LIST[(i + INTER_MSG_LIST_VIEW + INTER_MSG_LIST_LAST)%12]);
 	
-	/*/접촉중인 이벤트_테스트코드
+	//*/접촉중인 이벤트_테스트코드
 	if(SerchEvent()){
+		SetColor(S_BLACK);
+		FillRectEx(120 - 42, 94, 120 + 41, 106, 2);
+		CopyImage(120, 90, interface_who);
+		MakeStrStr(Temp, "%s?", NameList[EventObject[SerchEvent() - 1].NameNumber - 1]);
 		SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_CENTER);
-		DrawStr(120, 260, NameList[EventObject[SerchEvent() - 1].NameNumber - 1]);
+		DrawStr(120, 95, Temp);
 	}//*/
 
 	DrawQuickSlot();
 	
 	//돈 표시
-	SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_RIGHT);
-	MakeStr1(Temp, "%d\%", Player.Gold);
-	DrawStr(56, 289, Temp);
+	//SetFontType(S_FONT_SMALL, S_BLACK, S_BLACK, S_ALIGN_RIGHT);
+	//MakeStr1(Temp, "%d\%", Player.Gold);
+	//DrawStr(56, 289, Temp);
 }
 
 void DrawQuickSlot(){
 	int i;
 	string Temp;
-	CopyImage(0, 0, interface_top);
 	//선택된 퀵슬롯 심볼 출력
 	CopyImage(225, 4, symbol_qs[QuickSlot_VIEW]);
 
@@ -145,19 +175,19 @@ void DrawQuickSlot(){
 void DrawMenu(int win_x, int win_y){
 	int i;
 
-	CopyImage(52, 63, interface_window);
+	//CopyImage(52, 63, interface_window);
 				
 	if(selected_menu < 4){
 		CopyImage(52, 63, interface_menu[selected_menu]);							//내용
 	}
 			
 	for(i = 0; i < 5; i++){
-		CopyImage(16, 71 + i * 28, interface_button[i]);							//상위1메뉴 출력
+		CopyImage(12, 71 + i * 28, interface_button[i]);							//상위1메뉴 출력
 		if(i == selected_menu){
 			if(focus_selector == 0)
-				CopyImage(18, 73 + selected_menu * 28, interface_selmenu);			//상위1메뉴 커서
+				CopyImage(14, 73 + selected_menu * 28, interface_selmenu);			//상위1메뉴 커서
 			else
-				CopyImage(16, 71 + selected_menu * 28, interface_entered[selected_menu]);
+				CopyImage(12, 71 + selected_menu * 28, interface_entered[selected_menu]);
 		}
 	}
 }
@@ -1132,68 +1162,4 @@ void ShowMenu(int Key){
 			}
 			break;
 	}
-}
-
-//전투맵출력
-void DrawBatMap(int GrpNum){
-	int x, y;
-	int TempChipNum;
-	int TX = Player.x-BattlePosX;
-	int TY = Player.y-BattlePosY;
-
-	int PosX = 24 - TX * 16;
-	int PosY = 78 - TY * 16;
-
-	//하위 레이어
-	for(x=TX;x<12+TX;x++){for(y=TY;y<10+TY;y++){
-			if(x >= 0 && y >= 0 && x < Area[Player.map].x_size && y < Area[Player.map].y_size)
-				CopyImage(x * 16 + PosX, y * 16 + PosY , subchip[SubLayer[y + Area[Player.map].y_start][x + Area[Player.map].x_start]]);
-			else
-				CopyImage(x * 16 + PosX, y * 16 + PosY , subchip[Area[Player.map].backchip]);
-	}}
-
-	//바닥, 벽
-	for(x=TX;x<12+TX;x++){for(y=TY;y<10+TY;y++){
-			if(x >= 0 && y >= 0 && x < Area[Player.map].x_size && y  < Area[Player.map].y_size)
-				if(SupLayer[y + Area[Player.map].y_start][x + Area[Player.map].x_start] <= _SupChipWall)
-					CopyImage(x * 16 + PosX, y * 16 + PosY , supchip[SupLayer[y + Area[Player.map].y_start][x + Area[Player.map].x_start]]);
-	}}
-	
-	if(ScrollMapX){
-		if(ScrollMapX>0)ScrollMapX-=3;
-		else ScrollMapX+=3;
-	}else if(ScrollMapY){
-		if(ScrollMapY>0)ScrollMapY-=3;
-		else ScrollMapY+=3;
-	}
-	
-	//테스트 코드 - 몹 ▼ 체력확인
-	if(EnemyObject[GrpNum].HP > 0){
-		EnemyObject[GrpNum].frame = (EnemyObject[GrpNum].frame+1) % 16;	//MOVE-제자리 행동
-		CopyImage(EnemyObject[GrpNum].BatX*16 + 20 + EnemyObject[GrpNum].ScrollMapX, EnemyObject[GrpNum].BatY*16 + 54 + EnemyObject[GrpNum].ScrollMapY,
-			chara[IMG_CHARA[16 * EnemyObject[GrpNum].graphic + EnemyObject[GrpNum].BatD*4 + EnemyObject[GrpNum].frame/4]]); //4패턴(*) 4배 감속(/)
-	}else{
-		if(BattleLayer[EnemyObject[GrpNum].BatY][EnemyObject[GrpNum].BatX] == GrpNum+1)BattleLayer[EnemyObject[GrpNum].BatY][EnemyObject[GrpNum].BatX] = 0;
-	}
-	//테스트 코드 - 몹 ▲
-
-	//주인공 그리기
-	Player.frame = (Player.frame+1) % 16;	//MOVE-제자리 행동
-	CopyImage(Player.BatX*16 + 20 + ScrollMapX, Player.BatY*16 + 54 + ScrollMapY,
-			chara[IMG_CHARA[16 * Player.graphic + Player.BatD*4 + Player.frame/4]]); //4패턴(*) 4배 감속(/)
-
-	//천장이나 하늘
-	for(x=TX;x<12+TX;x++){for(y=TY;y<10+TY;y++){
-			//근접 셀 이미지 반투명 처리
-			if(x >= 0 && y >= 0 && x < Area[Player.map].x_size && y  < Area[Player.map].y_size){if(SupLayer[y + Area[Player.map].y_start][x + Area[Player.map].x_start] > _SupChipWall){
-					CopyImageEx(x * 16 + PosX, y * 16 + PosY , supchip[SupLayer[y + Area[Player.map].y_start][x + Area[Player.map].x_start]],1,0,0,0);
-			}}
-	}}
-
-}
-
-//인터페이스출력
-void DrawBatInterface(){
-	CopyImage(19, 57, interface_battle);		
-	//interface_battle
 }

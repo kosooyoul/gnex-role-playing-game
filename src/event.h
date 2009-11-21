@@ -30,7 +30,9 @@ struct EventObject{
 
 //이벤트들의 이름
 const string NameList[] = {
-"이름없음",
+"뭐지",
+"들어갈까",
+"나갈까",
 "도구상인",
 "행인",
 "나그네",
@@ -41,11 +43,12 @@ const string NameList[] = {
 "타임로더",
 "몬스터",
 "정체불명"
+
 };
 
 string EditMessage = "";
 const string Message[]={
-"안녕~? ㅇㅂㅇ;",
+"안녕~? ㅇㅂㅇ; 정말 안녕?? 넌 왜 인 사안해? 벙어리?",
 "하아암~ 푸후후 >ㅁ<",
 "히야~ 시원해~",
 "왜 그렇게 우왕좌왕하니? 'ㅁ';",
@@ -84,7 +87,7 @@ int EventLine[] = {
 
 //초기 이벤트 설정
 void SetEvent(){
-	EventObject[0].NameNumber = 2;		//테스트 코드 : NameList[NameNumber-1]
+	EventObject[0].NameNumber = 4;		//테스트 코드 : NameList[NameNumber-1]
 	EventObject[0].graphic = 1;			//테스트 코드 : -1, >=0
 	EventObject[0].map = 3;				//테스트 코드
 	EventObject[0].x = 8;				//테스트 코드
@@ -98,7 +101,7 @@ void SetEvent(){
 	EventObject[0].ScrollMapY = 0;
 	EventObject[0].MoveType = 2;		//이동
 
-	EventObject[1].NameNumber = 3;		//테스트 코드
+	EventObject[1].NameNumber = 5;		//테스트 코드
 	EventObject[1].graphic = 2;			//테스트 코드
 	EventObject[1].map = 2;				//테스트 코드
 	EventObject[1].x = 8;				//테스트 코드
@@ -112,7 +115,7 @@ void SetEvent(){
 	EventObject[1].ScrollMapY = 0;
 	EventObject[1].MoveType = 1;		//이동
 
-	EventObject[2].NameNumber = 4;		//테스트 코드
+	EventObject[2].NameNumber = 6;		//테스트 코드
 	EventObject[2].graphic = 0;			//테스트 코드
 	EventObject[2].map = 0;				//테스트 코드
 	EventObject[2].x = 8;				//테스트 코드
@@ -126,7 +129,7 @@ void SetEvent(){
 	EventObject[2].ScrollMapY = 0;
 	EventObject[2].MoveType = 1;		//이동
 
-	EventObject[3].NameNumber = 5;		//테스트 코드
+	EventObject[3].NameNumber = 7;		//테스트 코드
 	EventObject[3].graphic = 3;			//테스트 코드
 	EventObject[3].map = 0;				//테스트 코드
 	EventObject[3].x = 13;				//테스트 코드
@@ -140,7 +143,7 @@ void SetEvent(){
 	EventObject[3].ScrollMapY = 0;
 	EventObject[3].MoveType = 1;		//이동
 
-	EventObject[4].NameNumber = 6;		//테스트 코드
+	EventObject[4].NameNumber = 8;		//테스트 코드
 	EventObject[4].graphic = 5;			//테스트 코드
 	EventObject[4].map = 0;				//테스트 코드
 	EventObject[4].x = 17;				//테스트 코드
@@ -154,7 +157,7 @@ void SetEvent(){
 	EventObject[4].ScrollMapY = 0;
 	EventObject[4].MoveType = 1;		//이동
 
-	EventObject[5].NameNumber = 7;		//테스트 코드
+	EventObject[5].NameNumber = 9;		//테스트 코드
 	EventObject[5].graphic = 6;			//테스트 코드
 	EventObject[5].map = 1;				//테스트 코드
 	EventObject[5].x = 9;				//테스트 코드
@@ -168,7 +171,7 @@ void SetEvent(){
 	EventObject[5].ScrollMapY = 0;
 	EventObject[5].MoveType = 1;		//이동
 	
-	EventObject[6].NameNumber = 8;		//테스트 코드
+	EventObject[6].NameNumber = 10;		//테스트 코드
 	EventObject[6].graphic = 1;			//테스트 코드
 	EventObject[6].map = 1;				//테스트 코드
 	EventObject[6].x = 10;				//테스트 코드
@@ -182,7 +185,7 @@ void SetEvent(){
 	EventObject[6].ScrollMapY = 0;
 	EventObject[6].MoveType = 1;		//이동
 	
-	EventObject[7].NameNumber = 9;		//테스트 코드
+	EventObject[7].NameNumber = 11;		//테스트 코드
 	EventObject[7].graphic = 1;			//테스트 코드
 	EventObject[7].map = 2;				//테스트 코드
 	EventObject[7].x = 4;				//테스트 코드
@@ -198,7 +201,7 @@ void SetEvent(){
 
 	////이동관련 이벤트////
 	//마을->집1
-	EventObject[8].NameNumber = 1;		//테스트 코드
+	EventObject[8].NameNumber = 2;		//테스트 코드
 	EventObject[8].graphic = -1;		//테스트 코드
 	EventObject[8].map = 0;				//테스트 코드
 	EventObject[8].x = 3;				//테스트 코드
@@ -209,7 +212,7 @@ void SetEvent(){
 	EventObject[8].MoveType = 0;		//이동
 
 	//마을->집2
-	EventObject[9].NameNumber = 1;		//테스트 코드
+	EventObject[9].NameNumber = 2;		//테스트 코드
 	EventObject[9].graphic = -1;		//테스트 코드
 	EventObject[9].map = 0;				//테스트 코드
 	EventObject[9].x = 12;				//테스트 코드
@@ -220,7 +223,7 @@ void SetEvent(){
 	EventObject[9].MoveType = 0;		//이동
 	
 	//집1->마을
-	EventObject[10].NameNumber = 1;		//테스트 코드
+	EventObject[10].NameNumber = 3;		//테스트 코드
 	EventObject[10].graphic = -1;		//테스트 코드
 	EventObject[10].map = 1;			//테스트 코드
 	EventObject[10].x = 9;				//테스트 코드
@@ -231,7 +234,7 @@ void SetEvent(){
 	EventObject[10].MoveType = 0;		//이동
 
 	//집2->마을
-	EventObject[11].NameNumber = 1;		//테스트 코드
+	EventObject[11].NameNumber = 3;		//테스트 코드
 	EventObject[11].graphic = -1;		//테스트 코드
 	EventObject[11].map = 2;			//테스트 코드
 	EventObject[11].x = 3;				//테스트 코드
@@ -242,7 +245,7 @@ void SetEvent(){
 	EventObject[11].MoveType = 0;		//이동
 
 	//마을->상점1
-	EventObject[12].NameNumber = 1;		//테스트 코드
+	EventObject[12].NameNumber = 2;		//테스트 코드
 	EventObject[12].graphic = -1;		//테스트 코드
 	EventObject[12].map = 0;			//테스트 코드
 	EventObject[12].x = 17;				//테스트 코드
@@ -253,7 +256,7 @@ void SetEvent(){
 	EventObject[12].MoveType = 0;		//이동
 
 	//상점1->마을
-	EventObject[13].NameNumber = 1;		//테스트 코드
+	EventObject[13].NameNumber = 3;		//테스트 코드
 	EventObject[13].graphic = -1;		//테스트 코드
 	EventObject[13].map = 3;			//테스트 코드
 	EventObject[13].x = 8;				//테스트 코드
@@ -264,7 +267,7 @@ void SetEvent(){
 	EventObject[13].MoveType = 0;		//이동
 
 	//마을->서쪽필드
-	EventObject[14].NameNumber = 1;		//테스트 코드
+	EventObject[14].NameNumber = 3;		//테스트 코드
 	EventObject[14].graphic = -1;		//테스트 코드
 	EventObject[14].map = 0;			//테스트 코드
 	EventObject[14].x = 0;				//테스트 코드
@@ -275,7 +278,7 @@ void SetEvent(){
 	EventObject[14].MoveType = 0;		//이동
 
 	//서쪽필드->마을
-	EventObject[15].NameNumber = 1;		//테스트 코드
+	EventObject[15].NameNumber = 2;		//테스트 코드
 	EventObject[15].graphic = -1;		//테스트 코드
 	EventObject[15].map = 4;			//테스트 코드
 	EventObject[15].x = 39;				//테스트 코드
@@ -285,6 +288,7 @@ void SetEvent(){
 	EventObject[15].LineCount = 0;		//테스트 코드
 	EventObject[15].MoveType = 0;		//이동
 
+	//필드 전투 테스트
 	EventObject[16].NameNumber = 7;		//테스트 코드
 	EventObject[16].graphic = 6;		//테스트 코드
 	EventObject[16].map = 4;			//테스트 코드
@@ -362,7 +366,7 @@ void DrawEvent(int EventNumber){
 		EventObject[EventNumber].frame = (EventObject[EventNumber].frame) % 16;		//NOT MOVE
 	if(EventObject[EventNumber].x >= 0 && EventObject[EventNumber].y >= 0 && EventObject[EventNumber].x < Area[Player.map].x_size && EventObject[EventNumber].y < Area[Player.map].y_size)
 		CopyImage((EventObject[EventNumber].x - Player.x) * 16 + _CenterPositionX + ScrollMapX - EventObject[EventNumber].ScrollMapX, (EventObject[EventNumber].y - Player.y) * 16 + _CenterPositionY + ScrollMapY - EventObject[EventNumber].ScrollMapY + _TopSize,
-				chara[IMG_CHARA[EventObject[EventNumber].graphic * 16 + EventObject[EventNumber].direction*4 + EventObject[EventNumber].frame/4]]); //4패턴
+				chara[EventObject[EventNumber].graphic * 16 + EventObject[EventNumber].direction*4 + IMG_CHARA[EventObject[EventNumber].frame/4]]); //4패턴
 }
 
 //이벤트 맵 그리기 - 주인공과 같은 레이어 출력

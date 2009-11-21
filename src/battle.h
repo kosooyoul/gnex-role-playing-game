@@ -767,3 +767,67 @@ void DrawLimitArea(int Size, int AreaX, int AreaY){
 					FillRectEx(24+(AreaX+j)*16, 70+(AreaY+Size-i)*16, 39+(AreaX+j)*16, 85+(AreaY+Size-i)*16, 3);
 
 }
+
+//전투맵출력
+void DrawBatMap(int GrpNum){
+	int x, y;
+	int TempChipNum;
+	int TX = Player.x-BattlePosX;
+	int TY = Player.y-BattlePosY;
+
+	int PosX = 24 - TX * 16;
+	int PosY = 78 - TY * 16;
+
+	//하위 레이어
+	for(x=TX;x<12+TX;x++){for(y=TY;y<10+TY;y++){
+			if(x >= 0 && y >= 0 && x < Area[Player.map].x_size && y < Area[Player.map].y_size)
+				CopyImage(x * 16 + PosX, y * 16 + PosY , subchip[SubLayer[y + Area[Player.map].y_start][x + Area[Player.map].x_start]]);
+			else
+				CopyImage(x * 16 + PosX, y * 16 + PosY , subchip[Area[Player.map].backchip]);
+	}}
+
+	//바닥, 벽
+	for(x=TX;x<12+TX;x++){for(y=TY;y<10+TY;y++){
+			if(x >= 0 && y >= 0 && x < Area[Player.map].x_size && y  < Area[Player.map].y_size)
+				if(SupLayer[y + Area[Player.map].y_start][x + Area[Player.map].x_start] <= _SupChipWall)
+					CopyImage(x * 16 + PosX, y * 16 + PosY , supchip[SupLayer[y + Area[Player.map].y_start][x + Area[Player.map].x_start]]);
+	}}
+	
+	if(ScrollMapX){
+		if(ScrollMapX>0)ScrollMapX-=4;
+		else ScrollMapX+=4;
+	}else if(ScrollMapY){
+		if(ScrollMapY>0)ScrollMapY-=4;
+		else ScrollMapY+=4;
+	}
+	
+	//테스트 코드 - 몹 ▼ 체력확인
+	if(EnemyObject[GrpNum].HP > 0){
+		EnemyObject[GrpNum].frame = (EnemyObject[GrpNum].frame+1) % 16;	//MOVE-제자리 행동
+		CopyImage(EnemyObject[GrpNum].BatX*16 + 20 + EnemyObject[GrpNum].ScrollMapX, EnemyObject[GrpNum].BatY*16 + 54 + EnemyObject[GrpNum].ScrollMapY,
+			chara[16 * EnemyObject[GrpNum].graphic + EnemyObject[GrpNum].BatD*4 + IMG_CHARA[EnemyObject[GrpNum].frame/4]]); //4패턴(*) 4배 감속(/)
+	}else{
+		if(BattleLayer[EnemyObject[GrpNum].BatY][EnemyObject[GrpNum].BatX] == GrpNum+1)BattleLayer[EnemyObject[GrpNum].BatY][EnemyObject[GrpNum].BatX] = 0;
+	}
+	//테스트 코드 - 몹 ▲
+
+	//주인공 그리기
+	Player.frame = (Player.frame+1) % 16;	//MOVE-제자리 행동
+	CopyImage(Player.BatX*16 + 20 + ScrollMapX, Player.BatY*16 + 54 + ScrollMapY,
+			chara[16 * Player.graphic + Player.BatD*4 + IMG_CHARA[Player.frame/4]]); //4패턴(*) 4배 감속(/)
+
+	//천장이나 하늘
+	for(x=TX;x<12+TX;x++){for(y=TY;y<10+TY;y++){
+			//근접 셀 이미지 반투명 처리
+			if(x >= 0 && y >= 0 && x < Area[Player.map].x_size && y  < Area[Player.map].y_size){if(SupLayer[y + Area[Player.map].y_start][x + Area[Player.map].x_start] > _SupChipWall){
+					CopyImageEx(x * 16 + PosX, y * 16 + PosY , supchip[SupLayer[y + Area[Player.map].y_start][x + Area[Player.map].x_start]],1,0,0,0);
+			}}
+	}}
+
+}
+
+//인터페이스출력
+void DrawBatInterface(){
+	CopyImage(19, 57, interface_battle);		
+	//interface_battle
+}

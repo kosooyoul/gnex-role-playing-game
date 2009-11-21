@@ -55,11 +55,11 @@ void InitPlayer(){
 	Player.LV = 100;
 	Player.Job = 1;
 	Player.MAXEXP = 50;		//(Player.LV - 80) * 2 + 10;
-	Player.EXP = 0;
+	Player.EXP = 10;
 	Player.MAXHP = 60;
-	Player.HP = 20;
+	Player.HP = 50;
 	Player.MAXSP = 20;
-	Player.SP = 10;
+	Player.SP = 15;
 
 	Player.BatX = 5;	//전투용 기본값(좌표)
 	Player.BatY = 5;	//전투용 기본값(좌표)
@@ -109,14 +109,7 @@ void InitPlayer(){
 }
 
 const int IMG_CHARA[] = {
-  0,  1,  2,  1,  4,  5,  6,  5,  8,  9, 10,  9, 12, 13, 14, 13,
- 16, 17, 18, 17, 20, 21, 22, 21, 24, 25, 26, 25, 28, 29, 30, 29,
- 32, 33, 34, 33, 36, 37, 38, 37, 40, 41, 42, 41, 44, 45, 46, 45,
- 48, 49, 50, 49, 52, 53, 54, 53, 56, 57, 58, 57, 60, 61, 62, 61,
- 64, 65, 66, 65, 68, 69, 70, 69, 72, 73, 74, 73, 76, 77, 78, 77,
- 80, 81, 82, 81, 84, 85, 86, 85, 88, 89, 90, 89, 92, 93, 94, 93,
- 96, 97, 98, 97,100,101,102,101,104,105,106,105,108,109,110,109,
-112,113,114,113,116,117,118,117,120,121,122,121,124,125,126,125
+  0,  1,  2,  1
 };
 
 //주인공 그리기
@@ -126,7 +119,7 @@ void DrawPlayer(){
 		Player.frame = (Player.frame+Player.MoveCount) % 16;	//MOVE
 	else
 		Player.frame = (Player.frame) % 16;		//NOT MOVE
-	CopyImage(_CenterPositionX, _CenterPositionY + _TopSize, chara[IMG_CHARA[16 * Player.graphic + Player.direction*4 + Player.frame/4]]); //4패턴(*) 4배 감속(/)
+	CopyImage(_CenterPositionX, _CenterPositionY + _TopSize, chara[16 * Player.graphic + Player.direction*4 + IMG_CHARA[Player.frame/4]]); //4패턴(*) 4배 감속(/)
 }
 
 void SetInventory(){	//인벤토리 설정
