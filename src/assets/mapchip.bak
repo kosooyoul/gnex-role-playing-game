@@ -7,7 +7,7 @@
 /*		, Hotspot X, Hotspot Y, BlockInfo, BlockIdx, Transparent, Transparent Color       */
 /*                                                                           */
 /* First written : Sunday, January 27, 2008 12:46:16			     */
-/* Last modified : Saturday, November 21, 2009 20:39:18			     */
+/* Last modified : Sunday, November 22, 2009 15:20:33			     */
 /*                                                                           */
 /* Copyright(c) 2000~2007 Sinjisoft Corporation.  All rights reserved.       */
 /*****************************************************************************/
@@ -703,7 +703,7 @@ symbol_qs[000],11,240,0,7,7,0,0,0,782,1,0
 symbol_qs[001],11,240,7,7,7,0,0,0,783,1,0
 symbol_qs[002],11,240,14,7,7,0,0,0,784,1,0
 interface_top_right,11,88,76,152,32,-88,0,0,877,0,2134048
-interface_top_exp,10,0,108,240,4,0,-32,0,878,0,2134048
+interface_top_exp,10,0,108,240,5,0,-32,0,878,0,2134048
 
 Image=interface_bottom.bmp
 interface_bottom,11,0,0,240,57,0,0,0,785,0,2134048
@@ -720,19 +720,22 @@ interface_button[001],11,0,27,39,27,0,0,0,807,1,2366701
 interface_button[002],11,0,54,39,27,0,0,0,808,1,2366701
 interface_button[003],11,0,81,39,27,0,0,0,809,1,2366701
 interface_button[004],11,0,108,39,27,0,0,0,810,1,2366701
+interface_button[005],11,0,135,39,27,0,0,0,879,1,2366701
 interface_entered[000],11,39,0,39,27,0,0,0,811,1,2366701
 interface_entered[001],11,39,27,39,27,0,0,0,812,1,2366701
 interface_entered[002],11,39,54,39,27,0,0,0,813,1,2366701
 interface_entered[003],11,39,81,39,27,0,0,0,814,1,2366701
 interface_entered[004],11,39,108,39,27,0,0,0,815,1,2366701
+interface_entered[005],11,39,135,39,27,0,0,0,880,1,2366701
 interface_menu[000],11,78,0,166,156,0,0,0,817,1,2366701
 interface_menu[001],11,244,0,166,156,0,0,0,818,1,2366701
 interface_menu[002],11,576,0,166,156,0,0,0,820,1,2366701
 interface_menu[003],11,410,0,166,156,0,0,0,819,1,2366701
-interface_selitem,10,0,135,22,22,0,0,0,821,1,2366701
-interface_selmenu,9,23,135,35,23,0,0,0,822,1,2366701
-interface_scroll,11,69,135,9,16,0,0,0,823,1,2366701
-interface_scroll2,11,62,151,16,9,0,0,0,854,1,2366701
+interface_menu[004],11,742,0,166,156,0,0,0,881,1,2366701
+interface_selitem,10,0,162,22,22,0,0,0,821,1,2366701
+interface_selmenu,9,23,162,35,23,0,0,0,822,1,2366701
+interface_scroll,11,69,162,9,16,0,0,0,823,1,2366701
+interface_scroll2,11,62,178,16,9,0,0,0,854,1,2366701
 
 Image=interface_info.bmp
 interface_infomenu,11,0,25,93,108,0,0,0,824,1,9334100

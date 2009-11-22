@@ -59,6 +59,7 @@
 49일차: 5월16일 : 타이틀 헤더 추가
 50일차: 7월02일 : 인터페이스, 장비, 스킬, 아이템에 대한 설명 표시 적용, 이동속도 빠르게 변경 이벤트 추가, 케릭터 이미지 줄임
 51일차:11월21일 : 인터페이스 상단은 체력과 마나,경험치 게이지만 표시, 메뉴이미지 중복 이미지 합체, 하단은 메시지목록 추가, 옵션 상태 표시(디자인만), 엔피시와 접촉시 이름표시, 전투 시스템 기존 방법 제거 및 새 방법 디자인중, 상점목록 스크롤방식 수정
+52일차:11월22일 : 메뉴에 게임 옵션 부분 추가, 이벤트 및 맵 출력 일부 효율성 작업, 타이틀에 로고애니매이션 추가, 타이머 값 40에서 50으로 수정
 
 */
 
@@ -69,7 +70,7 @@
 	#DEFINE IMAGETYPE	255
 	#DEFINE AUDIOTYPE	255
 	#DEFINE SCRIPTTYPE	1
-	#DEFINE SCRIPTCPID	19732			//테스트 고유번호
+	#DEFINE SCRIPTCPID	19732				//테스트 고유번호
 	#DEFINE SCRIPTID	1
 	#DEFINE SCRIPTNAME	"AHYANET RPG"
 	#DEFINE VALIDCOUNT	255
@@ -84,8 +85,8 @@
 	//#DEFINE CARRIERTYPE	177
 	#DEFINE APPTYPE		1
 	#DEFINE APPCPID		19732				//테스트 고유번호
-	#DEFINE APPID		10125				//프로그램 ID
-	#DEFINE APPNAME		"AHYANE-125"		//프로그램 이름
+	#DEFINE APPID		10126				//프로그램 ID
+	#DEFINE APPNAME		"AHYANE-126"		//프로그램 이름
 	#DEFINE COMPTYPE	2
 	#DEFINE AGENTTYPE	0
 	#DEFINE VALIDCOUNT	255
@@ -120,16 +121,16 @@ int RunningEventNumber = -1;	//RunningEventNumber번째의 이벤트를 수행, 
 int NextKey = -1;				//이벤트 수행중 키입력을 기다리기 위함
 int GameMode = 0;				//게임 모드/ 0:타이틀, 1:롤플레이
 
-void TEST(){
-	string Temp;
+///void TEST(){
+	//string Temp;
 
 	//SetColor(S_BLACK);
 	//FillRectEx(0,230,240,280,2);
-	SetFontType(S_FONT_MEDIUM, S_YELLOW, S_BLACK, S_ALIGN_LEFT);
-	MakeStr2(Temp,"SelectedScroll=%d, SelectedAnswer=%d",SelectedScroll,SelectedAnswer);
-	DrawStr(20,200,Temp);
+	//SetFontType(S_FONT_MEDIUM, S_YELLOW, S_BLACK, S_ALIGN_LEFT);
+	//MakeStr2(Temp,"SelectedScroll=%d, SelectedAnswer=%d",SelectedScroll,SelectedAnswer);
+	//DrawStr(20,200,Temp);
 
-}
+//}
 
 void init(){
 
@@ -142,7 +143,7 @@ void init(){
 	SetEvent();
 	SetEnemy();
 
-	SetTimer(40, 1);					//이동 및 맵 출력 시간 간격, 이벤트 수행 속도(에뮬 40, 핸드폰 임시 40)
+	SetTimer(50, 1);					//이동 및 맵 출력 시간 간격, 이벤트 수행 속도(에뮬 40, 핸드폰 임시 40)
 	SetTimer1(200, 1);					//이벤트 이동 시간 간격//기본 500
 }
 
@@ -236,7 +237,7 @@ void EVENT_TIMEOUT(){
 	//if(GameMode){
 		//DrawOutBack();
 		//DrawInterface();
-		TEST();					//테스트코드
+		//TEST();					//테스트코드
 	//}
 
 	//소켓을 통해 수신된 메시지 표시 :: 테스트 코드
@@ -251,14 +252,7 @@ void EVENT_KEYPRESS(){
 	switch(GameMode){
 		//타이틀(GameMode=0)
 		case 0:
-			switch(swData){
-				//타이틀 메뉴선택
-				case SWAP_KEY_OK:	ChangeMode(1);	break;
-				//타이틀 메뉴변경
-				case SWAP_KEY_UP:	break;
-				//타이틀 메뉴변경
-				case SWAP_KEY_DOWN:	break;
-			}
+			ControlIcon(swData);
 			break;
 
 		//이동모드(GameMode=1)
@@ -302,6 +296,7 @@ void EVENT_KEYPRESS(){
 				case SWAP_KEY_9:		break;
 				case SWAP_KEY_0:		QuickSlot_VIEW = (QuickSlot_VIEW + 1) % 3;break;//퀵슬롯 선택(ABC)
 				case SWAP_KEY_SHARP:	INTER_MSG_LIST_VIEW = (INTER_MSG_LIST_VIEW + 9) % 10;break;//메시지리스트 스크롤
+				case SWAP_KEY_SHARP_L:	INTER_MSG_LIST_VIEW = 9;
 				default:
 					break;
 			}

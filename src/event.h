@@ -33,35 +33,36 @@ const string NameList[] = {
 "뭐지",
 "들어갈까",
 "나갈까",
-"도구상인",
-"행인",
-"나그네",
-"마법견습생",
-"사병",
+"상인",
+"주민",
+"주민",
+"병사",
+"주민",
 "주민",
 "마법사",
-"타임로더",
-"몬스터",
-"정체불명"
+"마법사",
+"수련생",
+"앗! 몬스터다!",
+"팻말"
 
 };
 
 string EditMessage = "";
 const string Message[]={
-"안녕~? ㅇㅂㅇ; 정말 안녕?? 넌 왜 인 사안해? 벙어리?",
-"하아암~ 푸후후 >ㅁ<",
-"히야~ 시원해~",
-"왜 그렇게 우왕좌왕하니? 'ㅁ';",
-"나한테 볼일 있나?",
+"안녕~~ 여기 뭐하러 왔어? 나한테 볼일이라도 있는 거야?",
+"하아암~ 푸후후~",
+"후아~ 시원해~",
+"왜 그렇게 우왕좌왕해?",
+"나한테 볼 일 있나?",
 "이봐, 잘 좀 보고 다녀",
 "랄랄라~",
-"오늘이 마지막 세일이예요~",
+"안녕하세요~!! 오늘도 싸게 팔아요~",
 "잘지내세요?",
 "앗~! 모르는 사람이다~ 헤헷",
-"어서오세요~ 전투 테스트입니다.",
-"전투 테스트 끝났습니다. 다음에 또 봐요~",
-"맵이동합니다",
-"#login ahyane,alpha"
+"전투이벤트는 51일차 삭제",
+"새로 작성중, 원거리 액션모드로..",
+"맵 이동합니다",
+"4차원 네트워크 센터"
 
 };
 
@@ -372,22 +373,25 @@ void DrawEvent(int EventNumber){
 //이벤트 맵 그리기 - 주인공과 같은 레이어 출력
 void DrawEventLayer(){
 	int x, y;
-	int TempX, TempY;
+	int LayerEventNumber;
+	int PlayerX, PlayerY;
 
-	TempX = Area[Player.map].x_start + Player.x;
-	TempY = Area[Player.map].y_start + Player.y;
-
-	for(y = -7; y < 9;y++)
+	for(y = -7; y < 8;y++)
 	{
+		PlayerY = Player.y + y;
 		for(x = -8; x < 9;x++)
 		{
+			PlayerX = Player.x + x;
+
+			LayerEventNumber = EventLayer[Area[Player.map].y_start + PlayerY][Area[Player.map].x_start + PlayerX];
+
 			//맵 안에 위치한 이벤트만
-			if(Player.x + x < Area[Player.map].x_size && Player.y + y < Area[Player.map].y_size && Player.x + x >= 0 && Player.y + y >= 0)	//다른맵에서의 이벤트 출력 불량으로인제거-지우면 또 맵 끝에서 오류남
-				if(EventLayer[TempY + y][TempX + x] > 0)
+			if(PlayerX < Area[Player.map].x_size && PlayerY < Area[Player.map].y_size && PlayerX >= 0 && PlayerY >= 0)	//다른맵에서의 이벤트 출력 불량으로인제거-지우면 또 맵 끝에서 오류남
+				if(LayerEventNumber > 0)
 				{
-					if(EventObject[EventLayer[TempY + y][TempX + x]-1].map == Player.map && EventObject[EventLayer[TempY + y][TempX + x]-1].graphic >= 0){
-						EventScroll(EventLayer[TempY + y][TempX + x]-1);
-						DrawEvent(EventLayer[TempY + y][TempX + x]-1);
+					if(EventObject[LayerEventNumber-1].map == Player.map && EventObject[LayerEventNumber-1].graphic >= 0){
+						EventScroll(LayerEventNumber-1);
+						DrawEvent(LayerEventNumber-1);
 					}
 				}
 		}
@@ -401,11 +405,11 @@ int SerchEvent()
 	{
 		case 0:	//상
 			return EventLayer[Area[Player.map].y_start + Player.y - 1][Area[Player.map].x_start + Player.x];
+		case 1:	//우
+			return EventLayer[Area[Player.map].y_start + Player.y][Area[Player.map].x_start + Player.x + 1];
 		case 2:	//하
 			return EventLayer[Area[Player.map].y_start + Player.y + 1][Area[Player.map].x_start + Player.x];
 		case 3:	//좌
 			return EventLayer[Area[Player.map].y_start + Player.y][Area[Player.map].x_start + Player.x - 1];
-		case 1:	//우
-			return EventLayer[Area[Player.map].y_start + Player.y][Area[Player.map].x_start + Player.x + 1];
 	}
 }

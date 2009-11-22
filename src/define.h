@@ -49,7 +49,12 @@ string	SVR_IP = "127.0.0.1";	//인천집 서버 IP //인천집:118.37.164.161, �
 #define BattlePosX		5			//전장 맵 위치
 #define BattlePosY		5
 
-
 //event.h
 #define _LeftMSG		0			//메시지 표시 위치
 #define _TopMSG			32			//메시지 표시 위치
+
+//리턴값 정의
+#define ERROR		-2
+#define Null		-1
+#define No			0
+#define Yes			1

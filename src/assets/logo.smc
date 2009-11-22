@@ -1,0 +1,20 @@
+/*****************************************************************************/
+/* GNEX Image Master v3.20 Map Output for Mobile C						 */
+/*                                                                           */
+/* Output file : C:\Documents and Settings\Ahyane\바탕 화면\AhyaneRPG_090702\AhyaneRPG\logo.smc					*/
+/*    IDF file  : C:\Documents and Settings\Ahyane\바탕 화면\AhyaneRPG_090702\AhyaneRPG\logo.idf					*/
+/*                                                                           */
+/* First written : Saturday, February 14, 2004 18:14:05			     */
+/* Last modified : Sunday, November 22, 2009 22:39:51			     */
+/*                                                                           */
+/* Copyright(c) 2000~2007 Sinjisoft Corporation.  All rights reserved.       */
+/*****************************************************************************/
+
+// 전체 블럭에 대해 지정한 속성 배열 저장
+binary logo_BlockInfo={0, 0};
+int logo_BlockName[2]; // 전체 블럭에 대한 블럭 포인터 배열 저장
+void logo_BlockNameInit()
+{
+	logo_BlockName[0]=logo_img;
+	logo_BlockName[1]=logo_str;
+}

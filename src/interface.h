@@ -177,17 +177,17 @@ void DrawMenu(int win_x, int win_y){
 
 	//CopyImage(52, 63, interface_window);
 				
-	if(selected_menu < 4){
+	if(selected_menu < 5){
 		CopyImage(52, 63, interface_menu[selected_menu]);							//내용
 	}
 			
-	for(i = 0; i < 5; i++){
-		CopyImage(12, 71 + i * 28, interface_button[i]);							//상위1메뉴 출력
+	for(i = 0; i < 6; i++){
+		CopyImage(12, 58 + i * 28, interface_button[i]);							//상위1메뉴 출력
 		if(i == selected_menu){
 			if(focus_selector == 0)
-				CopyImage(14, 73 + selected_menu * 28, interface_selmenu);			//상위1메뉴 커서
+				CopyImage(14, 60 + selected_menu * 28, interface_selmenu);			//상위1메뉴 커서
 			else
-				CopyImage(12, 71 + selected_menu * 28, interface_entered[selected_menu]);
+				CopyImage(12, 58 + selected_menu * 28, interface_entered[selected_menu]);
 		}
 	}
 }
@@ -657,6 +657,7 @@ void ShowMenu(int Key){
 		case SWAP_KEY_2:
 		case SWAP_KEY_3:
 		case SWAP_KEY_4:
+		case SWAP_KEY_5:
 			if(focus_selector == 0){
 				selected_menu = Key - 1;
 				focus_selector = 1;
@@ -666,7 +667,7 @@ void ShowMenu(int Key){
 		case SWAP_KEY_UP:
 			switch(focus_selector){
 				case 0:
-					selected_menu = (5 + selected_menu - 1) % 5;
+					selected_menu = (selected_menu + 5) % 6;
 					break;
 				case 1:
 					switch(selected_menu){
@@ -744,7 +745,7 @@ void ShowMenu(int Key){
 		case SWAP_KEY_DOWN:
 			switch(focus_selector){
 				case 0:
-					selected_menu = (selected_menu + 1) % 5;
+					selected_menu = (selected_menu + 1) % 6;
 					break;
 				case 1:
 					switch(selected_menu){
@@ -944,7 +945,7 @@ void ShowMenu(int Key){
 		case SWAP_KEY_OK:
 			switch(focus_selector){
 				case 0:
-					if(selected_menu < 4){
+					if(selected_menu < 5){
 						focus_selector = 1;
 					}
 					else{

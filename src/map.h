@@ -91,15 +91,15 @@ void DrawSubLayer(){
 	int TempPX;
 	int TempPY;
 
-	TempPX = Player.x - _PlayerPosition;
-	TempPY = Player.y - _PlayerPosition;
 
 	for(x=-1;x<16;x++)
 	{
+		TempPX = Player.x - _PlayerPosition + x;
 		for(y=0;y<15;y++)
 		{
-			if(x + TempPX >= 0 && y + TempPY >= 0 && x + TempPX < Area[Player.map].x_size && y + TempPY  < Area[Player.map].y_size)
-				CopyImage(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, subchip[SubLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX]]);
+			TempPY = Player.y - _PlayerPosition + y;
+			if(TempPX >= 0 && TempPY >= 0 && TempPX < Area[Player.map].x_size && TempPY  < Area[Player.map].y_size)
+				CopyImage(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, subchip[SubLayer[Area[Player.map].y_start + TempPY][Area[Player.map].x_start + TempPX]]);
 			else
 				CopyImage(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, subchip[Area[Player.map].backchip]);
 		}
@@ -113,58 +113,58 @@ void DrawSupLayer(int Level){
 	int TempPY;
 	int TempChipNum;
 
-	TempPX = Player.x - _PlayerPosition;
-	TempPY = Player.y - _PlayerPosition;
 	
-	switch(Level)
-	{
-		case 0:	//바닥, 벽
-			for(x=-1;x<16;x++)
+	if(Level == 0){			//바닥, 벽
+		for(x=-1;x<16;x++)
+		{
+			TempPX = Player.x - _PlayerPosition + x;
+			for(y=0;y<15;y++)
 			{
-				for(y=0;y<15;y++)
-				{
-					if(x + TempPX >= 0 && y + TempPY >= 0 && x + TempPX < Area[Player.map].x_size && y + TempPY  < Area[Player.map].y_size)
-						if(SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX] <= _SupChipWall)
-							CopyImage(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, supchip[SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX]]);
-				}
+				TempPY = Player.y - _PlayerPosition + y;
+				if(TempPX >= 0 && TempPY >= 0 && TempPX < Area[Player.map].x_size && TempPY  < Area[Player.map].y_size)
+					if(SupLayer[Area[Player.map].y_start + TempPY][Area[Player.map].x_start + TempPX] <= _SupChipWall)
+						CopyImage(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, supchip[SupLayer[Area[Player.map].y_start + TempPY][Area[Player.map].x_start + TempPX]]);
 			}
-			break;
-		case 1:	//천장이나 하늘
-			for(x=-1;x<16;x++)
+		}
+	}else if(Level == 1){	//천장이나 하늘
+		for(x=-1;x<16;x++)
+		{
+			TempPX = Player.x - _PlayerPosition + x;
+			for(y=0;y<15;y++)
 			{
-				for(y=0;y<15;y++)
-				{
-					//근접 셀 이미지 반투명 처리
-					if(x + TempPX >= 0 && y + TempPY >= 0 && x + TempPX < Area[Player.map].x_size && y + TempPY  < Area[Player.map].y_size)
-						if(SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX] > _SupChipWall)
-						{
-							if(x >= 6 && y >= 6 && x <= 8 && y <= 8)CopyImageEx(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, supchip[SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX]],1,0,0,0);
-							else CopyImageEx(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, supchip[SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX]],0,0,0,0);
-						}
-				}
+				TempPY = Player.y - _PlayerPosition + y;
+				//근접 셀 이미지 반투명 처리
+				if(TempPX >= 0 && TempPY >= 0 && TempPX < Area[Player.map].x_size && TempPY  < Area[Player.map].y_size)
+					if(SupLayer[Area[Player.map].y_start + TempPY][Area[Player.map].x_start + TempPX] > _SupChipWall)
+					{
+						if(x >= 6 && y >= 6 && x <= 8 && y <= 8)CopyImageEx(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, supchip[SupLayer[Area[Player.map].y_start + TempPY][Area[Player.map].x_start + TempPX]],2,0,0,0);
+						else CopyImage(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, supchip[SupLayer[Area[Player.map].y_start + TempPY][Area[Player.map].x_start + TempPX]]);
+					}
 			}
+		}
 	}
 }
 
+/*
 void DrawTile(int x, int y){
 	int TempPX;
 	int TempPY;
 
-	TempPX = Player.x - _PlayerPosition;
-	TempPY = Player.y - _PlayerPosition;
+	TempPX = Player.x - _PlayerPosition + x;
+	TempPY = Player.y - _PlayerPosition + y;
 
-	if(x + TempPX >= 0 && y + TempPY >= 0 && x + TempPX < Area[Player.map].x_size && y + TempPY  < Area[Player.map].y_size){
-		if(SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX] <= _SupChipWall){
-			CopyImage(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, supchip[SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX]]);
+	if(TempPX >= 0 && TempPY >= 0 && TempPX < Area[Player.map].x_size && TempPY  < Area[Player.map].y_size){
+		if(SupLayer[Area[Player.map].y_start + TempPY][Area[Player.map].x_start + TempPX] <= _SupChipWall){
+			CopyImage(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, supchip[SupLayer[Area[Player.map].y_start + TempPY][Area[Player.map].x_start + TempPX]]);
 		}
 	}
 
-	if(x + TempPX >= 0 && y + TempPY >= 0 && x + TempPX < Area[Player.map].x_size && y + TempPY  < Area[Player.map].y_size){
-		if(SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX] > _SupChipWall)
+	if(TempPX >= 0 && TempPY >= 0 && TempPX < Area[Player.map].x_size && TempPY  < Area[Player.map].y_size){
+		if(SupLayer[Area[Player.map].y_start + TempPY][Area[Player.map].x_start + TempPX] > _SupChipWall)
 		{
-			if(x >= 6 && y >= 6 && x <= 8 && y <= 8)CopyImageEx(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, supchip[SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX]],1,0,0,0);
-			else CopyImageEx(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, supchip[SupLayer[y + Area[Player.map].y_start + TempPY][x + Area[Player.map].x_start + TempPX]],0,0,0,0);
+			if(x >= 6 && y >= 6 && x <= 8 && y <= 8)CopyImageEx(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, supchip[SupLayer[Area[Player.map].y_start + TempPY][Area[Player.map].x_start + TempPX]],1,0,0,0);
+			else CopyImageEx(x * 16 + ScrollMapX, y * 16 + ScrollMapY + _TopSize, supchip[SupLayer[Area[Player.map].y_start + TempPY][Area[Player.map].x_start + TempPX]],0,0,0,0);
 		}
 	}
 
-}
+}*/

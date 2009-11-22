@@ -263,8 +263,8 @@ void PrintMessage(int NameNumber,int MessageNumber)
 //1번 이벤트 라인{1,*,*,*,*} - 변수 및 단어로 문장 조합
 void MakeMessage(int FrontMessage, int NextMessage, int ValueType, int Value)
 {
-	string TempString;
-	StrInit(EditMessage, 0);
+	string TempString = "";
+
 	StrCpy(EditMessage, Message[FrontMessage]);
 
 	switch(ValueType)
