@@ -3,6 +3,10 @@
 * make with GNEX mobile C (SinjiSoft)
 
 
+## Sub project
+* Map Editor make with Visual Basic
+
+
 ### 모바일 RPG게임 구현 진행 과정
 *  0일차: 2008년 1월25일 : GNEX 관련 서적으로부터 기능 및 함수 조사, 예제로 나와있는 슈팅게임 Starwars2 분석
 *  1일차: 2008년 1월26일 : 인터넷에서 GNEX 조사, 개발환경 설치
