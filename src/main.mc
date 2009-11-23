@@ -60,6 +60,7 @@
 50일차: 7월02일 : 인터페이스, 장비, 스킬, 아이템에 대한 설명 표시 적용, 이동속도 빠르게 변경 이벤트 추가, 케릭터 이미지 줄임
 51일차:11월21일 : 인터페이스 상단은 체력과 마나,경험치 게이지만 표시, 메뉴이미지 중복 이미지 합체, 하단은 메시지목록 추가, 옵션 상태 표시(디자인만), 엔피시와 접촉시 이름표시, 전투 시스템 기존 방법 제거 및 새 방법 디자인중, 상점목록 스크롤방식 수정
 52일차:11월22일 : 메뉴에 게임 옵션 부분 추가, 이벤트 및 맵 출력 일부 효율성 작업, 타이틀에 로고애니매이션 추가, 타이머 값 40에서 50으로 수정
+53일차:11월23일 : 메뉴의 아이템 부분, 돈까지 표시하도록 추가
 
 */
 
@@ -241,8 +242,8 @@ void EVENT_TIMEOUT(){
 	//}
 
 	//소켓을 통해 수신된 메시지 표시 :: 테스트 코드
-	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);	
-	DrawStr(50,50,RcvdMsg);	//*/	
+	//SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);	
+	//DrawStr(50,50,RcvdMsg);	//*/	
 
 	Flush();
 }
@@ -296,7 +297,7 @@ void EVENT_KEYPRESS(){
 				case SWAP_KEY_9:		break;
 				case SWAP_KEY_0:		QuickSlot_VIEW = (QuickSlot_VIEW + 1) % 3;break;//퀵슬롯 선택(ABC)
 				case SWAP_KEY_SHARP:	INTER_MSG_LIST_VIEW = (INTER_MSG_LIST_VIEW + 9) % 10;break;//메시지리스트 스크롤
-				case SWAP_KEY_SHARP_L:	INTER_MSG_LIST_VIEW = 9;
+				case SWAP_KEY_SHARP_L:	INTER_MSG_LIST_VIEW = 9;break;
 				default:
 					break;
 			}

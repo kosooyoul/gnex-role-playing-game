@@ -263,30 +263,30 @@ void PrintMessage(int NameNumber,int MessageNumber)
 //1번 이벤트 라인{1,*,*,*,*} - 변수 및 단어로 문장 조합
 void MakeMessage(int FrontMessage, int NextMessage, int ValueType, int Value)
 {
-	string TempString = "";
+	string TempString;
 
-	StrCpy(EditMessage, Message[FrontMessage]);
+	MakeStrStr(EditMessage, "%s", Message[FrontMessage]);
 
 	switch(ValueType)
 	{
 		case 0:
-			MakeStr1(TempString, " %d ", Variable[Value]);
+			MakeStr1(TempString, "%d", Variable[Value]);
 			StrCat(EditMessage, TempString);
 			break;
 		case 1:
-			MakeStrStr(TempString, " %s ", ItemList[Value].Name);
+			MakeStrStr(TempString, "%s", ItemList[Value].Name);
 			StrCat(EditMessage, TempString);
 			break;
 		case 2:
-			MakeStrStr(TempString, " %s ", EquipList[Value].Name);
+			MakeStrStr(TempString, "%s", EquipList[Value].Name);
 			StrCat(EditMessage, TempString);
 			break;
 		case 3:
-			MakeStrStr(TempString, " %s ", SkillList[Value].Name);
+			MakeStrStr(TempString, "%s", SkillList[Value].Name);
 			StrCat(EditMessage, TempString);
 			break;
 		case 4:
-			MakeStrStr(TempString, " %s ", NameList[Value]);
+			MakeStrStr(TempString, "%s", NameList[Value]);
 			StrCat(EditMessage, TempString);
 			break;
 	}

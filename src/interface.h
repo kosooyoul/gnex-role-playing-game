@@ -143,7 +143,7 @@ void DrawQuickSlot(){
 	int i;
 	string Temp;
 	//선택된 퀵슬롯 심볼 출력
-	CopyImage(225, 4, symbol_qs[QuickSlot_VIEW]);
+	CopyImage(225, 3, symbol_qs[QuickSlot_VIEW]);
 
 	//퀵슬롯 표시
 	for(i = QuickSlot_VIEW * 6; i < QuickSlot_VIEW * 6 + QuickSlotWidth; i++){
@@ -177,10 +177,12 @@ void DrawMenu(int win_x, int win_y){
 
 	//CopyImage(52, 63, interface_window);
 				
-	if(selected_menu < 5){
+	if(selected_menu < 3){
 		CopyImage(52, 63, interface_menu[selected_menu]);							//내용
+	}else if(selected_menu < 5){
+		CopyImage(52, 63, interface_menu[selected_menu-1]);							//내용
 	}
-			
+
 	for(i = 0; i < 6; i++){
 		CopyImage(12, 58 + i * 28, interface_button[i]);							//상위1메뉴 출력
 		if(i == selected_menu){
@@ -234,6 +236,7 @@ void DrawItem(int win_x, int win_y){
 	string TempString = "";
 
 	int i;
+
 	//PRINT SELECTED ITEM
 	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
 	DrawStr(61, 70, ItemList[Inventory[selected_submenu].ListNumber].Name);
@@ -244,10 +247,16 @@ void DrawItem(int win_x, int win_y){
 	DrawStr(61, 104, TempString);
 
 	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_RIGHT);
+
+	//MONEY
+	CopyImage(200, 198, interface_al);
+	MakeStr1(TempString, "%d AL", Player.Gold);
+	DrawStr(192, 198, TempString);
+
 	MakeStr1(TempString, "%d AL", ItemList[Inventory[selected_submenu].ListNumber].Cost / 2);
 	DrawStr(209, 87, TempString);
 	//ITEM ICON LIST
-	for(i = selected_line * 6; i < 24 + selected_line * 6; i++){
+	for(i = selected_line * 6; i < 18 + selected_line * 6; i++){
 		CopyImage(66 + (i%6) * 23, 127 + (i/6-selected_line) * 23, icon[ItemList[Inventory[i].ListNumber].Icon]);
 		//아이템이 있으면 수량 표시
 		if(Inventory[i].ListNumber){
@@ -261,7 +270,7 @@ void DrawItem(int win_x, int win_y){
 	}
 	if(focus_selector)CopyImage(60 + (selected_submenu%6) * 23, 121 + (selected_submenu/6-selected_line) * 23 , interface_selitem);
 
-	CopyImage(200, 127 + selected_submenu * 63 / (InventorySize - 1), interface_scroll);	//스크롤바위치
+	CopyImage(200, 127 + selected_submenu * 40 / (InventorySize - 1), interface_scroll);	//스크롤바위치
 
 	switch(focus_selector){
 		//아이템선택시
@@ -370,6 +379,7 @@ void DrawItem(int win_x, int win_y){
 void DrawSkill(int win_x, int win_y){
 	string TempString = "";
 	int i;
+
 	//PRINT SELECTED SKILL
 	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_LEFT);
 	DrawStr(61, 70, SkillList[SkillSlot[selected_submenu].ListNumber].Name);
@@ -380,10 +390,11 @@ void DrawSkill(int win_x, int win_y){
 	DrawStr(61, 104, TempString);
 
 	//남은 스킬포인트
-	MakeStr1(TempString, "+ %2d", Player.SKILL);
-	DrawStr(183, 195, TempString);
-
 	SetFontType(S_FONT_LARGE, S_WHITE, S_BLACK, S_ALIGN_RIGHT);
+	CopyImage(200, 198, interface_point);
+	MakeStr1(TempString, "%d", Player.SKILL);
+	DrawStr(192, 198, TempString);
+	
 	MakeStr1(TempString, "%d SP", SkillList[SkillSlot[selected_submenu].ListNumber].SP);
 	DrawStr(209, 87, TempString);
 	//SKILL ICON LIST
@@ -677,7 +688,7 @@ void ShowMenu(int Key){
 							selected_submenu = (InventorySize + selected_submenu - 6) % InventorySize;
 							//리스트 스크롤
 							if(selected_line * 6 > selected_submenu)selected_line--;
-							else if(InventorySize - 6 <= selected_submenu) selected_line = InventorySize / 6 - 4;
+							else if(InventorySize - 6 <= selected_submenu) selected_line = InventorySize / 6 - 3;
 							break;
 						case 3:
 							selected_submenu = (SkillSlotSize + selected_submenu - 6) % SkillSlotSize;
@@ -716,7 +727,7 @@ void ShowMenu(int Key){
 								//사용하기,버리기(강화하기)
 								case 0:
 								case 1:
-									selected_subsubsubmenu = (selected_subsubsubmenu + 1) % 2;
+									selected_subsubsubmenu = (selected_subsubsubmenu - 6) % 18;
 									break;
 								//퀵슬롯설정
 								case 2:
@@ -754,7 +765,7 @@ void ShowMenu(int Key){
 						case 2: 
 							selected_submenu = (selected_submenu + 6) % InventorySize;
 							//리스트 스크롤
-							if(selected_line * 6 + 23 < selected_submenu)selected_line++;
+							if(selected_line * 6 + 17 < selected_submenu)selected_line++;
 							else if(6 > selected_submenu) selected_line = 0;
 							break;
 
@@ -795,7 +806,7 @@ void ShowMenu(int Key){
 								//사용하기,버리기(강화하기)
 								case 0:
 								case 1:
-									selected_subsubsubmenu = (selected_subsubsubmenu + 1) % 2;
+									selected_subsubsubmenu = (selected_subsubsubmenu + 6) % 18;
 									break;
 								//퀵슬롯설정
 								case 2:
@@ -831,7 +842,7 @@ void ShowMenu(int Key){
 							selected_submenu = (InventorySize + selected_submenu - 1) % InventorySize;
 							//리스트 스크롤
 							if(selected_line * 6 > selected_submenu)selected_line--;
-							else if(InventorySize - 6 <= selected_submenu) selected_line = InventorySize / 6 - 4;
+							else if(InventorySize - 6 <= selected_submenu) selected_line = InventorySize / 6 - 3;
 							break;
 						case 3:
 							selected_submenu = (SkillSlotSize + selected_submenu - 1) % SkillSlotSize;

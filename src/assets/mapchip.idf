@@ -7,7 +7,7 @@
 /*		, Hotspot X, Hotspot Y, BlockInfo, BlockIdx, Transparent, Transparent Color       */
 /*                                                                           */
 /* First written : Sunday, January 27, 2008 12:46:16			     */
-/* Last modified : Sunday, November 22, 2009 15:21:19			     */
+/* Last modified : Tuesday, March 14, 2006 13:53:52			     */
 /*                                                                           */
 /* Copyright(c) 2000~2007 Sinjisoft Corporation.  All rights reserved.       */
 /*****************************************************************************/
@@ -729,13 +729,14 @@ interface_entered[004],11,39,108,39,27,0,0,0,815,1,2366701
 interface_entered[005],11,39,135,39,27,0,0,0,880,1,2366701
 interface_menu[000],11,78,0,166,156,0,0,0,817,1,2366701
 interface_menu[001],11,244,0,166,156,0,0,0,818,1,2366701
-interface_menu[002],11,576,0,166,156,0,0,0,820,1,2366701
-interface_menu[003],11,410,0,166,156,0,0,0,819,1,2366701
-interface_menu[004],11,742,0,166,156,0,0,0,881,1,2366701
+interface_menu[002],11,410,0,166,156,0,0,0,819,1,2366701
+interface_menu[003],11,742,0,166,156,0,0,0,881,1,2366701
 interface_selitem,10,0,162,22,22,0,0,0,821,1,2366701
 interface_selmenu,9,23,162,35,23,0,0,0,822,1,2366701
 interface_scroll,11,69,162,9,16,0,0,0,823,1,2366701
 interface_scroll2,11,62,178,16,9,0,0,0,854,1,2366701
+interface_point,11,83,173,11,12,0,0,0,882,1,2366701
+interface_al,11,96,173,11,12,0,0,0,883,1,2366701
 
 Image=interface_info.bmp
 interface_infomenu,11,0,25,93,108,0,0,0,824,1,9334100

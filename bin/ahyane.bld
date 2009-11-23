@@ -12,14 +12,14 @@ HEADER_COMPTYPE is 2
 
 Script profile : 
 
-	Script size       : 454758 Byte(s)
-	Code size         : 60196 Byte(s)
-	Symbol count      : 322
-	Total media count : 1266
-	Total media size  : 335278 Byte(s)
-		String count  : 541
-		String size   : 4238 Byte(s)
-		Image count   : 725
-		Image size    : 331040 Byte(s)
+	Script size       : 442102 Byte(s)
+	Code size         : 60278 Byte(s)
+	Symbol count      : 324
+	Total media count : 1268
+	Total media size  : 322494 Byte(s)
+		String count  : 542
+		String size   : 4234 Byte(s)
+		Image count   : 726
+		Image size    : 318260 Byte(s)
 
 ahyane.sgs - 0 error(s), 0 warning(s)
